@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            margin-bottom: 10px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Personality Test</h1>
+    
+    <div class="question">
+        <p>1. I find it easy to start conversations.</p>
+        <label><input type="radio" name="q1" value="5"> Strongly Agree</label>
+        <label><input type="radio" name="q1" value="4"> Agree</label>
+        <label><input type="radio" name="q1" value="3"> Neutral</label>
+        <label><input type="radio" name="q1" value="2"> Disagree</label>
+        <label><input type="radio" name="q1" value="1"> Strongly Disagree</label>
+    </div>
+
+    <div class="question">
+        <p>2. I am interested in other people's problems.</p>
+        <label><input type="radio" name="q2" value="5"> Strongly Agree</label>
+        <label><input type="radio" name="q2" value="4"> Agree</label>
+        <label><input type="radio" name="q2" value="3"> Neutral</label>
+        <label><input type="radio" name="q2" value="2"> Disagree</label>
+        <label><input type="radio" name="q2" value="1"> Strongly Disagree</label>
+    </div>
+
+    <div class="question">
+        <p>3. I sympathize with others' feelings.</p>
+        <label><input type="radio" name="q3" value="5"> Strongly Agree</label>
+        <label><input type="radio" name="q3" value="4"> Agree</label>
+        <label><input type="radio" name="q3" value="3"> Neutral</label>
+        <label><input type="radio" name="q3" value="2"> Disagree</label>
+        <label><input type="radio" name="q3" value="1"> Strongly Disagree</label>
+    </div>
+
+    <div class="question">
+        <p>4. I am energized by spending time with others.</p>
+        <label><input type="radio" name="q4" value="5"> Strongly Agree</label>
+        <label><input type="radio" name="q4" value="4"> Agree</label>
+        <label><input type="radio" name="q4" value="3"> Neutral</label>
+        <label><input type="radio" name="q4" value="2"> Disagree</label>
+        <label><input type="radio" name="q4" value="1"> Strongly Disagree</label>
+    </div>
+
+    <div class="question">
+        <p>5. I am organized and pay attention to details.</p>
+        <label><input type="radio" name="q5" value="5"> Strongly Agree</label>
+        <label><input type="radio" name="q5" value="4"> Agree</label>
+        <label><input type="radio" name="q5" value="3"> Neutral</label>
+        <label><input type="radio" name="q5" value="2"> Disagree</label>
+        <label><input type="radio" name="q5" value="1"> Strongly Disagree</label>
+    </div>
+
+    <button onclick="calculateResults()">Submit</button>
+
+    <div id="result" class="result" style="display:none;">
+        <h2>Your Personality Traits</h2>
+        <p id="resultText"></p>
+    </div>
+</div>
+
+<script>
+    function calculateResults() {
+        let total = 0;
+        let maxScore = 25; // 5 questions, each with a max score of 5
+        let questions = document.querySelectorAll('.question');
+
+        questions.forEach((question, index) => {
+            let answer = question.querySelector('input[name="q' + (index + 1) + '"]:checked');
+            if (answer) {
+                total += parseInt(answer.value);
+            }
+        });
+
+        let resultText = "";
+        let percentage = (total / maxScore) * 100;
+
+        if (percentage >= 80) {
+            resultText = "You have a highly extroverted, agreeable, and conscientious personality!";
+        } else if (percentage >= 60) {
+            resultText = "You have a balanced personality with traits of extroversion, agreeableness, and conscientiousness.";
+        } else {
+            resultText = "You tend to be more introverted, less agreeable, and less conscientious.";
+        }
+
+        document.getElementById('resultText').textContent = resultText;
+        document.getElementById('result').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

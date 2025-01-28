@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> HERE4U </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Navigation Bar</title>
+<style>
+     
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      z-index: 1000;
+      text-align: center;
+    }
+    .popup-text {
+      font-size: 18px;
+      color: #333;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      font-size: 18px;
+      color: grey;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .close-btn:hover {
+      color: red;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 999;
+    }
+        .navbar {
+            background-color:  #b0dae3 ; /* Change the background color to grey */
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            border: 2px solid black; /* Add a frame effect on hover */
+            color: black; /* Change text color on hover */
+        }
+.header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            font-size: 24px;
+            font-weight: bold;
+        }
+ @keyframes float-in {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /**hero-section**/
+        .hero-section {
+            padding: 0;
+            margin: 0;
+            box-sizing:border-box;
+        }
+        .square-box {
+            text-align: center;
+            align-items: center;
+            padding: 50px;
+            margin-top: 30px;
+            border: 4px solid black; /* Add a border around the box */
+            box-shadow: 0 0 0 10px  #005f73;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+    .tests {
+      padding: 30px;
+       
+
+
+    }
+    .hidden {
+  display: none;
+}
+
+.menu-icon {
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #007bff;
+    width: 200px;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+        
+  .menu-icon {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+    .visible {
+      display: block;
+    }
+  }
+    </style>
+</head>
+<body>
+    <!-- Dim overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <p class="popup-text">Welcome to our site! 🤩<br>Prepare to be amazed—or mildly entertained. Your call!</p>
+  </div>
+
+  <script>
+    // Get the popup and overlay elements
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('close-btn');
+
+    
+    // Add click event listener to close button
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+    });
+    const menuIcon = document.getElementById('menu-icon');
+const navMenu = document.getElementById('nav-menu');
+
+menuIcon.addEventListener('click', () => {
+  // Toggle visibility of the nav menu
+  if (navMenu.classList.contains('hidden')) {
+    navMenu.classList.remove('hidden');
+    navMenu.classList.add('visible');
+  } else {
+    navMenu.classList.remove('visible');
+    navMenu.classList.add('hidden');
+  }
+});
+
+  </script>
+
+
+  <div class ='header'><a href='index.html'><h1> HEAR4U </a></h1></div>
+    <div><h3> We are here to keep your mental health in check. Go through our blogs and video links to get to know yourself and your mental conditions better.
+        although we are here <b><i>"All ears for you"</b></i> in case you need any further counselling or help.  </h3></div>
+        <div class="menu-icon" id="menu-icon">
+          &#9776; 
+        </div>
+        <div class = 'navbar'>
+       <a href='home.html'> HOME </a>
+       <a href='explore mental health.html'> Explore Mental Health </a>
+       <a href='contactus.html'> CONTACT US </a>
+       <a href='aboutus.html'> ABOUT US </a>
+       <a href='booknow.html'> BOOK AN APPOINTMENT </a>
+       <a href='callnow.html'> CALL NOW </a>
+     </div>
+    
+       <div class="hero-section">
+
+       <video autoplay loop muted src="https://www.canva.com/design/DAGNxzbZcCk/3PDOEnlPxdSDj8AuIHK66w/watch"></video>
+</div>
+          <p> Go ahead and explore various ways to elevate your information about mental health.
+              know yourself better through our content and contact with us for any assistance or therapy sessions.
+              <b><a href='#book now'> First two therapy sessions are free </a></b> 
+          </p>
+</body>
+</html>

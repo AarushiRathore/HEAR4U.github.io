@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anxiety Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Anxiety Test</h2>
+        <form id="anxietyForm">
+            <div class="question">
+                <p>1. Do you feel nervous or on edge?</p>
+                <label><input type="radio" name="q1" value="1" required> Never</label>
+                <label><input type="radio" name="q1" value="2"> Sometimes</label>
+                <label><input type="radio" name="q1" value="3"> Often</label>
+                <label><input type="radio" name="q1" value="4"> Always</label>
+            </div>
+
+            <div class="question">
+                <p>2. Do you find it difficult to control your worry?</p>
+                <label><input type="radio" name="q2" value="1" required> Never</label>
+                <label><input type="radio" name="q2" value="2"> Sometimes</label>
+                <label><input type="radio" name="q2" value="3"> Often</label>
+                <label><input type="radio" name="q2" value="4"> Always</label>
+            </div>
+
+            <div class="question">
+                <p>3. Do you have trouble relaxing?</p>
+                <label><input type="radio" name="q3" value="1" required> Never</label>
+                <label><input type="radio" name="q3" value="2"> Sometimes</label>
+                <label><input type="radio" name="q3" value="3"> Often</label>
+                <label><input type="radio" name="q3" value="4"> Always</label>
+            </div>
+
+            <div class="question">
+                <p>4. Do you feel restless and can't sit still?</p>
+                <label><input type="radio" name="q4" value="1" required> Never</label>
+                <label><input type="radio" name="q4" value="2"> Sometimes</label>
+                <label><input type="radio" name="q4" value="3"> Often</label>
+                <label><input type="radio" name="q4" value="4"> Always</label>
+            </div>
+
+            <div class="question">
+                <p>5. Do you feel easily annoyed or irritated?</p>
+                <label><input type="radio" name="q5" value="1" required> Never</label>
+                <label><input type="radio" name="q5" value="2"> Sometimes</label>
+                <label><input type="radio" name="q5" value="3"> Often</label>
+                <label><input type="radio" name="q5" value="4"> Always</label>
+            </div>
+
+            <div class="question">
+                <p>6. Do you feel afraid as if something awful might happen?</p>
+                <label><input type="radio" name="q6" value="1" required> Never</label>
+                <label><input type="radio" name="q6" value="2"> Sometimes</label>
+                <label><input type="radio" name="q6" value="3"> Often</label>
+                <label><input type="radio" name="q6" value="4"> Always</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="result" class="result"></div>
+        <p class="note">Note: This test is not a diagnostic tool. Please consult a healthcare professional for a thorough assessment.</p>
+    </div>
+
+    <script>
+        document.getElementById('anxietyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let score = 0;
+            const formData = new FormData(this);
+
+            for (let value of formData.values()) {
+                score += parseInt(value);
+            }
+
+            let resultText = '';
+            if (score <= 6) {
+                resultText = 'You may have low anxiety levels.';
+            } else if (score <= 12) {
+                resultText = 'You may have moderate anxiety levels.';
+            } else if (score <= 18) {
+                resultText = 'You may have high anxiety levels.';
+            } else {
+                resultText = 'You may have very high anxiety levels.';
+            }
+
+            document.getElementById('result').textContent = `Your total score is: ${score}. ${resultText}`;
+        });
+    </script>
+
+</body>
+</html>

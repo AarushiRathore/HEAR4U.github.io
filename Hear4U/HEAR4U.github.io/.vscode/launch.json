@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/${input:scriptFile}"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "scriptFile",
+      "description": "Select the JavaScript file to debug",
+      "options": [
+        "scripts.js/aboutus.js",
+        "scripts.js/explorementalheath.js",
+        "scripts.js/index.js",
+        "scripts.js/scriptmainpage.js"
+      ]
+    }
+  ]
+}
