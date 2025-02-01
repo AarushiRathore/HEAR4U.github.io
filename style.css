@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    list-style-type: none;
+    background-color:black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 14px;
+    margin: 0;
+    border: 2px solid cornsilk;
+} 
+.navbar img{
+    border-radius: 50%;
+}
+.navbar li{
+    position: relative;
+}
+.navbar li a{
+    color: white;
+    text-decoration: none;
+    display: flex;
+    padding:10px;
+}
+.navbar li a:hover{
+    background-color: #555;
+}
+.search input{
+    width: 250px;
+    height: fit-content;
+}
+.search i{
+    color: white;
+    width: 15px;
+    height: 25px;
+}
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color:black;
+    min-width:150px;
+    z-index: 1000;
+    list-style-type: none;
+}
+.dropdown-menu li a{
+    padding: 10px;
+    color: white;
+    display: block;
+}
+.dropdown-menu li a:hover{
+    background-color: #666;
+}
+.dropdown:hover .dropdown-menu{
+    display: block
+}
+body{
+    background-image:url(brain-7397412_1280.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+}
+body p{
+    text-align: center;
+    font-size: larger;
+    margin-top: 10px;
+    color: #5c4033
+}
+p b{
+    text-decoration: wavy black underline;
+}
