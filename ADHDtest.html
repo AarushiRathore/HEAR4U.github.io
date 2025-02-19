@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Awareness Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7fa;
+            color: #333;
+            text-align: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        .question {
+            font-size: 1.4rem;
+            margin: 1.5rem 0;
+        }
+        .answers {
+            display: flex;
+            flex-direction: column;
+        }
+        .answer-btn {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .answer-btn:hover {
+            background-color: #357ab7;
+        }
+        .result {
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            color: #555;
+        }
+        #next {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ADHD Awareness Quiz 🧠✨</h1>
+    <p>Test your knowledge and learn more about ADHD in a fun way!</p>
+    <div id="quiz">
+        <div id="question" class="question">Question text here</div>
+        <div id="answers" class="answers"></div>
+    </div>
+    <div id="result" class="result"></div>
+    <button id="next" onclick="nextQuestion()">Next Question</button>
+</div>
+
+<script>
+    const quizQuestions = [
+        {
+            question: "What does ADHD stand for? 🤔",
+            answers: [
+                { text: "Attention Deficit Hyperactivity Disorder", correct: true },
+                { text: "Active Distraction Hyper Disorder", correct: false },
+                { text: "Attention Delay Hyperactivity Disorder", correct: false },
+                { text: "Attention and Distress Hyperactive Disorder", correct: false }
+            ]
+        },
+        {
+            question: "Which of these is a common symptom of ADHD? 💨",
+            answers: [
+                { text: "Daydreaming", correct: true },
+                { text: "Excessive sleepiness", correct: false },
+                { text: "Preferring quiet activities", correct: false },
+                { text: "Lack of appetite", correct: false }
+            ]
+        },
+        {
+            question: "Is ADHD more common in children or adults? 👶👨",
+            answers: [
+                { text: "Children", correct: true },
+                { text: "Adults", correct: false }
+            ]
+        },
+        {
+            question: "What is a hyperfocus in ADHD? 🔍",
+            answers: [
+                { text: "A period of intense concentration", correct: true },
+                { text: "A type of sleep disorder", correct: false },
+                { text: "A state of constant movement", correct: false },
+                { text: "Feeling bored easily", correct: false }
+            ]
+        },
+        {
+            question: "People with ADHD may struggle with: 🕰️",
+            answers: [
+                { text: "Time management", correct: true },
+                { text: "Enjoying loud sounds", correct: false },
+                { text: "Sleeping less than usual", correct: false },
+                { text: "Remembering names", correct: false }
+            ]
+        },
+        {
+            question: "Can ADHD be managed with lifestyle changes? 🧘",
+            answers: [
+                { text: "Yes, it can help", correct: true },
+                { text: "No, lifestyle changes don’t help", correct: false }
+            ]
+        },
+        {
+            question: "ADHD is only about being hyperactive. True or False? ❌",
+            answers: [
+                { text: "True", correct: false },
+                { text: "False", correct: true }
+            ]
+        },
+        {
+            question: "How does ADHD affect emotions? 😊😡",
+            answers: [
+                { text: "Causes mood swings", correct: true },
+                { text: "Reduces emotional response", correct: false },
+                { text: "Makes people serious", correct: false },
+                { text: "No effect", correct: false }
+            ]
+        },
+        {
+            question: "Does ADHD affect organization skills? 📂",
+            answers: [
+                { text: "Yes, it can", correct: true },
+                { text: "No, it does not", correct: false }
+            ]
+        },
+        {
+            question: "Can ADHD symptoms vary from person to person? 🌈",
+            answers: [
+                { text: "Yes, everyone is unique", correct: true },
+                { text: "No, symptoms are the same for everyone", correct: false }
+            ]
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function showQuestion() {
+        const questionElement = document.getElementById("question");
+        const answersElement = document.getElementById("answers");
+        const nextButton = document.getElementById("next");
+
+        nextButton.style.display = "none";
+        answersElement.innerHTML = "";
+
+        const currentQuestion = quizQuestions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.textContent = answer.text;
+            button.classList.add("answer-btn");
+            button.onclick = () => selectAnswer(answer);
+            answersElement.appendChild(button);
+        });
+    }
+
+    function selectAnswer(answer) {
+        const nextButton = document.getElementById("next");
+        if (answer.correct) {
+            score++;
+            document.getElementById("result").textContent = "Correct! 🎉";
+        } else {
+            document.getElementById("result").textContent = "Oops, that's not right. 😅";
+        }
+        document.getElementById("result").style.display = "block";
+        nextButton.style.display = "block";
+    }
+
+    function nextQuestion() {
+        document.getElementById("result").style.display = "none";
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizQuestions.length) {
+            showQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("result").textContent = `You scored ${score} out of ${quizQuestions.length}. Thanks for taking the quiz!`;
+        document.getElementById("result").style.display = "block";
+    }
+
+    // Initialize the quiz
+    showQuestion();
+</script>
+
+</body>
+</html>
