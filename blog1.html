@@ -1,150 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> HEAR4U </title>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Hear4U - Your resource for mental health support and awareness.">
-<meta name="keywords" content="mental health, anxiety, depression, support, tests">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEAR4U</title>
     <link rel="stylesheet" href="stylehome.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Basic Navigation Bar</title>
-<style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .navbar {
-            background-color:   #D3D3D3 ; /* Change the background color to grey */
-            overflow: hidden;
-        }
-        .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        .navbar a:hover {
-            border: 2px solid black; /* Add a frame effect on hover */
-            color: black; /* Change text color on hover */
-        }
-.header {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4f4f4;
-            font-size: 24px;
-            font-weight: bold;
-        }
- @keyframes float-in {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        /**hero-section**/
-        .hero-section {
-            padding: 0;
-            margin: 0;
-            box-sizing:border-box;
-        }
-        .square-box {
-            text-align: center;
-            align-items: center;
-            padding: 50px;
-            margin-top: 30px;
-            border: 4px solid black; /* Add a border around the box */
-            box-shadow: 0 0 0 10px  #005f73;
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
-        }
-
-    .tests {
-      padding: 30px;
-       
-
-
-    }
-        
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-    <body>
-    <header>
-        <nav>
-            <ul class="navbar">
-                <img src="heare4logo.jpeg" alt="" height="50px" width="55px">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="aboutus.html">About</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-                <li class="dropdown"><a href="">Explore Tests</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="Blogs4U.html">Blogs 4 U</a></li>
-                        <li><a href="personalitytest.html">Personality Test</a></li>
-                        <li><a href="mooddisordertest.html.html">Mood Disorder test</a></li>
-                        <li><a href="schizophrenia.html">Schizophrenia fun quiz</a></li>
-                        <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
-                        <li><a href="psychometric.html">Psychometric Test</a></li>
-                        <li><a href="ptsd.html.html">PTSD Test</a></li>
-                        <li><a href="anxiety test.html">Anxiety Test</a></li>
-                        <li><a href="depression test.html">Depression Test</a></li>
-                        <li><a href="mooddisordertest.html.html">Mood Disorder test</a></li>
-                        <li><a href="schizophrenia.html">Schizophrenia fun quiz</a></li>
-                        <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
-                        <li><a href="ADHDtest.html.html">ADHD Test</a></li>
-                    </ul>
-                </li>
-                <div class="search">
-                <input type="text" placeholder="search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-            </ul>
-        </nav>
-    </header>
+
 <body>
-    <div class="header">
-        <h1> Hear4U </h1>
-        <div class= 'subheading'><b> Welcome to Hear4U </b></div>
-        <div class=" square-box">
-            <h2> Hear4U: Mind Over Matter! </h2>
-            <p> Welcome to Hear4U, a platform that aims to provide you with the tools and resources to take control of your mental health. Our mission is to empower individuals to overcome their mental health challenges and live a fulfilling life. Whether you are struggling with anxiety, depression, or any other mental health issue, we are here to support you every step of the way. Take the first step towards a healthier and happier life by exploring our range of mental health tests and resources. Remember, you are not alone on this journey. We are here to help you every step of the way. 
-                Raising awareness about mental health is essential in today's rapidly moving society. Mental health encompasses an individual's emotional, psychological, and social well-being, impacting their thoughts, feelings, and actions. It influences how we cope with stress, interact with others, and make decisions. Much like physical health, mental health matters at every life stage.
 
-Regrettably, mental health challenges such as anxiety, depression, and stress are frequently viewed negatively, which makes it hard for people to ask for assistance. Increasing awareness is vital for shifting these views. When people gain knowledge about mental health, they are more equipped to identify signs of distress in themselves and others. This knowledge can lead to proactive interventions, enhanced support systems, and ultimately, a healthier community.
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="heare4logo.jpeg" alt="Hear4U Logo" height="50px" width="55px">
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li class="dropdown">
+                <a href="#">Explore Tests ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Blogs4U.html">Blogs 4 U</a></li>
+                    <li><a href="personalitytest.html">Personality Test</a></li>
+                    <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+                    <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+                    <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+                    <li><a href="psychometric.html">Psychometric Test</a></li>
+                    <li><a href="ptsd.html">PTSD Test</a></li>
+                    <li><a href="anxiety-test.html">Anxiety Test</a></li>
+                    <li><a href="depression-test.html">Depression Test</a></li>
+                    <li><a href="ADHDtest.html">ADHD Test</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </nav>
 
-Mental health challenges can impact anyone, regardless of age, gender, or background. It is crucial to foster open conversations about mental health, diminish stigma, and offer resources to those in need. This can be achieved by promoting discussions, providing counseling services, and creating a supportive atmosphere where individuals feel comfortable seeking help.
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="header-content">
+            <h1>Hear4U: Mind Over Matter!</h1>
+            <p>Your mental health matters. Explore our tests and resources to take charge of your well-being.</p>
+        </div>
+    </header>
 
-It is important to recognize that mental health is equally significant as physical health. Prioritizing your mental well-being is essential. Engaging in self-care practices, maintaining connections with loved ones, and reaching out for professional help when necessary are key steps in preserving mental health. Together, we can strive for a world where mental health is recognized, supported, and given priority.
-</p>
-        <div class="blog-preview">
-            <h3> </h3>
-            <p> </p>
-            <a href="blog2.html" class="read-more">Read More →</a>
+    <!-- Content Section -->
+    <section class="content">
+        <div class="square-box">
+            <h2>Welcome to Hear4U</h2>
+            <p>
+                Raising awareness about mental health is essential in today's fast-moving society. 
+                Mental health influences how we cope with stress, interact with others, and make decisions. 
+                Unfortunately, challenges such as anxiety, depression, and stress are often stigmatized, 
+                making it hard for people to seek help.
+            </p>
+            <p>
+                Prioritizing your mental well-being is crucial. Engage in self-care, stay connected with loved ones, 
+                and seek professional help when needed. Together, we can create a world where mental health 
+                is recognized, supported, and prioritized.
+            </p>
         </div>
 
-        <style>
-        .blog-preview {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 10px;
-            color: #005f73;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .read-more:hover {
-            text-decoration: underline;
-        }
-        </style>
+        <!-- Blog Preview -->
+        <div class="blog-preview">
+            <h3>Read More About Mental Health</h3>
+            <p>Discover insightful articles and expert advice on mental well-being.</p>
+            <a href="blog2.html" class="read-more">Read More →</a>
+        </div>
+    </section>
 
 </body>
 </html>
