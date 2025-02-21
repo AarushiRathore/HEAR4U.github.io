@@ -77,20 +77,6 @@ body {
     background: #e0f2f1;
 }
 
-/* Search Bar */
-.search {
-    display: flex;
-    align-items: center;
-    background: white;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.search input {
-    border: none;
-    outline: none;
-    padding: 5px;
-}
 
 /* Hero Section */
 .hero-section {
