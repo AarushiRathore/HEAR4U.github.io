@@ -48,18 +48,5 @@
       <button onclick="window.location.href = 'home.html'>Get Started</button>
     </div>
   </div>
-  
-  <script>
-    document.getElementById("dropdown-toggle").addEventListener("click", function(event) {
-      event.preventDefault();
-      this.parentElement.classList.toggle("active");
-    });
-    document.addEventListener("click", function(event) {
-      if (!event.target.closest(".dropdown")) {
-        var dropdown = document.querySelector(".dropdown");
-        if (dropdown) { dropdown.classList.remove("active"); }
-      }
-    });
-  </script>
 </body>
 </html>
