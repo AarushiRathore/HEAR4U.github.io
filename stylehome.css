@@ -16,8 +16,8 @@ body {
 }
 
 .logo img {
-    height: 50px;
-    width: auto;
+    border-radius:50%;
+    height:50px;
 }
 
 .nav-links {
