@@ -74,6 +74,10 @@ body {
 .dropdown-menu a:hover {
     background: #e0f2f1;
 }
+button{
+    padding: 20px;
+    background-color: #EE9B00;
+}
 
 
 /* Hero Section */
