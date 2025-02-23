@@ -17,7 +17,8 @@ body {
 
 .logo img {
     border-radius:50%;
-    height:50px;
+    height:60px;
+    width: 60px
 }
 
 .nav-links {
