@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background:linear-gradient(90deg,#005f73,#94d2bd);
-    transition: gradientBG .5s ease in infinite;
+    transition: background infinite ease-in;
 }
 /* Navigation Bar */
 .navbar {
