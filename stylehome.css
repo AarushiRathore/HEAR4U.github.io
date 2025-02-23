@@ -5,7 +5,7 @@ body {
     padding: 0;
     background:linear-gradient(-45deg,#005f73,#0a9396,#94d2bd,#e9d8a6);
     background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    transition: gradientBG 15s ease infinite;
 }
 @keyframes gradientBG{
     0%{
