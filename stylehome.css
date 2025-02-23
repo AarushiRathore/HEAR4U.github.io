@@ -17,8 +17,8 @@ body {
 
 .logo img {
     border-radius:50%;
-    height:60px;
-    width: 60px
+    height:190px;
+    width: 100px
 }
 
 .nav-links {
@@ -80,6 +80,9 @@ body {
 button{
     padding: 20px;
     background-color: #94d2bd;
+}
+button:hover{
+    background-color:#005f73;
 }
 
 
