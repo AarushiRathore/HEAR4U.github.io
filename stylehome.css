@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:linear-gradient(90deg,#005f73,#94d2bd);
+    background:linear-gradient(90deg,#005f73,#94d2bd);
 /* Navigation Bar */
 .navbar {
     display: flex;
