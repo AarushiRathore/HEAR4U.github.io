@@ -110,6 +110,7 @@ body {
 
     /* Button Styling */
     .getStartedbtn {
+      border: 2px,solid,black;
       background-color: transparent; /* Blue background */
       color: white; /* White text */
       padding: 10px 20px;
@@ -121,7 +122,7 @@ body {
     }
 
     .getStartedbtn:hover {
-      background-color: transparent; /* Darker blue on hover */
+      background-color: #0077be; /* Darker blue on hover */
     }
 /* Floating Animation */
 @keyframes float-in {
