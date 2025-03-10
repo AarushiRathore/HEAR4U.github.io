@@ -97,11 +97,9 @@ button:hover{
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(to right, #005f73, #0a9396);
     color: white;
     text-align: center;
-    padding: 50px;
-    animation: float-in 1s ease-in-out;
+    padding: 50px;    
 }
 
 /* Floating Animation */
