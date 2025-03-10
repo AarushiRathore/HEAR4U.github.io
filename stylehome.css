@@ -98,17 +98,6 @@ body {
     min-height: 100%; 
     object-fit: cover;
 }
-
-/* Hero Section */
-.hero{
-    color: white;
-    text-align: center;
-    padding:  150px 50px 50px;  
-    z-index:10;
-    position:relative;
-    
-}
-
 /* Floating Animation */
 @keyframes float-in {
     from {
