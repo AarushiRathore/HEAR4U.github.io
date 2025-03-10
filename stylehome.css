@@ -110,8 +110,7 @@ body {
 
     /* Button Styling */
     .getStartedbtn {
-      border: 2px,solid,black;
-      background-color: transparent; /* Blue background */
+      background-color: #0077BE; /* Blue background */
       color: white; /* White text */
       padding: 10px 20px;
       border: none;
