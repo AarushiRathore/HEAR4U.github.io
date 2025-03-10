@@ -96,26 +96,33 @@ body {
     min-height: 100%; 
     object-fit: cover;
 }
-  footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4f4f4;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-  .get-started-btn {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-  .get-started-btn:hover {
-            background-color: #0056b3;
-        }
+/*footer styling*/
+   footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      background-color: transparent; /* Transparent background */
+      z-index: 10; /* Footer stays above the video */
+    }
+
+    /* Button Styling */
+    .getStartedbtn {
+      background-color: #007BFF; /* Blue background */
+      color: white; /* White text */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+
+    .getStartedbtn:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
 /* Floating Animation */
 @keyframes float-in {
     from {
