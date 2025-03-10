@@ -86,8 +86,9 @@ button:hover{
 /*video background*/
 .videoContainer{
      position: fixed;
-      width: 100%;
-      height: 100vh;
+      min-width: 100%;
+      min-height: 100vh;
+    
 }
 #bg-video{
     position: absolute; 
@@ -100,7 +101,6 @@ button:hover{
     z-index: -1; /* Send video behind content */ 
     transform: translate(-50%, -50%); /* Centering */ 
 }
-
 
 /* Hero Section */
 .hero-section {
