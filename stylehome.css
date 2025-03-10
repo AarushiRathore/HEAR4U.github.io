@@ -121,7 +121,8 @@ body {
     }
 
     .getStartedbtn:hover {
-      background-color:#A6D9F7; /* lighter blue on hover */
+      background-color:#A6D9F7;/* lighter blue on hover */
+        color:black;
     }
 /* Floating Animation */
 @keyframes float-in {
