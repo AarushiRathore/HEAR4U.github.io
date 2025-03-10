@@ -12,6 +12,8 @@ body {
     justify-content: space-between;
     background-color: #005f73;
     padding: 10px 20px;
+    position:fixed;
+    z-index:1000;
 }
 
 .logo img {
@@ -86,24 +88,31 @@ button:hover{
 /*video background*/
 .videoContainer{
      position: fixed;
-      min-width: 100%;
-      min-height: 100vh;
+     min-width: 100%;
+     min-height: 100vh;
+     top:0;
+     left:0;
+     z-index:-1;
+    
     
 }
 #bg-video{
     position: absolute; 
-    right:0;
-    bottom:0;
+    top:0;
+    left:0;
     min-width: 100%; 
     min-height: 100%; 
-    z-index: -1; /* Send video behind content */ 
+    object-fit: cover;
 }
 
 /* Hero Section */
-.hero-section {
+.hero{
     color: white;
     text-align: center;
-    padding: 50px;    
+    padding:  150px 50px 50px;  
+    z-index:10;
+    position:relative;
+    
 }
 
 /* Floating Animation */
@@ -120,8 +129,14 @@ button:hover{
 
 /* Content Section */
 .content {
+     position: relative; /* Ensure content is above the video */
+    z-index: 10; /* Higher than video */
     text-align: center;
     padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    color: #005f73; /* Ensure text is visible */
+    margin: 20px;
+    border-radius: 10px;
 }
 
 .square-box {
