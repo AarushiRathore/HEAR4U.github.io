@@ -10,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #005f73;
+    background-color: transparent;
     padding: 10px 20px;
     position:fixed;
     z-index:1000;
@@ -19,7 +19,8 @@ body {
 .logo img {
     border-radius:50%;
     height:100px;
-    width: 140px
+    width: 140px;
+    background-color:transparent;
 }
 
 .nav-links {
@@ -77,13 +78,6 @@ body {
 
 .dropdown-menu a:hover {
     background: #e0f2f1;
-}
-button{
-    padding: 20px;
-    background-color: #94d2bd;
-}
-button:hover{
-    background-color:#005f73;
 }
 /*video background*/
 .videoContainer{
