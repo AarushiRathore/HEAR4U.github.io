@@ -110,7 +110,7 @@ body {
 
     /* Button Styling */
     .getStartedbtn {
-      background-color: #0077BE; /* Blue background */
+      background-color:#A6D9F7; /* Blue background */
       color: white; /* White text */
       padding: 10px 20px;
       border: none;
@@ -121,9 +121,13 @@ body {
     }
 
     .getStartedbtn:hover {
-      background-color:#A6D9F7;/* lighter blue on hover */
+      background-color:#8cbed6;/* lighter blue on hover */
         color:black;
     }
+button a{
+    text-decoration:none;
+    color:white;
+}
 /* Floating Animation */
 @keyframes float-in {
     from {
