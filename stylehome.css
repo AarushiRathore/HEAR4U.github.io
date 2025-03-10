@@ -125,7 +125,7 @@ body {
     }
 button a{
     text-decoration:none;
-    color:white;
+    color:black;
 }
 /* Floating Animation */
 @keyframes float-in {
