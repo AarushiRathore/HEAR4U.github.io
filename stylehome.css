@@ -6,7 +6,13 @@ body {
    
 }
 /* Navigation Bar */
-.navbar {
+.logo img {
+    border-radius:50%;
+    height:100px;
+    width: 140px;
+    background-color:transparent;
+}
+.navbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,14 +21,6 @@ body {
     position:fixed;
     z-index:1000;
 }
-
-.logo img {
-    border-radius:50%;
-    height:100px;
-    width: 140px;
-    background-color:transparent;
-}
-
 .nav-links {
     list-style: none;
     padding: 0;
