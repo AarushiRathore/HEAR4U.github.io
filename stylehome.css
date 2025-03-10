@@ -92,14 +92,11 @@ button:hover{
 }
 #bg-video{
     position: absolute; 
-    top: 50%; 
-    left: 50%; 
+    right:0;
+    bottom:0;
     min-width: 100%; 
     min-height: 100%; 
-    width: auto; 
-    height: auto; 
     z-index: -1; /* Send video behind content */ 
-    transform: translate(-50%, -50%); /* Centering */ 
 }
 
 /* Hero Section */
