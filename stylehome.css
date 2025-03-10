@@ -96,6 +96,26 @@ body {
     min-height: 100%; 
     object-fit: cover;
 }
+  footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+  .get-started-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+  .get-started-btn:hover {
+            background-color: #0056b3;
+        }
 /* Floating Animation */
 @keyframes float-in {
     from {
