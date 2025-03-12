@@ -98,3 +98,6 @@ html, body {
     margin-right: 50px; /* Adjust spacing from the right */
     object-fit:cover;
 }
+h1{
+    color: #94d2bd;
+}
