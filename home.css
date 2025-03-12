@@ -87,3 +87,7 @@ html, body {
 .dropdown-menu a:hover {
     background: #e0f2f1;
 }
+.image {
+    float: right;
+    margin-right: 20px; /* Adds some spacing from the right edge */
+}
