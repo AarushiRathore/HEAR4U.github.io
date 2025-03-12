@@ -91,13 +91,43 @@ html, body {
 .dropdown-menu a:hover {
     background: #e0f2f1;
 }
-.image img {
-    justify-content:flex-end;
-    height:500px;
-    width:500px;
-    margin-right: 50px; /* Adjust spacing from the right */
-    object-fit:cover;
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    margin-top: 80px; /* Space for the fixed navbar */
+    padding: 20px;
 }
-h1{
+
+.content {
+    flex: 1;
+    max-width: 50%; /* Adjust as needed */
+    padding-right: 20px; /* Space between content and image */
+}
+
+.image {
+    flex: 1;
+    max-width: 50%; /* Adjust as needed */
+    text-align: right; /* Align image to the right */
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+h1 {
     color: #94d2bd;
+    font-size: 2.5rem; /* Adjust as needed */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem; /* Adjust as needed */
+    line-height: 1.6;
+    color: #0a1f2b;
 }
