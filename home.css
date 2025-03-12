@@ -7,7 +7,6 @@ body{
     background-color:#f0fdfa;
     color:#0a1f2b;
     display: flex;
-    justify-content: flex-end; /* Align content to the right */
     align-items: center;
     height: 100vh; /* Full viewport height */
     margin: 0;
@@ -93,6 +92,7 @@ html, body {
     background: #e0f2f1;
 }
 .image img {
+    justify-content:flex-end;
     height:500px;
     width:500px;
     margin-right: 50px; /* Adjust spacing from the right */
