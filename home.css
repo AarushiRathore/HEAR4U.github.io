@@ -93,5 +93,7 @@ html, body {
     background: #e0f2f1;
 }
 .image {
+    height:500px;
+    width:500px;
     margin-right: 50px; /* Adjust spacing from the right */
 }
