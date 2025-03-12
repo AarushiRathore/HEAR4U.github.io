@@ -3,6 +3,10 @@
     padding:0;
     box-sizing:border-box;
 }
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 .logo img {
     border-radius:50%;
     height:100px;
@@ -17,6 +21,10 @@
     padding: 10px 20px;
     position:fixed;
     z-index:1000;
+    width: 100%; /* Make the navbar span the full width */
+    top: 0; /* Ensure it sticks to the top */
+    left: 0; /* Ensure it starts from the left edge */
+    
 }
 .nav-links {
     list-style: none;
