@@ -92,8 +92,9 @@ html, body {
 .dropdown-menu a:hover {
     background: #e0f2f1;
 }
-.image {
+.image img {
     height:500px;
     width:500px;
     margin-right: 50px; /* Adjust spacing from the right */
+    object-fit:cover;
 }
