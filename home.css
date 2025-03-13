@@ -101,6 +101,7 @@ html, body {
     max-width: 1200px; /* Adjust as needed */
     margin-top: 80px; /* Space for the fixed navbar */
     padding: 20px;
+    overflow-x:hidden;
 }
 
 .content {
