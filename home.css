@@ -92,6 +92,8 @@ html, body {
     background: #e0f2f1;
 }
 .container {
+    height:80vh;
+    overflow-y:scroll;
     display: flex;
     justify-content: space-between;
     align-items: center;
