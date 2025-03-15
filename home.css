@@ -134,9 +134,9 @@ p {
 
 /* Section Styling */
 .info-section h2, .disorders-section h2, .tips-section h2, .testimonials h2 {
-    color: #005f73;
-    font-size: 2rem;
-    margin-bottom: 15px;
+      color: #3b6f64;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
 /* Lists */
