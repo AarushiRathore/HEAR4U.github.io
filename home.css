@@ -11,6 +11,9 @@ body {
     align-items: center;
     height: 100vh; /* Full viewport height */
     margin: 0;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 html, body {
     width: 100%;
@@ -119,4 +122,44 @@ p {
     font-size: 1.2rem;
     line-height: 1.6;
     color: #001219;
+}
+.info-section, .disorders-section, .tips-section, .testimonials {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Section Styling */
+.info-section h2, .disorders-section h2, .tips-section h2, .testimonials h2 {
+    color: #005f73;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Lists */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Testimonials */
+.testimonials blockquote {
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #005f73;
+    color: white;
+    margin-top: 50px;
+}
+footer a {
+    color: #e0f2f1;
+    text-decoration: none;
 }
