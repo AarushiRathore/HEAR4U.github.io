@@ -148,7 +148,7 @@ p {
 
 .section-image img {
     max-width: 100%;
-    height: 379px;;
+    height: 379px;
     object-fit: cover;
     border-radius: 10px;
 }
