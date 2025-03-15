@@ -187,6 +187,7 @@ p {
 
 /* Footer */
 footer {
+    justify-content:space-between;
     text-align: center;
     padding: 20px;
     background: #005f73;
