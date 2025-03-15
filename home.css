@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color:#f0fdfa;
+    background: linear-gradient(to bottom, #f0fdfa, #cce7e8);
     color: #0a1f2b;
     display: flex;
     flex-direction: column; /* Ensures navbar is separate from the rest */
@@ -107,12 +107,7 @@ html, body {
     max-width: 50%;
     text-align: right;
 }
-.image img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
+
 h1 {
     color: #3b6f64;
     font-size: 2.5rem;
@@ -122,6 +117,12 @@ p {
     font-size: 1.2rem;
     line-height: 1.6;
     color: #001219;
+}
+.image img, .section-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
 }
 /* General Section Styling */
 .section {
@@ -144,13 +145,6 @@ p {
     flex: 1;
     max-width: 50%;
     text-align: right;
-}
-
-.section-image img {
-    max-width: 100%;
-    height: 379px;
-    object-fit: cover;
-    border-radius: 10px;
 }
 
 .section h2 {
@@ -191,10 +185,12 @@ p {
     padding: 15px;
     width: 300px;
     text-align: left;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+    cursor: pointer;
 }
 
 .faq-card:hover {
+    background-color: #cce7e8;
     transform: scale(1.05);
 }
 
@@ -212,11 +208,13 @@ p {
 
 /* Footer */
 footer {
-    justify-content:space-between;
+    background-color: #005f73;
+    color: white;
     text-align: center;
     padding: 20px;
-    color: white;
-    margin-top: 50px;
+    width: 100%; /* Ensures full width */
+    position: relative;
+    bottom: 0;
 }
 
 footer a {
