@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color:#e9d8a6;
+    background:#e9d8a6;
     color: #0a1f2b;
     display: flex;
     flex-direction: column; /* Ensures navbar is separate from the rest */
