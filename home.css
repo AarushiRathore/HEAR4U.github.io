@@ -109,7 +109,7 @@ html, body {
 }
 .image img {
     max-width:1030px;
-    height: auto;
+    height: 420px;
     object-fit: cover;
     border-radius: 10px;
 }
