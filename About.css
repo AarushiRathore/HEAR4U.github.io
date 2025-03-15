@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background: linear-gradient(90deg, #e4c1f9, #c8b6ff, #b8c0ff);
+    background-color:#e9d8a6;
     color: #0a1f2b;
     display: flex;
     flex-direction: column; /* Ensures navbar is separate from the rest */
