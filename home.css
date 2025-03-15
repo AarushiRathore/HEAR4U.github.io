@@ -170,19 +170,46 @@ p {
     padding-left: 20px;
 }
 
-/* Testimonials */
-.testimonials {
+/* FAQ Section */
+.faq-section {
     text-align: center;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 50px auto;
+    padding: 20px;
 }
 
-.testimonials blockquote {
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #3b6f64;
-    margin-bottom: 10px;
+.faq-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.faq-card {
+    background: #f0fdfa;
+    border: 2px solid #005f73;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-card:hover {
+    transform: scale(1.05);
+}
+
+.faq-question {
+    font-weight: bold;
+    color: #005f73;
+    margin-bottom: 5px;
+}
+
+.faq-answer {
+    font-size: 1rem;
+    color: #001219;
+    line-height: 1.5;
 }
 
 /* Footer */
