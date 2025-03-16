@@ -1,31 +1,28 @@
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    background:#f5eed7;
+    background: #f5eed7;
     color: #0a1f2b;
     display: flex;
-    flex-direction: column; /* Ensures navbar is separate from the rest */
+    flex-direction: column;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    margin: 0;
-    height: auto;
+    min-height: 100vh;
     overflow-x: hidden;
-    overflow-y:scroll;
-    
+    overflow-y: auto;
+    padding-top: 80px; /* Prevents content from hiding behind fixed navbar */
 }
+
 html, body {
     width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
 }
-.logo img {
-    border-radius: 50%;
-    height: 100px;
-    width: 140px;
-    background-color: transparent;
-}
+
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -39,16 +36,23 @@ html, body {
     left: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.logo img {
+    border-radius: 50%;
+    height: 80px;
+    width: auto;
+    background-color: transparent;
+}
+
 .nav-links {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
-    align-items: center;
 }
+
 .nav-links li {
     margin: 0 15px;
 }
+
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -56,6 +60,7 @@ html, body {
     padding: 10px;
     transition: 0.3s;
 }
+
 .nav-links a:hover {
     border-bottom: 2px solid white;
 }
@@ -64,9 +69,12 @@ html, body {
 .dropdown {
     position: relative;
 }
+
 .dropdown-menu {
     display: none;
     position: absolute;
+    top: 40px;
+    left: 0;
     background: white;
     list-style: none;
     padding: 10px;
@@ -75,17 +83,22 @@ html, body {
     min-width: 180px;
     z-index: 999;
 }
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
 .dropdown-menu li {
     margin: 5px 0;
 }
+
 .dropdown-menu a {
     color: #005f73;
     padding: 8px;
     display: block;
+    transition: 0.3s;
 }
+
 .dropdown-menu a:hover {
     background: #e0f2f1;
 }
@@ -144,7 +157,7 @@ html, body {
     .about-container {
         padding: 25px;
     }
-    
+
     .about-container h1 {
         font-size: 2rem;
     }
@@ -153,5 +166,3 @@ html, body {
         font-size: 1rem;
     }
 }
-
-
