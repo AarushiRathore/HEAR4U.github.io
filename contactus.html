@@ -10,7 +10,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-     <header>
+      <header>
         <nav class="navbar">
             <div class="logo">
                 <img src="HEAR4U__1_-removebg-preview.png" alt="Hear4U Logo">
@@ -37,53 +37,41 @@
             </ul>
         </nav>
     </header>
+
     <div class="container">
-        
-    <div class="contact-container">
-        <h1>Contact Us</h1>
-        <p>If you need support, feel free to reach out. We are here to help.</p>
-        
-        <form action="#" method="POST">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <p>If you need support, feel free to reach out. We are here to help.</p>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
 
-            <button type="submit">Send Message</button>
-        </form>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </div>
 
-    <script src="script.js">
-         <form action="#" method="POST" id="contactform">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
-
-        function handleFormSubmit(event) {
-    event.preventDefault();
-
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    alert(`Thank you, ${firstName} ${lastName}! Your message has been received.`);
-    
-    document.getElementById('contactForm').reset();
-    return false;
-}
-</script> 
+            if (name && email && message) {
+                alert(`Thank you, ${name}! Your message has been received.`);
+                document.getElementById('contactForm').reset();
+            }
+        });
+    </script>
+ 
 </body>
 </html>
