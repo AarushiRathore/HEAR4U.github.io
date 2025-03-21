@@ -13,44 +13,7 @@
         }
 
         /* Navbar */
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #005f73;
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo img {
-            height: 60px;
-            width: auto;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links li {
-            margin: 0 15px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            border-bottom: 2px solid white;
-        }
-
+       
         /* Contact Form */
         .contact-container {
             max-width: 500px;
