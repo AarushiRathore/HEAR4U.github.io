@@ -10,6 +10,8 @@
             background-color: #f3f7f9;
             text-align: center;
             padding: 20px;
+            min-height: 100vh; /* Ensure body takes at least the full viewport height */
+            overflow-y: auto; /* Enable vertical scrolling if content overflows */
         }
 
 /* Navbar */
