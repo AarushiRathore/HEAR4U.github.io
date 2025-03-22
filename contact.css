@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 /* Ensuring proper scrolling */
@@ -100,9 +99,9 @@ body {
 }
 
 /* Contact Form */
-.contact-container {
+.contact-container{
     max-width: 500px;
-    background: #fff;
+    background: #ffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
