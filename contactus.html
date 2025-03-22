@@ -1,77 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> HERE4U </title>
-<meta charset="UTF-8">
+    <title>HERE4U</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="contact.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* Ensure body is scrollable */
+        html, body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f7f9;
+            text-align: center;
+            padding-top: 80px; /* Ensure content is below navbar */
+            height: auto;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #005f73;
+            padding: 10px 20px;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            list-style: none;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 180px;
+            z-index: 999;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 5px 0;
+        }
+
+        .dropdown-menu a {
+            color: #005f73;
+            padding: 8px;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background: #e0f2f1;
+        }
+
+        /* Contact Form */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+        }
+
+        .contact-container {
+            max-width: 500px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links li {
+                margin-bottom: 10px;
+            }
+
+            .contact-container {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
-      <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="HEAR4U__1_-removebg-preview.png" alt="Hear4U Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-                <li class="dropdown">
-                    <a href="explore-mental-health.html">Explore</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="personalitytest.html">Personality Test</a></li>
-                        <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
-                        <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
-                        <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
-                        <li><a href="psychometric.html">Psychometric Test</a></li>
-                        <li><a href="ptsd.html">PTSD Test</a></li>
-                        <li><a href="anxiety-test.html">Anxiety Test</a></li>
-                        <li><a href="depression-test.html">Depression Test</a></li>
-                        <li><a href="ADHDtest.html">ADHD Test</a></li>
-                    </ul>
-                </li>
-                <li><a href="Blogs4U.html">Blogs</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <div class="container">
-        <div class="contact-container">
-            <h1>Contact Us</h1>
-            <p>If you need support, feel free to reach out. We are here to help.</p>
-
-            <form id="contactForm">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="HEAR4U__1_-removebg-preview.png" alt="Hear4U Logo">
         </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li class="dropdown">
+                <a href="explore-mental-health.html">Explore</a>
+                <ul class="dropdown-menu">
+                    <li><a href="personalitytest.html">Personality Test</a></li>
+                    <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+                    <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+                    <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+                    <li><a href="psychometric.html">Psychometric Test</a></li>
+                    <li><a href="ptsd.html">PTSD Test</a></li>
+                    <li><a href="anxiety-test.html">Anxiety Test</a></li>
+                    <li><a href="depression-test.html">Depression Test</a></li>
+                    <li><a href="ADHDtest.html">ADHD Test</a></li>
+                </ul>
+            </li>
+            <li><a href="Blogs4U.html">Blogs</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>If you need support, feel free to reach out. We are here to help.</p>
+
+        <form id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
     </div>
+</div>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
-            if (name && email && message) {
-                alert(`Thank you, ${name}! Your message has been received.`);
-                document.getElementById('contactForm').reset();
-            }
-        });
-    </script>
- 
+        if (name && email && message) {
+            alert(`Thank you, ${name}! Your message has been received.`);
+            document.getElementById('contactForm').reset();
+        }
+    });
+</script>
+
 </body>
 </html>
