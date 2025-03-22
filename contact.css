@@ -12,7 +12,7 @@ html, body {
     text-align: center;
     padding: 20px;
     height: auto;  /* Allow content to determine height */
-    overflow-y: auto; /* Enable scrolling */
+    overflow-y: scroll; /* Enable scrolling */
 }
 
 /* Prevent navbar from overlapping content */
