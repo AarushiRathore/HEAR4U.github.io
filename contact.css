@@ -5,18 +5,19 @@
     scroll-behavior: smooth;
 }
 
+/* Ensuring proper scrolling */
 html, body {
     font-family: Arial, sans-serif;
     background-color: #f3f7f9;
     text-align: center;
     padding: 20px;
-    min-height: 100vh; /* Ensures full viewport height */
-    overflow-y: auto; /* Enables vertical scrolling */
+    height: auto;  /* Allow content to determine height */
+    overflow-y: auto; /* Enable scrolling */
 }
 
 /* Prevent navbar from overlapping content */
 body {
-    padding-top: 70px; /* Adjust based on navbar height */
+    padding-top: 80px; /* Adjusted to fit navbar height */
 }
 
 /* Navbar */
