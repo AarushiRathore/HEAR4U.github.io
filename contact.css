@@ -9,10 +9,12 @@
             font-family: Arial, sans-serif;
             background-color: #f3f7f9;
             text-align: center;
-            padding: 20px;
+            padding-top: 60px;
             min-height: 100vh; /* Ensure body takes at least the full viewport height */
-            overflow-y: auto; /* Enable vertical scrolling if content overflows */
         }
+html,body{
+            overflow-y:auto;
+}
 
 /* Navbar */
 .logo img {
@@ -93,8 +95,6 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: auto;
-            overflow-y: auto;
-            max-height: 80vh;
         }
 
         h1 {
