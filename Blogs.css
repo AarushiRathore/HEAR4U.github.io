@@ -109,10 +109,12 @@ html, body {
             font-size: 16px;
         }
 
-        .blogs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+    .blogs {
+    display: flex;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    gap: 20px; /* Adds space between cards */
+    justify-content: center; /* Centers cards horizontally */
+    align-items: stretch; /* Ensures equal height */
         }
 
         .blog-card {
