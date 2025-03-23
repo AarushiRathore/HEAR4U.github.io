@@ -8,8 +8,6 @@ html, body {
     background-color: #f3f7f9;
     text-align: center;
     padding: 20px;
-    height: auto;  /* Allow content to determine height */
-    overflow-y: scroll; /* Enable scrolling */
 }
 
 /* Prevent navbar from overlapping content */
