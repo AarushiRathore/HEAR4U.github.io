@@ -5,7 +5,7 @@
 }
 html, body {
     font-family: Arial, sans-serif;
-    background-color: #f3f7f9;
+    background-color:#E3F6E0;
     text-align: center;
     padding: 20px;
 }
@@ -113,10 +113,11 @@ body {
         }
 
         .blog-card {
-            background: white;
+            background: #FFFFFF;
+            color: #005f73;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: 0.3s;
         }
 
