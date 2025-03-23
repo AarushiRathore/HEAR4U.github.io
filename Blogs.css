@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column; /* Ensures navbar is separate from the rest */
     align-items: center;
-    height: 100vh; /* Full viewport height */
+   max-height: 100vh; /* Full viewport height */
     margin: 0;
     height: auto;
     min-height: 100vh;
