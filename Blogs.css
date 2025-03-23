@@ -11,8 +11,6 @@ body {
     align-items: center;
    max-height: 100vh; /* Full viewport height */
     margin: 0;
-    height: auto;
-    min-height: 100vh;
     overflow-x: hidden;
     overflow-y:scroll;
 }
