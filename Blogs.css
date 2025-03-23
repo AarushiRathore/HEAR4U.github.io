@@ -3,20 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    background-color:#E3F6E0;
-    color: #0a1f2b;
-    display: flex;
-    flex-direction: column; /* Ensures navbar is separate from the rest */
-    align-items: center;
-    margin: 0;
-    overflow-x: hidden;
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f7f9;
+    text-align: center;
+    padding: 20px;
     height: auto;  /* Allow content to determine height */
     overflow-y: scroll; /* Enable scrolling */
 }
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+
+/* Prevent navbar from overlapping content */
+body {
+    padding-top: 80px; /* Adjusted to fit navbar height */
 }
 .logo img {
     border-radius: 50%;
