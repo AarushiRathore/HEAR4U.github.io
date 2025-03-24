@@ -110,7 +110,6 @@ body {
     gap: 20px; /* Adds space between cards */
     justify-content: center; /* Centers cards horizontally */
     align-items: stretch; /* Ensures equal height */
-    overflow-x: auto;
         }
 
         .blog-card {
