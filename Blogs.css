@@ -113,7 +113,7 @@ body {
         }
 
         .blog-card {
-            background: #FFFFFF;
+            background: #87CEEB;
             color: #005f73;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 15px;
@@ -126,7 +126,7 @@ body {
         }
 
         .blog-card img {
-            width: 100%;
+            width: 60%;
             border-radius: 10px;
         }
 
