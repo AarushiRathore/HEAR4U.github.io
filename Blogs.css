@@ -106,14 +106,15 @@ body {
 
     .blogs {
     display: flex;
-    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    flex-wrap: nowrap; 
     gap: 20px; /* Adds space between cards */
     justify-content: center; /* Centers cards horizontally */
     align-items: stretch; /* Ensures equal height */
+    overflow-x: auto;
         }
 
         .blog-card {
-            background: #87CEEB;
+            background: #DFFFD6;
             color: #005f73;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 15px;
