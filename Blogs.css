@@ -99,6 +99,7 @@ margin-bottom: 20px; /*Spacing below search box */
 }
 
 .search-box input {
+margin: 10px;
 width: 100%; /* Full width*/
 padding: 10px; /*Inner padding*/
 border: 1px solid #ccc; /*Light border*/
