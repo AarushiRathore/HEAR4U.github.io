@@ -86,66 +86,91 @@ body {
 
 
         
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 20px;
-        }
+     /* Container for Blogs*/
+.container {
+max-width: 1200px; /*Maximum width*/
+margin: 20px auto; /*Centered*/
+padding: 0 20px; /*Side padding */
+}
 
-        .search-box {
-            margin-bottom: 20px;
-        }
+/* Search Box*/
+.search-box {
+margin-bottom: 20px; /*Spacing below search box */
+}
 
-        .search-box input {
-            width: 60%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+.search-box input {
+width: 100%; /* Full width*/
+padding: 10px; /*Inner padding*/
+border: 1px solid #ccc; /*Light border*/
+border-radius: 5px; /* Rounded corners */
+font-size: 16px; /* Increased font size */
+}
 
-    .blogs {
-    display: flex;
-    flex-wrap: nowrap; 
-    gap: 20px; /* Adds space between cards */
-    justify-content: center; /* Centers cards horizontally */
-    align-items: stretch; /* Ensures equal height */
-        }
+/* Blog Cards*/
+.blogs {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /*Responsive grid*/
+gap: 20px; /*Spacing between cards */
+}
 
-        .blog-card {
-            background: #DFFFD6;
-            color: #005f73;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
+.blog-card {
+background: white; /* White background for cards*/
+border-radius: 8px; /*Rounded corners */
+overflow: hidden; /* Clip overflow */
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+transition: transform 0.3s; /* Smooth scale transition */
+}
 
-        .blog-card:hover {
-            transform: scale(1.05);
-        }
+.blog-card:hover {
+transform: translateY(-5px); /* Lift effect on hover */
+}
 
-        .blog-card img {
-            width: 60%;
-            border-radius: 10px;
-        }
+.blog-card img {
+width: 100%; /* Responsive image /
+height: auto; / Maintain aspect ratio */
+}
 
-        .blog-card h3 {
-            margin: 10px 0;
-            font-size: 18px;
-        }
+.blog-card h3 {
+padding: 10px; /* Inner padding for title /
+font-size: 1.2em; / Font size for headings /
+color: #007BFF; / Brand color for headings */
+}
 
-        .blog-card p {
-            color: #666;
-        }
+.blog-card p {
+padding: 0 10px 10px; /* Padding for description */
+}
 
-        .read-more {
-            display: inline-block;
-            margin-top: 10px;
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
+ Read More Link
+.read-more {
+display: block;
+text-align: center; /* Center link */
+background: #007BFF; /* Button color */
+color: white; /* White text */
+padding: 10px; /* Button padding */
+text-decoration: none; /* No underline */
+border-radius: 5px; /* Rounded corners */
+margin: 10px 10px 0; /*Margin on top and sides*/
+transition: background-color 0.3s; /*Smooth background transition */
+}
+
+.read-more:hover {
+background: #0056b3; /* Darker button color on hover */
+}
+
+/* Media Query for Responsiveness*/
+@media (max-width: 768px) {
+.navbar {
+flex-direction: column; /*Stack nav elements */
+}
+
+.nav-links {
+flex-direction: column; /* Stack links */
+}
+
+.nav-links li {
+margin: 5px 0; /* Space for stacked links */
+}
+}
 
         .read-more:hover {
             text-decoration: underline;
