@@ -140,7 +140,7 @@ color: #007BFF; / Brand color for headings */
 padding: 0 10px 10px; /* Padding for description */
 }
 
- Read More Link
+ /*Read More Link*/
 .read-more {
 display: block;
 text-align: center; /* Center link */
