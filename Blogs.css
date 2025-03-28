@@ -6,7 +6,7 @@
 }
 
 html, body {
-    background-color:#009ec0;
+    background: linear-gradient(to bottom, #005f73, #E9D8A6);
     color: #333;
     text-align: center;
     padding: 20px;
