@@ -12,6 +12,8 @@ html, body {
 }
 
 body { 
+    height:100vw;
+    overflow-y:scroll;
     background:linear-gradient(to bottom, #005f73, #E9D8A6);
     padding-top: 80px;
 }
