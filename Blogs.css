@@ -6,13 +6,13 @@
 }
 
 html, body {
-    background: linear-gradient(to bottom, #005f73, #E9D8A6);
     color: #333;
     text-align: center;
     padding: 20px;
 }
 
-body {
+body { 
+    background:linear-gradient(to bottom, #005f73, #E9D8A6);
     padding-top: 80px;
 }
 .logo img {
