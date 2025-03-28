@@ -46,6 +46,39 @@ body {
 .nav-links a:hover {
     color: #ffd700;
 }
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    list-style: none;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 180px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu a {
+    color: #005f73;
+    padding: 8px;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background: #e0f2f1;
+}
 
 .container {
     max-width: 1100px;
