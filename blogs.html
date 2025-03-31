@@ -66,12 +66,7 @@
             <a href="#" class="read-more">Read More</a>
         </div>
 
-         <div class="container2">
-        <h2>Share Your Thoughts Anonymously</h2>
-        <textarea id="userMessage" placeholder="Write something..."></textarea>
-        <button onclick="submitPost()">Submit</button>
-        <div id="posts"></div>
-    </div>
+       
           <h1>User Comments</h1>
   <div id="comment-input">
     <textarea id="comment-text" placeholder="Enter your comment..."></textarea><br>
@@ -96,60 +91,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
 // Your Axios code here
- document.addEventListener('DOMContentLoaded', function() {
-      const dataContainer = document.getElementById('data-container');
 
-      axios.get('YOUR_API_ENDPOINT') // Replace with your actual API endpoint
-        .then(response => {
-          if (response.data && Array.isArray(response.data)) {
-            let html = '<ul>';
-            response.data.forEach(item => {
-              // Assuming your API returns an array of objects with 'comment' or 'view' properties
-              if (item.comment) {
-                html += `<li>Comment: ${item.comment}</li>`;
-              } else if (item.view) {
-                html += `<li>View: ${item.view}</li>`;
-              } else {
-                html += '<li>(Data format not recognized)</li>';
-              }
-            });
-            html += '</ul>';
-            dataContainer.innerHTML = html;
-          } else {
-            dataContainer.innerHTML = '<p>No data available or invalid data format.</p>';
-          }
-        })
-        .catch(error => {
-          console.error('API Error:', error);
-          dataContainer.innerHTML = '<p>Error fetching data.</p>';
-        });
-    });
-    function filterBlogs() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
-        let blogCards = document.querySelectorAll('.blog-card');
-        
-        blogCards.forEach(card => {
-            let title = card.querySelector('h3').textContent.toLowerCase();
-            if (title.includes(input)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    }
-        async function submitPost() {
-            const message = document.getElementById('userMessage').value;
-            if (!message.trim()) return alert('Message cannot be empty.');
-
-            await fetch('/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message })
-            });
-
-            document.getElementById('userMessage').value = '';
-            loadPosts();
-        }
+   
  document.addEventListener('DOMContentLoaded', function() {
       const commentText = document.getElementById('comment-text');
       const submitButton = document.getElementById('submit-comment');
@@ -158,7 +101,7 @@
 
       // Function to fetch and display comments
       function fetchAndDisplayComments() {
-        axios.get('YOUR_GET_COMMENTS_API_ENDPOINT') // Replace with your get API endpoint
+        axios.get('mongodb://localhost:27017/anonymous_posts') // Replace with your get API endpoint
           .then(response => {
             if (response.data && Array.isArray(response.data)) {
               let commentHtml = '';
