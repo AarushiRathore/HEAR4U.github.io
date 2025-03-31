@@ -77,6 +77,37 @@
 </div>
 
 <script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+// Your Axios code here
+ document.addEventListener('DOMContentLoaded', function() {
+      const dataContainer = document.getElementById('data-container');
+
+      axios.get('YOUR_API_ENDPOINT') // Replace with your actual API endpoint
+        .then(response => {
+          if (response.data && Array.isArray(response.data)) {
+            let html = '<ul>';
+            response.data.forEach(item => {
+              // Assuming your API returns an array of objects with 'comment' or 'view' properties
+              if (item.comment) {
+                html += `<li>Comment: ${item.comment}</li>`;
+              } else if (item.view) {
+                html += `<li>View: ${item.view}</li>`;
+              } else {
+                html += '<li>(Data format not recognized)</li>';
+              }
+            });
+            html += '</ul>';
+            dataContainer.innerHTML = html;
+          } else {
+            dataContainer.innerHTML = '<p>No data available or invalid data format.</p>';
+          }
+        })
+        .catch(error => {
+          console.error('API Error:', error);
+          dataContainer.innerHTML = '<p>Error fetching data.</p>';
+        });
+    });
     function filterBlogs() {
         let input = document.getElementById('searchInput').value.toLowerCase();
         let blogCards = document.querySelectorAll('.blog-card');
