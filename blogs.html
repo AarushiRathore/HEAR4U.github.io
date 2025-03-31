@@ -101,7 +101,7 @@
 
       // Function to fetch and display comments
       function fetchAndDisplayComments() {
-        axios.get('mongodb://localhost:27017/anonymous_posts') // Replace with your get API endpoint
+        axios.get('http://localhost:3000/comments') // Replace with your get API endpoint
           .then(response => {
             if (response.data && Array.isArray(response.data)) {
               let commentHtml = '';
