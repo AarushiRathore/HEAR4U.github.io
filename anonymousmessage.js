@@ -21,3 +21,6 @@ app.get('/posts', async (req, res) => {
 });
 
 app.listen(3000, () => console.log('Server running on port 3000'));
+
+axios.get('http://localhost:3000/comments')
+axios.post('http://localhost:3000/comments', { text: comment })
