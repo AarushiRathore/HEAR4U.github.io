@@ -65,6 +65,14 @@
             <p>Simple habits to maintain mental health and well-being.</p>
             <a href="#" class="read-more">Read More</a>
         </div>
+
+         <div class="container2">
+        <h2>Share Your Thoughts Anonymously</h2>
+        <textarea id="userMessage" placeholder="Write something..."></textarea>
+        <button onclick="submitPost()">Submit</button>
+        <div id="posts"></div>
+    </div>
+
     </div>
 </div>
 
@@ -82,7 +90,29 @@
             }
         });
     }
-</script>
+        async function submitPost() {
+            const message = document.getElementById('userMessage').value;
+            if (!message.trim()) return alert('Message cannot be empty.');
+
+            await fetch('/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            });
+
+            document.getElementById('userMessage').value = '';
+            loadPosts();
+        }
+
+        async function loadPosts() {
+            const res = await fetch('/posts');
+            const posts = await res.json();
+            const postsContainer = document.getElementById('posts');
+            postsContainer.innerHTML = posts.map(post => `<div class="post">${post.message}</div>`).join('');
+        }
+
+        loadPosts();
+    </script>
 
    </body>
 </html>
