@@ -72,9 +72,25 @@
         <button onclick="submitPost()">Submit</button>
         <div id="posts"></div>
     </div>
+          <h1>User Comments</h1>
+  <div id="comment-input">
+    <textarea id="comment-text" placeholder="Enter your comment..."></textarea><br>
+    <button id="submit-comment">Submit Comment</button>
+  </div>
+
+  <div id="comment-display">
+    <h2>Submitted Comments:</h2>
+    <ul id="comment-list">
+      </ul>
+  </div>
 
     </div>
 </div>
+        <footer>
+    <h2>Anonymous User Comments:</h2>
+    <ul id="footer-comments">
+      </ul>
+  </footer>
 
 <script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -134,7 +150,57 @@
             document.getElementById('userMessage').value = '';
             loadPosts();
         }
+ document.addEventListener('DOMContentLoaded', function() {
+      const commentText = document.getElementById('comment-text');
+      const submitButton = document.getElementById('submit-comment');
+      const commentList = document.getElementById('comment-list');
+      const footerComments = document.getElementById('footer-comments');
 
+      // Function to fetch and display comments
+      function fetchAndDisplayComments() {
+        axios.get('YOUR_GET_COMMENTS_API_ENDPOINT') // Replace with your get API endpoint
+          .then(response => {
+            if (response.data && Array.isArray(response.data)) {
+              let commentHtml = '';
+              let footerHtml = '';
+              response.data.forEach(comment => {
+                const commentItem = `<li>${comment.text}</li>`; // Assuming your API returns {text: "comment text"}
+                commentHtml += commentItem;
+                footerHtml += commentItem;
+              });
+              commentList.innerHTML = commentHtml;
+              footerComments.innerHTML = footerHtml;
+            } else {
+              commentList.innerHTML = '<li>No comments available.</li>';
+              footerComments.innerHTML = '<li>No comments available.</li>';
+            }
+          })
+          .catch(error => {
+            console.error('API Error:', error);
+            commentList.innerHTML = '<li>Error fetching comments.</li>';
+            footerComments.innerHTML = '<li>Error fetching comments.</li>';
+          });
+      }
+
+      // Initial comment fetch
+      fetchAndDisplayComments();
+
+      // Submit comment functionality
+      submitButton.addEventListener('click', function() {
+        const comment = commentText.value;
+        if (comment.trim() !== '') {
+          axios.post('YOUR_POST_COMMENT_API_ENDPOINT', { text: comment }) // Replace with your post API endpoint
+            .then(response => {
+              commentText.value = '';
+              fetchAndDisplayComments(); // Refresh comments after submission
+            })
+            .catch(error => {
+              console.error('API Error:', error);
+              alert('Failed to submit comment.');
+            });
+        }
+      });
+    });
         async function loadPosts() {
             const res = await fetch('/posts');
             const posts = await res.json();
