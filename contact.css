@@ -97,6 +97,27 @@ body {
 .dropdown-menu a:hover {
     background: #e0f2f1;
 }
+/*body image left*/
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 100px 40px 40px 40px;
+    flex-wrap: wrap;
+}
+
+/* Left image section */
+.image-section {
+    flex: 1;
+    padding: 20px;
+    max-width: 50%;
+}
+
+.image-section img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 
 /* Contact Form */
     .contact-container {
