@@ -6,16 +6,15 @@
 
 /* Ensuring proper scrolling */
 html, body {
-  background-image: url('contactbg'); /* Replace with your image path */
+  background-image: url('contactbg'); 
   background-size: cover;
   background-position: center;
-  padding: 50px 0; /* Adjust as needed */
+  background-repeat: no-repeat;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
   text-align: center;
-   height: 100vw;  /* Allow content to determine height */
-   overflow-y: scroll; /* Enable scrolling */
+  overflow-x: hidden;
 }
-
 /* Prevent navbar from overlapping content */
 body {
     padding-top: 80px; /* Adjusted to fit navbar height */
