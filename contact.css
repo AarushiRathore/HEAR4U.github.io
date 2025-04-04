@@ -6,12 +6,14 @@
 
 /* Ensuring proper scrolling */
 html, body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f7f9;
-    text-align: center;
-    padding: 20px;
-    height: 100vw;  /* Allow content to determine height */
-    overflow-y: scroll; /* Enable scrolling */
+  background-image: url('contactbg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0; /* Adjust as needed */
+  font-family: Arial, sans-serif;
+  text-align: center;
+   height: 100vw;  /* Allow content to determine height */
+   overflow-y: scroll; /* Enable scrolling */
 }
 
 /* Prevent navbar from overlapping content */
@@ -177,6 +179,14 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 /* Responsive Design */
