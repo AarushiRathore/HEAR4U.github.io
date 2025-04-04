@@ -99,13 +99,14 @@ body {
 }
 
 /* Contact Form */
-.contact-container{
+    .contact-container {
+    flex: 1;
     max-width: 500px;
-    background: #ffff;
-    padding: 20px;
+    background: #ffffff;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 140px 413px;
+    margin-left: auto;
 }
 
 h1 {
