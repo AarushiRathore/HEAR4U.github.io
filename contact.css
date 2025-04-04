@@ -14,6 +14,7 @@ html, body {
   font-family: Arial, sans-serif;
   text-align: center;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 /* Prevent navbar from overlapping content */
 body {
