@@ -15,6 +15,7 @@ html, body {
   text-align: center;
   overflow-x: hidden;
   overflow-y: scroll;
+  backdrop-filter: blur(10px);
 }
 /* Prevent navbar from overlapping content */
 body {
