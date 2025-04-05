@@ -4,19 +4,113 @@
     box-sizing: border-box;
 }
 
-/* Ensuring proper scrolling */
+/* Full-page background image */
 html, body {
-  background-image: url('ContactBg.bfd'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  backdrop-filter: blur(10px);
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url('ContactBg.jpg'); /* Use .jpg or .png — .bfd is not a valid image format */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
 }
+
+/* Navbar padding fix */
+body {
+    padding-top: 80px;
+}
+
+/* Centering the entire container */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px); /* Account for navbar height */
+    padding: 20px;
+}
+
+/* Contact Form Styling */
+.contact-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+button {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 20px;
+        height: auto;
+    }
+}
+
 /* Prevent navbar from overlapping content */
 body {
     padding-top: 80px; /* Adjusted to fit navbar height */
@@ -99,100 +193,4 @@ body {
 
 .dropdown-menu a:hover {
     background: #e0f2f1;
-}
-/*body image left*/
-.main-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 100px 40px 40px 40px;
-    flex-wrap: wrap;
-}
-
-/* Contact Form */
-    .contact-container {
-    flex: 1;
-    max-width: 500px;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: auto;
-    margin-top:35px;
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-p {
-    color: #666;
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    text-align: left;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-textarea {
-    resize: vertical;
-    height: 100px;
-}
-
-button {
-    width: 100%;
-    background-color: #007BFF;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-.contact-form {
-  max-width: 500px;
-  margin: auto;
-  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav-links li {
-        margin-bottom: 10px;
-    }
-
-    .contact-container {
-        width: 90%;
-    }
 }
