@@ -1,1 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+     background:linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+    color: #0a1f2b;
+    display: flex;
+    flex-direction: column; /* Ensures navbar is separate from the rest */
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+.logo img {
+    border-radius: 50%;
+    height: 100px;
+    width: 140px;
+    background-color: transparent;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #005f73;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.nav-links li {
+    margin: 0 15px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: 0.3s;
+}
+.nav-links a:hover {
+    border-bottom: 2px solid white;
+}
 
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    list-style: none;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 180px;
+    z-index: 999;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu li {
+    margin: 5px 0;
+}
+.dropdown-menu a {
+    color: #005f73;
+    padding: 8px;
+    display: block;
+}
+.dropdown-menu a:hover {
+    background: #e0f2f1;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 80px;
+    padding: 20px;
+}
+.content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 20px;
+}
+.image {
+    flex: 1;
+    max-width: 50%;
+    text-align: right;
+}
+
+h1 {
+    color: #3b6f64;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #001219;
+}
+.image img, .section-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* General Section Styling */
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto; /* Space between sections */
+    padding: 20px;
+}
+
+.section-content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 20px;
+}
+
+.section-image {
+    flex: 1;
+    max-width: 50%;
+    text-align: right;
+}
+
+.section h2 {
+    color: #005f73;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.section p, .section ul {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #001219;
+}
+
+.section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.faq-section {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.faq-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.faq-card {
+    background: #f0fdfa;
+    border: 2px solid #005f73;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+    cursor: pointer;
+}
+
+.faq-card:hover {
+    background-color: #cce7e8;
+    transform: scale(1.05);
+}
+
+.faq-question {
+    font-weight: bold;
+    color: #005f73;
+    margin-bottom: 5px;
+}
+
+.faq-answer {
+    font-size: 1rem;
+    color: #001219;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background-color: #005f73;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%; /* Ensures full width */
+    position: relative;
+    bottom: 0;
+}
+
+footer a {
+    color: #000000;
+    text-decoration: none;
+}
+footer a :hover{
+    color:white;
+}
