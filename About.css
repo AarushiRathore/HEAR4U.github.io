@@ -1,0 +1,168 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5eed7;
+    color: #0a1f2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 80px; /* Prevents content from hiding behind fixed navbar */
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #005f73;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    border-radius: 50%;
+    height: 80px;
+    width: auto;
+    background-color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid white;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    list-style: none;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 180px;
+    z-index: 999;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu a {
+    color: #005f73;
+    padding: 8px;
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #e0f2f1;
+}
+
+/* About Section */
+.about-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading */
+.about-container h1 {
+    font-size: 2.5rem;
+    color: #2c6975;
+    margin-bottom: 15px;
+}
+
+/* Subtitle */
+.about-container p.subtext {
+    font-size: 1.2rem;
+    color: #5a5a5a;
+    margin-bottom: 30px;
+}
+
+/* Paragraphs */
+.about-container p {
+    font-size: 1.1rem;
+    color: #444;
+    text-align: justify;
+}
+
+/* Call-to-Action Button */
+.about-container .cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    background: #2c6975;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.about-container .cta-button:hover {
+    background: #1b4d5a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 25px;
+    }
+
+    .about-container h1 {
+        font-size: 2rem;
+    }
+
+    .about-container p {
+        font-size: 1rem;
+    }
+}

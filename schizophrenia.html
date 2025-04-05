@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schizophrenia Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+        .quiz-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .question {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .answers {
+            display: flex;
+            flex-direction: column;
+        }
+        .answers label {
+            margin: 10px 0;
+            background: #E0FFFF;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .answers label:hover {
+            background: #B0E0E6;
+        }
+        .hidden {
+            display: none;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            font-size: 1.5em;
+            color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Playful Schizophrenia Test</h1>
+<div class="quiz-container" id="quiz">
+    <!-- Questions and options -->
+    <div class="question-container">
+        <div class="question">1. Do you ever talk to yourself?</div>
+        <div class="answers">
+            <label><input type="radio" name="q1" value="1"> Of course, who else understands me better?</label>
+            <label><input type="radio" name="q1" value="0"> Nope, that would be weird!</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">2. Do you often feel someone is watching you?</div>
+        <div class="answers">
+            <label><input type="radio" name="q2" value="1"> Yes, it's my imaginary pet ghost.</label>
+            <label><input type="radio" name="q2" value="0"> Nah, I don’t have that kind of energy.</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">3. Do objects sometimes seem to move on their own?</div>
+        <div class="answers">
+            <label><input type="radio" name="q3" value="1"> Yes, especially my phone when it falls off the table!</label>
+            <label><input type="radio" name="q3" value="0"> Not really, I'm the one doing the moving!</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">4. Do you have an unusual sense of smell?</div>
+        <div class="answers">
+            <label><input type="radio" name="q4" value="1"> Yes, I can smell what I had for lunch last week.</label>
+            <label><input type="radio" name="q4" value="0"> Nope, just the usual!</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">5. Do you find random patterns in things?</div>
+        <div class="answers">
+            <label><input type="radio" name="q5" value="1"> Absolutely, my toast even looks like Elvis!</label>
+            <label><input type="radio" name="q5" value="0"> Patterns? What patterns?</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">6. Do you sometimes laugh for no reason?</div>
+        <div class="answers">
+            <label><input type="radio" name="q6" value="1"> Yes, it's my secret to staying happy!</label>
+            <label><input type="radio" name="q6" value="0"> No way, I laugh with a reason.</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">7. Do you think animals talk to you?</div>
+        <div class="answers">
+            <label><input type="radio" name="q7" value="1"> Yes, my cat and I have deep conversations!</label>
+            <label><input type="radio" name="q7" value="0"> Only in cartoons.</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">8. Do you sometimes feel like you’re in a movie?</div>
+        <div class="answers">
+            <label><input type="radio" name="q8" value="1"> Yes, and I'm the star!</label>
+            <label><input type="radio" name="q8" value="0"> Only when I'm watching one.</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">9. Do you hear voices in your head?</div>
+        <div class="answers">
+            <label><input type="radio" name="q9" value="1"> Yes, they tell me funny jokes!</label>
+            <label><input type="radio" name="q9" value="0"> Only my own voice when I think.</label>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <div class="question">10. Do you often daydream?</div>
+        <div class="answers">
+            <label><input type="radio" name="q10" value="1"> Yes, I’m practically on another planet!</label>
+            <label><input type="radio" name="q10" value="0"> No, I live in the moment!</label>
+        </div>
+    </div>
+
+    <button class="button" onclick="calculateResult()">Submit</button>
+    <div id="result" class="hidden"></div>
+</div>
+
+<script>
+    function calculateResult() {
+        const answers = document.querySelectorAll('input[type="radio"]:checked');
+        let score = 0;
+
+        answers.forEach(answer => {
+            score += parseInt(answer.value);
+        });
+
+        const resultContainer = document.getElementById('result');
+        resultContainer.classList.remove('hidden');
+
+        if (score >= 7) {
+            resultContainer.textContent = "You have a wild imagination! Embrace your quirks!";
+        } else if (score >= 4) {
+            resultContainer.textContent = "You're a bit eccentric but still grounded. Keep the balance!";
+        } else {
+            resultContainer.textContent = "You're pretty down-to-earth. Maybe spice it up with some daydreaming!";
+        }
+    }
+</script>
+
+</body>
+</html>

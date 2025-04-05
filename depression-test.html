@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .question p {
+            margin-bottom: 10px;
+        }
+        .options label {
+            margin-right: 10px;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .result h2 {
+            color: #005f73;
+        }
+        .result p {
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Depression Self-Assessment Test</h1>
+        <form id="depressionTest">
+            <div class="question">
+                <p>1. Over the last two weeks, how often have you felt little interest or pleasure in doing things?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="0"> Not at all</label>
+                    <label><input type="radio" name="q1" value="1"> Several days</label>
+                    <label><input type="radio" name="q1" value="2"> More than half the days</label>
+                    <label><input type="radio" name="q1" value="3"> Nearly every day</label>
+                </div>
+            </div>
+            <!-- Repeat the question block for each question (q2, q3, etc.) -->
+            <div class="question">
+                <p>2. Over the last two weeks, how often have you felt down, depressed, or hopeless?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="0"> Not at all</label>
+                    <label><input type="radio" name="q2" value="1"> Several days</label>
+                    <label><input type="radio" name="q2" value="2"> More than half the days</label>
+                    <label><input type="radio" name="q2" value="3"> Nearly every day</label>
+                </div>
+            </div>
+            <!-- Add more questions as needed following the same structure -->
+            <div class="question">
+                <p>3. Over the last two weeks, how often have you had trouble falling or staying asleep, or sleeping too much?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="0"> Not at all</label>
+                    <label><input type="radio" name="q3" value="1"> Several days</label>
+                    <label><input type="radio" name="q3" value="2"> More than half the days</label>
+                    <label><input type="radio" name="q3" value="3"> Nearly every day</label>
+                </div>
+            </div>
+            <!-- Add more questions as needed following the same structure -->
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const form = document.getElementById('depressionTest');
+            let score = 0;
+            const totalQuestions = 3; // Update this count if you add more questions
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = form[`q${i}`];
+                const selectedValue = question.value;
+
+                if (selectedValue) {
+                    score += parseInt(selectedValue);
+                }
+            }
+
+            const resultDiv = document.getElementById('result');
+            let resultText = '';
+
+            if (score <= 4) {
+                resultText = "Minimal depression";
+            } else if (score <= 9) {
+                resultText = "Mild depression";
+            } else if (score <= 14) {
+                resultText = "Moderate depression";
+            } else if (score <= 19) {
+                resultText = "Moderately severe depression";
+            } else {
+                resultText = "Severe depression";
+            }
+
+            resultDiv.innerHTML = `<h2>Your Score: ${score}</h2><p>${resultText}</p><p>Please consult with a healthcare provider for a full assessment.</p>`;
+        }
+    </script>
+</body>
+</html>

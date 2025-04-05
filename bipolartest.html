@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bipolar Disorder Awareness Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007acc;
+        }
+        .question {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .answers {
+            display: flex;
+            flex-direction: column;
+        }
+        .answer-btn {
+            background-color: #007acc;
+            color: white;
+            padding: 0.7rem;
+            margin: 0.5rem 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .answer-btn:hover {
+            background-color: #005f99;
+        }
+        .result {
+            display: none;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Bipolar Disorder Awareness Quiz 🎭</h1>
+    <p>Test your knowledge and learn more about bipolar disorder!</p>
+    <div id="quiz">
+        <div id="question" class="question">Question will go here</div>
+        <div id="answers" class="answers"></div>
+    </div>
+    <div id="result" class="result"></div>
+    <button id="next" style="display:none;" onclick="nextQuestion()">Next Question</button>
+</div>
+
+<script>
+    const quizQuestions = [
+        {
+            question: "What is bipolar disorder? 🤔",
+            answers: [
+                { text: "A mood disorder with extreme mood swings", correct: true },
+                { text: "A personality disorder", correct: false },
+                { text: "A type of anxiety disorder", correct: false },
+                { text: "A cognitive impairment", correct: false }
+            ]
+        },
+        {
+            question: "People with bipolar disorder experience periods of _____. 😃😔",
+            answers: [
+                { text: "Happiness and sadness", correct: false },
+                { text: "Energy and low energy", correct: true },
+                { text: "Sleepiness", correct: false },
+                { text: "Hyperactivity", correct: false }
+            ]
+        },
+        {
+            question: "How common is bipolar disorder? 📊",
+            answers: [
+                { text: "Very rare", correct: false },
+                { text: "Uncommon but not rare", correct: true },
+                { text: "Extremely common", correct: false },
+                { text: "Only found in adults", correct: false }
+            ]
+        },
+        // ... Add more questions up to 10 ...
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function showQuestion() {
+        const questionElement = document.getElementById("question");
+        const answersElement = document.getElementById("answers");
+        const nextButton = document.getElementById("next");
+
+        nextButton.style.display = "none";
+        answersElement.innerHTML = "";
+
+        const currentQuestion = quizQuestions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.textContent = answer.text;
+            button.classList.add("answer-btn");
+            button.onclick = () => selectAnswer(answer);
+            answersElement.appendChild(button);
+        });
+    }
+
+    function selectAnswer(answer) {
+        const nextButton = document.getElementById("next");
+        if (answer.correct) {
+            score++;
+            document.getElementById("result").textContent = "Correct! 🎉";
+        } else {
+            document.getElementById("result").textContent = "Not quite! 😅";
+        }
+        document.getElementById("result").style.display = "block";
+        nextButton.style.display = "block";
+    }
+
+    function nextQuestion() {
+        document.getElementById("result").style.display = "none";
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizQuestions.length) {
+            showQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("result").textContent = `You scored ${score} out of ${quizQuestions.length}. Thanks for taking the quiz!`;
+        document.getElementById("result").style.display = "block";
+    }
+
+    // Initialize quiz
+    showQuestion();
+</script>
+
+</body>
+</html>

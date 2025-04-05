@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychometric Test</title>
+   
+    <style>
+    /* Basic styling for the psychometric test */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.results {
+    margin-top: 20px;
+    padding: 10px;
+    background: #e9ecef;
+    border: 1px solid #ced4da;
+}
+</style>
+
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>Psychometric Test</h1>
+        <p>Please rate each statement from 1 to 5 (1 = Strongly Disagree, 5 = Strongly Agree)</p>
+        
+        <form id="testForm">
+            <div class="question">
+                <label>I prefer working in a structured environment.</label>
+                <input type="number" name="openness" min="1" max="5" required>
+            </div>
+
+            <div class="question">
+                <label>I enjoy analyzing complex problems.</label>
+                <input type="number" name="problem_solving" min="1" max="5" required>
+            </div>
+
+            <div class="question">
+                <label>I like to take the lead in group projects.</label>
+                <input type="number" name="extraversion" min="1" max="5" required>
+            </div>
+
+            <div class="question">
+                <label>I can quickly understand new concepts.</label>
+                <input type="number" name="learning_ability" min="1" max="5" required>
+            </div>
+
+            <div class="question">
+                <label>I prefer working alone rather than in teams.</label>
+                <input type="number" name="introversion" min="1" max="5" required>
+            </div>
+
+            <div class="question">
+                <label>I can work well under pressure.</label>
+                <input type="number" name="emotional_stability" min="1" max="5" required>
+            </div>
+
+            <button type="button" onclick="calculateScores()">Submit Test</button>
+        </form>
+
+        <div id="results" class="results"></div>
+    </div>
+    <script>
+        // Function to calculate scores based on the user's input
+function calculateScores() {
+    const form = document.getElementById('testForm');
+    const resultsDiv = document.getElementById('results');
+    let scores = {
+        openness: 0,
+        problem_solving: 0,
+        extraversion: 0,
+        learning_ability: 0,
+        introversion: 0,
+        emotional_stability: 0
+    };
+
+    // Calculate scores by summing the input values for each trait
+    for (let input of form.elements) {
+        if (input.type === 'number' && input.value) {
+            scores[input.name] += parseInt(input.value);
+        }
+    }
+
+    // Display results
+    let resultsHTML = "<h2>Your Results:</h2>";
+    for (let trait in scores) {
+        resultsHTML += `<p><strong>${trait.replace('_', ' ').toUpperCase()}</strong>: ${scores[trait]}</p>`;
+    }
+
+    // Basic interpretation based on scores
+    resultsHTML += "<h3>Interpretation:</h3>";
+    if (scores.openness > 3 * 5) resultsHTML += "<p>You have high openness and enjoy new experiences.</p>";
+    if (scores.problem_solving > 3 * 5) resultsHTML += "<p>You have strong problem-solving ability.</p>";
+    if (scores.extraversion > 3 * 5) resultsHTML += "<p>You are likely outgoing and enjoy social settings.</p>";
+    if (scores.introversion > 3 * 5) resultsHTML += "<p>You are comfortable working independently.</p>";
+    if (scores.emotional_stability > 3 * 5) resultsHTML += "<p>You are able to manage stress well.</p>";
+
+    resultsDiv.innerHTML = resultsHTML;
+}
+
+    </script>
+
+
+
+</body>
+
+</html>

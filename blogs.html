@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>BLOG4U</title>
+    <link rel="stylesheet" href="Blogs.css">
+</head>
+    <body>
+  <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="HEAR4U__1_-removebg-preview.png" alt="Hear4U Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li class="dropdown">
+                    <a href="explore-mental-health.html">Explore</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personalitytest.html">Personality Test</a></li>
+                        <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+                        <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+                        <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+                        <li><a href="psychometric.html">Psychometric Test</a></li>
+                        <li><a href="ptsd.html">PTSD Test</a></li>
+                        <li><a href="anxiety-test.html">Anxiety Test</a></li>
+                        <li><a href="depression-test.html">Depression Test</a></li>
+                        <li><a href="ADHDtest.html">ADHD Test</a></li>
+                    </ul>
+                </li>
+                <li><a href="blogs.html">Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+
+<div class="container">
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search blogs..." onkeyup="filterBlogs()">
+    </div>
+    
+    <div class="blogs" id="blogContainer">
+        <div class="blog-card">
+            <img src="blogawareness (2).png" alt="Blog 1">
+            <h3>Mental Health Awareness</h3>
+            <p>Understanding the importance of mental well-being.</p>
+            <a href="blog1.html" class="read-more">Read More</a>
+        </div>
+
+        <div class="blog-card">
+            <img src="bloganxiety.png" alt="Blog 2">
+            <h3>How to Deal with Anxiety</h3>
+            <p>Practical tips to manage stress and anxiety effectively.</p>
+            <a href="blog2.html" class="read-more">Read More</a>
+        </div>
+
+        <div class="blog-card">
+            <img src="blogselfcare.png" alt="Blog 3">
+            <h3>Self-care Strategies</h3>
+            <p>Simple habits to maintain mental health and well-being.</p>
+            <a href="blog3.html" class="read-more">Read More</a>
+        </div>
+
+       
+          <h1>User Comments</h1>
+  <div id="comment-input">
+    <textarea id="comment-text" placeholder="Enter your comment..."></textarea><br>
+    <button id="submit-comment">Submit Comment</button>
+  </div>
+
+  <div id="comment-display">
+    <h2>Submitted Comments:</h2>
+    <ul id="comment-list">
+      </ul>
+  </div>
+
+    </div>
+</div>
+        <footer>
+    <h2>Anonymous User Comments:</h2>
+    <ul id="footer-comments">
+      </ul>
+  </footer>
+
+<script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+// Your Axios code here
+
+   
+ document.addEventListener('DOMContentLoaded', function() {
+      const commentText = document.getElementById('comment-text');
+      const submitButton = document.getElementById('submit-comment');
+      const commentList = document.getElementById('comment-list');
+      const footerComments = document.getElementById('footer-comments');
+
+      // Function to fetch and display comments
+      function fetchAndDisplayComments() {
+        axios.get('http://localhost:3000/comments') // Replace with your get API endpoint
+          .then(response => {
+            if (response.data && Array.isArray(response.data)) {
+              let commentHtml = '';
+              let footerHtml = '';
+              response.data.forEach(comment => {
+                const commentItem = `<li>${comment.text}</li>`; // Assuming your API returns {text: "comment text"}
+                commentHtml += commentItem;
+                footerHtml += commentItem;
+              });
+              commentList.innerHTML = commentHtml;
+              footerComments.innerHTML = footerHtml;
+            } else {
+              commentList.innerHTML = '<li>No comments available.</li>';
+              footerComments.innerHTML = '<li>No comments available.</li>';
+            }
+          })
+          .catch(error => {
+            console.error('API Error:', error);
+            commentList.innerHTML = '<li>Error fetching comments.</li>';
+            footerComments.innerHTML = '<li>Error fetching comments.</li>';
+          });
+      }
+
+      // Initial comment fetch
+      fetchAndDisplayComments();
+
+      // Submit comment functionality
+      submitButton.addEventListener('click', function() {
+        const comment = commentText.value;
+        if (comment.trim() !== '') {
+          axios.post('YOUR_POST_COMMENT_API_ENDPOINT', { text: comment }) // Replace with your post API endpoint
+            .then(response => {
+              commentText.value = '';
+              fetchAndDisplayComments(); // Refresh comments after submission
+            })
+            .catch(error => {
+              console.error('API Error:', error);
+              alert('Failed to submit comment.');
+            });
+        }
+      });
+    });
+        async function loadPosts() {
+            const res = await fetch('/posts');
+            const posts = await res.json();
+            const postsContainer = document.getElementById('posts');
+            postsContainer.innerHTML = posts.map(post => `<div class="post">${post.message}</div>`).join('');
+        }
+
+        loadPosts();
+    </script>
+
+   </body>
+</html>

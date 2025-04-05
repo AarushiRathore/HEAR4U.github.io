@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HEAR4U</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="HEAR4U__1_-removebg-preview.png" alt="Hear4U Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li class="dropdown">
+                <a href="explore-mental-health.html">Explore</a>
+                <ul class="dropdown-menu">
+                    <li><a href="personalitytest.html">Personality Test</a></li>
+                    <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+                    <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+                    <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+                    <li><a href="psychometric.html">Psychometric Test</a></li>
+                    <li><a href="ptsd.html">PTSD Test</a></li>
+                    <li><a href="anxiety-test.html">Anxiety Test</a></li>
+                    <li><a href="depression-test.html">Depression Test</a></li>
+                    <li><a href="ADHDtest.html">ADHD Test</a></li>
+                </ul>
+            </li>
+            <li><a href="blogs.html">Blogs</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>If you need support, feel free to reach out. We are here to help.</p>
+
+        <form id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if (name && email && message) {
+            alert(`Thank you, ${name}! Your message has been received.`);
+            document.getElementById('contactForm').reset();
+        }
+    });
+</script>
+
+</body>
+</html>

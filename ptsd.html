@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTSD Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e8f4f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #888;
+            text-align: center;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>PTSD Test</h2>
+        <form id="ptsdForm">
+            <div class="question">
+                <p>1. Have you experienced nightmares or unwanted memories of the traumatic event?</p>
+                <label><input type="radio" name="q1" value="1" required> Never</label>
+                <label><input type="radio" name="q1" value="2"> Rarely</label>
+                <label><input type="radio" name="q1" value="3"> Sometimes</label>
+                <label><input type="radio" name="q1" value="4"> Often</label>
+            </div>
+
+            <div class="question">
+                <p>2. Do you feel numb or detached from people, activities, or your surroundings?</p>
+                <label><input type="radio" name="q2" value="1" required> Never</label>
+                <label><input type="radio" name="q2" value="2"> Rarely</label>
+                <label><input type="radio" name="q2" value="3"> Sometimes</label>
+                <label><input type="radio" name="q2" value="4"> Often</label>
+            </div>
+
+            <div class="question">
+                <p>3. Do you feel constantly on guard, watchful, or easily startled?</p>
+                <label><input type="radio" name="q3" value="1" required> Never</label>
+                <label><input type="radio" name="q3" value="2"> Rarely</label>
+                <label><input type="radio" name="q3" value="3"> Sometimes</label>
+                <label><input type="radio" name="q3" value="4"> Often</label>
+            </div>
+
+            <div class="question">
+                <p>4. Do you avoid certain places, people, or activities that remind you of the traumatic event?</p>
+                <label><input type="radio" name="q4" value="1" required> Never</label>
+                <label><input type="radio" name="q4" value="2"> Rarely</label>
+                <label><input type="radio" name="q4" value="3"> Sometimes</label>
+                <label><input type="radio" name="q4" value="4"> Often</label>
+            </div>
+
+            <div class="question">
+                <p>5. Do you experience difficulty concentrating or sleeping?</p>
+                <label><input type="radio" name="q5" value="1" required> Never</label>
+                <label><input type="radio" name="q5" value="2"> Rarely</label>
+                <label><input type="radio" name="q5" value="3"> Sometimes</label>
+                <label><input type="radio" name="q5" value="4"> Often</label>
+            </div>
+
+            <div class="question">
+                <p>6. Do you experience negative thoughts or feelings about yourself or others?</p>
+                <label><input type="radio" name="q6" value="1" required> Never</label>
+                <label><input type="radio" name="q6" value="2"> Rarely</label>
+                <label><input type="radio" name="q6" value="3"> Sometimes</label>
+                <label><input type="radio" name="q6" value="4"> Often</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="result" class="result"></div>
+        <p class="note">Note: This test is not a diagnostic tool. Please consult a healthcare professional for a thorough assessment.</p>
+    </div>
+
+    <script>
+        document.getElementById('ptsdForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let score = 0;
+            const formData = new FormData(this);
+
+            for (let value of formData.values()) {
+                score += parseInt(value);
+            }
+
+            let resultText = '';
+            if (score <= 6) {
+                resultText = 'You may have low PTSD symptoms.';
+            } else if (score <= 12) {
+                resultText = 'You may have moderate PTSD symptoms.';
+            } else if (score <= 18) {
+                resultText = 'You may have high PTSD symptoms.';
+            } else {
+                resultText = 'You may have very high PTSD symptoms.';
+            }
+
+            document.getElementById('result').textContent = `Your total score is: ${score}. ${resultText}`;
+        });
+    </script>
+
+</body>
+</html>
