@@ -8,7 +8,7 @@
 html, body {
     height: 100%;
     font-family: Arial, sans-serif;
-    background-image: url('ContactBg.jpg'); /* Use .jpg or .png — .bfd is not a valid image format */
+    background-image: url('contactbg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
