@@ -3,7 +3,7 @@
 $servername = "127.0.0.1";  // Server name (XAMPP default is 'localhost')
 $username = "root";         // Default username for XAMPP is 'root'
 $password = "";             // Default password is empty
-$dbname = "hear4u";    // Change this to your database name
+$dbname = "hear4u.contact_us";    // Change this to your database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
