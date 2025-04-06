@@ -56,6 +56,43 @@
             </form>
         </div>
     </div>
+     <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      };
+      
+      try {
+        const response = await fetch('http://localhost:5000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          document.getElementById('successMessage').style.display = 'block';
+          document.getElementById('errorMessage').style.display = 'none';
+          document.getElementById('contactForm').reset();
+        } else {
+          document.getElementById('errorMessage').style.display = 'block';
+          document.getElementById('successMessage').style.display = 'none';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('successMessage').style.display = 'none';
+      }
+    });
+  </script>
 </body>
 
 
