@@ -1,20 +1,19 @@
+
 <?php
-// Database connection variables
-$servername = "127.0.0.1";  // Server name (XAMPP default is 'localhost')
-$username = "root";         // Default username for XAMPP is 'root'
-$password = "";             // Default password is empty
-$dbname = "hear4u.contact_us";    // Change this to your database name
+use MongoDB\Driver\ServerApi;
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$uri = 'mongodb+srv://rathoreaarushi2005:<db_password>@hear4u.oiya432.mongodb.net/?appName=hear4u';
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+// Set the version of the Stable API on the client
+$apiVersion = new ServerApi(ServerApi::V1);
 
-echo "Connected successfully";
+// Create a new client and connect to the server
+$client = new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
 
-// Close connection (optional, but good practice)
-$conn->close();
-?>
+try {
+    // Send a ping to confirm a successful connection
+    $client->selectDatabase('admin')->command(['ping' => 1]);
+    echo "Pinged your deployment. You successfully connected to MongoDB!\n";
+} catch (Exception $e) {
+    printf($e->getMessage());
+}
