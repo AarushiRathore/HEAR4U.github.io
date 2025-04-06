@@ -1,6 +1,6 @@
 <?php
 // Database connection variables
-$servername = "localhost";  // Server name (XAMPP default is 'localhost')
+$servername = "127.0.0.1";  // Server name (XAMPP default is 'localhost')
 $username = "root";         // Default username for XAMPP is 'root'
 $password = "";             // Default password is empty
 $dbname = "hear4u";    // Change this to your database name
