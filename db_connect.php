@@ -2,7 +2,7 @@
 <?php
 use MongoDB\Driver\ServerApi;
 
-$uri = 'mongodb+srv://rathoreaarushi2005:<db_password>@hear4u.oiya432.mongodb.net/?appName=hear4u';
+$uri = 'mongodb+srv://rathoreaarushi2005:<11DfiznWveQobgox>@hear4u.oiya432.mongodb.net/?appName=hear4u';
 
 // Set the version of the Stable API on the client
 $apiVersion = new ServerApi(ServerApi::V1);
