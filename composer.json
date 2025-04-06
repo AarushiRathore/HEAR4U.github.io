@@ -1,0 +1,7 @@
+{
+    "name": "aarushi/hear4u",
+    "description": "HEAR4U Project",
+    "require": {
+        "php": "^7.4 || ^8.0"
+    }
+}
