@@ -1,174 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Mental Health Awareness</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' media='screen' href=Blogs.css'>
-    <script src='blog.js'></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Self Care Strategies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <script src="blog.js"></script>
 </head>
-       
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
-            color: #0a1f2b;
-            font-family: 'Raleway', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        html, body {
-            width: 100%;
-        }
-        .logo img {
-            border-radius: 50%;
-            height: 100px;
-            width: 140px;
-            background-color: transparent;
-        }
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #005f73;
-            padding: 10px 20px;
-            position: fixed;
-            z-index: 1000;
-            width: 100%;
-            top: 0;
-            left: 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
-        .nav-links li {
-            margin: 0 15px;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px;
-            transition: 0.3s;
-        }
-        .nav-links a:hover {
-            border-bottom: 2px solid white;
-        }
-        .dropdown {
-            position: relative;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background: white;
-            list-style: none;
-            padding: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            min-width: 180px;
-            z-index: 999;
-        }
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        .dropdown-menu a {
-            color: #005f73;
-            padding: 8px;
-            display: block;
-        }
-        .dropdown-menu a:hover {
-            background: #e0f2f1;
-        }
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
 
-        /* New Graphics Section */
-        .graphics-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            padding: 120px 20px 50px; /* top padding adjusted for navbar */
-            background-color: #f1f8f9;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        .graphic-card {
-            width: 280px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-            text-align: center;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            margin-top:25px;
-        }
+    body {
+        background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+        color: #0a1f2b;
+        font-family: 'Raleway', sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
 
-        .graphic-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
+    html, body {
+        width: 100%;
+    }
 
-        .graphic-card p {
-            padding: 15px;
-            font-weight: 600;
-            color: #37474F;
-        }
+    .logo img {
+        border-radius: 50%;
+        height: 100px;
+        width: 140px;
+        background-color: transparent;
+    }
 
-        .graphic-card:hover {
-            transform: translateY(-10px);
-        }
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #005f73;
+        padding: 10px 20px;
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        top: 0;
+        left: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-        /* Blog Content */
-        .blog-content {
-            max-width: 900px;
-            background-color: #ffffff;
-            margin: 40px auto;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-            background-repeat: repeat;
-        }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
 
-        .blog-content h1 {
-            font-size: 2.8em;
-            color: #243949;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+    .nav-links li {
+        margin: 0 15px;
+    }
 
-        .blog-content h2 {
-            font-size: 1.6em;
-            color: #517fa4;
-            margin: 30px 0 15px;
-        }
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px;
+        transition: 0.3s;
+    }
 
-        .blog-content p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            color: #444;
-        }
+    .nav-links a:hover {
+        border-bottom: 2px solid white;
+    }
 
-        .symptoms-list {
-            list-style-type: disc;
-            margin-left: 30px;
-            margin-bottom: 30px;
-        }
+    .dropdown {
+        position: relative;
+    }
 
-        .symptoms-list li {
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-    </style>
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background: white;
+        list-style: none;
+        padding: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        min-width: 180px;
+        z-index: 999;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        color: #005f73;
+        padding: 8px;
+        display: block;
+    }
+
+    .dropdown-menu a:hover {
+        background: #e0f2f1;
+    }
+
+    .blog-content {
+        max-width: 900px;
+        background-color: #ffffff;
+        margin: 120px auto 40px;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+        background-repeat: repeat;
+    }
+
+    .blog-content h1 {
+        font-size: 2.8em;
+        color: #243949;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .blog-content h2 {
+        font-size: 1.6em;
+        color: #517fa4;
+        margin: 30px 0 15px;
+    }
+
+    .blog-content p {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        color: #444;
+    }
+
+    .blog-content img.blog-image {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .symptoms-list {
+        list-style-type: disc;
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+
+    .symptoms-list li {
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+</style>
+
 
     <header>
         <nav class="navbar">
