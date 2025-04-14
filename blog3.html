@@ -8,6 +8,167 @@
     <link rel='stylesheet' media='screen' href=Blogs.css'>
     <script src='blog.js'></script>
 </head>
+       
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+            color: #0a1f2b;
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        html, body {
+            width: 100%;
+        }
+        .logo img {
+            border-radius: 50%;
+            height: 100px;
+            width: 140px;
+            background-color: transparent;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #005f73;
+            padding: 10px 20px;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            border-bottom: 2px solid white;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            list-style: none;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 180px;
+            z-index: 999;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu a {
+            color: #005f73;
+            padding: 8px;
+            display: block;
+        }
+        .dropdown-menu a:hover {
+            background: #e0f2f1;
+        }
+
+        /* New Graphics Section */
+        .graphics-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 120px 20px 50px; /* top padding adjusted for navbar */
+            background-color: #f1f8f9;
+        }
+
+        .graphic-card {
+            width: 280px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            margin-top:25px;
+        }
+
+        .graphic-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .graphic-card p {
+            padding: 15px;
+            font-weight: 600;
+            color: #37474F;
+        }
+
+        .graphic-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Blog Content */
+        .blog-content {
+            max-width: 900px;
+            background-color: #ffffff;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            background-repeat: repeat;
+        }
+
+        .blog-content h1 {
+            font-size: 2.8em;
+            color: #243949;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6em;
+            color: #517fa4;
+            margin: 30px 0 15px;
+        }
+
+        .blog-content p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .symptoms-list {
+            list-style-type: disc;
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .symptoms-list li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+    </style>
 <body>
     <header>
         <nav class="navbar">
