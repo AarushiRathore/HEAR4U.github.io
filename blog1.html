@@ -5,10 +5,181 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Mental Health Awareness</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' media='screen' href=Blogs.css'>
     <script src='blog.js'></script>
 </head>
 <body>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(to bottom right, #f1f4f9, #dbe7f0);
+    color: #2c3e50;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* Header and Navigation */
+header {
+    background: linear-gradient(90deg, #517fa4, #243949);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 30px;
+}
+
+.logo img {
+    height: 55px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: #517fa4;
+    border-radius: 6px;
+    padding: 10px 0;
+    min-width: 220px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Image */
+img[alt="Blog 1"] {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 5px solid #517fa4;
+}
+
+/* Blog Content */
+.blog-content {
+    max-width: 900px;
+    background-color: #ffffff;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-repeat: repeat;
+}
+
+.blog-content h1 {
+    font-size: 2.8em;
+    color: #243949;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.blog-content h2 {
+    font-size: 1.6em;
+    color: #517fa4;
+    margin: 30px 0 15px;
+}
+
+.blog-content p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.symptoms-list {
+    list-style-type: disc;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.symptoms-list li {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #243949, #517fa4);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+    position: relative;
+}
+
+.social-media {
+    margin-top: 15px;
+}
+
+.social-media a {
+    color: white;
+    margin: 0 12px;
+    font-size: 1.4em;
+    transition: transform 0.3s;
+}
+
+.social-media a:hover {
+    transform: scale(1.2);
+    color: #ddd;
+}
+</style>
+
     <header>
         <nav class="navbar">
             <div class="logo">
