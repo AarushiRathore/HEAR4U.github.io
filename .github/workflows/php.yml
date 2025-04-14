@@ -28,6 +28,14 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
+   {
+    "name": "aarushi/hear4u",
+    "description": "HEAR4U Project",
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
+    "license": "MIT"
+}
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
