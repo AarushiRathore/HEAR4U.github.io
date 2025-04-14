@@ -6,178 +6,167 @@
     <title>Mental Health Awareness</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src='blog.js'></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+            color: #0a1f2b;
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        html, body {
+            width: 100%;
+        }
+        .logo img {
+            border-radius: 50%;
+            height: 100px;
+            width: 140px;
+            background-color: transparent;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #005f73;
+            padding: 10px 20px;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            border-bottom: 2px solid white;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            list-style: none;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 180px;
+            z-index: 999;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu a {
+            color: #005f73;
+            padding: 8px;
+            display: block;
+        }
+        .dropdown-menu a:hover {
+            background: #e0f2f1;
+        }
+
+        /* New Graphics Section */
+        .graphics-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 120px 20px 50px; /* top padding adjusted for navbar */
+            background-color: #f1f8f9;
+        }
+
+        .graphic-card {
+            width: 280px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .graphic-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .graphic-card p {
+            padding: 15px;
+            font-weight: 600;
+            color: #37474F;
+        }
+
+        .graphic-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Blog Content */
+        .blog-content {
+            max-width: 900px;
+            background-color: #ffffff;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            background-repeat: repeat;
+        }
+
+        .blog-content h1 {
+            font-size: 2.8em;
+            color: #243949;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6em;
+            color: #517fa4;
+            margin: 30px 0 15px;
+        }
+
+        .blog-content p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .symptoms-list {
+            list-style-type: disc;
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .symptoms-list li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+    </style>
 </head>
-      <style>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-     background:linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
-    color: #0a1f2b;
-    display: flex;
-    flex-direction: column; /* Ensures navbar is separate from the rest */
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    margin: 0;
-    height: auto;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-.logo img {
-    border-radius: 50%;
-    height: 100px;
-    width: 140px;
-    background-color: transparent;
-}
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #005f73;
-    padding: 10px 20px;
-    position: fixed;
-    z-index: 1000;
-    width: 100%;
-    top: 0;
-    left: 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.nav-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-.nav-links li {
-    margin: 0 15px;
-}
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    transition: 0.3s;
-}
-.nav-links a:hover {
-    border-bottom: 2px solid white;
-}
-
-/* Dropdown Menu */
-.dropdown {
-    position: relative;
-}
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: white;
-    list-style: none;
-    padding: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    min-width: 180px;
-    z-index: 999;
-}
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-.dropdown-menu li {
-    margin: 5px 0;
-}
-.dropdown-menu a {
-    color: #005f73;
-    padding: 8px;
-    display: block;
-}
-.dropdown-menu a:hover {
-    background: #e0f2f1;
-}
-
-/* Hero Image */
-img[alt="Blog 1"] {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    display: block;
-    border-bottom: 5px solid #517fa4;
-}
-
-/* Blog Content */
-.blog-content {
-    max-width: 900px;
-    background-color: #ffffff;
-    margin: 40px auto;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-    background-repeat: repeat;
-}
-
-.blog-content h1 {
-    font-size: 2.8em;
-    color: #243949;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.blog-content h2 {
-    font-size: 1.6em;
-    color: #517fa4;
-    margin: 30px 0 15px;
-}
-
-.blog-content p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-.symptoms-list {
-    list-style-type: disc;
-    margin-left: 30px;
-    margin-bottom: 30px;
-}
-
-.symptoms-list li {
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-/* Footer */
-footer {
-    background: linear-gradient(90deg, #243949, #517fa4);
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-    margin-top: 60px;
-    position: relative;
-}
-
-.social-media {
-    margin-top: 15px;
-}
-
-.social-media a {
-    color: white;
-    margin: 0 12px;
-    font-size: 1.4em;
-    transition: transform 0.3s;
-}
-
-.social-media a:hover {
-    transform: scale(1.2);
-    color: #ddd;
-}
-</style>
 
 <body>
     <header>
@@ -207,52 +196,55 @@ footer {
             </ul>
         </nav>
     </header>
- <img src="blogawareness (2).png" alt="Blog 1">
+
+    <!-- Graphics Section Instead of Hero Image -->
+    <section class="graphics-gallery">
+        <div class="graphic-card">
+            <img src="https://images.unsplash.com/photo-1600195077070-bd11c02f9e96?auto=format&fit=crop&w=600&q=80" alt="Meditation">
+            <p>Mindfulness & Meditation</p>
+        </div>
+        <div class="graphic-card">
+            <img src="https://images.unsplash.com/photo-1557999291-005b80a6a016?auto=format&fit=crop&w=600&q=80" alt="Therapy Session">
+            <p>Therapy & Talking Helps</p>
+        </div>
+        <div class="graphic-card">
+            <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=600&q=80" alt="Self-Care">
+            <p>Daily Self-Care Rituals</p>
+        </div>
+    </section>
+
     <div class="blog-content">
         <h1>Mental Health Awareness</h1>
         <p>Mental health awareness is crucial in today's fast-paced world. It helps in recognizing the signs of mental health issues and encourages individuals to seek help. Understanding mental health can lead to better coping strategies, reduced stigma, and improved overall well-being.</p>
 
-        <!-- Add more content about mental health awareness here -->
-    <div class="intro">
-        <h2>Why is Mental Health Crucial?</h2>
-        <p>Mental health is just as important as physical health.
-            Stigma Reduction: Open conversations help eliminate shame and judgment around mental illness.
+        <div class="intro">
+            <h2>Why is Mental Health Crucial?</h2>
+            <p>
+                <strong>Stigma Reduction:</strong> Open conversations help eliminate shame and judgment around mental illness.<br>
+                <strong>Early Intervention:</strong> Awareness allows individuals to recognize signs and seek help before symptoms escalate.<br>
+                <strong>Stronger Communities:</strong> A society that prioritizes mental well-being fosters empathy, inclusivity, and resilience.
+            </p>
+            <h2>Signs You Might Be Struggling</h2>
+            <ul class="symptoms-list">
+                <li>Feeling persistently sad or withdrawn for more than two weeks</li>
+                <li>Intense fear, worry, or severe mood swings</li>
+                <li>Avoiding social situations or activities you once enjoyed</li>
+                <li>Drastic changes in eating or sleeping habits</li>
+                <li>Difficulty concentrating or functioning at work/school</li>
+            </ul>
 
-Early Intervention: Awareness allows individuals to recognize signs and seek help before symptoms escalate.
+            <h2>Symptoms of Deteriorating Mental Health:</h2>
+            <p>
+                Mental health issues don’t always look dramatic or extreme. Sometimes, they show up in subtle ways—like feeling exhausted all the time or losing interest in things you once loved. Recognizing these signs early on can make all the difference.
+                <br><br>
+                💡 <strong>Takeaway:</strong> Let’s normalize checking in with ourselves and others. Mental wellness is a daily practice, not a destination.
+            </p>
 
-Stronger Communities: A society that prioritizes mental well-being fosters empathy, inclusivity, and resilience.
-
-Signs You Might Be Struggling:
-Feeling persistently sad or withdrawn for more than two weeks
-
-Intense fear, worry, or severe mood swings
-
-Avoiding social situations or activities you once enjoyed
-
-Drastic changes in eating or sleeping habits
-
-Difficulty concentrating or functioning at work/school
-</p>
-<h2>Symptoms of deterioting Mental Health:</h2>
-<p>Mental health issues don’t always look dramatic or extreme. Sometimes, they show up in subtle ways—like feeling exhausted all the time or losing interest in things you once loved. Recognizing these signs early on can make all the difference.
-
-    💡 Takeaway: Let’s normalize checking in with ourselves and others. Mental wellness is a daily practice, not a destination.</p>
-    u<l class="symptoms-list">
-        <li>Persistent sadness or low mood</li>
-        <li>Excessive worry or anxiety</li>
-        <li>Withdrawal from social activities</li>
-        <li>Changes in appetite or sleep patterns</li>
-        <li>Difficulty concentrating or making decisions</li>
-        <h2> Understanding Anxiety</h2>
-     <p> Feeling nervous before an exam or a big event is normal. But when worry becomes persistent and uncontrollable, it could be a sign of anxiety.
-</p>
-  <footer>
-        <p>&copy; 2023 HEAR4U. All rights reserved.</p>
-        <div class="social-media">
-            <a href="#"><i class="fab fa-x"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <h2>Understanding Anxiety</h2>
+            <p>
+                Feeling nervous before an exam or a big event is normal. But when worry becomes persistent and uncontrollable, it could be a sign of anxiety.
+            </p>
         </div>
-    
+    </div>
 </body>
 </html>
