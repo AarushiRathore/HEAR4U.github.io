@@ -1,243 +1,242 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Self Care Strategies</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-  <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Self Care Strategies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        body {
-            background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
-            color: #0a1f2b;
-            font-family: 'Raleway', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+        body {
+            background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+            color: #0a1f2b;
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-        html, body {
-            width: 100%;
-        }
+        html, body {
+            width: 100%;
+        }
 
-        .logo img {
-            border-radius: 50%;
-            height: 100px;
-            width: 140px;
-            background-color: transparent;
-        }
+        .logo img {
+            border-radius: 50%;
+            height: 100px;
+            width: 140px;
+            background-color: transparent;
+        }
 
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #005f73;
-            padding: 10px 20px;
-            position: fixed;
-            z-index: 1000;
-            width: 100%;
-            top: 0;
-            left: 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #005f73;
+            padding: 10px 20px;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
 
-        .nav-links li {
-            margin: 0 15px;
-        }
+        .nav-links li {
+            margin: 0 15px;
+        }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px;
-            transition: 0.3s;
-        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s;
+        }
 
-        .nav-links a:hover {
-            border-bottom: 2px solid white;
-        }
+        .nav-links a:hover {
+            border-bottom: 2px solid white;
+        }
 
-        .dropdown {
-            position: relative;
-        }
+        .dropdown {
+            position: relative;
+        }
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background: white;
-            list-style: none;
-            padding: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            min-width: 180px;
-            z-index: 999;
-        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            list-style: none;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 180px;
+            z-index: 999;
+        }
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
 
-        .dropdown-menu a {
-            color: #005f73;
-            padding: 8px;
-            display: block;
-        }
+        .dropdown-menu a {
+            color: #005f73;
+            padding: 8px;
+            display: block;
+        }
 
-        .dropdown-menu a:hover {
-            background: #e0f2f1;
-        }
+        .dropdown-menu a:hover {
+            background: #e0f2f1;
+        }
 
-        .blog-content {
-            max-width: 900px;
-            background-color: #ffffff;
-            margin: 120px auto 40px;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-            background-repeat: repeat;
-        }
+        .blog-content {
+            max-width: 900px;
+            background-color: #ffffff;
+            margin: 120px auto 40px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            background-repeat: repeat;
+        }
 
-        .blog-content h1 {
-            font-size: 2.8em;
-            color: #243949;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+        .blog-content h1 {
+            font-size: 2.8em;
+            color: #243949;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-        .blog-content h2 {
-            font-size: 1.6em;
-            color: #517fa4;
-            margin: 30px 0 15px;
-        }
+        .blog-content h2 {
+            font-size: 1.6em;
+            color: #517fa4;
+            margin: 30px 0 15px;
+        }
 
-        .blog-content p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            color: #444;
-        }
+        .blog-content p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #444;
+        }
 
-        .blog-content img.blog-image {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
+        .blog-content img.blog-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
 
-        .self-help-techniques {
-            list-style-type: disc;
-            margin-left: 30px;
-            margin-bottom: 30px;
-        }
+        .self-help-techniques {
+            list-style-type: disc;
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
 
-        .self-help-techniques li {
-            margin-bottom: 20px;
-            font-weight: 500;
-            line-height: 1.6;
-        }
+        .self-help-techniques li {
+            margin-bottom: 20px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
 
-        footer {
-            text-align: center;
-            margin: 40px 0;
-            padding: 20px;
-            background: #005f73;
-            color: white;
-        }
+        footer {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #005f73;
+            color: white;
+        }
 
-        .social-media a {
-            margin: 0 10px;
-            color: white;
-            font-size: 1.2em;
-            transition: 0.3s;
-        }
+        .social-media a {
+            margin: 0 10px;
+            color: white;
+            font-size: 1.2em;
+            transition: 0.3s;
+        }
 
-        .social-media a:hover {
-            color: #b2dfdb;
-        }
-    </style>
-
+        .social-media a:hover {
+            color: #b2dfdb;
+        }
+    </style>
+</head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="contactus.html">Contact Us</a></li>
-                <li class="dropdown">
-                    <a href="explore-mental-health.html">Explore</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="personalitytest.html">Personality Test</a></li>
-                        <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
-                        <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
-                        <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
-                        <li><a href="psychometric.html">Psychometric Test</a></li>
-                        <li><a href="ptsd.html">PTSD Test</a></li>
-                        <li><a href="anxiety-test.html">Anxiety Test</a></li>
-                        <li><a href="depression-test.html">Depression Test</a></li>
-                        <li><a href="ADHDtest.html">ADHD Test</a></li>
-                    </ul>
-                </li>
-                <li><a href="blogs.html">Blogs</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li class="dropdown">
+                    <a href="explore-mental-health.html">Explore</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personalitytest.html">Personality Test</a></li>
+                        <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+                        <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+                        <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+                        <li><a href="psychometric.html">Psychometric Test</a></li>
+                        <li><a href="ptsd.html">PTSD Test</a></li>
+                        <li><a href="anxiety-test.html">Anxiety Test</a></li>
+                        <li><a href="depression-test.html">Depression Test</a></li>
+                        <li><a href="ADHDtest.html">ADHD Test</a></li>
+                    </ul>
+                </li>
+                <li><a href="blogs.html">Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="blog-content">
-        <h1>Self Care Strategies:</h1>
-        <p>Building a Toolkit for Mental Wellness. Self-help is about learning how to better care for yourself, moment by moment. While professional help is important, self-care and personal practices also play a huge role in maintaining mental health.</p>
-        <p>Here are some practical and proven self-help techniques you can start today:</p>
+    <div class="blog-content">
+        <h1>Self Care Strategies:</h1>
+        <p>Building a Toolkit for Mental Wellness. Self-help is about learning how to better care for yourself, moment by moment. While professional help is important, self-care and personal practices also play a huge role in maintaining mental health.</p>
+        <p>Here are some practical and proven self-help techniques you can start today:</p>
 
-        <ul class="self-help-techniques">
-            <li><strong>Practice Mindfulness and Meditation:</strong><br>
-                Spend 5–10 minutes a day observing your breath. Use apps like Calm or Insight Timer for guided meditation. Try grounding exercises like the 5-4-3-2-1 technique.
-            </li>
-            <li><strong>Develop a Journaling Habit:</strong><br>
-                Write freely without judgment—what you're feeling, thinking, or simply noticing. Try prompts like “Today, I felt...” or “What’s one small thing that brought me peace?”
-            </li>
-            <li><strong>Move Your Body:</strong><br>
-                Go for a short walk, stretch, dance to your favorite song, or try yoga. Exercise releases endorphins, which help reduce stress and boost mood.
-            </li>
-            <li><strong>Stay Connected:</strong><br>
-                Talk to someone you trust. Don’t bottle things up. Join support groups—online or offline—for shared experiences and comfort.
-            </li>
-            <li><strong>Sleep Hygiene:</strong><br>
-                Create a calming bedtime routine. Avoid screens an hour before sleep and try reading or listening to soft music.
-            </li>
-            <li><strong>Set Boundaries:</strong><br>
-                Say no without guilt. Your time and energy are precious. Limit exposure to negativity—whether it’s people, social media, or environments.
-            </li>
-            <li><strong>Nourish Your Body:</strong><br>
-                Eat balanced meals and stay hydrated. Foods rich in omega-3s, magnesium, and vitamin B can help reduce anxiety symptoms.
-            </li>
-        </ul>
+        <ul class="self-help-techniques">
+            <li><strong>Practice Mindfulness and Meditation:</strong><br>
+                Spend 5–10 minutes a day observing your breath. Use apps like Calm or Insight Timer for guided meditation. Try grounding exercises like the 5-4-3-2-1 technique.
+            </li>
+            <li><strong>Develop a Journaling Habit:</strong><br>
+                Write freely without judgment—what you're feeling, thinking, or simply noticing. Try prompts like “Today, I felt...” or “What’s one small thing that brought me peace?”
+            </li>
+            <li><strong>Move Your Body:</strong><br>
+                Go for a short walk, stretch, dance to your favorite song, or try yoga. Exercise releases endorphins, which help reduce stress and boost mood.
+            </li>
+            <li><strong>Stay Connected:</strong><br>
+                Talk to someone you trust. Don’t bottle things up. Join support groups—online or offline—for shared experiences and comfort.
+            </li>
+            <li><strong>Sleep Hygiene:</strong><br>
+                Create a calming bedtime routine. Avoid screens an hour before sleep and try reading or listening to soft music.
+            </li>
+            <li><strong>Set Boundaries:</strong><br>
+                Say no without guilt. Your time and energy are precious. Limit exposure to negativity—whether it’s people, social media, or environments.
+            </li>
+            <li><strong>Nourish Your Body:</strong><br>
+                Eat balanced meals and stay hydrated. Foods rich in omega-3s, magnesium, and vitamin B can help reduce anxiety symptoms.
+            </li>
+        </ul>
 
-        <p>💡 <strong>Takeaway:</strong> Healing isn’t linear. Celebrate small wins and be gentle with yourself on hard days.</p>
-    </div>
+        <p>💡 <strong>Takeaway:</strong> Healing isn’t linear. Celebrate small wins and be gentle with yourself on hard days.</p>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 HEAR4U. All rights reserved.</p>
-        <div class="social-media">
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-    </footer>
+    <footer>
+        <p>&copy; 2025 HEAR4U. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
 </body>
 </html>
