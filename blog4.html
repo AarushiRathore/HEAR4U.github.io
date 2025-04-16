@@ -1,1 +1,257 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+    
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A brief description of the blog post.">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="hear4u" content="blogs, web development, coding">
 
+        <title>kinds of Human personalities</title>
+        <link rel="stylesheet" href="Blogs.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+    
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+                color: #0a1f2b;
+                font-family: 'Raleway', sans-serif;
+                min-height: 100vh;
+                overflow-x: hidden;
+            }
+    
+            html, body {
+                width: 100%;
+            }
+    
+            .logo img {
+                border-radius: 50%;
+                height: 100px;
+                width: 140px;
+                background-color: transparent;
+            }
+    
+            .navbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #005f73;
+                padding: 10px 20px;
+                position: fixed;
+                z-index: 1000;
+                width: 100%;
+                top: 0;
+                left: 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+    
+            .nav-links {
+                list-style: none;
+                display: flex;
+                align-items: center;
+            }
+    
+            .nav-links li {
+                margin: 0 15px;
+            }
+    
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 10px;
+                transition: 0.3s;
+            }
+    
+            .nav-links a:hover {
+                border-bottom: 2px solid white;
+            }
+    
+            .dropdown {
+                position: relative;
+            }
+    
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                background: white;
+                list-style: none;
+                padding: 10px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                min-width: 180px;
+                z-index: 999;
+            }
+    
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+    
+            .dropdown-menu a {
+                color: #005f73;
+                padding: 8px;
+                display: block;
+            }
+    
+            .dropdown-menu a:hover {
+                background: #e0f2f1;
+            }
+    
+            .blog-content {
+                max-width: 900px;
+                background-color: #ffffff;
+                margin: 120px auto 40px;
+                padding: 40px;
+                border-radius: 15px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+                background-repeat: repeat;
+            }
+    
+            .blog-content h1 {
+                font-size: 2.8em;
+                color: #243949;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+    
+            .blog-content h2 {
+                font-size: 1.6em;
+                color: #517fa4;
+                margin: 30px 0 15px;
+            }
+    
+            .blog-content p {
+                font-size: 1.1em;
+                margin-bottom: 20px;
+                color: #444;
+            }
+    
+            .blog-content img.blog-image {
+                display: block;
+                margin: 20px auto;
+                max-width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+    
+            .self-help-techniques {
+                list-style-type: disc;
+                margin-left: 30px;
+                margin-bottom: 30px;
+            }
+    
+            .self-help-techniques li {
+                margin-bottom: 20px;
+                font-weight: 500;
+                line-height: 1.6;
+            }
+    
+            footer {
+                text-align: center;
+                margin: 40px 0;
+                padding: 20px;
+                background: #005f73;
+                color: white;
+            }
+    
+            .social-media a {
+                margin: 0 10px;
+                color: white;
+                font-size: 1.2em;
+                transition: 0.3s;
+            }
+    
+            .social-media a:hover {
+                color: #b2dfdb;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li class="dropdown">
+                        <a href="explore-mental-health.html">Explore</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="personalitytest.html">Personality Test</a></li>
+                            <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+                            <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+                            <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+                            <li><a href="psychometric.html">Psychometric Test</a></li>
+                            <li><a href="ptsd.html">PTSD Test</a></li>
+                            <li><a href="anxiety-test.html">Anxiety Test</a></li>
+                            <li><a href="depression-test.html">Depression Test</a></li>
+                            <li><a href="ADHDtest.html">ADHD Test</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <div class="blog-content">
+            <h1>Understanding the Different Types of Human Personalities</h1>
+            <p>Human personalities are complex and multifaceted, shaped by a combination of genetic, environmental, and social factors. Understanding the different types of personalities can help us navigate our relationships and interactions with others more effectively.</p>
+            <img src="https://example.com/personality-types.jpg" alt="Types of Human Personalities" class="blog-image">
+            <h2>1. The Analytical Personality</h2>
+            <p>Analytical individuals are logical, detail-oriented, and methodical. They thrive on data and facts, often excelling in fields that require critical thinking and problem-solving skills.</p>
+            <h2>2. The Driver Personality</h2>
+            <p>Drivers are assertive, goal-oriented, and competitive. They are natural leaders who enjoy taking charge and making decisions quickly.</p>
+            <h2>3. The Amiable Personality</h2>
+            <p>Amiable personalities are friendly, empathetic, and cooperative. They value relationships and harmony in their interactions with others.</p>
+            <h2>4. The Expressive Personality</h2>
+            <p>Expressive individuals are outgoing, enthusiastic, and creative. They enjoy being the center of attention and often excel in social situations.</p>
+            <h2>5. The Supportive Personality</h2>
+            <p>Supportive personalities are nurturing, patient, and understanding. They are great listeners and often provide emotional support to those around them.</p>
+            <h2>Self-Help Techniques for Understanding Personalities</h2>
+            <p>Here are some self-help techniques to better understand and appreciate the different types of personalities:</p>
+            <ul>   
+                <li>Practice active listening to understand others' perspectives.</li>
+                <li>Engage in self-reflection to identify your own personality traits.</li>
+                <li>Read books or take courses on personality psychology.</li>
+                <li>Participate in group activities to observe different personality types in action.</li>
+                <li>Use personality assessments to gain insights into your own and others' personalities.</li>
+                <li>Practice empathy by putting yourself in others' shoes.</li>
+            </ul>
+            </div>
+            <footer>
+                <p>&copy; 2023 Hear4U. All rights reserved.</p>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/hear4u" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com/hear4u" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/hear4u" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/hear4u" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.dropdown').hover(function() {
+                    $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+                }, function() {
+                    $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+                });
+            });
+            //
+
+        </script>
+</html>
