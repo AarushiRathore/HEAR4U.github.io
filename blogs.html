@@ -39,33 +39,66 @@
     </header>
   
 
-<div class="container">
+<div class="blog-container">
     <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search blogs..." onkeyup="filterBlogs()">
     </div>
     
     <div class="blogs" id="blogContainer">
-        <div class="blog-card">
+        <div class="blog-post">
             <img src="blogawareness (2).png" alt="Blog 1">
             <h3>Mental Health Awareness</h3>
             <p>Understanding the importance of mental well-being.</p>
             <a href="blog1.html" class="read-more">Read More</a>
         </div>
 
-        <div class="blog-card">
+        <div class="blog-post">
             <img src="bloganxiety.png" alt="Blog 2">
             <h3>How to Deal with Anxiety</h3>
             <p>Practical tips to manage stress and anxiety effectively.</p>
             <a href="blog2.html" class="read-more">Read More</a>
         </div>
 
-        <div class="blog-card">
+        <div class="blog-post">
             <img src="blogselfcare.png" alt="Blog 3">
             <h3>Self-care Strategies</h3>
             <p>Simple habits to maintain mental health and well-being.</p>
             <a href="blog3.html" class="read-more">Read More</a>
         </div>
+<style>
+    // Add this script to your website's JavaScript file
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.querySelector('input[type="text"][placeholder="Search blogs..."]');
+    const blogPosts = document.querySelectorAll('.blog-post'); // Add 'blog-post' class to each post container
+    const blogContainer = document.querySelector('.blog-container'); // Container wrapping all posts
 
+    // Optional: Create a no-results message element (add once)
+    const noResults = document.createElement('div');
+    noResults.className = 'no-results-message';
+    noResults.textContent = 'No matching posts found.';
+    blogContainer.appendChild(noResults);
+    noResults.style.display = 'none';
 
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        let matchesFound = false;
+
+        blogPosts.forEach(post => {
+            const title = post.querySelector('h2').textContent.toLowerCase();
+            const description = post.querySelector('p').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                post.style.display = 'block';
+                matchesFound = true;
+            } else {
+                post.style.display = 'none';
+            }
+        });
+
+        // Toggle no-results message
+        noResults.style.display = matchesFound ? 'none' : 'block';
+    });
+});
+</style>
    </body>
 </html>
