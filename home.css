@@ -224,3 +224,103 @@ footer a {
 footer a :hover{
     color:white;
 }
+/* Media Queries for Responsiveness */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .container, .section {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .content, .section-content, 
+    .image, .section-image {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .image img, .section-image img {
+        width: 100%;
+    }
+
+    .faq-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-card {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    p, .section p, .section ul {
+        font-size: 1rem;
+    }
+
+    .logo img {
+        width: 100px;
+        height: 80px;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .faq-card {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 1.3rem;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
