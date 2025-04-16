@@ -193,14 +193,94 @@
   border-radius: 12px;
   margin-bottom: 15px;
 }
+/* ------------------ RESPONSIVE DESIGN ------------------ */
 
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        gap: 10px;
-      }
+@media (max-width: 1024px) {
+  .square-box {
+    padding: 30px;
+    margin: 20px;
+  }
 
-      .square-box {
-        padding: 20px;
-      }
-    }
+  .footer-card-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .footer-card img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    background-color: #005f73;
+    padding: 10px 0;
+  }
+
+  .nav-links li {
+    padding: 8px 20px;
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+
+  .square-box {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .footer-card-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-card img {
+    height: 140px;
+  }
+
+  .footer-cards h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 45px;
+  }
+
+  .square-box h1 {
+    font-size: 1.5rem;
+  }
+
+  .square-box p,
+  .square-box li {
+    font-size: 1rem;
+  }
+
+  .footer-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-card a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .footer-card img {
+    height: 120px;
+  }
+
+  .footer-note {
+    font-size: 0.8rem;
+  }
+}
