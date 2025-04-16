@@ -46,4 +46,16 @@
     <button class="getStartedbtn" ><a href="home.html">GET STARTED</a></button>
   </footer>
 </body>
+  <script>
+  function setVideoContainerHeight() {
+    const videoContainer = document.querySelector('.videoContainer');
+    videoContainer.style.height = window.innerHeight + 'px';
+  }
+
+  // Set height on initial load
+  setVideoContainerHeight();
+
+  // Set height on window resize (orientation change)
+  window.addEventListener('resize', setVideoContainerHeight);
+</script>
 </html>
