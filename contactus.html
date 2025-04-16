@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> HERE4U </title>
-<meta charset="UTF-8">
+    <title>HEAR4U</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylehome.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+<body>
 
-</head>
-    <body>
-    <header>
-           <nav class="navbar">
+<header>
+    <nav class="navbar">
         <div class="logo">
-            <img src="HEAR4U.png" alt="Hear4U Logo" height="50px" width="55px">
+            <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
         </div>
-                <ul class="nav-links">
+        <ul class="nav-links">
             <li><a href="home.html">Home</a></li>
-            <li><a href="aboutus.html">About</a></li>
+            <li><a href="About.html">About</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li class="dropdown">
-                <a href="explore mental health.html">Explore Tests ▾</a>
+                <a href="explore-mental-health.html">Explore</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Blogs4U.html">Blogs 4 U</a></li>
                     <li><a href="personalitytest.html">Personality Test</a></li>
                     <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
                     <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
@@ -35,66 +34,30 @@
                     <li><a href="ADHDtest.html">ADHD Test</a></li>
                 </ul>
             </li>
+            <li><a href="blogs.html">Blogs</a></li>
         </ul>
     </nav>
-    </header>
-<body>
-
-<header class="hero">
-        <div class="container">
+</header>
+    <div class="container">
+        <div class="contact-container">
             <h1>Contact Us</h1>
+            <p>If you need support, feel free to reach out. We are here to help.</p>
+            <form id="contactForm">
+                <form action="save.php" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
         </div>
-    </header>
+    </div>
+</body>
 
-    <main class="contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <div class="left-content">
-                    <h2>Let’s Start a Conversation</h2>
-                    <p>Ask how we can help you:</p>
-                    <ul>
-                        <li><strong>See our platform in action</strong>: Request a personalized demo.</li>
-                        <li><strong>Master performance marketing</strong>: Learn from expert resources and courses.</li>
-                    </ul>
-                </div>
-
-                <div class="right-content">
-                    <form id="contactForm" onsubmit="return handleFormSubmit(event)">
-                        <p><strong>Please note: all fields are required.</strong></p>
-                        <div class="form-group">
-                            <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script src="script.js">
-        function handleFormSubmit(event) {
-    event.preventDefault();
-
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    alert(`Thank you, ${firstName} ${lastName}! Your message has been received.`);
-    
-    document.getElementById('contactForm').reset();
-    return false;
-}
-        </script
-   
 </body>
 </html>
