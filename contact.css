@@ -193,4 +193,100 @@ body {
 
 .dropdown-menu a:hover {
     background: #e0f2f1;
+}u
+/* Additional Responsive Styles */
+@media (max-width: 1024px) {
+    .contact-container {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    .logo img {
+        height: 80px;
+        width: 120px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+        margin: 10px 0;
+    }
+
+    .nav-links a {
+        padding: 10px 15px;
+        width: 100%;
+        display: block;
+    }
 }
+
+@media (max-width: 768px) {
+    html, body {
+        overflow: auto;
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact-container {
+        width: 100%;
+        margin-top: 20px;
+        box-shadow: none;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    textarea {
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input, textarea {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .logo img {
+        height: 60px;
+        width: 100px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+}
+
