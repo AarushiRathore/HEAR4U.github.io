@@ -58,6 +58,35 @@
         </div>
     </div>
 </body>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
+<!-- Custom JS -->
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBihkMtv01iKT1odnfH_6ilImu_-MijICo",
+      authDomain: "contactus-beff5.firebaseapp.com",
+      projectId: "contactus-beff5",
+      storageBucket: "contactus-beff5.firebasestorage.app",
+      messagingSenderId: "977845064641",
+      appId: "1:977845064641:web:c0e0a6103cd382ac4ad540",
+      measurementId: "G-LBE45KWC90"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 </html>
