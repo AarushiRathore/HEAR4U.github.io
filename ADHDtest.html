@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ADHD Awareness Quiz</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
-  <style>
+ <style>
     * {
       box-sizing: border-box;
     }
@@ -258,4 +258,25 @@
         btn.disabled = true;
         if (btn.textContent === quizQuestions[currentQuestion].answers.find(a => a.correct).text) {
           btn.style.backgroundColor = '#28a745'; // green
+        } else {
+          btn.style.backgroundColor = '#dc3545'; // red
         }
+      });
+    }
+
+    function nextQuestion() {
+      currentQuestion++;
+      if (currentQuestion < quizQuestions.length) {
+        showQuestion();
+      } else {
+        document.getElementById('quiz').innerHTML = '<h2>🎉 You completed the quiz!</h2>';
+        document.getElementById('next').style.display = 'none';
+        document.getElementById('result').textContent = '';
+      }
+    }
+
+    // Initialize quiz
+    showQuestion();
+  </script>
+</body>
+</html>
