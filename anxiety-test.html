@@ -5,22 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anxiety Test</title>
-    <style>
+   <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f9;
+            background-image: url('anxietyy.jpg'); 
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent overlay */
+            backdrop-filter: blur(5px);
+            z-index: 0;
         }
         .container {
+            position: relative;
+            z-index: 1;
             max-width: 600px;
             margin: auto;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
             padding: 20px;
+            border-radius: 12px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h2 {
             text-align: center;
+            color: #4a90e2; /* Change heading color */
         }
         .question {
             margin-bottom: 20px;
@@ -29,11 +46,39 @@
             font-weight: bold;
             color: #333;
             text-align: center;
+            margin-top: 20px;
         }
         .note {
             font-size: 0.9em;
             color: #888;
             text-align: center;
+            margin-top: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: #357ab7;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 2rem;
+                padding: 1.5rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            button {
+                padding: 8px;
+            }
         }
     </style>
 </head>
