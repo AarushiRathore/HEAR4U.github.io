@@ -14,12 +14,18 @@
       height: 100%;
       margin: 0;
       font-family: 'Nunito', sans-serif;
-      background-image: url('adhd.jpg');
+      background-color:#C76B98;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
-      backdrop-filter:blur(5px);
+      backdrop-filter: blur(5px);
+      animation: fadeInBackground 0.8s ease-out;
+    }
+
+    @keyframes fadeInBackground {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .container {
@@ -32,20 +38,37 @@
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInForm 0.8s ease-out 0.3s forwards;
     }
-       @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+
+    @keyframes fadeInForm {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     h1 {
       color: #4a90e2;
       margin-bottom: 0.5rem;
+      animation: fadeIn 0.5s ease-out 0.5s both;
     }
 
     p {
       font-size: 1.1rem;
       color: #333;
+      animation: fadeIn 0.5s ease-out 0.7s both;
+    }
+
+    #quiz {
+      animation: fadeIn 0.5s ease-out 0.9s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .question {
@@ -71,6 +94,20 @@
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .answer-btn:nth-child(1) { animation: fadeInButton 0.4s ease-out 1.1s forwards; }
+    .answer-btn:nth-child(2) { animation: fadeInButton 0.4s ease-out 1.2s forwards; }
+    .answer-btn:nth-child(3) { animation: fadeInButton 0.4s ease-out 1.3s forwards; }
+    .answer-btn:nth-child(4) { animation: fadeInButton 0.4s ease-out 1.4s forwards; }
+
+    @keyframes fadeInButton {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .answer-btn:hover,
@@ -98,6 +135,13 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    #next.show {
+      display: inline-block;
+      opacity: 1;
     }
 
     #next:hover {
@@ -181,7 +225,7 @@
         question: "Can ADHD be managed with lifestyle changes? 🧘",
         answers: [
           { text: "Yes, it can help", correct: true },
-          { text: "No, lifestyle changes don’t help", correct: false }
+          { text: "No, lifestyle changes don't help", correct: false }
         ]
       },
       {
@@ -226,18 +270,22 @@
 
       resultContainer.textContent = '';
       nextButton.style.display = 'none';
+      nextButton.classList.remove('show');
 
       const q = quizQuestions[currentQuestion];
       questionElement.textContent = q.question;
       answersContainer.innerHTML = '';
 
-      q.answers.forEach((answer) => {
+      q.answers.forEach((answer, index) => {
         const button = document.createElement('button');
         button.textContent = answer.text;
         button.classList.add('answer-btn');
         button.setAttribute('tabindex', '0');
         button.onclick = () => selectAnswer(answer.correct, button);
         answersContainer.appendChild(button);
+        
+        // Apply staggered animation
+        button.style.animationDelay = `${0.1 * index}s`;
       });
     }
 
@@ -246,6 +294,7 @@
       const nextButton = document.getElementById('next');
       resultContainer.textContent = isCorrect ? "✅ Correct!" : "❌ Oops! Try the next one.";
       nextButton.style.display = 'inline-block';
+      nextButton.classList.add('show');
 
       const buttons = document.querySelectorAll('.answer-btn');
       buttons.forEach(btn => {
