@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HERE4U</title>
+  <title>HEAR4U</title>
    <link rel="stylesheet" href="stylehome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -12,16 +12,15 @@
   <header>
              <nav class="navbar">
         <div class="logo">
-            <img src="HEAR4U.png" alt="Hear4U Logo" height="50px" width="55px">
+            <img src="HEAR4ULOGO.png" alt="Hear4U Logo" height="50px" width="55px">
         </div>
                 <ul class="nav-links">
             <li><a href="home.html">Home</a></li>
-            <li><a href="aboutus.html">About</a></li>
+            <li><a href="About.html">About</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li class="dropdown">
-                <a href="explore mental health.html">Explore Tests ▾</a>
+                <a href="explore-mental-health.html">Explore</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Blogs4U.html">Blogs 4 U</a></li>
                     <li><a href="personalitytest.html">Personality Test</a></li>
                     <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
                     <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
@@ -33,17 +32,30 @@
                     <li><a href="ADHDtest.html">ADHD Test</a></li>
                 </ul>
             </li>
+           <li><a href="blogs.html">Blogs</a></li> 
         </ul>
     </nav>
-  </header>
-  <div class="hero">
-    <div class="content">
-      <h1><b>Supporting your mental health journey</b></h1>
-      <p><b>Hear4U is a supportive online community and resource hub dedicated to mental health and wellness. Our platform provides access to licensed therapists, support groups, educational resources and a safe space to connect with others who understand what you're going through.</b></p>
-       <a href="home.html">
-        <button><b>Get Started!</b></button>
-    </a>
-    </div>
+  </header> 
+  <div class="videoContainer">
+      <video autoplay muted loop id="bg-video">
+      <source src="bgvideoo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
+  <footer>
+    <button class="getStartedbtn" ><a href="home.html">GET STARTED</a></button>
+  </footer>
 </body>
+  <script>
+  function setVideoContainerHeight() {
+    const videoContainer = document.querySelector('.videoContainer');
+    videoContainer.style.height = window.innerHeight + 'px';
+  }
+
+  // Set height on initial load
+  setVideoContainerHeight();
+
+  // Set height on window resize (orientation change)
+  window.addEventListener('resize', setVideoContainerHeight);
+</script>
 </html>

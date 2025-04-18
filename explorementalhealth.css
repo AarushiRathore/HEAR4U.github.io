@@ -1,0 +1,352 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #e0f7fa, #f1fdfd);
+      color: #003f4f;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background-color: #005f73;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #66c5d1;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .dropdown-menu a {
+      color: #005f73;
+      display: block;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #e0f2f1;
+    }
+
+    .hero-section video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .square-box {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+
+    .square-box h1 {
+      color: #005f73;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .square-box span,
+    .square-box p,
+    .square-box li {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .square-box ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .square-box blockquote {
+      font-style: italic;
+      color: #007f91;
+      margin: 20px 0;
+      padding-left: 20px;
+      border-left: 4px solid #007f91;
+    }
+     .footer-cards {
+    background-color: #005f73;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.footer-cards h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.footer-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-card {
+    background: #D8F3DC;
+    color: #003f4f;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.footer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.footer-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #004e60;
+}
+
+.footer-card p {
+    font-size: 1em;
+    color: #333;
+    flex-grow: 1;
+}
+
+.footer-card a {
+    text-decoration: none;
+    text-align: center;
+    background: #005f73;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    margin-top: 15px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.footer-card a:hover {
+    background: #023E52;
+}
+
+.footer-note {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #cfdedf;
+}
+.footer-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+/* ------------------ RESPONSIVE DESIGN ------------------ */
+
+@media (max-width: 1024px) {
+  .square-box {
+    padding: 30px;
+    margin: 20px;
+  }
+
+  .footer-card-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .footer-card img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    background-color: #005f73;
+    padding: 10px 0;
+  }
+
+  .nav-links li {
+    padding: 8px 20px;
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+
+  .square-box {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .footer-card-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-card img {
+    height: 140px;
+  }
+
+  .footer-cards h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 45px;
+  }
+
+  .square-box h1 {
+    font-size: 1.5rem;
+  }
+
+  .square-box p,
+  .square-box li {
+    font-size: 1rem;
+  }
+
+  .footer-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-card a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .footer-card img {
+    height: 120px;
+  }
+
+  .footer-note {
+    font-size: 0.8rem;
+  }
+}
+
+/* Basic styles for the hamburger menu */
+  .hamburger {
+    display: none; /* Hide by default on larger screens */
+    cursor: pointer;
+    padding: 15px;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Style for the navigation links when the hamburger is active */
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #f8f8f8; /* Or any desired background */
+    position: absolute;
+    top: 60px; /* Adjust based on your header height */
+    left: 0;
+    z-index: 10; /* Ensure it's above other content */
+  }
+
+  .nav-links.active li {
+    margin: 15px 0;
+  }
+
+  .dropdown-menu.active {
+    display: block;
+    position: static; /* Adjust for proper stacking in the vertical menu */
+    background-color: #eee; /* Or any desired background */
+    box-shadow: none;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .dropdown.active > a {
+    padding-bottom: 0; /* Adjust spacing if needed */
+  }
+
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .navbar {
+      position: relative; /* To position the hamburger button correctly */
+    }
+    .nav-links {
+      display: none; /* Hide navigation links on smaller screens */
+    }
+    .hamburger {
+      display: block; /* Show hamburger button on smaller screens */
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+    .logo {
+      padding-left: 15px; /* Adjust logo padding on smaller screens */
+    }
+  }
+

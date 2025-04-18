@@ -1,95 +1,235 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<title> HEAR4U </title>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylehome.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mental Health Awareness</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" media="screen" href="Blogs.css">
+    <script src="blog.js"></script>
 </head>
-    <body>
-    <header>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="HEAR4U.png" alt="Hear4U Logo" height="50px" width="55px">
-        </div>
-        <ul class="nav-links">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="aboutus.html">About</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li class="dropdown">
-                <a href="explore mental health.html">Explore Tests ▾</a>
-                <ul class="dropdown-menu">
-                    <li><a href="Blogs4U.html">Blogs 4 U</a></li>
-                    <li><a href="personalitytest.html">Personality Test</a></li>
-                    <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
-                    <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
-                    <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
-                    <li><a href="psychometric.html">Psychometric Test</a></li>
-                    <li><a href="ptsd.html">PTSD Test</a></li>
-                    <li><a href="anxiety-test.html">Anxiety Test</a></li>
-                    <li><a href="depression-test.html">Depression Test</a></li>
-                    <li><a href="ADHDtest.html">ADHD Test</a></li>
-                </ul>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+        color: #0a1f2b;
+        font-family: 'Raleway', sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    html, body {
+        width: 100%;
+    }
+
+    .logo img {
+        border-radius: 50%;
+        height: 100px;
+        width: 140px;
+        background-color: transparent;
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #005f73;
+        padding: 10px 20px;
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        top: 0;
+        left: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 0 15px;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        border-bottom: 2px solid white;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background: white;
+        list-style: none;
+        padding: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        min-width: 180px;
+        z-index: 999;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        color: #005f73;
+        padding: 8px;
+        display: block;
+    }
+
+    .dropdown-menu a:hover {
+        background: #e0f2f1;
+    }
+
+    .blog-content {
+        max-width: 900px;
+        background-color: #ffffff;
+        margin: 120px auto 40px;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+        background-repeat: repeat;
+    }
+
+    .blog-content h1 {
+        font-size: 2.8em;
+        color: #243949;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .blog-content h2 {
+        font-size: 1.6em;
+        color: #517fa4;
+        margin: 30px 0 15px;
+    }
+
+    .blog-content p {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        color: #444;
+    }
+
+    .blog-content img.blog-image {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .symptoms-list {
+        list-style-type:disc;
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+
+    .symptoms-list li {
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li class="dropdown">
+                    <a href="explore-mental-health.html">Explore</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personalitytest.html">Personality Test</a></li>
+                        <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+                        <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+                        <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+                        <li><a href="psychometric.html">Psychometric Test</a></li>
+                        <li><a href="ptsd.html">PTSD Test</a></li>
+                        <li><a href="anxiety-test.html">Anxiety Test</a></li>
+                        <li><a href="depression-test.html">Depression Test</a></li>
+                        <li><a href="ADHDtest.html">ADHD Test</a></li>
+                    </ul>
+                </li>
+                <li><a href="blogs.html">Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="blog-content">
+        <h1>Atrocious Anxiety</h1>
+
+        <img src="anxietyy.jpg" alt="Anxiety Illustration" class="blog-image" />
+
+        <h2>Understanding Anxiety:</h2>
+        <p>
+            <strong>When Worry Becomes Overwhelming:</strong><br>
+            Feeling nervous before an exam or a big event is normal. But when worry becomes persistent and uncontrollable, it could be a sign of anxiety.
+        </p>
+
+        <p>
+            <strong>What Is Anxiety?</strong><br>
+            Anxiety is the body’s natural response to stress. It’s a feeling of fear or apprehension about what’s to come. But for many, anxiety doesn't need a trigger—it just is. It can linger in the background or strike unexpectedly.
+        </p>
+
+        <h2>Common Types of Anxiety:</h2>
+        <ul class="anxiety-list">
+            <li><strong>Generalized Anxiety Disorder (GAD):</strong><br>
+                Chronic worry and tension, often without a specific cause.
+            </li>
+            <li><strong>Panic Disorder:</strong><br>
+                Sudden episodes of intense fear, often accompanied by physical symptoms.
+            </li>
+            <li><strong>Social Anxiety Disorder:</strong><br>
+                Fear of being judged or embarrassed in social settings.
+            </li>
+            <li><strong>Specific Phobias:</strong><br>
+                Irrational fears about specific things like heights, flying, or animals.
             </li>
         </ul>
-    </nav>
 
-    </header>
-<body>
+        <p><strong>Emotional Symptoms:</strong></p>
+        <ul class="symptoms-list">
+            <li>Feeling overwhelmed or hopeless</li>
+            <li>Difficulty concentrating</li>
+            <li>Restlessness or irritability</li>
+            <li>Fear of losing control</li>
+            <li>Feeling detached from reality</li>
+        </ul>
 
-        <div class= 'subheading'><b> Welcome to Hear4U </b></div>
-        <div class=" square-box">
-            <h2> Golden Years Blue </h2>
-            <p> 
-                **The Significance of Mental Health in Later Years**
+        <p>
+            Anxiety doesn’t make you weak—it makes you human. And like any challenge, it can be understood and managed with the right tools.
+        </p>
 
-Mental health is essential and equally as vital as physical health, particularly for those in their later years. As we age, we often encounter major life transitions—retirement, the loss of loved ones, health issues, and fewer social connections. Such changes can foster feelings of loneliness, anxiety, and depression, which makes safeguarding mental well-being crucial for a healthy aging experience.
-
-**Why Mental Health is Essential in Later Life**
-
-**Preventing Depression and Anxiety**  
-Many seniors encounter depression and anxiety stemming from isolation, chronic ailments, or significant life transitions. By prioritizing mental health through emotional support, therapy, and community engagement, we can help prevent and alleviate these distressing experiences.
-
-**Enhancing Cognitive Abilities**  
-Maintaining good mental health is vital for preserving cognitive functions and lowering the risk of dementia and memory-related issues. Engaging in activities like reading, solving puzzles, or socializing can keep the brain active and alert.
-
-**Improving Quality of Life**  
-Older adults who maintain their mental health tend to lead more satisfying and independent lives. Well-being in this aspect allows them to pursue hobbies, nurture relationships, and continue making valuable contributions to their communities.
-
-**Fostering Stronger Social Bonds**  
-Loneliness and social isolation are prevalent among seniors, often taking a toll on their mental health. Encouraging social connections—whether through family gatherings, community involvement, or support networks—helps cultivate a sense of belonging and joy.
-
-**Benefits to Physical Health**  
-Mental health and physical health are interconnected. Conditions such as stress, anxiety, and depression can weaken the immune system and heighten the risk of chronic diseases. A sound mind promotes better sleep, appetite, and overall health.
-
-**Strategies for Enhancing Mental Well-Being in Older Adults**
-
-- **Encourage Social Engagement:** Participating in community events, clubs, or staying in touch with friends and family can substantially improve emotional health.
-  
-- **Promote Physical Activity:** Regular exercise—like walking, yoga, or light stretching—releases endorphins that uplift mood and diminish stress.
-
-- **Provide Emotional Support:** Open conversations about feelings and seeking counseling or therapy when necessary can aid older adults in navigating life’s challenges.
-
-- **Ensure Proper Nutrition and Rest:** A balanced diet and sufficient sleep are crucial for maintaining both mental and physical health.
-
-- **Engage in Mental Stimulation:** Activities such as reading, writing, playing games, or learning new skills keep the mind vibrant and help mitigate cognitive decline.
-
-**In Summary**  
-Mental health is a fundamental aspect of overall well-being, particularly as we age. By fostering emotional support, social connections, and healthy living, we can empower our elderly population to lead happier, healthier, and more rewarding lives. Valuing the mental well-being of our seniors not only enriches their lives but also nurtures a more compassionate and supportive community for all generations.
-
-           </p>
-        <div class="blog-preview">
-            <h3>  Hear4U: Mind Over Matter! </h3>
-            <p> 
-Mental health is the foundation of our overall well-being, influencing our emotions, thoughts, and actions. It impacts how we cope with stress, interact with others, and make decisions, making it essential at every life stage. </p>
-            <a href="blog1.html" class="read-more">Read More →</a>
-        </div>
-
+        <p>
+            <strong>Takeaway:</strong> Your anxiety is valid. Understanding it is the first step toward healing.
+        </p>
+    </div>
 </body>
 </html>

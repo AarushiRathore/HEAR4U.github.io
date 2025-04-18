@@ -9,6 +9,13 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f0f8ff;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            background-color:#9fa392;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .container {
             max-width: 600px;
@@ -48,6 +55,10 @@
             font-size: 1.2rem;
             margin-top: 2rem;
             color: #333;
+            animation: fadeIn 0.5s ease-in;
+        }
+        #next {
+            animation: fadeIn 0.5s ease-in;
         }
     </style>
 </head>
@@ -93,7 +104,69 @@
                 { text: "Only found in adults", correct: false }
             ]
         },
-        // ... Add more questions up to 10 ...
+        {
+            question: "Which of these is NOT a common treatment for bipolar disorder? 💊",
+            answers: [
+                { text: "Mood stabilizers", correct: false },
+                { text: "Psychotherapy", correct: false },
+                { text: "Antibiotics", correct: true },
+                { text: "Lifestyle changes", correct: false }
+            ]
+        },
+        {
+            question: "What is a manic episode typically characterized by? 🚀",
+            answers: [
+                { text: "Extreme sadness", correct: false },
+                { text: "High energy and euphoria", correct: true },
+                { text: "Complete lack of emotion", correct: false },
+                { text: "Social withdrawal", correct: false }
+            ]
+        },
+        {
+            question: "Bipolar disorder can be effectively managed with: 🛡️",
+            answers: [
+                { text: "Proper treatment and support", correct: true },
+                { text: "Willpower alone", correct: false },
+                { text: "Ignoring the symptoms", correct: false },
+                { text: "Only medication", correct: false }
+            ]
+        },
+        {
+            question: "Which famous painter is believed to have had bipolar disorder? 🎨",
+            answers: [
+                { text: "Pablo Picasso", correct: false },
+                { text: "Vincent van Gogh", correct: true },
+                { text: "Leonardo da Vinci", correct: false },
+                { text: "Salvador Dalí", correct: false }
+            ]
+        },
+        {
+            question: "What percentage of people with bipolar disorder may attempt suicide? 😢",
+            answers: [
+                { text: "5-10%", correct: false },
+                { text: "25-50%", correct: true },
+                { text: "Less than 1%", correct: false },
+                { text: "Over 75%", correct: false }
+            ]
+        },
+        {
+            question: "Bipolar disorder typically first appears in: 🧒",
+            answers: [
+                { text: "Early childhood", correct: false },
+                { text: "Late teens or early adulthood", correct: true },
+                { text: "Middle age", correct: false },
+                { text: "Senior years", correct: false }
+            ]
+        },
+        {
+            question: "How can you support someone with bipolar disorder? ❤️",
+            answers: [
+                { text: "Be patient and understanding", correct: false },
+                { text: "Educate yourself about the condition", correct: false },
+                { text: "Encourage them to stick with treatment", correct: false },
+                { text: "All of the above", correct: true }
+            ]
+        }
     ];
 
     let currentQuestionIndex = 0;

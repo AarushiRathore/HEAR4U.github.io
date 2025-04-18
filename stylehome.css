@@ -3,24 +3,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background:linear-gradient(90deg,#005f73,#94d2bd);
-    transition: background infinite ease-in;
+   
 }
 /* Navigation Bar */
-.navbar {
+.logo img {
+    border-radius:50%;
+    height:84px;
+    width: 120px;
+    background-color:transparent;
+}
+.navbar{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #005f73;
+    background-color: transparent;
     padding: 10px 20px;
+    position:fixed;
+    z-index:1000;
 }
-
-.logo img {
-    border-radius:50%;
-    height:100px;
-    width: 140px
-}
-
 .nav-links {
     list-style: none;
     padding: 0;
@@ -77,24 +77,58 @@ body {
 .dropdown-menu a:hover {
     background: #e0f2f1;
 }
-button{
-    padding: 20px;
-    background-color: #94d2bd;
-}
-button:hover{
-    background-color:#005f73;
-}
-
-
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(to right, #005f73, #0a9396);
-    color: white;
-    text-align: center;
-    padding: 50px;
-    animation: float-in 1s ease-in-out;
+/*video background*/
+.videoContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Prevents scroll issues */
+    z-index: -1;
 }
 
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*footer styling*/
+   footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      background-color: transparent; /* Transparent background */
+      z-index: 10; /* Footer stays above the video */
+    }
+
+    /* Button Styling */
+    .getStartedbtn {
+      background-color:#A6D9F7; /* Blue background */
+      color:#000000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+
+    .getStartedbtn:hover {
+      background-color:#8cbed6;/* lighter blue on hover */
+    }
+button a{
+    text-decoration:none;
+    color:black;
+}
 /* Floating Animation */
 @keyframes float-in {
     from {
@@ -109,8 +143,14 @@ button:hover{
 
 /* Content Section */
 .content {
+     position: relative; /* Ensure content is above the video */
+    z-index: 10; /* Higher than video */
     text-align: center;
     padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    color: #005f73; /* Ensure text is visible */
+    margin: 20px;
+    border-radius: 10px;
 }
 
 .square-box {
@@ -139,3 +179,92 @@ button:hover{
 .read-more:hover {
     text-decoration: underline;
 }
+/* --- Responsive Styles --- */
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .nav-links a {
+    width: 100%;
+    display: block;
+    padding: 12px;
+    text-align: left;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background-color: #fff;
+  }
+
+  .videoContainer {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .getStartedbtn {
+    width: 90%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .content, .square-box, .blog-preview {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+
+  .logo img {
+    height: 60px;
+    width: 80px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 30px;
+  }
+
+  .nav-links li {
+    margin: 0 10px;
+  }
+
+  .getStartedbtn {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+
+  .logo img {
+    height: 70px;
+    width: 100px;
+  }
+
+  .content, .square-box, .blog-preview {
+    margin: 15px;
+    padding: 20px;
+  }
+}
+

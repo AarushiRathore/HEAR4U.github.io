@@ -1,118 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEAR4U</title>
-    <link rel="stylesheet" href="stylehome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Mental Health Awareness</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='blog.js'></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+            color: #0a1f2b;
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        html, body {
+            width: 100%;
+        }
+        .logo img {
+            border-radius: 50%;
+            height: 100px;
+            width: 140px;
+            background-color: transparent;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #005f73;
+            padding: 10px 20px;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            border-bottom: 2px solid white;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            list-style: none;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 180px;
+            z-index: 999;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu a {
+            color: #005f73;
+            padding: 8px;
+            display: block;
+        }
+        .dropdown-menu a:hover {
+            background: #e0f2f1;
+        }
+
+        /* New Graphics Section */
+        .graphics-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 120px 20px 50px; /* top padding adjusted for navbar */
+            background-color: #f1f8f9;
+        }
+
+        .graphic-card {
+            width: 280px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            margin-top:25px;
+        }
+
+        .graphic-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .graphic-card p {
+            padding: 15px;
+            font-weight: 600;
+            color: #37474F;
+        }
+
+        .graphic-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Blog Content */
+        .blog-content {
+            max-width: 900px;
+            background-color: #ffffff;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            background-repeat: repeat;
+        }
+
+        .blog-content h1 {
+            font-size: 2.8em;
+            color: #243949;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .blog-content h2 {
+            font-size: 1.6em;
+            color: #517fa4;
+            margin: 30px 0 15px;
+        }
+
+        .blog-content p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .symptoms-list {
+            list-style-type: disc;
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .symptoms-list li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="HEAR4U.png" alt="Hear4U Logo" height="50px" width="55px">
-        </div>
-        <ul class="nav-links">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="aboutus.html">About</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li class="dropdown">
-                <a href="explore mental health.html">Explore Tests ▾</a>
-                <ul class="dropdown-menu">
-                    <li><a href="Blogs4U.html">Blogs 4 U</a></li>
-                    <li><a href="personalitytest.html">Personality Test</a></li>
-                    <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
-                    <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
-                    <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
-                    <li><a href="psychometric.html">Psychometric Test</a></li>
-                    <li><a href="ptsd.html">PTSD Test</a></li>
-                    <li><a href="anxiety-test.html">Anxiety Test</a></li>
-                    <li><a href="depression-test.html">Depression Test</a></li>
-                    <li><a href="ADHDtest.html">ADHD Test</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero-section">
-        <div class="header-content">
-            <h1>Hear4U: Mind Over Matter!</h1>
-            <p>Your mental health matters. Explore our tests and resources to take charge of your well-being.</p>
-        </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li class="dropdown">
+                    <a href="explore-mental-health.html">Explore</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personalitytest.html">Personality Test</a></li>
+                        <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+                        <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+                        <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+                        <li><a href="psychometric.html">Psychometric Test</a></li>
+                        <li><a href="ptsd.html">PTSD Test</a></li>
+                        <li><a href="anxiety-test.html">Anxiety Test</a></li>
+                        <li><a href="depression-test.html">Depression Test</a></li>
+                        <li><a href="ADHDtest.html">ADHD Test</a></li>
+                    </ul>
+                </li>
+                <li><a href="blogs.html">Blogs</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Content Section -->
-    <section class="content">
-        <div class="square-box">
-            <h1>The Impact of Mental Health on Students: A Focus on Indian Studentsm</h1>
-<div class="content">
-The Growing Concern of Student Mental Health in India
-
-Mental health is a crucial aspect of a student’s well-being, affecting their academic performance, social interactions, and overall quality of life. In India, where academic pressure is immense, the mental health of students often goes unnoticed. According to a report by the National Crime Records Bureau (NCRB), over 13,000 students die by suicide every year due to academic stress, financial issues, and societal expectations. This alarming statistic highlights the urgent need for awareness and intervention.
-
-Key Mental Health Challenges Faced by Indian Students
-
-Academic Pressure & Examination Stress – India’s education system is highly competitive, with students facing immense pressure to excel in board exams, entrance tests, and university admissions. Studies show that over 63% of Indian students report experiencing extreme academic stress.
-
-Parental & Societal Expectations – Many students are burdened with the expectation to pursue traditionally “prestigious” careers like engineering or medicine, even if it does not align with their interests. This pressure often leads to anxiety and depression.
-
-Lack of Mental Health Awareness – In many Indian households, mental health is still a taboo topic. A 2018 study by the World Health Organization (WHO) found that only 7.3% of Indians openly discuss mental health concerns.
-
-Bullying & Peer Pressure – School and college environments can be sources of stress due to bullying, discrimination, and peer pressure. Studies indicate that more than 50% of Indian students have faced bullying at some stage.
-
-Financial Constraints – Many students from underprivileged backgrounds struggle with financial stress, which affects their ability to focus on studies and leads to feelings of hopelessness.
-
-Social Media & Digital Overload – Constant exposure to social media leads to comparison, cyberbullying, and unrealistic standards, negatively impacting self-esteem and mental health.
-
-Effects of Poor Mental Health on Students
-
-📌 Decline in Academic Performance – Anxiety and depression reduce concentration levels, leading to poor grades and lack of motivation.
-📌 Increased Risk of Dropouts – A 2019 survey by the National Sample Survey Office (NSSO) revealed that around 8% of students in India drop out due to mental health concerns.
-📌 Physical Health Issues – Chronic stress leads to headaches, insomnia, weakened immunity, and increased susceptibility to lifestyle diseases.
-📌 Social Withdrawal – Students facing mental health issues often isolate themselves, leading to loneliness and lower self-confidence.
-📌 Higher Suicide Rates – As per NCRB data, one student dies by suicide every hour in India, mostly due to academic stress and mental health struggles.
-
-Solutions & Coping Strategies for Indian Students
-
-✅ Encouraging Open Conversations – Schools, colleges, and parents must create safe spaces where students feel comfortable discussing their emotions without fear of judgment. 
-
-✅  Access to Counseling & Therapy – Schools and universities must have trained counselors to provide professional help. Studies show that students with access to counseling services perform 30% better academically. 
-
-✅ Mental Health Awareness Campaigns – Governments, NGOs, and educational institutions must spread awareness about mental health through workshops and seminars. 
-
-✅ Incorporating Mindfulness & Stress Management Techniques – Yoga, meditation, and mindfulness practices have been found to reduce stress and improve focus in students. The Government of India’s Fit India Movement encourages mental and physical well-being among students. 
-
-✅ Reducing Social Media Dependency – Limiting screen time, promoting real-life interactions, and spreading awareness about the harmful effects of excessive social media use can improve students' mental well-being. 
-
-✅ Helplines & Emergency Support – Establishing toll-free mental health helplines helps students reach out for support in crisis situations.
-
-Breaking the Stigma in India
-
-Despite the rising mental health crisis, there is still stigma attached to seeking help in India. Many students fear being labeled as "weak" or "incapable" if they admit to struggling with mental health. However, the conversation is slowly changing, with celebrities, influencers, and organizations advocating for mental well-being.
-
-The Indian government has also taken steps, such as launching the Manodarpan initiative under the Atmanirbhar Bharat Abhiyan, which provides mental health support for students. Yet, more efforts are needed to integrate mental health education into school curriculums and normalize seeking therapy.
-
-Final Thoughts
-
-Mental health significantly impacts a student’s academic success, personal growth, and overall happiness. While Indian students face unique challenges due to academic pressure, societal expectations, and financial struggles, solutions exist to improve their well-being. By fostering a culture of awareness, support, and accessibility to mental health resources, we can ensure a healthier future for India’s students.
-
-If you are a student struggling with mental health, remember: You are not alone, and seeking help is a sign of strength. Your mental well-being matters.
-           </div>
+    <!-- Graphics Section Instead of Hero Image -->
+    <section class="graphics-gallery">
+        <div class="graphic-card">
+            <img src="blogawareness (2).png" alt="Meditation">
+            <p>Mindfulness & Meditation</p>
         </div>
-
-        <!-- Blog Preview -->
-        <div class="blog-preview">
-            <h3>Read More About Mental Health</h3>
-            <p>Discover insightful articles and expert advice on mental well-being.</p>
-            <a href="Blog2.html" class="read-more">Read More →</a>
+        <div class="graphic-card">
+            <img src="talkingtherapy.jpg" alt="Therapy Session">
+            <p>Therapy & Talking Helps</p>
+        </div>
+        <div class="graphic-card">
+            <img src="blogselfcare.png" alt="Self-Care">
+            <p>Daily Self-Care Rituals</p>
         </div>
     </section>
 
+    <div class="blog-content">
+        <h1>Mental Health Awareness</h1>
+        <p>Mental health awareness is crucial in today's fast-paced world. It helps in recognizing the signs of mental health issues and encourages individuals to seek help. Understanding mental health can lead to better coping strategies, reduced stigma, and improved overall well-being.</p>
+
+        <div class="intro">
+            <h2>Why is Mental Health Crucial?</h2>
+            <p>
+                <strong>Stigma Reduction:</strong> Open conversations help eliminate shame and judgment around mental illness.<br>
+                <strong>Early Intervention:</strong> Awareness allows individuals to recognize signs and seek help before symptoms escalate.<br>
+                <strong>Stronger Communities:</strong> A society that prioritizes mental well-being fosters empathy, inclusivity, and resilience.
+            </p>
+            <h2>Signs You Might Be Struggling</h2>
+            <ul class="symptoms-list">
+                <li>Feeling persistently sad or withdrawn for more than two weeks</li>
+                <li>Intense fear, worry, or severe mood swings</li>
+                <li>Avoiding social situations or activities you once enjoyed</li>
+                <li>Drastic changes in eating or sleeping habits</li>
+                <li>Difficulty concentrating or functioning at work/school</li>
+            </ul>
+
+            <h2>Symptoms of Deteriorating Mental Health:</h2>
+            <p>
+                Mental health issues don’t always look dramatic or extreme. Sometimes, they show up in subtle ways—like feeling exhausted all the time or losing interest in things you once loved. Recognizing these signs early on can make all the difference.
+                <br><br>
+                💡 <strong>Takeaway:</strong> Let’s normalize checking in with ourselves and others. Mental wellness is a daily practice, not a destination.
+            </p>
+
+            <h2>Understanding Anxiety</h2>
+            <p>
+                Feeling nervous before an exam or a big event is normal. But when worry becomes persistent and uncontrollable, it could be a sign of anxiety.
+            </p>
+        </div>
+    </div>
 </body>
 </html>

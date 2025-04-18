@@ -1,219 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADHD Awareness Quiz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7fa;
-            color: #333;
-            text-align: center;
-            padding: 2rem;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 2rem;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #4a90e2;
-        }
-        .question {
-            font-size: 1.4rem;
-            margin: 1.5rem 0;
-        }
-        .answers {
-            display: flex;
-            flex-direction: column;
-        }
-        .answer-btn {
-            background-color: #4a90e2;
-            color: #fff;
-            border: none;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
-        .answer-btn:hover {
-            background-color: #357ab7;
-        }
-        .result {
-            font-size: 1.2rem;
-            margin-top: 2rem;
-            color: #555;
-        }
-        #next {
-            display: none;
-            margin-top: 1rem;
-            padding: 0.7rem 1.5rem;
-            font-size: 1rem;
-            background-color: #4a90e2;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ADHD Awareness Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
+ <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background-color:#C76B98;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      backdrop-filter: blur(5px);
+      animation: fadeInBackground 0.8s ease-out;
+    }
+
+    @keyframes fadeInBackground {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 5% auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInForm 0.8s ease-out 0.3s forwards;
+    }
+
+    @keyframes fadeInForm {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #4a90e2;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 0.5s ease-out 0.5s both;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #333;
+      animation: fadeIn 0.5s ease-out 0.7s both;
+    }
+
+    #quiz {
+      animation: fadeIn 0.5s ease-out 0.9s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .question {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem;
+      color: #333;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+
+    .answer-btn {
+      background-color: #4a90e2;
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .answer-btn:nth-child(1) { animation: fadeInButton 0.4s ease-out 1.1s forwards; }
+    .answer-btn:nth-child(2) { animation: fadeInButton 0.4s ease-out 1.2s forwards; }
+    .answer-btn:nth-child(3) { animation: fadeInButton 0.4s ease-out 1.3s forwards; }
+    .answer-btn:nth-child(4) { animation: fadeInButton 0.4s ease-out 1.4s forwards; }
+
+    @keyframes fadeInButton {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .answer-btn:hover,
+    .answer-btn:focus {
+      background-color: #357ab7;
+      transform: scale(1.02);
+      outline: none;
+    }
+
+    .result {
+      font-size: 1.2rem;
+      color: #444;
+      margin-top: 2rem;
+      min-height: 40px;
+    }
+
+    #next {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      background-color: #4a90e2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    #next.show {
+      display: inline-block;
+      opacity: 1;
+    }
+
+    #next:hover {
+      background-color: #2f65a6;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 2rem;
+        padding: 1.5rem;
+      }
+
+      .question {
+        font-size: 1.2rem;
+      }
+
+      .answer-btn {
+        padding: 0.75rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
+  <div class="container">
     <h1>ADHD Awareness Quiz 🧠✨</h1>
     <p>Test your knowledge and learn more about ADHD in a fun way!</p>
     <div id="quiz">
-        <div id="question" class="question">Question text here</div>
-        <div id="answers" class="answers"></div>
+      <div id="question" class="question">Loading...</div>
+      <div id="answers" class="answers" role="group" aria-labelledby="question"></div>
     </div>
     <div id="result" class="result"></div>
     <button id="next" onclick="nextQuestion()">Next Question</button>
-</div>
+  </div>
 
-<script>
+  <script>
     const quizQuestions = [
-        {
-            question: "What does ADHD stand for? 🤔",
-            answers: [
-                { text: "Attention Deficit Hyperactivity Disorder", correct: true },
-                { text: "Active Distraction Hyper Disorder", correct: false },
-                { text: "Attention Delay Hyperactivity Disorder", correct: false },
-                { text: "Attention and Distress Hyperactive Disorder", correct: false }
-            ]
-        },
-        {
-            question: "Which of these is a common symptom of ADHD? 💨",
-            answers: [
-                { text: "Daydreaming", correct: true },
-                { text: "Excessive sleepiness", correct: false },
-                { text: "Preferring quiet activities", correct: false },
-                { text: "Lack of appetite", correct: false }
-            ]
-        },
-        {
-            question: "Is ADHD more common in children or adults? 👶👨",
-            answers: [
-                { text: "Children", correct: true },
-                { text: "Adults", correct: false }
-            ]
-        },
-        {
-            question: "What is a hyperfocus in ADHD? 🔍",
-            answers: [
-                { text: "A period of intense concentration", correct: true },
-                { text: "A type of sleep disorder", correct: false },
-                { text: "A state of constant movement", correct: false },
-                { text: "Feeling bored easily", correct: false }
-            ]
-        },
-        {
-            question: "People with ADHD may struggle with: 🕰️",
-            answers: [
-                { text: "Time management", correct: true },
-                { text: "Enjoying loud sounds", correct: false },
-                { text: "Sleeping less than usual", correct: false },
-                { text: "Remembering names", correct: false }
-            ]
-        },
-        {
-            question: "Can ADHD be managed with lifestyle changes? 🧘",
-            answers: [
-                { text: "Yes, it can help", correct: true },
-                { text: "No, lifestyle changes don’t help", correct: false }
-            ]
-        },
-        {
-            question: "ADHD is only about being hyperactive. True or False? ❌",
-            answers: [
-                { text: "True", correct: false },
-                { text: "False", correct: true }
-            ]
-        },
-        {
-            question: "How does ADHD affect emotions? 😊😡",
-            answers: [
-                { text: "Causes mood swings", correct: true },
-                { text: "Reduces emotional response", correct: false },
-                { text: "Makes people serious", correct: false },
-                { text: "No effect", correct: false }
-            ]
-        },
-        {
-            question: "Does ADHD affect organization skills? 📂",
-            answers: [
-                { text: "Yes, it can", correct: true },
-                { text: "No, it does not", correct: false }
-            ]
-        },
-        {
-            question: "Can ADHD symptoms vary from person to person? 🌈",
-            answers: [
-                { text: "Yes, everyone is unique", correct: true },
-                { text: "No, symptoms are the same for everyone", correct: false }
-            ]
-        }
+      {
+        question: "What does ADHD stand for? 🤔",
+        answers: [
+          { text: "Attention Deficit Hyperactivity Disorder", correct: true },
+          { text: "Active Distraction Hyper Disorder", correct: false },
+          { text: "Attention Delay Hyperactivity Disorder", correct: false },
+          { text: "Attention and Distress Hyperactive Disorder", correct: false }
+        ]
+      },
+      {
+        question: "Which of these is a common symptom of ADHD? 💨",
+        answers: [
+          { text: "Daydreaming", correct: true },
+          { text: "Excessive sleepiness", correct: false },
+          { text: "Preferring quiet activities", correct: false },
+          { text: "Lack of appetite", correct: false }
+        ]
+      },
+      {
+        question: "Is ADHD more common in children or adults? 👶👨",
+        answers: [
+          { text: "Children", correct: true },
+          { text: "Adults", correct: false }
+        ]
+      },
+      {
+        question: "What is a hyperfocus in ADHD? 🔍",
+        answers: [
+          { text: "A period of intense concentration", correct: true },
+          { text: "A type of sleep disorder", correct: false },
+          { text: "A state of constant movement", correct: false },
+          { text: "Feeling bored easily", correct: false }
+        ]
+      },
+      {
+        question: "People with ADHD may struggle with: 🕰️",
+        answers: [
+          { text: "Time management", correct: true },
+          { text: "Enjoying loud sounds", correct: false },
+          { text: "Sleeping less than usual", correct: false },
+          { text: "Remembering names", correct: false }
+        ]
+      },
+      {
+        question: "Can ADHD be managed with lifestyle changes? 🧘",
+        answers: [
+          { text: "Yes, it can help", correct: true },
+          { text: "No, lifestyle changes don't help", correct: false }
+        ]
+      },
+      {
+        question: "ADHD is only about being hyperactive. True or False? ❌",
+        answers: [
+          { text: "True", correct: false },
+          { text: "False", correct: true }
+        ]
+      },
+      {
+        question: "How does ADHD affect emotions? 😊😡",
+        answers: [
+          { text: "Causes mood swings", correct: true },
+          { text: "Reduces emotional response", correct: false },
+          { text: "Makes people serious", correct: false },
+          { text: "No effect", correct: false }
+        ]
+      },
+      {
+        question: "Does ADHD affect organization skills? 📂",
+        answers: [
+          { text: "Yes, it can", correct: true },
+          { text: "No, it does not", correct: false }
+        ]
+      },
+      {
+        question: "Can ADHD symptoms vary from person to person? 🌈",
+        answers: [
+          { text: "Yes, everyone is unique", correct: true },
+          { text: "No, symptoms are the same for everyone", correct: false }
+        ]
+      }
     ];
 
-    let currentQuestionIndex = 0;
-    let score = 0;
+    let currentQuestion = 0;
 
     function showQuestion() {
-        const questionElement = document.getElementById("question");
-        const answersElement = document.getElementById("answers");
-        const nextButton = document.getElementById("next");
+      const questionElement = document.getElementById('question');
+      const answersContainer = document.getElementById('answers');
+      const resultContainer = document.getElementById('result');
+      const nextButton = document.getElementById('next');
 
-        nextButton.style.display = "none";
-        answersElement.innerHTML = "";
+      resultContainer.textContent = '';
+      nextButton.style.display = 'none';
+      nextButton.classList.remove('show');
 
-        const currentQuestion = quizQuestions[currentQuestionIndex];
-        questionElement.textContent = currentQuestion.question;
+      const q = quizQuestions[currentQuestion];
+      questionElement.textContent = q.question;
+      answersContainer.innerHTML = '';
 
-        currentQuestion.answers.forEach(answer => {
-            const button = document.createElement("button");
-            button.textContent = answer.text;
-            button.classList.add("answer-btn");
-            button.onclick = () => selectAnswer(answer);
-            answersElement.appendChild(button);
-        });
+      q.answers.forEach((answer, index) => {
+        const button = document.createElement('button');
+        button.textContent = answer.text;
+        button.classList.add('answer-btn');
+        button.setAttribute('tabindex', '0');
+        button.onclick = () => selectAnswer(answer.correct, button);
+        answersContainer.appendChild(button);
+        
+        // Apply staggered animation
+        button.style.animationDelay = `${0.1 * index}s`;
+      });
     }
 
-    function selectAnswer(answer) {
-        const nextButton = document.getElementById("next");
-        if (answer.correct) {
-            score++;
-            document.getElementById("result").textContent = "Correct! 🎉";
+    function selectAnswer(isCorrect, clickedButton) {
+      const resultContainer = document.getElementById('result');
+      const nextButton = document.getElementById('next');
+      resultContainer.textContent = isCorrect ? "✅ Correct!" : "❌ Oops! Try the next one.";
+      nextButton.style.display = 'inline-block';
+      nextButton.classList.add('show');
+
+      const buttons = document.querySelectorAll('.answer-btn');
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent === quizQuestions[currentQuestion].answers.find(a => a.correct).text) {
+          btn.style.backgroundColor = '#28a745'; // green
         } else {
-            document.getElementById("result").textContent = "Oops, that's not right. 😅";
+          btn.style.backgroundColor = '#dc3545'; // red
         }
-        document.getElementById("result").style.display = "block";
-        nextButton.style.display = "block";
+      });
     }
 
     function nextQuestion() {
-        document.getElementById("result").style.display = "none";
-        currentQuestionIndex++;
-        if (currentQuestionIndex < quizQuestions.length) {
-            showQuestion();
-        } else {
-            showResult();
-        }
+      currentQuestion++;
+      if (currentQuestion < quizQuestions.length) {
+        showQuestion();
+      } else {
+        document.getElementById('quiz').innerHTML = '<h2>🎉 You completed the quiz!</h2>';
+        document.getElementById('next').style.display = 'none';
+        document.getElementById('result').textContent = '';
+      }
     }
 
-    function showResult() {
-        document.getElementById("quiz").style.display = "none";
-        document.getElementById("result").textContent = `You scored ${score} out of ${quizQuestions.length}. Thanks for taking the quiz!`;
-        document.getElementById("result").style.display = "block";
-    }
-
-    // Initialize the quiz
+    // Initialize quiz
     showQuestion();
-</script>
-
+  </script>
 </body>
 </html>
