@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personality Test</title>
     <style>
-        body {
+  body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url('personalitytest.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
             color: #333;
             margin: 0;
             padding: 0;
@@ -16,27 +18,35 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            backdrop-filter: blur(5px); /* Optional: adds a blur effect to the background */
         }
         .container {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             max-width: 500px;
             width: 100%;
+            border-radius: 8px; /* Rounded corners */
         }
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: #007BFF; /* Change heading color */
         }
         .question {
             margin-bottom: 20px;
         }
         .question p {
             margin-bottom: 10px;
+            font-weight: bold; /* Make question text bold */
         }
         .question label {
             display: block;
             margin-bottom: 5px;
+            cursor: pointer; /* Change cursor to pointer */
+        }
+        input[type="radio"] {
+            margin-right: 10px; /* Space between radio button and label */
         }
         button {
             display: block;
@@ -47,6 +57,8 @@
             border: none;
             cursor: pointer;
             font-size: 16px;
+            border-radius: 5px; /* Rounded corners for button */
+            transition: background-color 0.3s; /* Smooth transition */
         }
         button:hover {
             background-color: #0056b3;
@@ -55,8 +67,9 @@
             margin-top: 20px;
             padding: 20px;
             background: #e9ecef;
+            border-radius: 5px; /* Rounded corners for result box */
         }
-    </style>
+        </style>
 </head>
 <body>
 
