@@ -9,44 +9,146 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #e8f4f8;
+            background-color:#d6a780;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         .container {
             max-width: 600px;
             margin: auto;
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+            animation-delay: 0.3s;
         }
+        
+        @keyframes slideUpFadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         h2 {
             text-align: center;
             color: #333;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-in forwards;
+            animation-delay: 0.5s;
         }
+        
         .question {
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: fadeInSlideRight 0.5s ease-out forwards;
         }
+        
+        @keyframes fadeInSlideRight {
+            from { 
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Stagger question animations */
+        .question:nth-child(1) { animation-delay: 0.7s; }
+        .question:nth-child(2) { animation-delay: 0.8s; }
+        .question:nth-child(3) { animation-delay: 0.9s; }
+        .question:nth-child(4) { animation-delay: 1.0s; }
+        .question:nth-child(5) { animation-delay: 1.1s; }
+        .question:nth-child(6) { animation-delay: 1.2s; }
+        
+        label {
+            display: block;
+            margin: 8px 0;
+            transition: color 0.3s;
+        }
+        
+        label:hover {
+            color: #007BFF;
+        }
+        
+        input[type="radio"] {
+            margin-right: 8px;
+            transform: scale(1.1);
+            transition: transform 0.2s;
+        }
+        
+        input[type="radio"]:hover {
+            transform: scale(1.2);
+        }
+        
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-in forwards;
+            animation-delay: 1.4s;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
         .result {
             font-weight: bold;
             color: #333;
             text-align: center;
             margin-top: 20px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.8s ease-in, max-height 0.8s ease-in;
         }
+        
+        .result.show {
+            opacity: 1;
+            max-height: 200px;
+        }
+        
         .note {
             font-size: 0.9em;
             color: #888;
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-in forwards;
+            animation-delay: 1.6s;
         }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .question {
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
@@ -131,9 +233,13 @@
                 resultText = 'You may have very high PTSD symptoms.';
             }
 
-            document.getElementById('result').textContent = `Your total score is: ${score}. ${resultText}`;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<p>Your total score is: <strong>${score}</strong></p><p>${resultText}</p>`;
+            resultDiv.classList.add('show');
+            
+            // Smooth scroll to results
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
-
 </body>
 </html>
