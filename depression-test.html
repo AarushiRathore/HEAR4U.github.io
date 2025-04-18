@@ -3,117 +3,546 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Depression Test</title>
+    <title>Depression Self-Assessment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
+            font-family: 'Nunito', sans-serif;
+            background-image: url('Depression.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+            min-height: 100vh;
+            position: relative;
         }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h1 {
             text-align: center;
-            color: #333;
+            color: #2f65a6;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
         }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
         .question {
-            margin: 20px 0;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
+
+        .question:hover {
+            background: #f0f7ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
         .question p {
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2f65a6;
+            font-size: 1.1rem;
         }
-        .options label {
-            margin-right: 10px;
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .option:hover {
+            background: #e6f0ff;
+            border-color: #4a90e2;
+        }
+
+        .option input {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4a90e2 0%, #2f65a6 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
         .result {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
         }
+
         .result h2 {
-            color: #005f73;
+            color: #2f65a6;
+            margin-bottom: 15px;
         }
+
         .result p {
-            font-size: 1.2em;
-            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .severity {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .minimal {
+            background-color: #e6f7e6;
+            color: #2e7d32;
+        }
+
+        .mild {
+            background-color: #fff8e1;
+            color: #ff8f00;
+        }
+
+        .moderate {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .moderately-severe {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .severe {
+            background-color: #fce4ec;
+            color: #ad1457;
+        }
+
+        .resources {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f0f7ff;
+            border-radius: 8px;
+        }
+
+        .resources h3 {
+            color: #2f65a6;
+            margin-bottom: 10px;
+        }
+
+        .resources ul {
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .resources li {
+            margin-bottom: 8px;
+        }
+
+        .resources a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .resources a:hover {
+            color: #2f65a6;
+            text-decoration: underline;
+        }
+
+        .restart-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .restart-btn:hover {
+            background: #2f65a6;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .question {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .question p {
+                font-size: 1rem;
+            }
+
+            .option {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Depression Self-Assessment Test</h1>
+        <h1>Depression Self-Assessment</h1>
+        <div class="intro">
+            <p>This questionnaire is based on common depression screening tools. Please answer honestly about how you've been feeling over the past two weeks. Remember, this is not a diagnosis but can help identify symptoms you may want to discuss with a healthcare provider.</p>
+        </div>
+        
         <form id="depressionTest">
             <div class="question">
                 <p>1. Over the last two weeks, how often have you felt little interest or pleasure in doing things?</p>
                 <div class="options">
-                    <label><input type="radio" name="q1" value="0"> Not at all</label>
-                    <label><input type="radio" name="q1" value="1"> Several days</label>
-                    <label><input type="radio" name="q1" value="2"> More than half the days</label>
-                    <label><input type="radio" name="q1" value="3"> Nearly every day</label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="3"> Nearly every day
+                    </label>
                 </div>
             </div>
-            <!-- Repeat the question block for each question (q2, q3, etc.) -->
+
             <div class="question">
                 <p>2. Over the last two weeks, how often have you felt down, depressed, or hopeless?</p>
                 <div class="options">
-                    <label><input type="radio" name="q2" value="0"> Not at all</label>
-                    <label><input type="radio" name="q2" value="1"> Several days</label>
-                    <label><input type="radio" name="q2" value="2"> More than half the days</label>
-                    <label><input type="radio" name="q2" value="3"> Nearly every day</label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="3"> Nearly every day
+                    </label>
                 </div>
             </div>
-            <!-- Add more questions as needed following the same structure -->
+
             <div class="question">
                 <p>3. Over the last two weeks, how often have you had trouble falling or staying asleep, or sleeping too much?</p>
                 <div class="options">
-                    <label><input type="radio" name="q3" value="0"> Not at all</label>
-                    <label><input type="radio" name="q3" value="1"> Several days</label>
-                    <label><input type="radio" name="q3" value="2"> More than half the days</label>
-                    <label><input type="radio" name="q3" value="3"> Nearly every day</label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="3"> Nearly every day
+                    </label>
                 </div>
             </div>
-            <!-- Add more questions as needed following the same structure -->
-            <button type="button" onclick="calculateScore()">Submit</button>
+
+            <div class="question">
+                <p>4. Over the last two weeks, how often have you felt tired or had little energy?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="3"> Nearly every day
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. Over the last two weeks, how often have you had poor appetite or overeaten?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="3"> Nearly every day
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>6. Over the last two weeks, how often have you felt bad about yourself - or that you're a failure or have let yourself or your family down?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q6" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="3"> Nearly every day
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>7. Over the last two weeks, how often have you had trouble concentrating on things, such as reading the newspaper or watching television?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q7" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="3"> Nearly every day
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>8. Over the last two weeks, how often have you moved or spoken so slowly that other people could have noticed? Or been so fidgety or restless that you have been moving around a lot more than usual?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q8" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="3"> Nearly every day
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>9. Over the last two weeks, how often have you had thoughts that you would be better off dead or of hurting yourself in some way?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q9" value="0"> Not at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="1"> Several days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="2"> More than half the days
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="3"> Nearly every day
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="calculateScore()">Get My Results</button>
         </form>
-        <div class="result" id="result"></div>
+        
+        <div class="result" id="result">
+            <!-- Results will be displayed here -->
+        </div>
     </div>
 
     <script>
         function calculateScore() {
             const form = document.getElementById('depressionTest');
             let score = 0;
-            const totalQuestions = 3; // Update this count if you add more questions
+            const totalQuestions = 9;
+            let allAnswered = true;
 
+            // Check if all questions are answered
             for (let i = 1; i <= totalQuestions; i++) {
-                const question = form[`q${i}`];
-                const selectedValue = question.value;
-
-                if (selectedValue) {
-                    score += parseInt(selectedValue);
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!selectedOption) {
+                    allAnswered = false;
+                    break;
                 }
             }
 
-            const resultDiv = document.getElementById('result');
-            let resultText = '';
-
-            if (score <= 4) {
-                resultText = "Minimal depression";
-            } else if (score <= 9) {
-                resultText = "Mild depression";
-            } else if (score <= 14) {
-                resultText = "Moderate depression";
-            } else if (score <= 19) {
-                resultText = "Moderately severe depression";
-            } else {
-                resultText = "Severe depression";
+            if (!allAnswered) {
+                alert("Please answer all questions before submitting.");
+                return;
             }
 
-            resultDiv.innerHTML = `<h2>Your Score: ${score}</h2><p>${resultText}</p><p>Please consult with a healthcare provider for a full assessment.</p>`;
+            // Calculate score
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                score += parseInt(selectedOption.value);
+            }
+
+            // Display results
+            const resultDiv = document.getElementById('result');
+            let severity = '';
+            let severityClass = '';
+            let description = '';
+            let recommendation = '';
+
+            if (score <= 4) {
+                severity = 'Minimal depression';
+                severityClass = 'minimal';
+                description = 'Your responses suggest you are experiencing minimal symptoms of depression.';
+                recommendation = 'Continue to monitor your mood and practice self-care.';
+            } else if (score <= 9) {
+                severity = 'Mild depression';
+                severityClass = 'mild';
+                description = 'Your responses suggest you may be experiencing mild symptoms of depression.';
+                recommendation = 'Consider talking to someone about how you\'re feeling. Mild symptoms can sometimes progress, so it\'s good to be aware.';
+            } else if (score <= 14) {
+                severity = 'Moderate depression';
+                severityClass = 'moderate';
+                description = 'Your responses suggest you may be experiencing moderate symptoms of depression.';
+                recommendation = 'This level of depression may be impacting your daily life. Consider reaching out to a healthcare provider or mental health professional.';
+            } else if (score <= 19) {
+                severity = 'Moderately severe depression';
+                severityClass = 'moderately-severe';
+                description = 'Your responses suggest you may be experiencing moderately severe symptoms of depression.';
+                recommendation = 'This level of depression is likely impacting multiple areas of your life. Professional help is recommended.';
+            } else {
+                severity = 'Severe depression';
+                severityClass = 'severe';
+                description = 'Your responses suggest you may be experiencing severe symptoms of depression.';
+                recommendation = 'Please seek professional help as soon as possible. Depression at this level can be very challenging to manage alone.';
+            }
+
+            resultDiv.innerHTML = `
+                <h2>Your Score: ${score}</h2>
+                <div class="severity ${severityClass}">${severity}</div>
+                <p>${description}</p>
+                <p>${recommendation}</p>
+                <p><strong>Important:</strong> This is not a diagnosis. Only a qualified healthcare provider can diagnose depression.</p>
+                
+                <div class="resources">
+                    <h3>Resources & Support</h3>
+                    <ul>
+                        <li>If you're in crisis, please call your local emergency number or a crisis hotline</li>
+                        <li>National Suicide Prevention Lifeline (US): <a href="tel:988">988</a></li>
+                        <li>Crisis Text Line (US): Text HOME to <a href="sms:741741">741741</a></li>
+                        <li>Find a therapist: <a href="https://www.psychologytoday.com" target="_blank">Psychology Today Therapist Finder</a></li>
+                    </ul>
+                </div>
+                
+                <button class="restart-btn" onclick="window.location.reload()">Take Test Again</button>
+            `;
+
+            resultDiv.style.display = 'block';
+            window.scrollTo({
+                top: resultDiv.offsetTop - 20,
+                behavior: 'smooth'
+            });
         }
     </script>
 </body>
