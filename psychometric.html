@@ -4,68 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psychometric Test</title>
-   
     <style>
     /* Basic styling for the psychometric test */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.container {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-}
-
-.question {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 1em;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-.results {
-    margin-top: 20px;
-    padding: 10px;
-    background: #e9ecef;
-    border: 1px solid #ced4da;
-}
-</style>
-
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #6798b0;
+        color: #333;
+        opacity: 0;
+        animation: fadeIn 0.8s ease-in forwards;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    .container {
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        animation: slideUp 0.8s ease-out;
+    }
+    
+    @keyframes slideUp {
+        from { 
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to { 
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    .question {
+        margin-bottom: 15px;
+        opacity: 0;
+        animation: fadeInQuestion 0.5s ease-in forwards;
+    }
+    
+    @keyframes fadeInQuestion {
+        from { opacity: 0; transform: translateX(-10px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    
+    /* Stagger the question animations */
+    .question:nth-child(1) { animation-delay: 0.3s; }
+    .question:nth-child(2) { animation-delay: 0.4s; }
+    .question:nth-child(3) { animation-delay: 0.5s; }
+    .question:nth-child(4) { animation-delay: 0.6s; }
+    .question:nth-child(5) { animation-delay: 0.7s; }
+    .question:nth-child(6) { animation-delay: 0.8s; }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        font-size: 1em;
+        transition: border-color 0.3s;
+    }
+    
+    input[type="number"]:focus {
+        border-color: #28a745;
+        outline: none;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        opacity: 0;
+        animation: fadeIn 0.5s ease-in forwards;
+        animation-delay: 1s;
+    }
+    
+    button:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
+    
+    .results {
+        margin-top: 20px;
+        padding: 10px;
+        background: #e9ecef;
+        border: 1px solid #ced4da;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.8s ease-in, max-height 0.8s ease-in;
+    }
+    
+    .results.show {
+        opacity: 1;
+        max-height: 1000px;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .container {
+            width: 90%;
+        }
+    }
+    </style>
 </head>
 
 <body>
-    
     <div class="container">
         <h1>Psychometric Test</h1>
         <p>Please rate each statement from 1 to 5 (1 = Strongly Disagree, 5 = Strongly Agree)</p>
@@ -108,46 +166,45 @@ button:hover {
     </div>
     <script>
         // Function to calculate scores based on the user's input
-function calculateScores() {
-    const form = document.getElementById('testForm');
-    const resultsDiv = document.getElementById('results');
-    let scores = {
-        openness: 0,
-        problem_solving: 0,
-        extraversion: 0,
-        learning_ability: 0,
-        introversion: 0,
-        emotional_stability: 0
-    };
+        function calculateScores() {
+            const form = document.getElementById('testForm');
+            const resultsDiv = document.getElementById('results');
+            let scores = {
+                openness: 0,
+                problem_solving: 0,
+                extraversion: 0,
+                learning_ability: 0,
+                introversion: 0,
+                emotional_stability: 0
+            };
 
-    // Calculate scores by summing the input values for each trait
-    for (let input of form.elements) {
-        if (input.type === 'number' && input.value) {
-            scores[input.name] += parseInt(input.value);
+            // Calculate scores by summing the input values for each trait
+            for (let input of form.elements) {
+                if (input.type === 'number' && input.value) {
+                    scores[input.name] += parseInt(input.value);
+                }
+            }
+
+            // Display results
+            let resultsHTML = "<h2>Your Results:</h2>";
+            for (let trait in scores) {
+                resultsHTML += `<p><strong>${trait.replace('_', ' ').toUpperCase()}</strong>: ${scores[trait]}</p>`;
+            }
+
+            // Basic interpretation based on scores
+            resultsHTML += "<h3>Interpretation:</h3>";
+            if (scores.openness > 3 * 5) resultsHTML += "<p>You have high openness and enjoy new experiences.</p>";
+            if (scores.problem_solving > 3 * 5) resultsHTML += "<p>You have strong problem-solving ability.</p>";
+            if (scores.extraversion > 3 * 5) resultsHTML += "<p>You are likely outgoing and enjoy social settings.</p>";
+            if (scores.introversion > 3 * 5) resultsHTML += "<p>You are comfortable working independently.</p>";
+            if (scores.emotional_stability > 3 * 5) resultsHTML += "<p>You are able to manage stress well.</p>";
+
+            resultsDiv.innerHTML = resultsHTML;
+            resultsDiv.classList.add('show');
+            
+            // Smooth scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
         }
-    }
-
-    // Display results
-    let resultsHTML = "<h2>Your Results:</h2>";
-    for (let trait in scores) {
-        resultsHTML += `<p><strong>${trait.replace('_', ' ').toUpperCase()}</strong>: ${scores[trait]}</p>`;
-    }
-
-    // Basic interpretation based on scores
-    resultsHTML += "<h3>Interpretation:</h3>";
-    if (scores.openness > 3 * 5) resultsHTML += "<p>You have high openness and enjoy new experiences.</p>";
-    if (scores.problem_solving > 3 * 5) resultsHTML += "<p>You have strong problem-solving ability.</p>";
-    if (scores.extraversion > 3 * 5) resultsHTML += "<p>You are likely outgoing and enjoy social settings.</p>";
-    if (scores.introversion > 3 * 5) resultsHTML += "<p>You are comfortable working independently.</p>";
-    if (scores.emotional_stability > 3 * 5) resultsHTML += "<p>You are able to manage stress well.</p>";
-
-    resultsDiv.innerHTML = resultsHTML;
-}
-
     </script>
-
-
-
 </body>
-
 </html>
