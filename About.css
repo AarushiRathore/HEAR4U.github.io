@@ -1,168 +1,104 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HEAR4U - About</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="HEAR4ULOGO.png" alt="Hear4U Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li class="dropdown">
+          <a href="explore-mental-health.html">Explore</a>
+          <ul class="dropdown-menu">
+            <li><a href="personalitytest.html">Personality Test</a></li>
+            <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
+            <li><a href="schizophrenia.html">Schizophrenia Fun Quiz</a></li>
+            <li><a href="bipolartest.html">Bipolar Disorder Test</a></li>
+            <li><a href="psychometric.html">Psychometric Test</a></li>
+            <li><a href="ptsd.html">PTSD Test</a></li>
+            <li><a href="anxiety-test.html">Anxiety Test</a></li>
+            <li><a href="depression-test.html">Depression Test</a></li>
+            <li><a href="ADHDtest.html">ADHD Test</a></li>
+          </ul>
+        </li>
+        <li><a href="blogs.html">Blogs</a></li>
+      </ul>
+    </nav>
+  </header>
 
-body {
-    background: #f5eed7;
-    color: #0a1f2b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-top: 80px; /* Prevents content from hiding behind fixed navbar */
-}
+  <section class="about-container fade-in-up">
+    <h1>About Us</h1>
+    <p class="subtext">Here4U is a non-profit organization committed to everyone's mental health and well-being.</p>
+    <p>In our journey, we aim to drive change towards a mentally healthy nation and support families, individuals, and communities to live mentally healthier lives — with a particular focus on those at greatest risk.</p>
+    <a href="contactus.html" class="cta-button">Get in Touch</a>
+  </section>
 
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
+  <section class="about-section fade-in-up">
+    <h2>Our Mission</h2>
+    <p>To provide accessible, inclusive, and stigma-free mental health resources, support, and education to individuals from all walks of life.</p>
+    
+    <h2>Our Vision</h2>
+    <p>A world where mental well-being is a universal priority, and no one struggles in silence.</p>
+  </section>
 
-/* Navbar */
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #005f73;
-    padding: 10px 20px;
-    position: fixed;
-    z-index: 1000;
-    width: 100%;
-    top: 0;
-    left: 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+  <section class="about-section fade-in-up">
+    <h2>What We Offer</h2>
+    <ul class="about-list">
+      <li><i class="fas fa-check-circle"></i> Free self-assessments and mental health screening tools</li>
+      <li><i class="fas fa-check-circle"></i> Articles, blogs, and expert resources</li>
+      <li><i class="fas fa-check-circle"></i> Community support & discussion forums (coming soon!)</li>
+      <li><i class="fas fa-check-circle"></i> Referrals to professional help and crisis lines</li>
+    </ul>
+  </section>
 
-.logo img {
-    border-radius: 50%;
-    height: 80px;
-    width: auto;
-    background-color: transparent;
-}
+  <section class="about-section fade-in-up">
+    <h2>Meet Our Team</h2>
+    <p>We're a passionate team of mental health advocates, tech professionals, and community builders who believe in making support more accessible than ever.</p>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member" />
+        <h4></h4>
+        <p></p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member" />
+        <h4></h4>
+        <p></p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member" />
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+  </section>
 
-.nav-links {
-    list-style: none;
-    display: flex;
-}
+  <section class="about-section fade-in-up">
+    <h2>Why Choose HEAR4U?</h2>
+    <ul class="about-list">
+      <li><i class="fas fa-heart"></i> Compassionate, people-first approach</li>
+      <li><i class="fas fa-globe"></i> Globally accessible resources</li>
+      <li><i class="fas fa-lock"></i> 100% confidential & private</li>
+      <li><i class="fas fa-bolt"></i> Fast, free, and easy to use</li>
+    </ul>
+  </section>
 
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    border-bottom: 2px solid white;
-}
-
-/* Dropdown Menu */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background: white;
-    list-style: none;
-    padding: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    min-width: 180px;
-    z-index: 999;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li {
-    margin: 5px 0;
-}
-
-.dropdown-menu a {
-    color: #005f73;
-    padding: 8px;
-    display: block;
-    transition: 0.3s;
-}
-
-.dropdown-menu a:hover {
-    background: #e0f2f1;
-}
-
-/* About Section */
-.about-container {
-    max-width: 900px;
-    margin: 50px auto;
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Heading */
-.about-container h1 {
-    font-size: 2.5rem;
-    color: #2c6975;
-    margin-bottom: 15px;
-}
-
-/* Subtitle */
-.about-container p.subtext {
-    font-size: 1.2rem;
-    color: #5a5a5a;
-    margin-bottom: 30px;
-}
-
-/* Paragraphs */
-.about-container p {
-    font-size: 1.1rem;
-    color: #444;
-    text-align: justify;
-}
-
-/* Call-to-Action Button */
-.about-container .cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 1rem;
-    background: #2c6975;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: 0.3s ease-in-out;
-}
-
-.about-container .cta-button:hover {
-    background: #1b4d5a;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-container {
-        padding: 25px;
-    }
-
-    .about-container h1 {
-        font-size: 2rem;
-    }
-
-    .about-container p {
-        font-size: 1rem;
-    }
-}
+  <section class="about-container fade-in-up">
+    <h2>Ready to Start Your Journey?</h2>
+    <p>Take the first step toward understanding and improving your mental health.</p>
+    <a href="explore-mental-health.html" class="cta-button">Explore Now</a>
+  </section>
+</body>
+</html>
