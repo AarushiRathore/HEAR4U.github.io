@@ -16,6 +16,9 @@
         h1 {
             color: #4CAF50;
             margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 0.2s;
         }
         .quiz-container {
             width: 100%;
@@ -25,6 +28,10 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 0.4s;
         }
         .question {
             font-size: 1.2em;
@@ -40,13 +47,15 @@
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
         .answers label:hover {
             background: #B0E0E6;
+            transform: translateX(5px);
         }
         .hidden {
             display: none;
+            opacity: 0;
         }
         .button {
             margin-top: 20px;
@@ -56,15 +65,58 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .button:hover {
             background-color: #45a049;
+            transform: scale(1.05);
         }
         #result {
             font-size: 1.5em;
             color: #FF6347;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: translateY(10px);
         }
+        #result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Question containers fade in sequentially */
+        .question-container {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+        
+        /* Add delays for each question */
+        .question-container:nth-child(1) { animation-delay: 0.6s; }
+        .question-container:nth-child(2) { animation-delay: 0.8s; }
+        .question-container:nth-child(3) { animation-delay: 1.0s; }
+        .question-container:nth-child(4) { animation-delay: 1.2s; }
+        .question-container:nth-child(5) { animation-delay: 1.4s; }
+        .question-container:nth-child(6) { animation-delay: 1.6s; }
+        .question-container:nth-child(7) { animation-delay: 1.8s; }
+        .question-container:nth-child(8) { animation-delay: 2.0s; }
+        .question-container:nth-child(9) { animation-delay: 2.2s; }
+        .question-container:nth-child(10) { animation-delay: 2.4s; }
     </style>
 </head>
 <body>
@@ -84,7 +136,7 @@
         <div class="question">2. Do you often feel someone is watching you?</div>
         <div class="answers">
             <label><input type="radio" name="q2" value="1"> Yes, it's my imaginary pet ghost.</label>
-            <label><input type="radio" name="q2" value="0"> Nah, I don’t have that kind of energy.</label>
+            <label><input type="radio" name="q2" value="0"> Nah, I don't have that kind of energy.</label>
         </div>
     </div>
 
@@ -129,7 +181,7 @@
     </div>
 
     <div class="question-container">
-        <div class="question">8. Do you sometimes feel like you’re in a movie?</div>
+        <div class="question">8. Do you sometimes feel like you're in a movie?</div>
         <div class="answers">
             <label><input type="radio" name="q8" value="1"> Yes, and I'm the star!</label>
             <label><input type="radio" name="q8" value="0"> Only when I'm watching one.</label>
@@ -147,7 +199,7 @@
     <div class="question-container">
         <div class="question">10. Do you often daydream?</div>
         <div class="answers">
-            <label><input type="radio" name="q10" value="1"> Yes, I’m practically on another planet!</label>
+            <label><input type="radio" name="q10" value="1"> Yes, I'm practically on another planet!</label>
             <label><input type="radio" name="q10" value="0"> No, I live in the moment!</label>
         </div>
     </div>
@@ -167,6 +219,7 @@
 
         const resultContainer = document.getElementById('result');
         resultContainer.classList.remove('hidden');
+        resultContainer.classList.add('show');
 
         if (score >= 7) {
             resultContainer.textContent = "You have a wild imagination! Embrace your quirks!";
