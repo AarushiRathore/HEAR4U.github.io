@@ -179,98 +179,123 @@ button a{
 .read-more:hover {
     text-decoration: underline;
 }
-/* --- Responsive Styles --- */
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
 
-/* Small devices (phones) */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
 
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-    width: 100%;
-  }
-
-  .nav-links a {
-    width: 100%;
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .hamburger {
     display: block;
-    padding: 12px;
-    text-align: left;
+    position: absolute;
+    top: 25px;
+    right: 20px;
   }
-
+  
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    gap: 0;
+    flex-direction: column;
+    background-color: rgba(0, 95, 115, 0.95);
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: 0.3s;
+    padding-top: 100px;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    left: 0;
+  }
+  
+  .nav-links li {
+    margin: 15px 0;
+  }
+  
   .dropdown-menu {
     position: static;
-    box-shadow: none;
-    background-color: #fff;
+    display: none;
+    width: 80%;
+    margin: 10px auto;
+    background-color: rgba(255, 255, 255, 0.9);
   }
-
-  .videoContainer {
-    height: 100vh;
-    width: 100vw;
+  
+  .dropdown:hover .dropdown-menu {
+    display: none;
   }
-
-  .getStartedbtn {
-    width: 90%;
-    font-size: 14px;
-    padding: 10px;
+  
+  .dropdown.active .dropdown-menu {
+    display: block;
   }
-
-  .content, .square-box, .blog-preview {
-    margin: 10px;
-    padding: 15px;
-  }
-
-  footer {
-    padding: 10px;
-  }
-
+  
   .logo img {
     height: 60px;
     width: 80px;
   }
-}
-
-/* Medium devices (tablets) */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px 30px;
-  }
-
-  .nav-links li {
-    margin: 0 10px;
-  }
- /* Mobile-specific adjustments */
-@media (max-width: 768px) {
-    #bg-video {
-        /* For portrait mode on mobile */
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    /* Fix for iOS Safari */
-    @supports (-webkit-touch-callout: none) {
-        .videoContainer {
-            position: absolute;
-            height: 100vh;
-            width: 100vw;
-        }
-    }
-}
-
+  
   .getStartedbtn {
-    font-size: 16px;
-    padding: 12px 25px;
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
   }
+}
+
+/* Video Container Adjustments for Mobile */
+@media (max-width: 768px) {
+  .videoContainer {
+    position: fixed;
+    height: 100vh !important;
+  }
+  
+  #bg-video {
+    height: 100%;
+  }
+}
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+  .videoContainer {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Landscape Orientation Adjustments */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .nav-links {
+    padding-top: 60px;
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+  
+  .nav-links li {
+    margin: 8px 0;
+  }
+}
