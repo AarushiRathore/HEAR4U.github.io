@@ -9,7 +9,7 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    </head>
+</head>
 <body>
 
 <header>
@@ -17,12 +17,17 @@
         <div class="logo">
             <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
         </div>
-        <ul class="nav-links">
+        <div class="hamburger" id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="home.html">Home</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
             <li class="dropdown">
-                <a href="explore-mental-health.html">Explore</a>
+                <a href="explore-mental-health.html">Explore <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="personalitytest.html">Personality Test</a></li>
                     <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
@@ -39,30 +44,59 @@
         </ul>
     </nav>
 </header>
-    <div class="container">
-        <div class="contact-container">
-            <h1>Contact Us</h1>
-            <p>If you need support, feel free to reach out. We are here to help.</p>
-            <form id="contactForm">
-                <form action="save.php" method="post">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+<div class="container">
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>If you need support, feel free to reach out. We are here to help.</p>
+        <form id="contactForm" action="save.php" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
 
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+            <button type="submit">Send Message</button>
+        </form>
     </div>
+</div>
+
 <!-- Remove the type="module" script and just use these -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
 <script src="firebase-config.js"></script>
 <script src="app.js"></script>
+<script>
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+    
+    // Dropdown functionality for mobile
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    dropdown.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdownMenu.classList.toggle('show');
+        }
+    });
+</script>
 </body>
 </html>
