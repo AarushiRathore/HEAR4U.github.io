@@ -10,6 +10,11 @@
 <body>
   <header>
              <nav class="navbar">
+<div class="hamburger">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</div>
         <div class="logo">
             <img src="HEAR4ULOGO.png" alt="Hear4U Logo" height="50px" width="55px">
         </div>
@@ -56,5 +61,70 @@
 
   // Set height on window resize (orientation change)
   window.addEventListener('resize', setVideoContainerHeight);
+    document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  const dropdowns = document.querySelectorAll(".dropdown");
+  
+  // Toggle mobile menu
+  hamburger.addEventListener("click", function() {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+    
+    // Toggle body scroll when menu is open
+    if (navLinks.classList.contains("active")) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  });
+  
+  // Handle dropdowns on mobile
+  dropdowns.forEach(dropdown => {
+    const link = dropdown.querySelector("a");
+    
+    link.addEventListener("click", function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle("active");
+        
+        // Close other dropdowns
+        dropdowns.forEach(other => {
+          if (other !== dropdown) other.classList.remove("active");
+        });
+      }
+    });
+  });
+  
+  // Close menu when clicking a link (except dropdown triggers)
+  document.querySelectorAll(".nav-links a:not(.dropdown > a)").forEach(link => {
+    link.addEventListener("click", function() {
+      if (window.innerWidth <= 768) {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest(".navbar") && navLinks.classList.contains("active")) {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+  
+  // Reset menu on window resize
+  window.addEventListener("resize", function() {
+    if (window.innerWidth > 768) {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
+      document.body.style.overflow = "";
+      dropdowns.forEach(d => d.classList.remove("active"));
+    }
+  });
+});
 </script>
 </html>
