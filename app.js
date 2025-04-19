@@ -1,5 +1,4 @@
-// Initialize Firebase (configuration should be in firebase-config.js)
-// This assumes you've loaded Firebase via the CDN in your HTML
+// app.js - Modified to work with your specific Firebase setup
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get form element
@@ -9,21 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', handleFormSubmit);
     }
 
-    // Initialize Firebase (compatibility version)
-    const firebaseConfig = {
-        apiKey: "AIzaSyBihkMtv01iKT1odnfH_6ilImu_-MijICo",
-        authDomain: "contactus-beff5.firebaseapp.com",
-        projectId: "contactus-beff5",
-        storageBucket: "contactus-beff5.firebasestorage.app",
-        messagingSenderId: "977845064641",
-        appId: "1:977845064641:web:c0e0a6103cd382ac4ad540",
-        measurementId: "G-LBE45KWC90"
-    };
-
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const analytics = firebase.analytics();
+    // Initialize Firebase services
+    // Using compat version since you're loading it via CDN
     const db = firebase.firestore();
+    const analytics = firebase.analytics();
 
     // Form submission handler
     async function handleFormSubmit(e) {
@@ -42,12 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Show loading state
         const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
 
         try {
             // Add document to Firestore
-            await db.collection('contacts').add({
+            await db.collection('contactuspage').add({
                 name: name,
                 email: email,
                 message: message,
@@ -66,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } finally {
             // Reset button state
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
+            submitBtn.textContent = originalBtnText;
         }
     }
 });
