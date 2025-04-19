@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>BLOG4U</title>
     <link rel="stylesheet" href="Blogs.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-    <body>
-  <header>
+<body>
+    <header>
         <nav class="navbar">
             <div class="logo">
                 <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
             </div>
-            <ul class="nav-links">
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="About.html">About</a></li>
                 <li><a href="contactus.html">Contact Us</a></li>
                 <li class="dropdown">
-                    <a href="explore-mental-health.html">Explore</a>
+                    <a href="explore-mental-health.html">Explore <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="personalitytest.html">Personality Test</a></li>
                         <li><a href="mooddisordertest.html">Mood Disorder Test</a></li>
@@ -38,75 +43,106 @@
             </ul>
         </nav>
     </header>
-  
 
-<div class="blog-container">
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search blogs..." onkeyup="filterBlogs()">
+    <div class="blog-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search blogs..." onkeyup="filterBlogs()">
+        </div>
+        
+        <div class="blogs_container">
+            <div class="blog-post">
+                <img src="blogawareness (2).png" alt="Blog 1">
+                <h3>Mental Health Awareness</h3>
+                <p>Understanding the importance of mental well-being.</p>
+                <a href="blog1.html" class="read-more">Read More</a>
+            </div>
+
+            <div class="blog-post">
+                <img src="bloganxiety.png" alt="Blog 2">
+                <h3>How to Deal with Anxiety</h3>
+                <p>Practical tips to manage stress and anxiety effectively.</p>
+                <a href="Blog2.html" class="read-more">Read More</a>
+            </div>
+
+            <div class="blog-post">
+                <img src="blogselfcare.png" alt="Blog 3">
+                <h3>Self-care Strategies</h3>
+                <p>Simple habits to maintain mental health and well-being.</p>
+                <a href="Blog3.html" class="read-more">Read More</a>
+            </div>
+
+            <div class="blog-post">
+                <img src="human.png" alt="Blog 4">
+                <h3>human personalities</h3>
+                <p>kinda of human personalities</p>
+                <a href="blog4.html" class="read-more">Read More</a>
+            </div>
+        </div>
     </div>
-    
-    <div class="blogs_container">
-        <div class="blog-post">
-            <img src="blogawareness (2).png" alt="Blog 1">
-            <h3>Mental Health Awareness</h3>
-            <p>Understanding the importance of mental well-being.</p>
-            <a href="blog1.html" class="read-more">Read More</a>
-        </div>
 
-        <div class="blog-post">
-            <img src="bloganxiety.png" alt="Blog 2">
-            <h3>How to Deal with Anxiety</h3>
-            <p>Practical tips to manage stress and anxiety effectively.</p>
-            <a href="Blog2.html" class="read-more">Read More</a>
-        </div>
-
-        <div class="blog-post">
-            <img src="blogselfcare.png" alt="Blog 3">
-            <h3>Self-care Strategies</h3>
-            <p>Simple habits to maintain mental health and well-being.</p>
-            <a href="Blog3.html" class="read-more">Read More</a>
-        </div>
-
-         <div class="blog-post">
-            <img src="human.png" alt="Blog 4">
-            <h3>human personalities</h3>
-            <p>kinda of human personalities</p>
-            <a href="blog4.html" class="read-more">Read More</a>
-        </div>
-<style>
-    // Add this script to your website's JavaScript file
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.querySelector('input[type="text"][placeholder="Search blogs..."]');
-    const blogPosts = document.querySelectorAll('.blog-post'); // Add 'blog-post' class to each post container
-    const blogContainer = document.querySelector('.blog-container'); // Container wrapping all posts
-
-    // Optional: Create a no-results message element (add once)
-    const noResults = document.createElement('div');
-    noResults.className = 'no-results-message';
-    noResults.textContent = 'No matching posts found.';
-    blogContainer.appendChild(noResults);
-    noResults.style.display = 'none';
-
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase().trim();
-        let matchesFound = false;
-
-        blogPosts.forEach(post => {
-            const title = post.querySelector('h2').textContent.toLowerCase();
-            const description = post.querySelector('p').textContent.toLowerCase();
-            
-            if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                post.style.display = 'block';
-                matchesFound = true;
-            } else {
-                post.style.display = 'none';
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+        
+        // Dropdown functionality for mobile
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        
+        dropdown.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdownMenu.classList.toggle('show');
             }
         });
 
-        // Toggle no-results message
-        noResults.style.display = matchesFound ? 'none' : 'block';
-    });
-});
-</style>
-   </body>
+        // Search functionality
+        function filterBlogs() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const blogPosts = document.querySelectorAll('.blog-post');
+            const noResults = document.createElement('div');
+            noResults.className = 'no-results';
+            noResults.textContent = 'No matching posts found';
+            
+            let hasResults = false;
+            
+            blogPosts.forEach(post => {
+                const title = post.querySelector('h3').textContent.toLowerCase();
+                const desc = post.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(filter) || desc.includes(filter)) {
+                    post.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+            
+            // Remove existing no-results message if any
+            const existingNoResults = document.querySelector('.no-results');
+            if (existingNoResults) {
+                existingNoResults.remove();
+            }
+            
+            // Add no-results message if no matches
+            if (!hasResults && filter.length > 0) {
+                document.querySelector('.blogs_container').appendChild(noResults);
+            }
+        }
+    </script>
+</body>
 </html>
