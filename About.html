@@ -106,5 +106,36 @@
     <p>Take the first step toward understanding and improving your mental health.</p>
     <a href="explore-mental-health.html" class="cta-button">Explore Now</a>
   </section>
+  <script>
+  // Hamburger menu functionality
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+  const dropdowns = document.querySelectorAll(".dropdown");
+  
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  });
+  
+  // Close mobile menu when clicking a link
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
+    });
+  });
+  
+  // Mobile dropdown functionality
+  dropdowns.forEach(dropdown => {
+    const link = dropdown.querySelector("a");
+    
+    link.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle("active");
+      }
+    });
+  });
+</script>
 </body>
 </html>
