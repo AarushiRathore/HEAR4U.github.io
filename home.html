@@ -16,6 +16,11 @@
             <div class="logo">
                 <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
             </div>
+              <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="About.html">About</a></li>
@@ -121,5 +126,34 @@
     <footer>
         <p>© 2025 HEAR4U | <a href="contactus.html">Contact Us</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
     </footer>
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+        
+        // Dropdown functionality for mobile
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        
+        dropdown.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdownMenu.classList.toggle('show');
+            }
+        });
+    </script>
 </body>
 </html>
