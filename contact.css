@@ -13,7 +13,7 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     backdrop-filter: blur(5px);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Navbar padding fix */
@@ -90,37 +90,11 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav-links li {
-        margin-bottom: 10px;
-    }
-
-    .container {
-        padding: 20px;
-        height: auto;
-    }
-}
-
-/* Prevent navbar from overlapping content */
-body {
-    padding-top: 80px; /* Adjusted to fit navbar height */
-}
-
 /* Navbar */
 .logo img {
     border-radius: 50%;
-    height: 100px;
-    width: 140px;
+    height: 60px;
+    width: 100px;
     background-color: transparent;
 }
 
@@ -142,6 +116,7 @@ body {
     list-style: none;
     display: flex;
     align-items: center;
+    transition: all 0.3s ease;
 }
 
 .nav-links li {
@@ -154,6 +129,7 @@ body {
     font-weight: bold;
     padding: 10px;
     transition: 0.3s;
+    display: block;
 }
 
 .nav-links a:hover {
@@ -193,71 +169,99 @@ body {
 
 .dropdown-menu a:hover {
     background: #e0f2f1;
-}u
-/* Additional Responsive Styles */
-@media (max-width: 1024px) {
-    .contact-container {
-        padding: 30px;
-        max-width: 90%;
-    }
+}
 
-    .logo img {
-        height: 80px;
-        width: 120px;
-    }
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
 
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+}
 
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
+/* Mobile Styles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
     }
-
-    .nav-links li {
-        width: 100%;
-        text-align: left;
-        margin: 10px 0;
-    }
-
-    .nav-links a {
-        padding: 10px 15px;
-        width: 100%;
+    
+    .hamburger {
         display: block;
     }
-}
-
-@media (max-width: 768px) {
-    html, body {
-        overflow: auto;
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
     }
-
-    .container {
-        flex-direction: column;
-        height: auto;
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
     }
-
-    .contact-container {
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px;
         width: 100%;
-        margin-top: 20px;
+        background-color: #005f73;
+        flex-direction: column;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        display: none;
+        width: 80%;
+        margin: 10px auto;
         box-shadow: none;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .dropdown-menu.show {
+        display: block;
+    }
+    
+    .dropdown-menu a {
+        color: white;
+    }
+    
+    .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .container {
+        height: auto;
+        min-height: calc(100vh - 70px);
+    }
+    
+    .contact-container {
+        margin: 20px 0;
         padding: 20px;
-        border-radius: 10px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    textarea {
-        height: 80px;
     }
 }
 
+/* Additional Responsive Styles */
 @media (max-width: 480px) {
     h1 {
         font-size: 24px;
@@ -281,12 +285,7 @@ body {
     }
 
     .logo img {
-        height: 60px;
-        width: 100px;
-    }
-
-    .nav-links a {
-        font-size: 14px;
+        height: 50px;
+        width: 80px;
     }
 }
-
