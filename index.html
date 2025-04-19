@@ -12,12 +12,6 @@
              <nav class="navbar">
         <div class="logo">
             <img src="HEAR4ULOGO.png" alt="Hear4U Logo" height="50px" width="55px">
-        </div>
-          <div class="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
                 <ul class="nav-links">
             <li><a href="home.html">Home</a></li>
             <li><a href="About.html">About</a></li>
@@ -37,6 +31,12 @@
                 </ul>
             </li>
            <li><a href="blogs.html">Blogs</a></li> 
+  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+  <nav id="mobileMenu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Support</a>
+
         </ul>
     </nav>
   </header> 
@@ -126,5 +126,10 @@
     }
   });
 });
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
+    }
+  
 </script>
 </html>
