@@ -375,5 +375,56 @@ Have a structured routine </br>
 
 Let's normalize talking about mental health, not to mention perhaps - just perhaps - normalizing leaving the light switch alone.</p>
     </div>
+           <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      
+      navLinks.classList.toggle('active');
+      
+      // Change icon
+      if (navLinks.classList.contains('active')) {
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+        document.body.style.overflow = 'hidden';
+      } else {
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Handle dropdowns on mobile
+    document.querySelectorAll('.dropdown > a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const dropdown = this.parentElement;
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+
+    // Close menu when clicking a link (except dropdown triggers)
+    document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Reset on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        
+        navLinks.classList.remove('active');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+      }
+    });
+           </script>
 </body>
 </html>
