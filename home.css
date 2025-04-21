@@ -363,6 +363,43 @@
                 margin-bottom: 20px;
             }
         }
+       {
+    .container,
+    .section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content, .section-content, 
+    .image, .section-image {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        background-color: #005f73;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+}
 
         @media (max-width: 480px) {
             .logo img {
