@@ -9,10 +9,13 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
- <header>
+  <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
+        <img src="HEAR4ULOGO.png" alt="HEAR4U Logo">
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
       </div>
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
@@ -35,38 +38,35 @@
         <li><a href="blogs.html">Blogs</a></li>
       </ul>
     </nav>
-  </header> 
+  </header>
+  
   <div class="videoContainer">
     <video autoplay muted loop id="bg-video">
       <source src="bgvideoo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      Your browser does not support HTML5 video.
     </video>
   </div>
+
   <footer>
-    <button class="getStartedbtn"><a href="home.html">GET STARTED</a></button>
+    <a href="home.html" class="getStartedbtn">GET STARTED</a>
   </footer>
 
   <script>
-    // Set video container height
-    function setVideoContainerHeight() {
-      const videoContainer = document.querySelector('.videoContainer');
-      videoContainer.style.height = window.innerHeight + 'px';
-    }
-
-    // Initialize video container height
-    setVideoContainerHeight();
-    window.addEventListener('resize', setVideoContainerHeight);
-
     // Toggle mobile menu
     function toggleMenu() {
       const navLinks = document.querySelector('.nav-links');
       const hamburger = document.querySelector('.hamburger');
-      navLinks.classList.toggle('active');
-      hamburger.innerHTML = navLinks.classList.contains('active') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
       
-      // Toggle body scroll
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+      navLinks.classList.toggle('active');
+      
+      // Change icon
+      if (navLinks.classList.contains('active')) {
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+        document.body.style.overflow = 'hidden';
+      } else {
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
+      }
     }
 
     // Handle dropdowns on mobile
@@ -76,11 +76,6 @@
           e.preventDefault();
           const dropdown = this.parentElement;
           dropdown.classList.toggle('active');
-          
-          // Close other dropdowns
-          document.querySelectorAll('.dropdown').forEach(other => {
-            if (other !== dropdown) other.classList.remove('active');
-          });
         }
       });
     });
@@ -94,31 +89,17 @@
       });
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      const navLinks = document.querySelector('.nav-links');
-      const hamburger = document.querySelector('.hamburger');
-      
-      if (window.innerWidth <= 768 && 
-          !e.target.closest('.navbar') && 
-          navLinks.classList.contains('active')) {
-        toggleMenu();
-      }
-    });
-
     // Reset on window resize
     window.addEventListener('resize', function() {
-      const navLinks = document.querySelector('.nav-links');
-      const hamburger = document.querySelector('.hamburger');
-      
       if (window.innerWidth > 768) {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        
         navLinks.classList.remove('active');
         hamburger.innerHTML = '<i class="fas fa-bars"></i>';
         document.body.style.overflow = '';
         document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
       }
     });
-  </script>
-
-  
+  </script>  
 </body>
