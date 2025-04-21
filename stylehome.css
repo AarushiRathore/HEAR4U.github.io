@@ -1,4 +1,4 @@
-  /* General Styles */
+/* General Styles */
     * {
       margin: 0;
       padding: 0;
@@ -7,19 +7,17 @@
 
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
       color: white;
+      overflow-x: hidden;
     }
 
     /* Navigation Bar */
     .navbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      background-color:transparent;
+      align-items: center;
       padding: 10px 20px;
+      background-color: transparent;
       position: fixed;
       width: 100%;
       top: 0;
@@ -27,12 +25,21 @@
     }
 
     .logo img {
-      border-radius: 50%;
       height: 50px;
       width: 55px;
-      background-color: transparent;
+      border-radius: 50%;
     }
 
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+      z-index: 1001;
+    }
+
+    /* Navigation Links */
     .nav-links {
       display: flex;
       list-style: none;
@@ -80,24 +87,13 @@
 
     .dropdown-menu a {
       color: #005f73;
-      padding: 8px;
-      display: block;
     }
 
     .dropdown-menu a:hover {
       background: #e0f2f1;
     }
 
-    /* Hamburger Menu */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      color: white;
-      font-size: 24px;
-      z-index: 1001;
-    }
-
-    /* Video background */
+    /* Video Background */
     .videoContainer {
       position: fixed;
       top: 0;
@@ -118,40 +114,28 @@
       transform: translate(-50%, -50%);
     }
 
-    /* Footer styling */
+    /* Footer */
     footer {
       position: fixed;
       bottom: 0;
-      left: 0;
       width: 100%;
       text-align: center;
       padding: 20px;
-      background-color: transparent;
       z-index: 10;
     }
 
-    /* Button Styling */
     .getStartedbtn {
       background-color: #A6D9F7;
-      color: #000000;
+      color: #000;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .getStartedbtn:hover {
-      background-color: #8cbed6;
-    }
-
-    button a {
       text-decoration: none;
-      color: black;
     }
 
-    /* Responsive styles */
+    /* Mobile Styles */
     @media (max-width: 768px) {
       .hamburger {
         display: block;
