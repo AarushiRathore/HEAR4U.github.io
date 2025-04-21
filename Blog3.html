@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Self Care Strategies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
@@ -27,13 +28,7 @@
             width: 100%;
         }
 
-        .logo img {
-            border-radius: 50%;
-            height: 100px;
-            width: 140px;
-            background-color: transparent;
-        }
-
+        /* Updated Navbar Styles */
         .navbar {
             display: flex;
             align-items: center;
@@ -41,21 +36,37 @@
             background-color: #005f73;
             padding: 10px 20px;
             position: fixed;
-            z-index: 1000;
             width: 100%;
             top: 0;
-            left: 0;
+            z-index: 1000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
+        .logo img {
+            border-radius: 50%;
+            height: 50px;
+            width: 55px;
+            background-color: transparent;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            z-index: 1001;
+        }
+
         .nav-links {
-            list-style: none;
             display: flex;
-            align-items: center;
+            list-style: none;
+            transition: all 0.3s ease;
         }
 
         .nav-links li {
             margin: 0 15px;
+            position: relative;
         }
 
         .nav-links a {
@@ -63,17 +74,15 @@
             text-decoration: none;
             font-weight: bold;
             padding: 10px;
+            display: block;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            border-bottom: 2px solid white;
+            color: #A6D9F7;
         }
 
-        .dropdown {
-            position: relative;
-        }
-
+        /* Dropdown Menu */
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -83,11 +92,15 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             min-width: 180px;
-            z-index: 999;
+            z-index: 1;
         }
 
         .dropdown:hover .dropdown-menu {
             display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 5px 0;
         }
 
         .dropdown-menu a {
@@ -100,6 +113,7 @@
             background: #e0f2f1;
         }
 
+        /* Blog Content */
         .blog-content {
             max-width: 900px;
             background-color: #ffffff;
@@ -128,6 +142,7 @@
             font-size: 1.1em;
             margin-bottom: 20px;
             color: #444;
+            line-height: 1.6;
         }
 
         .blog-content img.blog-image {
@@ -168,6 +183,59 @@
         .social-media a:hover {
             color: #b2dfdb;
         }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 80px 20px 20px;
+                transition: all 0.5s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .blog-content {
+                margin-top: 100px;
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-content h1 {
+                font-size: 2rem;
+            }
+            .blog-content h2 {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -175,6 +243,9 @@
         <nav class="navbar">
             <div class="logo">
                 <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
@@ -209,26 +280,26 @@
                 Spend 5–10 minutes a day observing your breath. Use apps like Calm or Insight Timer for guided meditation. Try grounding exercises like the 5-4-3-2-1 technique.
             </li>
             <li><strong>Develop a Journaling Habit:</strong><br>
-                Write freely without judgment—what you're feeling, thinking, or simply noticing. Try prompts like “Today, I felt...” or “What’s one small thing that brought me peace?”
+                Write freely without judgment—what you're feeling, thinking, or simply noticing. Try prompts like "Today, I felt..." or "What's one small thing that brought me peace?"
             </li>
             <li><strong>Move Your Body:</strong><br>
                 Go for a short walk, stretch, dance to your favorite song, or try yoga. Exercise releases endorphins, which help reduce stress and boost mood.
             </li>
             <li><strong>Stay Connected:</strong><br>
-                Talk to someone you trust. Don’t bottle things up. Join support groups—online or offline—for shared experiences and comfort.
+                Talk to someone you trust. Don't bottle things up. Join support groups—online or offline—for shared experiences and comfort.
             </li>
             <li><strong>Sleep Hygiene:</strong><br>
                 Create a calming bedtime routine. Avoid screens an hour before sleep and try reading or listening to soft music.
             </li>
             <li><strong>Set Boundaries:</strong><br>
-                Say no without guilt. Your time and energy are precious. Limit exposure to negativity—whether it’s people, social media, or environments.
+                Say no without guilt. Your time and energy are precious. Limit exposure to negativity—whether it's people, social media, or environments.
             </li>
             <li><strong>Nourish Your Body:</strong><br>
                 Eat balanced meals and stay hydrated. Foods rich in omega-3s, magnesium, and vitamin B can help reduce anxiety symptoms.
             </li>
         </ul>
 
-        <p>💡 <strong>Takeaway:</strong> Healing isn’t linear. Celebrate small wins and be gentle with yourself on hard days.</p>
+        <p>💡 <strong>Takeaway:</strong> Healing isn't linear. Celebrate small wins and be gentle with yourself on hard days.</p>
     </div>
 
     <footer>
@@ -239,5 +310,57 @@
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            
+            navLinks.classList.toggle('active');
+            
+            // Change icon
+            if (navLinks.classList.contains('active')) {
+                hamburger.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Handle dropdowns on mobile
+        document.querySelectorAll('.dropdown > a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dropdown = this.parentElement;
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close menu when clicking a link (except dropdown triggers)
+        document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Reset on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const navLinks = document.querySelector('.nav-links');
+                const hamburger = document.querySelector('.hamburger');
+                
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+    </script>
 </body>
 </html>
