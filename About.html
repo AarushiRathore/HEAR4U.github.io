@@ -11,15 +11,13 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <header>
+   <header>
     <nav class="navbar">
-  <div class="hamburger">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</div>
       <div class="logo">
         <img src="HEAR4ULOGO.png" alt="Hear4U Logo" />
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
       </div>
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
@@ -106,36 +104,57 @@
     <p>Take the first step toward understanding and improving your mental health.</p>
     <a href="explore-mental-health.html" class="cta-button">Explore Now</a>
   </section>
+
   <script>
-  // Hamburger menu functionality
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
-  const dropdowns = document.querySelectorAll(".dropdown");
-  
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("active");
-  });
-  
-  // Close mobile menu when clicking a link
-  document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      navLinks.classList.remove("active");
+    // Toggle mobile menu
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      
+      navLinks.classList.toggle('active');
+      
+      // Change icon
+      if (navLinks.classList.contains('active')) {
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+        document.body.style.overflow = 'hidden';
+      } else {
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Handle dropdowns on mobile
+    document.querySelectorAll('.dropdown > a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const dropdown = this.parentElement;
+          dropdown.classList.toggle('active');
+        }
+      });
     });
-  });
-  
-  // Mobile dropdown functionality
-  dropdowns.forEach(dropdown => {
-    const link = dropdown.querySelector("a");
-    
-    link.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdown.classList.toggle("active");
+
+    // Close menu when clicking a link (except dropdown triggers)
+    document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Reset on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        
+        navLinks.classList.remove('active');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
       }
     });
-  });
-</script>
-</body>
+  </script>
+ </body>
 </html>
