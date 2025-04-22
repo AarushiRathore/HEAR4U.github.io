@@ -43,6 +43,7 @@
             color: white;
             font-size: 24px;
             z-index: 1001;
+            display:none;
         }
 
         .nav-links {
