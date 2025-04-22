@@ -309,6 +309,9 @@
             animation: fadeInUp 0.8s ease forwards;
         }
 
+       .hamburger {
+    display: none;
+}
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .hamburger {
