@@ -2,32 +2,39 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background: linear-gradient(to right, #e0f7fa, #f1fdfd);
-            color: #003f4f;
-            line-height: 1.6;
+            background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
+            color: #0a1f2b;
+            font-family: 'Raleway', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        html, body {
+            width: 100%;
         }
 
         /* Updated Navbar Styles */
         .navbar {
-            background-color: #005f73;
-            color: white;
-            padding: 15px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: sticky;
+            background-color: #005f73;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .logo img {
+            border-radius: 50%;
             height: 50px;
             width: 55px;
-            border-radius: 50%;
+            background-color: transparent;
         }
 
         /* Hamburger Menu */
@@ -40,17 +47,22 @@
         }
 
         .nav-links {
-            list-style: none;
             display: flex;
-            gap: 20px;
+            list-style: none;
             transition: all 0.3s ease;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+            position: relative;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: bold;
             padding: 10px;
+            display: block;
             transition: 0.3s;
         }
 
@@ -59,18 +71,14 @@
         }
 
         /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-        }
-
         .dropdown-menu {
             display: none;
             position: absolute;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            background: white;
+            list-style: none;
             padding: 10px;
-            margin-top: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
             min-width: 180px;
             z-index: 1;
         }
@@ -79,141 +87,226 @@
             display: block;
         }
 
+        .dropdown-menu li {
+            margin: 5px 0;
+        }
+
         .dropdown-menu a {
             color: #005f73;
-            display: block;
             padding: 8px;
-            border-radius: 5px;
+            display: block;
         }
 
         .dropdown-menu a:hover {
-            background-color: #e0f2f1;
+            background: #e0f2f1;
         }
 
-        .hero-section video {
+        /* Main Content */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1;
+            max-width: 50%;
+            padding-right: 20px;
+        }
+
+        .image {
+            flex: 1;
+            max-width: 50%;
+            text-align: right;
+        }
+
+        h1 {
+            color: #3b6f64;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #001219;
+        }
+
+        .image img, .section-image img {
+            max-width: 100%;
             height: auto;
-            display: block;
             object-fit: cover;
+            border-radius: 10px;
         }
 
-        .square-box {
-            max-width: 900px;
-            margin: 30px auto;
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+        /* Section Styling */
+        .section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
         }
 
-        .square-box h1 {
+        .section-content {
+            flex: 1;
+            max-width: 50%;
+            padding-right: 20px;
+        }
+
+        .section-image {
+            flex: 1;
+            max-width: 50%;
+            text-align: right;
+        }
+
+        .section h2 {
             color: #005f73;
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .square-box span,
-        .square-box p,
-        .square-box li {
-            display: block;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            text-align: justify;
+        .section p, .section ul {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #001219;
         }
 
-        .square-box ul {
+        .section ul {
             list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        .square-box blockquote {
-            font-style: italic;
-            color: #007f91;
-            margin: 20px 0;
             padding-left: 20px;
-            border-left: 4px solid #007f91;
         }
 
-        .footer-cards {
+        /* FAQ Section */
+        .faq-section {
+            text-align: center;
+            width: 100%;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .faq-card {
+            background: #f0fdfa;
+            border: 2px solid #005f73;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            text-align: left;
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .faq-card:hover {
+            background-color: #cce7e8;
+            transform: scale(1.05);
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #005f73;
+            margin-bottom: 5px;
+        }
+
+        .faq-answer {
+            font-size: 1rem;
+            color: #001219;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
             background-color: #005f73;
             color: white;
-            padding: 50px 20px;
             text-align: center;
-        }
-
-        .footer-cards h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-
-        .footer-card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-card {
-            background: #D8F3DC;
-            color: #003f4f;
-            border-radius: 15px;
             padding: 20px;
-            margin: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .footer-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .footer-card h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: #004e60;
-        }
-
-        .footer-card p {
-            font-size: 1em;
-            color: #333;
-            flex-grow: 1;
-        }
-
-        .footer-card a {
-            text-decoration: none;
-            text-align: center;
-            background: #005f73;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 25px;
-            margin-top: 15px;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-
-        .footer-card a:hover {
-            background: #023E52;
-        }
-
-        .footer-note {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #cfdedf;
-        }
-
-        .footer-card img {
             width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #b2dfdb;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out both;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.2s ease-out both;
+        }
+
+        .slide-in-left {
+            animation: slideInFromLeft 1s ease-out both;
+        }
+
+        .slide-in-right {
+            animation: slideInFromRight 1s ease-out both;
+        }
+
+        .faq-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         /* Mobile Responsiveness */
@@ -254,54 +347,38 @@
                 display: block;
             }
 
-            .square-box {
-                padding: 20px;
-                margin: 15px;
+            .container, .section {
+                flex-direction: column;
+                margin-top: 100px;
             }
 
-            .footer-card-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .content, .section-content, .image, .section-image {
+                max-width: 100%;
+                padding-right: 0;
+                text-align: center;
             }
 
-            .footer-card img {
-                height: 140px;
-            }
-
-            .footer-cards h2 {
-                font-size: 1.5rem;
+            .section-image {
+                order: -1;
+                margin-bottom: 20px;
             }
         }
 
         @media (max-width: 480px) {
             .logo img {
-                height: 45px;
+                height: 40px;
                 width: 50px;
             }
-
-            .square-box h1 {
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
                 font-size: 1.5rem;
             }
-
-            .square-box p,
-            .square-box li {
-                font-size: 1rem;
-            }
-
-            .footer-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .footer-card a {
-                font-size: 0.9rem;
-                padding: 8px 12px;
-            }
-
-            .footer-card img {
-                height: 120px;
-            }
-
-            .footer-note {
-                font-size: 0.8rem;
+            
+            .faq-card {
+                width: 100%;
             }
         }
