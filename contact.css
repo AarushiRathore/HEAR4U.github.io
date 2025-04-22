@@ -170,12 +170,12 @@ button:hover {
 .dropdown-menu a:hover {
     background: #e0f2f1;
 }
-
-/* Hamburger Menu */
+/* Hamburger Menu - Updated to match other pages */
 .hamburger {
     display: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 1001;
 }
 
 .hamburger .bar {
@@ -184,7 +184,19 @@ button:hover {
     height: 3px;
     margin: 5px auto;
     background-color: white;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Mobile Styles */
@@ -197,28 +209,18 @@ button:hover {
         display: block;
     }
     
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    
     .nav-links {
         position: fixed;
         left: -100%;
         top: 70px;
         width: 100%;
-        background-color: #005f73;
+        background-color:rgba(0, 0, 0, 0.9);
         flex-direction: column;
         text-align: center;
-        transition: 0.3s;
+        transition: 0.3s ease-in-out;
         padding: 20px 0;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
     }
     
     .nav-links.active {
@@ -244,48 +246,17 @@ button:hover {
     
     .dropdown-menu a {
         color: white;
+        padding: 8px 15px;
     }
     
     .dropdown-menu a:hover {
         background-color: rgba(255, 255, 255, 0.2);
     }
     
-    .container {
-        height: auto;
-        min-height: calc(100vh - 70px);
-    }
-    
-    .contact-container {
-        margin: 20px 0;
-        padding: 20px;
-    }
-}
-
-/* Additional Responsive Styles */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    label {
-        font-size: 14px;
-    }
-
-    input, textarea {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .logo img {
-        height: 50px;
-        width: 80px;
+    /* Ensure dropdown doesn't push content */
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
