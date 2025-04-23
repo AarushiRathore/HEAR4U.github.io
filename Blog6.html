@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hormonal Effect On Mental Health</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" media="screen" href="Blogs.css">
-    <script src="blog.js"></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <style>
@@ -31,13 +30,7 @@
         width: 100%;
     }
 
-    .logo img {
-        border-radius: 50%;
-        height: 100px;
-        width: 140px;
-        background-color: transparent;
-    }
-
+    /* Updated Navbar Styles */
     .navbar {
         display: flex;
         align-items: center;
@@ -45,21 +38,39 @@
         background-color: #005f73;
         padding: 10px 20px;
         position: fixed;
-        z-index: 1000;
         width: 100%;
         top: 0;
-        left: 0;
+        z-index: 1000;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    .logo img {
+        border-radius: 50%;
+        /* Adjusted logo size to fit better in the navbar */
+        height: 50px;
+        width: 55px;
+        background-color: transparent;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        z-index: 1001; /* Ensure hamburger is clickable above nav links when closed */
+    }
+
     .nav-links {
+        display: flex; /* Keep display flex for desktop */
         list-style: none;
-        display: flex;
-        align-items: center;
+        align-items: center; /* Align items vertically */
+        transition: all 0.3s ease; /* Add transition for smooth opening/closing on mobile */
     }
 
     .nav-links li {
         margin: 0 15px;
+        position: relative; /* Needed for absolute positioning of dropdown */
     }
 
     .nav-links a {
@@ -67,17 +78,16 @@
         text-decoration: none;
         font-weight: bold;
         padding: 10px;
+        display: block; /* Ensure padding applies correctly */
         transition: 0.3s;
     }
 
     .nav-links a:hover {
-        border-bottom: 2px solid white;
+        color: #A6D9F7; /* Changed hover effect for consistency */
+        border-bottom: none; /* Removed border-bottom hover effect */
     }
 
-    .dropdown {
-        position: relative;
-    }
-
+    /* Dropdown Menu */
     .dropdown-menu {
         display: none;
         position: absolute;
@@ -87,11 +97,18 @@
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         min-width: 180px;
-        z-index: 999;
+        z-index: 1; /* Ensure dropdown is above other content */
+        /* Adjust top position if needed based on navbar height */
+        top: 100%;
+        left: 0;
     }
 
     .dropdown:hover .dropdown-menu {
-        display: block;
+        display: block; /* Show dropdown on hover for desktop */
+    }
+
+    .dropdown-menu li {
+        margin: 5px 0; /* Added margin for spacing in dropdown */
     }
 
     .dropdown-menu a {
@@ -104,10 +121,12 @@
         background: #e0f2f1;
     }
 
+    /* Blog Content */
     .blog-content {
         max-width: 900px;
         background-color: #ffffff;
-        margin: 120px auto 40px;
+        /* Adjusted margin-top to account for fixed navbar */
+        margin: 90px auto 40px; /* Increased top margin */
         padding: 40px;
         border-radius: 15px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -128,10 +147,17 @@
         margin: 30px 0 15px;
     }
 
+    .blog-content h3 { /* Added styling for potential H3 elements */
+        font-size: 1.3em;
+        color: #005f73;
+        margin: 20px 0 10px;
+    }
+
     .blog-content p {
         font-size: 1.1em;
         margin-bottom: 20px;
         color: #444;
+        line-height: 1.6; /* Added line-height for readability */
     }
 
     .blog-content img.blog-image {
@@ -142,15 +168,128 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 
-    .symptoms-list {
-        list-style-type:disc;
-        margin-left: 30px;
-        margin-bottom: 30px;
+    /* Unified list styling */
+    .blog-content ul, .blog-content ol {
+        list-style-position: outside; /* Ensure bullets/numbers are outside */
+        margin-left: 30px; /* Consistent indentation */
+        margin-bottom: 20px; /* Consistent spacing */
     }
 
-    .symptoms-list li {
+    .blog-content ul li, .blog-content ol li {
         margin-bottom: 10px;
-        font-weight: 500;
+        font-weight: 500; /* Assuming this style is desired for all lists */
+        color: #444; /* Match paragraph color */
+        line-height: 1.6; /* Match paragraph line-height */
+    }
+
+    /* Removed redundant .symptoms-list styling */
+
+    /* Link Styling within blog content */
+    .blog-content a {
+        color: #005f73;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .blog-content a:hover {
+        text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        margin-top: 40px; /* Use margin-top instead of margin */
+        padding: 20px;
+        background: #005f73;
+        color: white;
+    }
+
+    .social-media a {
+        margin: 0 10px;
+        color: white;
+        font-size: 1.2em;
+        transition: 0.3s;
+    }
+
+    .social-media a:hover {
+        color: #b2dfdb;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block; /* Show hamburger on mobile */
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0; /* Align to top */
+            left: -100%; /* Start off-screen */
+            width: 80%; /* Or adjust as needed */
+            height: 100vh; /* Full height */
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+            flex-direction: column; /* Stack links vertically */
+            padding: 80px 20px 20px; /* Add padding */
+            transition: all 0.5s ease; /* Smooth transition */
+            align-items: flex-start; /* Align items to the start */
+        }
+
+        .nav-links.active {
+            left: 0; /* Slide in */
+        }
+
+        .nav-links li {
+            margin: 15px 0; /* Adjust margin for vertical layout */
+            width: 100%; /* Make list items take full width */
+        }
+
+         .nav-links a {
+             padding: 15px 10px; /* Increase padding for easier tapping */
+         }
+
+        .dropdown-menu {
+            position: static; /* Change position for mobile */
+            display: none; /* Hide by default */
+            width: 100%; /* Take full width */
+            box-shadow: none; /* Remove shadow */
+            background-color: rgba(255, 255, 255, 0.1); /* Lighter background for contrast */
+            padding-left: 20px; /* Indent dropdown items */
+            border-radius: 0; /* Remove border-radius */
+        }
+
+        /* Show dropdown when parent .dropdown has .active class (controlled by JS) */
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: #e0f2f1; /* Adjust color for mobile background */
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.2); /* Adjust hover background */
+        }
+
+        .blog-content {
+            /* Adjust margin-top for taller navbar space + extra padding */
+            margin-top: 90px;
+            padding: 30px 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .blog-content h1 {
+            font-size: 2rem; /* Adjust font size for smaller screens */
+        }
+        .blog-content h2 {
+            font-size: 1.4rem;
+        }
+        .blog-content h3 {
+            font-size: 1.2rem;
+        }
+        /* Adjust table font size if tables were present */
+        /* table { font-size: 0.9rem; } */
+        /* th, td { padding: 8px; } */
     }
 </style>
 
@@ -159,6 +298,9 @@
         <nav class="navbar">
             <div class="logo">
                 <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
@@ -184,191 +326,169 @@
     </header>
 
     <div class="blog-content">
-       
-<body> 
-
-  <h1>Hormonal Influence on Mental Health Across Genders and Life Stages</h1> 
-
-  <img src="blog 6.png" alt="hormonal effect on mental health" class="blog-image" />
-
-  <section> 
-
-    <h2>Introduction</h2> 
-
-    <p> Hormones are vital biochemical messengers that impact many physical processes in the human body, such as mood, stress-response, and behavior. Mental health is influenced by hormonal status, and fluctuations in hormones can lead to psychological manifestations of anxiety, depression, irritability, as well as altered cognition. In this blog, we summarize how hormones influence mental health in childhood, adolescence, adulthood, and old-age and across all present genders. </p> 
-
-  </section> 
-
-  
-
-  <section> 
-
-    <h2>1. Hormonal Impact During Childhood and Adolescence</h2> 
-
-    <h3>1.1 Puberty and Brain Development</h3> 
-
-    <p> Puberty is a meaningful stage of life marked by an increase in sex hormones <strong>estrogen</strong> and <strong>testosterone</strong>. Both hormones affect the structure of the brain and the way emotions are processed, often leading to severe mood swings and increased susceptibility to mental health disorders. </p> 
-
-    <ul> 
-
-      <li><strong>Estrogen:</strong> Implied emotional sensitivity and potential to raise risk of anxiety and depression in females. </li> 
-
-      <li><strong>Testosterone:</strong> Related to assertiveness and mood changes in boys. Its relationship to aggression is still debated. </li> 
-
-    </ul> 
-
-  
-
-    <h3>1.2 Early or Delayed Puberty</h3> 
-
-    <p> Hormonal imbalances leading to either early or delayed maturation has an increased likelihood of being correlated with symptoms of emotional dysregulation, low self esteem, and social avoidance. </p> 
-
-  </section> 
-
-  
-
-  <section> 
-
-    <h2>2. Adulthood and Hormonal Cycles</h2> 
-
-    <h3>2.1 Menstrual Cycle and Mental Fluctuations</h3> 
-
-    <p> The menstrual cycle naturally produces a rise and fall of sex hormones, primarily estradiol (a type of estrogen) and progesterone, which can impact neurotransmitter levels such as serotonin. These hormonal influences on neurotransmitters explain the symptoms of <strong>Premenstrual Syndrome (PMS)</strong> and <strong>Premenstrual Dysphoric Disorder (PMDD)</strong>.</p> 
-
-    <ul> 
-
-      <li><strong>PMS:</strong> Emotional variation, irritability, and anxiousness. </li> 
-
-      <li><strong>PMDD:</strong> Extreme depression and instability in emotions that may impact your daily existence. </li> 
-
-    </ul> 
-
-  <img src='adolescent hormonal challanges.gif' alt='hormonal challanges in teens'>
-
-    <h3>2.2 Pregnancy, Postpartum, and Maternal Mental Health</h3> 
-
-    <p>Hormones like <strong>oxytocin, prolactin</strong>, and <strong>estrogen</strong> increase during pregnancy. After childbirth, a sudden drop can cause <strong>postpartum depression</strong>, a serious mental health condition requiring medical support.</p> 
-
-  
-
-    <h3>2.3 Menopause and Andropause</h3> 
-
-    <p> Changes to hormones associated with midlife - menopause in women (loss of estrogen) and andropause in men (loss of testosterone) - can affect emotional regulation. </p> 
-
-    <ul> 
-
-      <li><strong>Menopause:</strong> Hot flashes, emotional irritability, memory loss and depressive disorders. </li> 
-
-      <li><strong>Andropause:</strong> Fatigue, lack of motivation and depressive symptoms. </li> 
-
-    </ul> 
-
-  </section> 
-
-  
-
-  <section> 
-
-    <h2>3. Transgender and Non-Binary Individuals</h2> 
-
-    <h3>3.1 Gender-Affirming Hormone Therapy (GAHT)</h3> 
-
-    <p> GAHT is the provision of estrogen or testosterone to achieve certain physical characteristics that expose an individual's gender. Research indicates that GAHT significantly increases psychological well-being. </p> 
-
-    <ul> 
-
-      <li> Reduces gender dysphoria and enhances self-efficacy. </li> 
-
-      <li> As significant reductions in depression, anxiety and suicidal ideation.  
-</li> 
-
-      <li> Potential shifts in cognition and emotional reaction, corresponding to affirmed gender. </li> 
-
-    </ul> 
-
-  
-
-    <h3>3.2 Mental Health Support Needs</h3> 
-
-    <p> It's additionally important for individuals to be able to access care, affirming care, access to a therapist, and monitoring of everyone's hormones to ensure successful outcome and mental health risk reduction during transition.</p> 
-
-  </section> 
-
-  
-
-  <section> 
-
-    <h2>4. Hormonal Effects in Older Adults</h2> 
-
-    <h3>4.1 Age-Related Hormonal Decline</h3> 
-
-    <p> Men and women both experience a natural diminishment of important hormones with advancing age: </p> 
-
-    <ul> 
-
-      <li><strong>Estrogen (Women):</strong> May contribute to mood swings, anxiety, and depression in post-menopausal women. </li> 
-
-      <li><strong>Testosterone (Men):</strong> Low levels lead to loss of vitality, irritability, and depressive indicators. </li> 
-
-    </ul> 
-<img src='old man.gif' alt='old age effects'>
-  
-
-    <h3>4.2 Hormone Replacement Therapy (HRT)</h3> 
-
-    <p> HRT may ameliorate menopausal or andropausal indicators; however, it needs to be individualized as it has both mental health positives and medical negatives. </p> 
-
-  </section> 
-
-  
-
-  <section> 
-
-    <h2>5. The Brain-Hormone-Mood Connection</h2> 
-
-    <p> Hormones function in concert with brain neurotransmitters, including: </p> 
-
-    <ul> 
-
-      <li><strong>Serotonin:</strong> is a messenger molecule and is an important part of the body that is both a neurotransmitter and hormone. </li> 
-
-      <li><strong>Dopamine:</strong> is moderated by testosterone; affects pleasure and motivation. </li> 
-
-      <li><strong>Cortisol:</strong> is the main stress hormone; levels should be kept at bay because chronic elevation results in anxiety and depression.  
-</li> 
-
-    </ul> 
-
-  <img src='hormonal mood disorders.gif' alt='hormonal mood disorders in humans '>
-
-    <blockquote> 
-
-      <strong>Tip:</strong> Hormonal irregularities can present similar to psychiatric disorders — if you are diagnosing chronic mood issues, a hormonal test maybe required. 
-
-    </blockquote> 
-
-  </section> 
-
-  
-
-  <section> 
-
-    <h2>Conclusion</h2> 
-
-    <p> Hormones impact mental health in exceedingly complicated manners and have an effect on thoughts, feelings, and behaviors at any age and for people of all sexes and genders. Being aware of respect your hormonal changes and know what to expect mentally can help you access health and psychosocial support sooner or later. Your mental health can be influenced by our hormonal makeup at any time in our life cycle; puberty, menopause, pregnancy, transitioning, aging, and understanding your unique hormonal environment is important to maintaining mental entrenchment and emotional wellness. </p> 
-
-  </section> 
-
-  
-
-  <footer> 
-
-    <p><em> This blog is educational only and is not an alternative to professional medical or psychological care. Always consult with a health-care professional for your personalized care. </em></p> 
-
-  </footer> 
-
-  
-
-</body> 
-
-</html> 
+        <h1>Hormonal Influence on Mental Health Across Genders and Life Stages</h1>
+
+        <img src="blog 6.png" alt="hormonal effect on mental health" class="blog-image" />
+
+        <section>
+            <h2>Introduction</h2>
+            <p> Hormones are vital biochemical messengers that impact many physical processes in the human body, such as mood, stress-response, and behavior. Mental health is influenced by hormonal status, and fluctuations in hormones can lead to psychological manifestations of anxiety, depression, irritability, as well as altered cognition. In this blog, we summarize how hormones influence mental health in childhood, adolescence, adulthood, and old-age and across all present genders. </p>
+        </section>
+
+        <section>
+            <h2>1. Hormonal Impact During Childhood and Adolescence</h2>
+            <h3>1.1 Puberty and Brain Development</h3>
+            <p> Puberty is a meaningful stage of life marked by an increase in sex hormones <strong>estrogen</strong> and <strong>testosterone</strong>. Both hormones affect the structure of the brain and the way emotions are processed, often leading to severe mood swings and increased susceptibility to mental health disorders. </p>
+            <ul>
+                <li><strong>Estrogen:</strong> Implied emotional sensitivity and potential to raise risk of anxiety and depression in females. </li>
+                <li><strong>Testosterone:</strong> Related to assertiveness and mood changes in boys. Its relationship to aggression is still debated. </li>
+            </ul>
+
+            <h3>1.2 Early or Delayed Puberty</h3>
+            <p> Hormonal imbalances leading to either early or delayed maturation has an increased likelihood of being correlated with symptoms of emotional dysregulation, low self esteem, and social avoidance. </p>
+        </section>
+
+        <section>
+            <h2>2. Adulthood and Hormonal Cycles</h2>
+            <h3>2.1 Menstrual Cycle and Mental Fluctuations</h3>
+            <p> The menstrual cycle naturally produces a rise and fall of sex hormones, primarily estradiol (a type of estrogen) and progesterone, which can impact neurotransmitter levels such as serotonin. These hormonal influences on neurotransmitters explain the symptoms of <strong>Premenstrual Syndrome (PMS)</strong> and <strong>Premenstrual Dysphoric Disorder (PMDD)</strong>.</p>
+            <ul>
+                <li><strong>PMS:</strong> Emotional variation, irritability, and anxiousness. </li>
+                <li><strong>PMDD:</strong> Extreme depression and instability in emotions that may impact your daily existence. </li>
+            </ul>
+            <img src='adolescent hormonal challanges.gif' alt='Animation depicting hormonal challenges in teenagers' class="blog-image">
+
+            <h3>2.2 Pregnancy, Postpartum, and Maternal Mental Health</h3>
+            <p>Hormones like <strong>oxytocin, prolactin</strong>, and <strong>estrogen</strong> increase during pregnancy. After childbirth, a sudden drop can cause <strong>postpartum depression</strong>, a serious mental health condition requiring medical support.</p>
+
+            <h3>2.3 Menopause and Andropause</h3>
+            <p> Changes to hormones associated with midlife - menopause in women (loss of estrogen) and andropause in men (loss of testosterone) - can affect emotional regulation. </p>
+            <ul>
+                <li><strong>Menopause:</strong> Hot flashes, emotional irritability, memory loss and depressive disorders. </li>
+                <li><strong>Andropause:</strong> Fatigue, lack of motivation and depressive symptoms. </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Transgender and Non-Binary Individuals</h2>
+            <h3>3.1 Gender-Affirming Hormone Therapy (GAHT)</h3>
+            <p> GAHT is the provision of estrogen or testosterone to achieve certain physical characteristics that expose an individual's gender. Research indicates that GAHT significantly increases psychological well-being. </p>
+            <ul>
+                <li> Reduces gender dysphoria and enhances self-efficacy. </li>
+                <li> As significant reductions in depression, anxiety and suicidal ideation. </li> <li> Potential shifts in cognition and emotional reaction, corresponding to affirmed gender. </li>
+            </ul>
+
+            <h3>3.2 Mental Health Support Needs</h3>
+            <p> It's additionally important for individuals to be able to access care, affirming care, access to a therapist, and monitoring of everyone's hormones to ensure successful outcome and mental health risk reduction during transition.</p>
+        </section>
+
+        <section>
+            <h2>4. Hormonal Effects in Older Adults</h2>
+            <h3>4.1 Age-Related Hormonal Decline</h3>
+            <p> Men </p>
+        </section>
+
+        </div> <footer>
+        <p>&copy; 2023 Hear4U. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/hear4u" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/hear4u" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/hear4u" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/hear4u" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        // Toggle mobile menu
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburgerIcon = this.querySelector('i');
+
+            navLinks.classList.toggle('active');
+
+            // Change icon
+            if (navLinks.classList.contains('active')) {
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            } else {
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
+                document.body.style.overflow = ''; // Allow scrolling when menu is closed
+            }
+        });
+
+        // Handle dropdowns on mobile
+        document.querySelectorAll('.dropdown > a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Only prevent default and toggle on mobile widths
+                if (window.innerWidth <= 768 && this.parentElement.classList.contains('dropdown')) {
+                    e.preventDefault();
+                    const dropdown = this.parentElement;
+                    // Close other active dropdowns within the nav
+                    if (dropdown.classList.contains('active')) {
+                        dropdown.classList.remove('active');
+                    } else {
+                        // Close any other open dropdowns first
+                        document.querySelectorAll('.nav-links .dropdown.active').forEach(openDropdown => {
+                            openDropdown.classList.remove('active');
+                        });
+                        dropdown.classList.toggle('active');
+                    }
+                }
+            });
+        });
+
+        // Close menu when clicking a link (except dropdown triggers on mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Check if it's mobile view AND the link is NOT a dropdown trigger OR it IS a dropdown trigger but its dropdown is already open (meaning we follow the link)
+                 if (window.innerWidth <= 768) {
+                     const isDropdownTrigger = this.parentElement.classList.contains('dropdown');
+                     const isDropdownMenuLink = this.closest('.dropdown-menu') !== null; // Check if it's a link inside a dropdown
+
+                     // Only close menu if it's NOT a dropdown trigger clicked for the first time to open it
+                     if (!isDropdownTrigger || isDropdownMenuLink ) {
+                        const navLinks = document.querySelector('.nav-links');
+                        const hamburgerIcon = document.querySelector('.hamburger i');
+
+                        if (navLinks.classList.contains('active')) {
+                             navLinks.classList.remove('active');
+                             hamburgerIcon.classList.remove('fa-times');
+                             hamburgerIcon.classList.add('fa-bars');
+                             document.body.style.overflow = '';
+                             // Also close any active mobile dropdowns
+                             document.querySelectorAll('.nav-links .dropdown.active').forEach(openDropdown => {
+                                 openDropdown.classList.remove('active');
+                             });
+                        }
+                     }
+                 }
+            });
+        });
+
+        // Reset on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const navLinks = document.querySelector('.nav-links');
+                const hamburgerIcon = document.querySelector('.hamburger i');
+
+                // Ensure mobile styles are removed if window resized to desktop
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                    document.body.style.overflow = '';
+                }
+                 // Ensure mobile dropdowns are closed and reset
+                 document.querySelectorAll('.nav-links .dropdown.active').forEach(d => d.classList.remove('active'));
+                 document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = ''); // Reset display style if modified
+            } else {
+                 // Optional: Ensure dropdown menus are hidden if resizing back to mobile from desktop hover state
+                 document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = ''); // Reset display
+            }
+        });
+    </script>
+</body>
+</html>
