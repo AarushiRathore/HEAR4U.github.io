@@ -5,7 +5,6 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Mental Health Awareness</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-     <link rel="stylesheet" href="Blogs.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
@@ -87,6 +86,15 @@
         .dropdown-menu a:hover {
             background: #e0f2f1;
         }
+                /* Hamburger Menu - Matching OCD Blog */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            z-index: 1001;
+            padding: 15px;
+        }
 
         /* New Graphics Section */
         .graphics-gallery {
@@ -165,6 +173,90 @@
         .symptoms-list li {
             margin-bottom: 10px;
             font-weight: 500;
+        }
+          /* Mobile Styles - Updated to match OCD Blog */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 80px 20px 20px;
+                transition: all 0.5s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .square-box {
+                padding: 20px;
+                margin: 15px;
+            }
+
+            .footer-card-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            body {
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                height: 45px;
+            }
+
+            .square-box h1 {
+                font-size: 1.5rem;
+            }
+
+            .square-box p,
+            .square-box li {
+                font-size: 1rem;
+            }
+
+            .footer-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .footer-card a {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+
+            .footer-card img {
+                height: 120px;
+            }
+
+            .footer-note {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
