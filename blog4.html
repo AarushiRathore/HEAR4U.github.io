@@ -1,15 +1,14 @@
 <!Doctype html>
 <html lang="en">
     <head>
-    
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <meta name="description" content="A brief description of the blog post.">
         <meta name="keywords" content="HTML, CSS, JavaScript">
-        <meta name="hear4u" content="blogs, web development, coding">
-
+        <meta name="author" content="hear4u">
+        
         <title>kinds of Human personalities</title>
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <style>
@@ -75,13 +74,15 @@
             .nav-links a:hover {
                 border-bottom: 2px solid white;
             }
-    .hamburger {
-            display: none;
-            cursor: pointer;
-            color: white;
-            font-size: 24px;
-            z-index: 1001;
-        }
+    
+            .hamburger {
+                display: none;
+                cursor: pointer;
+                color: white;
+                font-size: 24px;
+                z-index: 1001;
+            }
+    
             .dropdown {
                 position: relative;
             }
@@ -180,57 +181,58 @@
             .social-media a:hover {
                 color: #b2dfdb;
             }
-             @media (max-width: 768px) {
-            .hamburger {
-                display: block;
+    
+            @media (max-width: 768px) {
+                .hamburger {
+                    display: block;
+                }
+    
+                .nav-links {
+                    position: fixed;
+                    top: 0;
+                    left: -100%;
+                    width: 80%;
+                    height: 100vh;
+                    background-color: rgba(0, 0, 0, 0.9);
+                    flex-direction: column;
+                    padding: 80px 20px 20px;
+                    transition: all 0.5s ease;
+                }
+    
+                .nav-links.active {
+                    left: 0;
+                }
+    
+                .nav-links li {
+                    margin: 15px 0;
+                }
+    
+                .dropdown-menu {
+                    position: static;
+                    display: none;
+                    width: 100%;
+                    box-shadow: none;
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+    
+                .dropdown.active .dropdown-menu {
+                    display: block;
+                }
+    
+                .blog-content {
+                    margin-top: 100px;
+                    padding: 30px 20px;
+                }
             }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
-                height: 100vh;
-                background-color: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                padding: 80px 20px 20px;
-                transition: all 0.5s ease;
+    
+            @media (max-width: 480px) {
+                .blog-content h1 {
+                    font-size: 2rem;
+                }
+                .blog-content h2 {
+                    font-size: 1.4rem;
+                }
             }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 15px 0;
-            }
-
-            .dropdown-menu {
-                position: static;
-                display: none;
-                width: 100%;
-                box-shadow: none;
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-
-            .dropdown.active .dropdown-menu {
-                display: block;
-            }
-
-            .blog-content {
-                margin-top: 100px;
-                padding: 30px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .blog-content h1 {
-                font-size: 2rem;
-            }
-            .blog-content h2 {
-                font-size: 1.4rem;
-            }
-        }
         </style>
     </head>
     <body>
@@ -238,6 +240,9 @@
             <nav class="navbar">
                 <div class="logo">
                     <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-links">
                     <li><a href="home.html">Home</a></li>
@@ -263,143 +268,84 @@
         </header>
     
         <div class="blog-content">
-            <h1><b></b>Vibe Check: Human Edition  
-                 People Be Like...</b></h1>
-            <p>Hello, fellow earthling! 
-
-Whether you're the cool cucumber of your friend crew or the main character energy bringer to any room—you've got a personality. And spoiler alert: so do all the rest. (Yes, even Chad from HR who discusses protein shakes 24/7.) 
-
-  
-
-Let's get into the spicy personality cocktail we encounter on the daily—and how to deal with them without losing your last two brain cells. </p>
-            <img src="human.png" class="blog-image">
-            <h2>1. The Overthinker </h2>
-            <h3><b>Signs: </b></h3>
-            <p>Sends a "k" and then a follow-up of "I didn't mean it rudely ????" 
-
-Replays a 3-year-old convo where they wonder if they embarrassed themselves. 
-
-Most famous line: 
-
-"Did I say something wrong?" (after greeting with "hi") 
-
-How to deal with: 
-
-Be reassuring. Respond quickly to them, or they'll dive into another multiverse of thoughts. Don't say "We need to talk" unless you're ready for battle. </p>
-            <img src='theoverthinkers.gif' alt='the overthinkers'>
-            <h2>2. The Extrovert on Energy Drinks </h2>
-            <h3><b>Signs: </b></h3>
-            <p>Believes silence is against the law. 
-
-"Let's party!" on Tuesday mornings. 
-
-Speaks to everybody, including your Alexa. 
-
- Classic line:"So I invited everyone from the gym, the dog park, and also your dentist!" 
-
-  
-
-How to deal: 
-
-Let them bask in parties—keep snacks and a quiet spot on standby for yourself. You'll need it. </p>
-            <img src='extroverts.gif' alt='extroverts'>
-            <h2>3. The Mysterious Introvert </h2>
-            <h3><b>Signs :</b></h3>
-            <p>Just pops up out of nowhere, drops deep life knowledge, then vanishes. 
-
-Only appears during meal time or in the group chat with "lol". 
-
-Notorious line: 
-
-"I just needed a little me-time. for the last 6 months." 
-
-How to deal with: 
-
-Give them space. Don't force them to talk. Let them recharge their social battery (it's solar charged… and there's been no sun for days). </p>
-              <img src='mysterious introverts.gif' alt='mysterious introverts'>
-            <h2>4. The Hyper-Logical Robot </h2>
-             <h3><b>Signs :</b></h3>
-            <p>Rationalizes risk before deciding on a restaurant. 
-
-Sends spreadsheets detailing weekend activities. 
-
-Their love language is "proof with evidence." 
-
-Prominent line: 
-
-"Actually, statistically speaking." 
-
-How to deal: 
-
-Speak to their logic. Stay away from drama. And perhaps send them a nicely formatted Google Doc when you need something. </p>
-             <img src='hyperlogical robot.gif' alt='hyperlogical robots'>
-            <h2>5. The Drama Royal </h2>
-             <h3><b>Signs :</b></h3>
-            <p>Creates an IG story of every sneeze. 
-
-Brings "season finale" vibes to all convos. 
-
-Can scream, cry, laugh—all in one sentence. 
-
-Famous line: 
-
-"OMG you won't believe what just happened " 
-
-(Plot twist: nothing happened) 
-
-How to handle: 
-
-Let them vent. Be the co-star of their emotional Bollywood movie. Don't say "you're overreacting"—unless you like drama. </p>
-             <img src='dramaticsoul.gif' alt='dramatic soul'>
-            <h2>6. The Peacemaker </h2>
-             <h3><b>Signs :</b></h3>
-            <p>Agrees with everybody to prevent fighting. 
-Always utters "It's okay" no matter what. 
-Believes fighting is the devil's work. 
-Famous line: 
-"Can't we all just get along?" 
-How to deal with: 
-Be nice. But don't exploit their laid-back nature. Involve them in decision-making—they'll never demand attention, but they should get some. </p>
-            <img src='peacemaker.gif' alt='peacemaker'>
-<h2>7. The One With 100 Tabs Open (Mentally)  </h2>
-             <h3><b>Signs :</b></h3>
-            <p>Begins 10 stories and doesn't ever finish any of them. 
-"Wait what were we discussing again?" 
-Brain is an ongoing TikTok stream. 
-Famous line: 
-"Omg I just had a thought—no wait—anyway, so I watched this reel—" 
-How to cope with: 
-Be patient, reader. Be patient. Ground them in concrete steps and don't offer too many choices or they'll implode. </p>
-            <img src='onewithhunderdtabsopen.gif' alt='one with hundred tabs open'>
-        <h3>So… What's the Point? </h3>
-            <p>We're all different, and that's what makes life (and slightly crazy). Rather than attempting to "fix" people, attempt to grasp what flavor of weird they are. 
-
-  
-
-Because no matter if you're the overthinker, the peacemaker, or the crazy extrovert, one thing is certain: the world is going to need all sorts of people… otherwise, who is going to create the memes? </p>
+            <h1><b>Vibe Check: Human Edition - People Be Like...</b></h1>
+            <p>Hello, fellow earthling! Whether you're the cool cucumber of your friend crew or the main character energy bringer to any room—you've got a personality. And spoiler alert: so do all the rest. (Yes, even Chad from HR who discusses protein shakes 24/7.) Let's get into the spicy personality cocktail we encounter on the daily—and how to deal with them without losing your last two brain cells.</p>
+            <img src="human.png" alt="Human personalities illustration" class="blog-image">
+            <h2>1. The Overthinker</h2>
+            <h3><b>Signs:</b></h3>
+            <p>Sends a "k" and then a follow-up of "I didn't mean it rudely ????" Replays a 3-year-old convo where they wonder if they embarrassed themselves. Most famous line: "Did I say something wrong?" (after greeting with "hi") How to deal with: Be reassuring. Respond quickly to them, or they'll dive into another multiverse of thoughts. Don't say "We need to talk" unless you're ready for battle.</p>
+            <img src='theoverthinkers.gif' alt='The Overthinker personality type' class="blog-image">
+            <h2>2. The Extrovert on Energy Drinks</h2>
+            <h3><b>Signs:</b></h3>
+            <p>Believes silence is against the law. "Let's party!" on Tuesday mornings. Speaks to everybody, including your Alexa. Classic line:"So I invited everyone from the gym, the dog park, and also your dentist!" How to deal: Let them bask in parties—keep snacks and a quiet spot on standby for yourself. You'll need it.</p>
+            <img src='extroverts.gif' alt='Extrovert personality type' class="blog-image">
+            <h2>3. The Mysterious Introvert</h2>
+            <h3><b>Signs:</b></h3>
+            <p>Just pops up out of nowhere, drops deep life knowledge, then vanishes. Only appears during meal time or in the group chat with "lol". Notorious line: "I just needed a little me-time. for the last 6 months." How to deal with: Give them space. Don't force them to talk. Let them recharge their social battery (it's solar charged… and there's been no sun for days).</p>
+            <img src='mysterious introverts.gif' alt='Mysterious introvert personality type' class="blog-image">
+            <h2>4. The Hyper-Logical Robot</h2>
+            <h3><b>Signs:</b></h3>
+            <p>Rationalizes risk before deciding on a restaurant. Sends spreadsheets detailing weekend activities. Their love language is "proof with evidence." Prominent line: "Actually, statistically speaking." How to deal: Speak to their logic. Stay away from drama. And perhaps send them a nicely formatted Google Doc when you need something.</p>
+            <img src='hyperlogical robot.gif' alt='Hyper-logical personality type' class="blog-image">
+            <h2>5. The Drama Royal</h2>
+            <h3><b>Signs:</b></h3>
+            <p>Creates an IG story of every sneeze. Brings "season finale" vibes to all convos. Can scream, cry, laugh—all in one sentence. Famous line: "OMG you won't believe what just happened" (Plot twist: nothing happened) How to handle: Let them vent. Be the co-star of their emotional Bollywood movie. Don't say "you're overreacting"—unless you like drama.</p>
+            <img src='dramaticsoul.gif' alt='Dramatic personality type' class="blog-image">
+            <h2>6. The Peacemaker</h2>
+            <h3><b>Signs:</b></h3>
+            <p>Agrees with everybody to prevent fighting. Always utters "It's okay" no matter what. Believes fighting is the devil's work. Famous line: "Can't we all just get along?" How to deal with: Be nice. But don't exploit their laid-back nature. Involve them in decision-making—they'll never demand attention, but they should get some.</p>
+            <img src='peacemaker.gif' alt='Peacemaker personality type' class="blog-image">
+            <h2>7. The One With 100 Tabs Open (Mentally)</h2>
+            <h3><b>Signs:</b></h3>
+            <p>Begins 10 stories and doesn't ever finish any of them. "Wait what were we discussing again?" Brain is an ongoing TikTok stream. Famous line: "Omg I just had a thought—no wait—anyway, so I watched this reel—" How to cope with: Be patient, reader. Be patient. Ground them in concrete steps and don't offer too many choices or they'll implode.</p>
+            <img src='onewithhunderdtabsopen.gif' alt='Scattered personality type' class="blog-image">
+            <h3>So… What's the Point?</h3>
+            <p>We're all different, and that's what makes life (and slightly crazy). Rather than attempting to "fix" people, attempt to grasp what flavor of weird they are. Because no matter if you're the overthinker, the peacemaker, or the crazy extrovert, one thing is certain: the world is going to need all sorts of people… otherwise, who is going to create the memes?</p>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 Hear4U. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/hear4u" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com/hear4u" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/hear4u" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/hear4u" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <footer>
-                <p>&copy; 2023 Hear4U. All rights reserved.</p>
-                <div class="social-media">
-                    <a href="https://www.facebook.com/hear4u" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.twitter.com/hear4u" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/hear4u" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/hear4u" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </footer>
+        </footer>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script>
             $(document).ready(function() {
+                // Dropdown functionality
                 $('.dropdown').hover(function() {
                     $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
                 }, function() {
                     $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
                 });
+                
+                // Hamburger menu functionality
+                $('.hamburger').click(function() {
+                    $('.nav-links').toggleClass('active');
+                });
+                
+                // Close mobile menu when clicking a link
+                $('.nav-links a').click(function() {
+                    if ($(window).width() <= 768) {
+                        $('.nav-links').removeClass('active');
+                    }
+                });
+                
+                // Dropdown for mobile
+                $('.dropdown > a').click(function(e) {
+                    if ($(window).width() <= 768) {
+                        e.preventDefault();
+                        $(this).parent().toggleClass('active');
+                    }
+                });
             });
-            //
-
         </script>
+    </body>
 </html>
