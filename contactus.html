@@ -11,18 +11,15 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-
 <header>
     <nav class="navbar">
         <div class="logo">
             <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
         </div>
-        <div class="hamburger" id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
         </div>
-        <ul class="nav-links" id="navLinks">
+        <ul class="nav-links">
             <li><a href="home.html">Home</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
@@ -44,6 +41,7 @@
         </ul>
     </nav>
 </header>
+
 <div class="container">
     <div class="contact-container">
         <h1>Contact Us</h1>
@@ -63,39 +61,115 @@
     </div>
 </div>
 
-<!-- Remove the type="module" script and just use these -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
-<script src="app.js"></script>
-<script>
-    // Hamburger menu functionality
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    
-    hamburger.addEventListener('click', () => {
+<script src="app.js"></script> <script>
+    // Toggle mobile menu
+    const hamburger = document.querySelector('.hamburger'); // Use querySelector
+    const navLinks = document.querySelector('.nav-links'); // Use querySelector
+    const faIcon = hamburger.querySelector('i'); // Get the icon element
+
+    hamburger.addEventListener('click', () => { // Changed to arrow function for consistency
         navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.navbar')) {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
+
+        // Change icon
+        if (navLinks.classList.contains('active')) {
+            faIcon.classList.remove('fa-bars');
+            faIcon.classList.add('fa-times');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        } else {
+            faIcon.classList.remove('fa-times');
+            faIcon.classList.add('fa-bars');
+            document.body.style.overflow = ''; // Allow scrolling
+            // Close any active mobile dropdowns when closing menu
+             document.querySelectorAll('.nav-links .dropdown.active').forEach(openDropdown => {
+                 openDropdown.classList.remove('active');
+             });
         }
     });
-    
-    // Dropdown functionality for mobile
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-    dropdown.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-            e.preventDefault();
-            dropdownMenu.classList.toggle('show');
+
+    // Handle dropdowns on mobile
+    document.querySelectorAll('.dropdown > a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Only prevent default and toggle on mobile widths AND if it's the main dropdown link
+            if (window.innerWidth <= 768 && this.parentElement.classList.contains('dropdown')) {
+                 e.preventDefault();
+                 const dropdown = this.parentElement;
+                 // Toggle the active class on the LIs
+                 dropdown.classList.toggle('active');
+
+                 // Optional: Close other dropdowns when one is opened
+                 if (dropdown.classList.contains('active')) {
+                     document.querySelectorAll('.nav-links .dropdown.active').forEach(openDropdown => {
+                         if (openDropdown !== dropdown) { // Don't close the one just opened
+                            openDropdown.classList.remove('active');
+                         }
+                     });
+                 }
+            }
+        });
+    });
+
+    // Close menu when clicking a link (that's not a dropdown trigger on mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+             if (window.innerWidth <= 768) {
+                 const isDropdownTrigger = this.parentElement.classList.contains('dropdown');
+                 const isInsideMobileDropdown = this.closest('.dropdown-menu') !== null;
+
+                // Close the menu if the link clicked is NOT the main dropdown link
+                // OR if it IS a link inside the dropdown menu
+                 if (!isDropdownTrigger || isInsideMobileDropdown) {
+                     if (navLinks.classList.contains('active')) {
+                         navLinks.classList.remove('active');
+                         faIcon.classList.remove('fa-times');
+                         faIcon.classList.add('fa-bars');
+                         document.body.style.overflow = '';
+                         // Ensure mobile dropdowns are also closed
+                         document.querySelectorAll('.nav-links .dropdown.active').forEach(openDropdown => {
+                             openDropdown.classList.remove('active');
+                         });
+                     }
+                 }
+             }
+        });
+    });
+
+    // Close mobile menu if clicking outside the navbar (Optional but good UX)
+    document.addEventListener('click', function(e) {
+        const isClickInsideNav = e.target.closest('.navbar');
+        const isClickOnHamburger = e.target.closest('.hamburger');
+
+        if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active')) {
+             navLinks.classList.remove('active');
+             faIcon.classList.remove('fa-times');
+             faIcon.classList.add('fa-bars');
+             document.body.style.overflow = '';
+             // Ensure mobile dropdowns are also closed
+             document.querySelectorAll('.nav-links .dropdown.active').forEach(openDropdown => {
+                 openDropdown.classList.remove('active');
+             });
         }
     });
+
+
+    // Reset on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            // Ensure mobile styles are removed if window resized to desktop
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                faIcon.classList.remove('fa-times');
+                faIcon.classList.add('fa-bars');
+                document.body.style.overflow = '';
+            }
+             // Ensure mobile dropdowns are closed and reset active state
+             document.querySelectorAll('.nav-links .dropdown.active').forEach(d => d.classList.remove('active'));
+        }
+    });
+
 </script>
+
 </body>
 </html>
