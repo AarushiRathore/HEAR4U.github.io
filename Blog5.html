@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Living With OCD</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Understanding Obsessive Compulsive Disorder (OCD) - symptoms, diagnosis, treatment options, and living with OCD">
+    <meta name="keywords" content="OCD, mental health, anxiety disorder, obsessive compulsive disorder, mental health awareness">
+    <meta name="author" content="Hear4U">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
 
@@ -137,10 +141,17 @@
             margin: 30px 0 15px;
         }
 
+        .blog-content h3 {
+            font-size: 1.3em;
+            color: #005f73;
+            margin: 20px 0 10px;
+        }
+
         .blog-content p {
             font-size: 1.1em;
             margin-bottom: 20px;
             color: #444;
+            line-height: 1.6;
         }
 
         .blog-content img.blog-image {
@@ -152,7 +163,7 @@
         }
 
         .symptoms-list {
-            list-style-type:disc;
+            list-style-type: disc;
             margin-left: 30px;
             margin-bottom: 30px;
         }
@@ -182,6 +193,37 @@
 
         tr:nth-child(even) {
             background-color: #f2f2f2;
+        }
+
+        /* Link Styling */
+        a {
+            color: #005f73;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #005f73;
+            color: white;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            color: white;
+            font-size: 1.2em;
+            transition: 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #b2dfdb;
         }
 
         /* Mobile Responsiveness */
@@ -235,6 +277,15 @@
             .blog-content h2 {
                 font-size: 1.4rem;
             }
+            .blog-content h3 {
+                font-size: 1.2rem;
+            }
+            table {
+                font-size: 0.9rem;
+            }
+            th, td {
+                padding: 8px;
+            }
         }
     </style>
 </head>
@@ -245,7 +296,7 @@
             <div class="logo">
                 <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
             </div>
-            <div class="hamburger" onclick="toggleMenu()">
+            <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
@@ -272,213 +323,196 @@
     </header>
 
     <div class="blog-content">
-        <!-- Your existing blog content here -->
         <h1>Living with OCD: The Art of Overthinking Everything</h1>
-        <img src="OCD.jpg" alt="Obsessive compulsive Disorder" class="blog-image" />
-         <h2>Introduction to OCD:</h2>
+        <img src="OCD.jpg" alt="Illustration representing obsessive compulsive disorder" class="blog-image">
+        
+        <h2>Introduction to OCD:</h2>
         <p>
             <strong>Picture this:</strong><br>
-            you enter a room and flip the light switch. You walk away. Nothing like flipping the switch for entertainment, though your brain whispers to you, supposedly to take care of you. Are you sure it’s off? You’d better check again. You do. Not satisfied? Check again. Congratulations, your brain may be stuck in the "refresh" loop — and it's not because your Wi-Fi is bad.  
-This is the wacky world of Obsessive Compulsive Disorder, or OCD for short. It is the mental health condition that says, "Trust me, one more time won't hurt," while you are getting contradicted by your brain, EVERY. SINGLE. TIME.  
+            You enter a room and flip the light switch. You walk away. Nothing like flipping the switch for entertainment, though your brain whispers to you, supposedly to take care of you. Are you sure it's off? You'd better check again. You do. Not satisfied? Check again. Congratulations, your brain may be stuck in the "refresh" loop — and it's not because your Wi-Fi is bad.
         </p>
-
         <p>
-            <strong>What is OCD? </strong><br>
-          OCD is a chronic mental illness characterized by obsessions (unwanted intrusive thoughts) and compulsions (repetitive behaviors or mental activities carried out that are sometimes intended to neutralize the anxiety produced by the obsessions). 
-
-
-This is not simply about wanting things to be neat. It is the difference between needing to straighten up a painting on the wall (because you feel like your cat will explode if you don't) and casually straightening a painting on the wall for no reason other than that it could be neater. It is that dramatic. 
-
-  
-According to the American Psychiatric Association, OCD affects roughly 2-3% of the population worldwide. The best way to articulate this concept is that, as the number of people in the concert increases, the chance that there is a mini control freak whispering to you in your ear 24/7 increases. 
+            This is the wacky world of Obsessive Compulsive Disorder, or OCD for short. It is the mental health condition that says, "Trust me, one more time won't hurt," while you are getting contradicted by your brain, EVERY. SINGLE. TIME.
         </p>
-      <img src='ocd.gif' alt='what is ocd'>
+
+        <h2>What is OCD?</h2>
+        <p>
+            OCD is a chronic mental illness characterized by obsessions (unwanted intrusive thoughts) and compulsions (repetitive behaviors or mental activities carried out that are sometimes intended to neutralize the anxiety produced by the obsessions).
+        </p>
+        <p>
+            This is not simply about wanting things to be neat. It is the difference between needing to straighten up a painting on the wall (because you feel like your cat will explode if you don't) and casually straightening a painting on the wall for no reason other than that it could be neater. It is that dramatic.
+        </p>
+        <p>
+            According to the American Psychiatric Association, OCD affects roughly 2-3% of the population worldwide. The best way to articulate this concept is that, as the number of people in the concert increases, the chance that there is a mini control freak whispering to you in your ear 24/7 increases.
+        </p>
+        <img src='ocd.gif' alt='Animation explaining OCD symptoms' class="blog-image">
 
         <h2>According to the DSM-5 (Diagnostic and Statistical Manual of Mental Disorders):</h2>
-       
-        <p>Obsessions are thoughts that are intrusive and produce suffering.  
+        <p>Obsessions are thoughts that are intrusive and produce suffering.</p>
+        <p>Compulsions are repetitive behaviors that one feels compelled to perform in response to the obsession.</p>
+        <p><strong>Source:</strong> American Psychiatric Association (APA)</p>
 
-  
+        <h3>Obsessions</h3>
+        <p>Obsessions are unwanted and persistent thoughts or urges that are distressing. It is like that one song that is stuck in your head, but instead of "Baby Shark," it is "Did I leave the door unlocked and doom the world?"</p>
+        <p>Common obsessions include:</p>
+        <ul class="symptoms-list">
+            <li>Fear of contamination (germs, dirt, random public restroom door handles)</li>
+            <li>Doubting thoughts (Did I actually lock the door, or did I just dream it?)</li>
+            <li>Order/symmetry (Something must be just right or life implodes)</li>
+            <li>Taboo thoughts (involving sex, religion, or harm—yeah, the brain is wild)</li>
+            <li>Fear of self-harm or harm to others (despite not wanting to)</li>
+        </ul>
 
-Compulsions are repetitive behaviors that one feels compelled to perform in response to the obsession.  
+        <h3>Compulsions</h3>
+        <p>Compulsions constitute the behaviors of individuals to alleviate the anxiety produced by their obsessions. Compulsions take the following forms:</p>
+        <ul class="symptoms-list">
+            <li>Excessive cleaning/washing</li>
+            <li>Repeatedly checking doors, locks or appliances</li>
+            <li>Counting, tapping or silently repeating words</li>
+            <li>Organizing items in specific ways (sorry things that are asymmetrical)</li>
+            <li>Mental compulsions (like silently praying or repeating words to "undo" bad thoughts)</li>
+        </ul>
+        <img src='ocd symptoms.gif' alt='Common OCD symptoms illustration' class="blog-image">
 
-  
+        <h3>Interesting fact</h3>
+        <p>Most people with OCD are aware their thoughts are irrational, but that does not stop their brain from insisting it is so, like a toddler who has just ingested too much candy.</p>
 
-Source: American Psychiatric Association (APA) 
+        <h3>Why does it feel like I have Grandma's overprotective instincts stuck in my brain?</h3>
+        <ol class="symptoms-list">
+            <li><strong>Biological Factors:</strong> Brain imaging shows that the frontal cortex and basal ganglia are not working quite the way they should. There is also a serotonin imbalance (the neurotransmitter that says "let's chill").</li>
+            <li><strong>Genetics:</strong> If Uncle Bob had an obsession with counting every light bulb, it's possible you'll have obsession over something too.</li>
+        </ol>
 
-  
+        <h2>Diagnosis</h2>
+        <p>A diagnosis is made when:</p>
+        <ul class="symptoms-list">
+            <li>Obsessions and/or compulsions are time-consuming (more than 1 hour a day)</li>
+            <li>They cause significant distress</li>
+            <li>They interfere with daily functioning (work, school, relationships, Netflix)</li>
+            <li>Are not better accounted for by another mental health condition</li>
+        </ul>
+        <p>Mental health professionals use assessment tools including:</p>
+        <ul class="symptoms-list">
+            <li>The Yale-Brown Obsessive Compulsive Scale (Y-BOCS)</li>
+            <li>Clinical interviews</li>
+        </ul>
+        <img src='ocd diag.gif' alt='OCD diagnosis process' class="blog-image">
 
-Obsessions are unwanted and persistent thoughts or urges that are distressing. It is like that one song that is stuck in your head, but instead of “Baby Shark," it is “Did I leave the door unlocked and doom the world?”  
+        <h2>Can OCD Be Cured?</h2>
+        <p>Well, here's the tea: There isn't a "cure" in the fairy tale sense, but OCD is very treatable. A lot of folks manage symptoms very well and live bright, quirky, wonderful lives.</p>
+        <ul class="symptoms-list">
+            <li><strong>Cognitive Behavioral Therapy (CBT):</strong> ERP (Exposure and Response Prevention) is the specific form of CBT you want. ERP is the gold standard that helps you face your fears and do so without giving in to compulsions. It's like fear factor, but for your brain.</li>
+            <li><strong>Medications:</strong> Medicines primarily are SSRIs (Selective Serotonin Reuptake Inhibitors) like:
+                <ol type="i">
+                    <li>Fluoxetine (Prozac)</li>
+                    <li>Sertraline (Zoloft)</li>
+                    <li>Fluvoxamine (Luvox)</li>
+                </ol>
+                These prescription medications actually help your brain come the heck down.
+            </li>
+            <li><strong>Other options for severe OCD:</strong>
+                <ul>
+                    <li>Deep Brain Stimulation (DBS)</li>
+                    <li>Transcranial Magnetic Stimulation (TMS)</li>
+                    <li>Ketamine (still in research - not the rave kind)</li>
+                </ul>
+                <strong>Source:</strong> Mayo Clinic, Harvard Health
+            </li>
+            <li><strong>Mindfulness and Acceptance Techniques:</strong> There are newer approaches, such as Acceptance and Commitment Therapy (ACT) that we originally referred to as mindfulness, that help people sit with discomfort rather than fight it. It's like Jedi training for your brain.</li>
+        </ul>
 
-  
+        <h2>OCD vs. OCPD</h2>
+        <p>OCD is often confused with Obsessive Compulsive Personality Disorder (OCPD). Here is the quick cheat sheet:</p>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>OCD</th>
+                <th>OCPD</th>
+            </tr>
+            <tr>
+                <td>Nature</td>
+                <td>Ego-dystonic (the person does not like the thoughts/behaviors)</td>
+                <td>Ego-syntonic (the person thinks their rigidity is just fine)</td>
+            </tr>
+            <tr>
+                <td>Characteristics</td>
+                <td>Involves distressing obsessions and compulsions</td>
+                <td>Involves a perfectionist/control-freak personality</td>
+            </tr>
+            <tr>
+                <td>Impact</td>
+                <td>Can cause very high anxiety</td>
+                <td>Can cause interpersonal problems, but usually not internal distress</td>
+            </tr>
+        </table>
 
-Common obsessions include:  
+        <h2>Misunderstandings & Misinformation</h2>
+        <ul class="symptoms-list">
+            <li><strong>"I am so OCD about cleaning."</strong> No. You are neat. OCD is an illness, not a quirk of personality.</li>
+            <li><strong>"People with OCD are just control freaks."</strong> Most people with OCD hate their compulsions; they feel they have to do them.</li>
+            <li><strong>"You can just stop doing the rituals."</strong> Oh really? Go ahead and try not blinking for a whole day. It feels like that.</li>
+            <li><strong>"Everyone is a little OCD."</strong> Nah, neatness or liking things a certain way does not equal OCD.</li>
+        </ul>
+        <img src='ocdtaboo.gif' alt='Breaking OCD taboos' class="blog-image">
 
-  
+        <h2>Living With OCD</h2>
+        <p>OCD doesn't come with a brake, but it can be managed like a boss!</p>
+        <ol class="symptoms-list">
+            <li>Have a structured routine</li>
+            <li>Don't avoid (yes, avoid is a thing)</li>
+            <li>Join support (both online and support)</li>
+            <li>Track your triggers in a journal (for the tracking)</li>
+            <li>Be okay with setbacks (and there will be) and be kind to yourself</li>
+        </ol>
+        <p>OCD is part of who you are, not all of who you are - unless you're a self-aware hand sanitizer.</p>
 
-Fear of contamination (germs, dirt, random public restroom door handles) 
+        <h2>Resources to Bookmark</h2>
+        <ol class="symptoms-list">
+            <li><a href='https://iocdf.org' target="_blank">International OCD Foundation</a></li>
+            <li><a href='https://nimh.nih.gov' target="_blank">National Institute of Mental Health</a></li>
+            <li><a href='https://mind.org.uk' target="_blank">Mind UK</a></li>
+            <li>Books:
+                <ul>
+                    <li>"Brain Lock" by Jeffrey M. Schwartz</li>
+                    <li>"The OCD Workbook" by Bruce Hyman & Cherry Pedrick</li>
+                </ul>
+            </li>
+        </ol>
 
-  
-
-Doubting thoughts (Did I actually lock the door, or did I just dream it?) 
-
-  
-
-Order/symmetry (Something must be just right or life implodes) 
-
-  
-
-Taboo thoughts (involving sex, religion, or harm—yeah, the brain is wild) 
-
-  
-
-Fear of self-harm or harm to others (despite not wanting to) </p>
-      
-
-        <p><strong>Compulsions: </strong>
-            Compulsions constitute the behaviors of individuals to alleviate the anxiety produced by their obsessions. Compulsions take the following forms:  
-          <ul>
-          <li>Excessive cleaning/washing.</li>
-          <li> Repeatedly checking doors, locks or appliances.</li>
-          <li>Counting, tapping or silently repeating words.</li>
-          <li>Organizing items in specific ways (sorry things that are asymmetrical).</li>
-          <li> Mental compulsions (like silently praying or repeating words to "undo" bad thoughts).</li>
-          </ul>
-        </p>
-<img src='ocd symptoms.gif' alt='symptoms of ocd'>
-        <p>
-            <strong>Interesting fact: </strong> Most people with OCD are aware their thoughts are irrational, but that does not stop their brain from insisting it is so, like a toddler who has just ingested too much candy. 
-
-it feel like I have Grandma's overprotective instincts stuck in my brain? 
-           <ol type='1'>
-          <li><strong>  Biological Factors: </strong>Brain imaging shows that the frontal cortex and basal ganglia are not working quite the way they should. There is also a serotonin imbalance (the neurotransmitter that says "let's chill"). 
-          </li>
-          <li><strong>Genetics:</strong>If Uncle Bob had an obsession with counting every light bulb, it's possible you'll have obsession over something to.</li></ol>
-         <strong>Diagnosis:</strong>A diagnosis is made when: 
-      <ul type='square'>
-        <li>Obsessions and/or compulsions are time-consuming (more than 1 hour a day).</li>
-        <li>They cause significant distress.</li>
-        <li>They interfere with daily functioning (work, school, relationships, Netflix).</li>
-        <li>They cause significant distress.</li>
-        <li>Are not better accounted for by another mental health condition.</li>
-      </ul>
-      Mental health professionals use assessment tools (e.g., a scale to ascertain symptom severity) including:  
-       <ul type='square'>
-        <li>The Yale-Brown Obsessive Compulsive Scale (Y-BOCS).</li>
-        <li>and Clinical interviews </li>
-      </ul>
-        </p>
-              <img src='ocd diag.gif' alt='diagnosis of ocd'>
-
-      <div><strong>Can OCD Be Cured? </strong>
-        <span>Well, here’s the tea : There isn’t a “cure” in the fairy tale sense, but OCD is very treatable. A lot of folks manage symptoms very well and live bright, quirky, wonderful lives.</span>
-     <ul type='square'>
-        <li><strong>Cognitive Behavioral Therapy (CBT)-</strong>ERP (Exposure and Response Prevention) is the specific form of CBT you want. ERP is the gold standard that helps you face your fears and do so without giving in to compulsions. It’s like fear factor, but for your brain.</li>
-        <li><strong>Medications:</strong>Medicines primarily are SSRIs (Selective Serotonin Reuptake Inhibitors) like: 
-      <ol type='i'><li>Fluoxetine (Prozac)</li>
-                  <li>Sertraline (Zoloft)</li>
-                  <li>Fluvoxamine (Luvox)</li>
-      </ol>
-          These prescription medications actually help your brain come the heck down. </li>
-         <li> <strong>Other options for severe OCD:</strong> 
-         <ul>
-           <li>Deep Brain Stimulation (DBS) </li>
-          <li>Transcranial Magnetic Stimulation (TMS) </li>
-          <li>Ketamine (still in research - not the rave kind)  </li>
-         </ul> Source: Mayo Clinic, Harvard Health  
-         </li>
-       <li><strong> Mindfulness and Acceptance Techniques-</strong>There are newer approaches, such as Acceptance and Commitment Therapy (ACT) that we originally referred to as mindfulness, that help people sit with discomfort rather than fight it. It’s like Jedi training for your brain. </li>
-     </ul>    
-    </div>
-  <div class= 'difference table'><h2>OCD vs. OCPD</h2>
-    <br>OCD is often confused with Obsessive Compulsive Personality Disorder (OCPD). Here is the quick cheat sheet: </br>
-    <table>
-      <tr>
-        <th>OCD</th>
-        <td>
-          Ego-dystonic (the person does not like the thoughts / behaviors).
-        </td>
-         <td>
-          Involves distressing obsessions and compulsions.
-        </td>
-         <td>
-          Can cause very high anxiety.
-        </td> </tr>
-        <tr>
-          <th>OCPD</th>
-           <td>
-          Ego-syntonic (the person thinks their rigidity is just fine)
-        </td>
-           <td>
-          Involves a perfectionist / control-freak personality 
-        </td>
-           <td>
-          Can cause interpersonal problems, but usually not internal distress 
-        </td>
-      </tr>
-    </table>
-    <br><strong>Misunderstandings & Misinformation:</strong>
-    "I am so OCD about cleaning." 
-
-→ No. You are neat. OCD is an illness, not a quirk of personality. 
-
-"People with OCD are just control freaks." 
-
-→ Most people with OCD hate their compulsions; they feel they have to do them. 
-
-"You can just stop doing the rituals." 
-
-→ Oh really? Go ahead and try not blinking for a whole day. It feels like that. 
-
-"Everyone is a little OCD." 
-
-→ Nah, neatness or liking things a certain way does not equal OCD. 
-  </br>
-     <br><strong>OCD-</strong> doesn't come with a brake, but it can be managed like a boss! 
-
-Have a structured routine </br>
-    <img src='ocdtaboo.gif' alt='image related to taboos around ocd'>
-    <ol><li>Don't avoid (yes, avoid is a thing)</li>
-      <li>Join support (both online and support) </li>
-      <li>Track your triggers in a journal (for the tracking) </li>
-      <li>Be okay with setbacks (and there will be) and be kind to yourself </li>
-    </ol>
-    OCD is part of who you are, not all of who you are - unless you're a self-aware hand sanitizer. 
-    Resources to Bookmark:
-    <ol>
-        <li><a href='https://iocdf.org'>International OCD Foundation<a> </li>
-        <li> <a href='https://nimh.nih.gov'>National Institute of Mental Health<a> </li>
-       <li><a href='https://mind.org.uk'>Mind UK<a></li>
-       <li>Books: </li>
-      <ul>
-        <li>“Brain Lock” by Jeffrey M. Schwartz </li>
-        <li>“The OCD Workbook” by Bruce Hyman & Cherry Pedrick </li>
-      </ul>
-    </ol>
-    <p>OCD is a real phenomenon. It is painful in many ways. It is not "quirky." But it is also manageable, treatable, and even - at times - laughable (in a "this-is-my-life-now?" sort of way.  
-
-Let's normalize talking about mental health, not to mention perhaps - just perhaps - normalizing leaving the light switch alone.</p>
+        <p>OCD is a real phenomenon. It is painful in many ways. It is not "quirky." But it is also manageable, treatable, and even - at times - laughable (in a "this-is-my-life-now?" sort of way.</p>
+        <p>Let's normalize talking about mental health, not to mention perhaps - just perhaps - normalizing leaving the light switch alone.</p>
     </div>
 
-    </div>
+    <footer>
+        <p>&copy; 2023 Hear4U. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com/hear4u" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/hear4u" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/hear4u" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/hear4u" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         // Toggle mobile menu
-        function toggleMenu() {
+        document.querySelector('.hamburger').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
-            const hamburger = document.querySelector('.hamburger');
+            const hamburgerIcon = this.querySelector('i');
             
             navLinks.classList.toggle('active');
             
             // Change icon
             if (navLinks.classList.contains('active')) {
-                hamburger.innerHTML = '<i class="fas fa-times"></i>';
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-times');
                 document.body.style.overflow = 'hidden';
             } else {
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
                 document.body.style.overflow = '';
             }
-        }
+        });
 
         // Handle dropdowns on mobile
         document.querySelectorAll('.dropdown > a').forEach(link => {
@@ -495,7 +529,13 @@ Let's normalize talking about mental health, not to mention perhaps - just perha
         document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
-                    toggleMenu();
+                    const navLinks = document.querySelector('.nav-links');
+                    const hamburgerIcon = document.querySelector('.hamburger i');
+                    
+                    navLinks.classList.remove('active');
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                    document.body.style.overflow = '';
                 }
             });
         });
@@ -504,10 +544,11 @@ Let's normalize talking about mental health, not to mention perhaps - just perha
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 const navLinks = document.querySelector('.nav-links');
-                const hamburger = document.querySelector('.hamburger');
+                const hamburgerIcon = document.querySelector('.hamburger i');
                 
                 navLinks.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
                 document.body.style.overflow = '';
                 document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
             }
