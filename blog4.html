@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <meta name="description" content="A brief description of the blog post.">
         <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="hear4u" content="blogs, web development, coding">
@@ -76,7 +77,13 @@
             .nav-links a:hover {
                 border-bottom: 2px solid white;
             }
-    
+    .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            z-index: 1001;
+        }
             .dropdown {
                 position: relative;
             }
@@ -175,6 +182,57 @@
             .social-media a:hover {
                 color: #b2dfdb;
             }
+             @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 80px 20px 20px;
+                transition: all 0.5s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .blog-content {
+                margin-top: 100px;
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-content h1 {
+                font-size: 2rem;
+            }
+            .blog-content h2 {
+                font-size: 1.4rem;
+            }
+        }
         </style>
     </head>
     <body>
