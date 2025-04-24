@@ -389,7 +389,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: white;
+      background-color: #005f73;
       border: none;
       border-radius: 50%;
       width: 60px;
@@ -417,7 +417,7 @@
     }
 
     #chatHeader {
-      background-color: #ffd1dc;
+      background-color: #005f73;
       padding: 10px;
       text-align: center;
       font-weight: bold;
@@ -455,7 +455,8 @@
     }
     #chatInput button {
       padding: 10px;
-      background-color: #ffd1dc;
+      background-color: #005f73;
       border: none;
       cursor: pointer;
+      color:white;
     }
