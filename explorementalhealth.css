@@ -312,7 +312,7 @@
       overflow: hidden;
       display: none;
       flex-direction: column;
-      background-color: white;
+      background-color:#005f73;
       z-index: 9998;
     }
 
