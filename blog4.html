@@ -1,4 +1,4 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -12,13 +12,13 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
-    
+
             * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
             }
-    
+
             body {
                 background: linear-gradient(90deg, #e0f2f1, #b2dfdb, #80cbc4);
                 color: #0a1f2b;
@@ -26,18 +26,18 @@
                 min-height: 100vh;
                 overflow-x: hidden;
             }
-    
+
             html, body {
                 width: 100%;
             }
-    
+
             .logo img {
                 border-radius: 50%;
                 height: 100px;
                 width: 140px;
                 background-color: transparent;
             }
-    
+
             .navbar {
                 display: flex;
                 align-items: center;
@@ -51,17 +51,17 @@
                 left: 0;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
-    
+
             .nav-links {
                 list-style: none;
                 display: flex;
                 align-items: center;
             }
-    
+
             .nav-links li {
                 margin: 0 15px;
             }
-    
+
             .nav-links a {
                 color: white;
                 text-decoration: none;
@@ -69,11 +69,11 @@
                 padding: 10px;
                 transition: 0.3s;
             }
-    
+
             .nav-links a:hover {
                 border-bottom: 2px solid white;
             }
-    
+
             .hamburger {
                 display: none;
                 cursor: pointer;
@@ -81,11 +81,11 @@
                 font-size: 24px;
                 z-index: 1001;
             }
-    
+
             .dropdown {
                 position: relative;
             }
-    
+
             .dropdown-menu {
                 display: none;
                 position: absolute;
@@ -97,21 +97,21 @@
                 min-width: 180px;
                 z-index: 999;
             }
-    
+
             .dropdown:hover .dropdown-menu {
                 display: block;
             }
-    
+
             .dropdown-menu a {
                 color: #005f73;
                 padding: 8px;
                 display: block;
             }
-    
+
             .dropdown-menu a:hover {
                 background: #e0f2f1;
             }
-    
+
             .blog-content {
                 max-width: 900px;
                 background-color: #ffffff;
@@ -122,26 +122,26 @@
                 background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
                 background-repeat: repeat;
             }
-    
+
             .blog-content h1 {
                 font-size: 2.8em;
                 color: #243949;
                 margin-bottom: 20px;
                 text-align: center;
             }
-    
+
             .blog-content h2 {
                 font-size: 1.6em;
                 color: #517fa4;
                 margin: 30px 0 15px;
             }
-    
+
             .blog-content p {
                 font-size: 1.1em;
                 margin-bottom: 20px;
                 color: #444;
             }
-    
+
             .blog-content img.blog-image {
                 display: block;
                 margin: 20px auto;
@@ -149,43 +149,53 @@
                 border-radius: 10px;
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             }
-    
+
             .self-help-techniques {
                 list-style-type: disc;
                 margin-left: 30px;
                 margin-bottom: 30px;
             }
-    
+
             .self-help-techniques li {
                 margin-bottom: 20px;
                 font-weight: 500;
                 line-height: 1.6;
             }
-    
+
             footer {
                 text-align: center;
-                margin: 40px 0;
+                margin: 40px 0 0; /* Adjusted margin-top to 0 to avoid double margin */
                 padding: 20px;
                 background: #005f73;
                 color: white;
             }
-    
-            .social-media a {
-                margin: 0 10px;
-                color: white;
-                font-size: 1.2em;
-                transition: 0.3s;
+
+            .social-media { /* Combined styles for social media icons */
+                display: flex;
+                gap: 20px;
+                padding: 10px 20px 20px; /* Adjusted padding */
+                justify-content: center;
             }
-    
+
+             .social-media a {
+                margin: 0 10px; /* Keep existing margin if desired */
+                color: white; /* Changed color to white for better contrast */
+                font-size: 1.5em; /* Increased size slightly */
+                text-decoration: none;
+                transition: color 0.3s, transform 0.3s; /* Added transform transition */
+            }
+
             .social-media a:hover {
-                color: #b2dfdb;
+                color: #b2dfdb; /* Keep hover color */
+                transform: scale(1.1); /* Add slight scale effect on hover */
             }
-    
+
+
             @media (max-width: 768px) {
                 .hamburger {
                     display: block;
                 }
-    
+
                 .nav-links {
                     position: fixed;
                     top: 0;
@@ -197,15 +207,15 @@
                     padding: 80px 20px 20px;
                     transition: all 0.5s ease;
                 }
-    
+
                 .nav-links.active {
                     left: 0;
                 }
-    
+
                 .nav-links li {
                     margin: 15px 0;
                 }
-    
+
                 .dropdown-menu {
                     position: static;
                     display: none;
@@ -213,17 +223,17 @@
                     box-shadow: none;
                     background-color: rgba(255, 255, 255, 0.1);
                 }
-    
+
                 .dropdown.active .dropdown-menu {
                     display: block;
                 }
-    
+
                 .blog-content {
                     margin-top: 100px;
                     padding: 30px 20px;
                 }
             }
-    
+
             @media (max-width: 480px) {
                 .blog-content h1 {
                     font-size: 2rem;
@@ -232,96 +242,94 @@
                     font-size: 1.4rem;
                 }
             }
-                #chatToggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #005f73;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 24px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      z-index: 9999;
-    }
+            #chatToggle {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #005f73;
+                color: white; /* Ensure icon is visible */
+                border: none;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                cursor: pointer;
+                z-index: 9999;
+                display: flex; /* For centering icon */
+                align-items: center; /* For centering icon */
+                justify-content: center; /* For centering icon */
+            }
 
-    #chatbot {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 300px;
-      max-height: 400px;
-      border-radius: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      display: none;
-      flex-direction: column;
-      background-color: white;
-      z-index: 9998;
-    }
+            #chatbot {
+                position: fixed;
+                bottom: 90px;
+                right: 20px;
+                width: 300px;
+                max-height: 400px;
+                border-radius: 16px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                font-family: Arial, sans-serif;
+                overflow: hidden;
+                display: none;
+                flex-direction: column;
+                background-color: white;
+                z-index: 9998;
+            }
 
-    #chatHeader {
-      background-color: #005f73;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-      color:white;
-    }
+            #chatHeader {
+                background-color: #005f73;
+                padding: 10px;
+                text-align: center;
+                font-weight: bold;
+                color:white;
+            }
 
-    #chatBody {
-      background-color: #fff;
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-    }
+            #chatBody {
+                background-color: #fff;
+                flex: 1;
+                padding: 10px;
+                overflow-y: auto;
+            }
 
-    .message {
-      margin: 5px 0;
-    }
-    .user {
-      text-align: right;
-      color: #0077cc;
-    }
-    .bot {
-      text-align: left;
-      color: #333;
-    }
+            .message {
+                margin: 5px 0;
+                padding: 8px 12px; /* Added padding */
+                border-radius: 10px; /* Added border-radius */
+                max-width: 80%; /* Limit width */
+                word-wrap: break-word; /* Wrap long words */
+            }
+            .user {
+                text-align: right;
+                color: white; /* Changed user text color */
+                background-color: #0077cc; /* Added background for user */
+                margin-left: auto; /* Align user message to the right */
+            }
+            .bot {
+                text-align: left;
+                color: #333;
+                background-color: #f1f1f1; /* Added background for bot */
+                margin-right: auto; /* Align bot message to the left */
+            }
 
-    #chatInput {
-      display: flex;
-      border-top: 1px solid #ccc;
-    }
-    #chatInput input {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      outline: none;
-    }
-    #chatInput button {
-      padding: 10px;
-      background-color: #005f73;
-      border: none;
-      cursor: pointer;
-      color:white;
-    }
-    .social-media {
-      display: flex;
-      gap: 20px;
-      padding: 20px;
-      justify-content: center;
-    }
-    .social-media a {
-      font-size: 24px;
-      color: #000;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-media a:hover {
-      color: #555;
-    }
+            #chatInput {
+                display: flex;
+                border-top: 1px solid #ccc;
+            }
+            #chatInput input {
+                flex: 1;
+                padding: 10px;
+                border: none;
+                outline: none;
+            }
+            #chatInput button {
+                padding: 10px;
+                background-color: #005f73;
+                border: none;
+                cursor: pointer;
+                color:white;
+            }
+            /* Removed duplicate .social-media styles here as they were defined above */
         </style>
     </head>
     <body>
@@ -355,7 +363,7 @@
                 </ul>
             </nav>
         </header>
-    
+
         <div class="blog-content">
             <h1><b>Vibe Check: Human Edition - People Be Like...</b></h1>
             <p>Hello, fellow earthling! Whether you're the cool cucumber of your friend crew or the main character energy bringer to any room—you've got a personality. And spoiler alert: so do all the rest. (Yes, even Chad from HR who discusses protein shakes 24/7.) Let's get into the spicy personality cocktail we encounter on the daily—and how to deal with them without losing your last two brain cells.</p>
@@ -391,104 +399,199 @@
             <h3>So… What's the Point?</h3>
             <p>We're all different, and that's what makes life (and slightly crazy). Rather than attempting to "fix" people, attempt to grasp what flavor of weird they are. Because no matter if you're the overthinker, the peacemaker, or the crazy extrovert, one thing is certain: the world is going to need all sorts of people… otherwise, who is going to create the memes?</p>
         </div>
-        
+
         <footer>
             <p>&copy; 2023 Hear4U. All rights reserved.</p>
             <div class="social-media">
-  <a href="https://www.facebook.com/hear4u"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://twitter.com/hear_4u_"><i class="fab fa-x-twitter"></i></a>
-  <a href="https://www.instagram.com/hear_4u_/"><i class="fab fa-instagram"></i></a>
-  <a href="http://www.linkedin.com/in/hear-4u-b29900361"><i class="fab fa-linkedin-in"></i></a>
-</div>
+                <a href="https://www.facebook.com/hear4u"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/hear_4u_"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/hear_4u_/"><i class="fab fa-instagram"></i></a>
+                <a href="http://www.linkedin.com/in/hear-4u-b29900361"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </footer>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script>
             $(document).ready(function() {
-                // Dropdown functionality
+                // Dropdown functionality (Desktop)
                 $('.dropdown').hover(function() {
-                    $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+                   if ($(window).width() > 768) { // Only trigger on hover for desktop
+                     $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+                   }
                 }, function() {
-                    $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+                   if ($(window).width() > 768) { // Only trigger on hover for desktop
+                     $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+                   }
                 });
-                
+
                 // Hamburger menu functionality
                 $('.hamburger').click(function() {
                     $('.nav-links').toggleClass('active');
+                    // Close any open mobile dropdowns when opening/closing main menu
+                    $('.dropdown.active').removeClass('active').find('.dropdown-menu').slideUp(200);
                 });
-                
-                // Close mobile menu when clicking a link
-                $('.nav-links a').click(function() {
+
+                // Close mobile menu when clicking a non-dropdown link
+                $('.nav-links > li:not(.dropdown) > a').click(function() {
                     if ($(window).width() <= 768) {
                         $('.nav-links').removeClass('active');
                     }
                 });
-                
-                // Dropdown for mobile
+
+                 // Dropdown functionality (Mobile - Click)
                 $('.dropdown > a').click(function(e) {
                     if ($(window).width() <= 768) {
-                        e.preventDefault();
-                        $(this).parent().toggleClass('active');
+                        e.preventDefault(); // Prevent navigating away
+                        var $parentLi = $(this).parent('.dropdown');
+                        // Close other open dropdowns first
+                        $('.dropdown.active').not($parentLi).removeClass('active').find('.dropdown-menu').slideUp(200);
+                        // Toggle current dropdown
+                        $parentLi.toggleClass('active');
+                        $parentLi.find('.dropdown-menu').stop(true, true).slideToggle(200);
                     }
                 });
+
+                 // Close mobile menu/dropdown if clicking outside
+                 $(document).click(function(event) {
+                     if ($(window).width() <= 768) {
+                         var $target = $(event.target);
+                         // Check if the click is outside the nav area
+                         if (!$target.closest('.navbar').length && $('.nav-links').hasClass('active')) {
+                             $('.nav-links').removeClass('active');
+                             $('.dropdown.active').removeClass('active').find('.dropdown-menu').slideUp(200);
+                         }
+                     }
+                 });
+
             });
         </script>
-               <button id="chatToggle" onclick="toggleChatbot()">💬</button>
+                <button id="chatToggle" onclick="toggleChatbot()">
+                     <i class="fas fa-comment-dots"></i> </button>
 
-<!-- Chatbot Box -->
 <div id="chatbot">
-  <div id="chatHeader">Saathi- Hear4U 💗</div>
-  <div id="chatBody"></div>
-  <div id="chatInput">
-    <input type="text" id="userInput" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
+    <div id="chatHeader">Saathi - Hear4U 💗</div>
+    <div id="chatBody">
+        <div class="message bot">Hi there! I'm Saathi. How can I help you today?</div>
+    </div>
+    <div id="chatInput">
+        <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">
+             <i class="fas fa-paper-plane"></i> </button>
+    </div>
 </div>
 
 <script>
-  const responses = {
-    hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖",
-    sad: "It's okay to feel sad sometimes. Want to talk about what's bothering you?",
-    stressed: "Try taking a deep breath. I'm here for you. Would you like a calming exercise?",
-    alone: "You're not alone. I'm here, and I care about you. 💛",
-    default: "I'm here to listen. Tell me more about how you're feeling."
-  };
+    const responses = {
+        hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖",
+        hi: "Hello! I'm Saathi, your listening ear. How are you feeling right now? 😊",
+        hey: "Hey! I'm Saathi. What's on your mind?",
+        sad: "It sounds like you're feeling sad. It's okay to feel that way. Would you like to share more about what's making you feel down? 🫂",
+        stressed: "Feeling stressed can be tough. Remember to breathe. Take a slow, deep breath in... and out. I'm here for you. Would you like a simple calming exercise? 🧘‍♀️",
+        anxious: "Anxiety can feel overwhelming. Focus on your breathing for a moment. Can you tell me what's making you feel anxious? Talking about it might help. 🤝",
+        alone: "Feeling alone can be really difficult. Please know that you're not truly alone. I'm here to listen and chat with you. You matter. 💛",
+        lonely: "Loneliness is a hard feeling. Thank you for reaching out. I'm here to keep you company. What's been going on? 🤗",
+        depressed:"Hearing that you might be feeling depressed concerns me. Remember, it's okay to seek help. Have you considered talking to a friend, family member, or a mental health professional? I'm here to listen without judgment. 💬",
+        help: "I'm here to offer support and listen. If you're in crisis or need immediate professional help, please reach out to a helpline or mental health professional. For general chat and support, tell me what's going on. ❤️",
+        "thank you": "You're welcome! I'm glad I could be here for you. Remember, I'm always here if you need to talk. 😊",
+        thanks: "Anytime! Taking care of your mental health is important. Reach out whenever you need to. 👍",
+        bye: "Take care! Remember to be kind to yourself. I'll be here if you need me again. 👋",
+        default: "I understand. It's okay to feel that way. Tell me more about it if you're comfortable. I'm here to listen. 🤔"
+    };
 
-  function toggleChatbot() {
-    const chatbot = document.getElementById('chatbot');
-    chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
-  }
+    function toggleChatbot() {
+        const chatbot = document.getElementById('chatbot');
+        const chatToggle = document.getElementById('chatToggle');
+        const isOpening = chatbot.style.display === 'none' || chatbot.style.display === '';
 
-  function sendMessage() {
-    const input = document.getElementById('userInput');
-    const message = input.value.trim();
-    if (message === '') return;
+        if (isOpening) {
+             chatbot.style.display = 'flex';
+             // Optional: Animate the opening
+             setTimeout(() => { chatbot.style.opacity = 1; chatbot.style.transform = 'scale(1)'; }, 10);
+             chatToggle.innerHTML = '<i class="fas fa-times"></i>'; // Change to close icon
+        } else {
+            // Optional: Animate the closing
+            chatbot.style.opacity = 0;
+            chatbot.style.transform = 'scale(0.9)';
+            setTimeout(() => { chatbot.style.display = 'none'; }, 300); // Match timeout to CSS transition if added
+            chatToggle.innerHTML = '<i class="fas fa-comment-dots"></i>'; // Change back to chat icon
+        }
+    }
 
-    appendMessage('user', message);
-    input.value = '';
 
-    const lowerMessage = message.toLowerCase();
-    let response = responses.default;
-    for (const key in responses) {
-      if (lowerMessage.includes(key)) {
-        response = responses[key];
-        break;
+     // Add initial bot message when chat opens (can be moved inside toggleChatbot if preferred)
+     // window.onload = () => {
+     //    appendMessage('bot', "Hi there! I'm Saathi. How can I help you today?");
+     // };
+
+
+    function sendMessage() {
+        const input = document.getElementById('userInput');
+        const message = input.value.trim();
+        if (message === '') return;
+
+        appendMessage('user', message);
+        input.value = '';
+
+        // Basic keyword matching
+        const lowerMessage = message.toLowerCase();
+        let response = responses.default;
+        let foundResponse = false;
+
+        // Prioritize more specific phrases if needed, then single keywords
+        const sortedKeys = Object.keys(responses).sort((a, b) => b.length - a.length); // Longer keys first
+
+        for (const key of sortedKeys) {
+            // Use word boundaries for keywords like 'hi', 'sad' to avoid partial matches in words like 'history' or 'sadness'
+             const regex = new RegExp(`\\b${key}\\b`, 'i'); // 'i' for case-insensitive
+             if (regex.test(lowerMessage)) {
+                response = responses[key];
+                foundResponse = true;
+                break;
+            }
+        }
+        // If no keyword match, check for simple greetings
+        if (!foundResponse) {
+             if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+                 response = responses.hello; // Or a specific greeting response
+             } else if (lowerMessage.includes('thank')) {
+                 response = responses['thank you'];
+             } else if (lowerMessage.includes('bye') || lowerMessage.includes('goodbye')) {
+                 response = responses.bye;
+             }
+        }
+
+
+        // Simulate bot thinking time
+        setTimeout(() => appendMessage('bot', response), 600 + Math.random() * 400); // Add slight delay variation
+    }
+
+    function appendMessage(sender, text) {
+        const chatBody = document.getElementById('chatBody');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message ' + sender;
+        // Sanitize text slightly (replace < and > to prevent basic HTML injection)
+        messageDiv.textContent = text; // Use textContent for better security than innerText/innerHTML
+        chatBody.appendChild(messageDiv);
+        // Scroll to the bottom
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function handleKeyPress(event) {
+      // Check if the key pressed was Enter
+      if (event.key === "Enter") {
+        sendMessage();
       }
     }
-    setTimeout(() => appendMessage('bot', response), 600);
-  }
 
-  function appendMessage(sender, text) {
-    const chatBody = document.getElementById('chatBody');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'message ' + sender;
-    messageDiv.innerText = text;
-    chatBody.appendChild(messageDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
+    // Optional: Add initial styles for chatbot animation
+    const chatbotElement = document.getElementById('chatbot');
+    chatbotElement.style.opacity = 0;
+    chatbotElement.style.transform = 'scale(0.9)';
+    chatbotElement.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+
 </script>
     </body>
 </html>
