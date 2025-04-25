@@ -369,3 +369,30 @@
       cursor: pointer;
       color:white;
     }
+             footer {
+                text-align: center;
+                margin: 40px 0 0; /* Adjusted margin-top to 0 to avoid double margin */
+                padding: 20px;
+                background: #005f73;
+                color: white;
+            }
+
+            .social-media { /* Combined styles for social media icons */
+                display: flex;
+                gap: 20px;
+                padding: 10px 20px 20px; /* Adjusted padding */
+                justify-content: center;
+            }
+
+             .social-media a {
+                margin: 0 10px; /* Keep existing margin if desired */
+                color: white; /* Changed color to white for better contrast */
+                font-size: 1.5em; /* Increased size slightly */
+                text-decoration: none;
+                transition: color 0.3s, transform 0.3s; /* Added transform transition */
+            }
+
+            .social-media a:hover {
+                color: #b2dfdb; /* Keep hover color */
+                transform: scale(1.1); /* Add slight scale effect on hover */
+            }
