@@ -64,6 +64,7 @@
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center; /* Align items vertically */
             transition: all 0.3s ease;
         }
 
@@ -96,6 +97,8 @@
             border-radius: 5px;
             min-width: 180px;
             z-index: 1;
+            top: 100%; /* Position dropdown below the parent */
+            left: 0;
         }
 
         .dropdown:hover .dropdown-menu {
@@ -120,7 +123,7 @@
         .blog-content {
             max-width: 900px;
             background-color: #ffffff;
-            margin: 120px auto 40px;
+            margin: 90px auto 40px; /* Adjusted margin-top for navbar */
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -162,16 +165,24 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
-        .symptoms-list {
-            list-style-type: disc;
-            margin-left: 30px;
-            margin-bottom: 30px;
+        /* Unified List Styling */
+        .blog-content ul, .blog-content ol {
+             list-style-position: outside;
+             margin-left: 30px;
+             margin-bottom: 20px;
         }
 
-        .symptoms-list li {
-            margin-bottom: 10px;
-            font-weight: 500;
+        .blog-content ul li, .blog-content ol li {
+             margin-bottom: 10px;
+             color: #444;
+             line-height: 1.6;
         }
+
+        /* Specific list class styling (if needed, otherwise unified is fine) */
+        .symptoms-list li {
+            font-weight: 500; /* Example of specific style */
+        }
+
 
         /* Table Styling */
         table {
@@ -196,23 +207,25 @@
         }
 
         /* Link Styling */
-        a {
-            color: #005f73;
-            text-decoration: none;
-            font-weight: 600;
-        }
+         .blog-content a { /* Target links within blog content */
+             color: #005f73;
+             text-decoration: none;
+             font-weight: 600;
+         }
 
-        a:hover {
-            text-decoration: underline;
-        }
+         .blog-content a:hover {
+             text-decoration: underline;
+         }
 
         /* Footer */
         footer {
             text-align: center;
-            margin: 40px 0;
+            /* margin: 40px 0; REMOVED - Using margin-top instead */
+            margin-top: 40px; /* Added */
             padding: 20px;
             background: #005f73;
             color: white;
+            width: 100%; /* Ensure footer spans width */
         }
 
         .social-media a {
@@ -242,6 +255,7 @@
                 flex-direction: column;
                 padding: 80px 20px 20px;
                 transition: all 0.5s ease;
+                align-items: flex-start; /* Align items to start */
             }
 
             .nav-links.active {
@@ -250,24 +264,41 @@
 
             .nav-links li {
                 margin: 15px 0;
+                width: 100%; /* Ensure full width for tapping */
             }
+
+             .nav-links a {
+                 padding: 15px 10px; /* Increase padding */
+             }
 
             .dropdown-menu {
                 position: static;
-                display: none;
+                display: none; /* Hide by default */
                 width: 100%;
                 box-shadow: none;
                 background-color: rgba(255, 255, 255, 0.1);
+                padding-left: 20px; /* Indent dropdown items */
+                border-radius: 0;
             }
 
-            .dropdown.active .dropdown-menu {
-                display: block;
+             /* Show dropdown when parent .dropdown has .active class (controlled by JS) */
+             .dropdown.active .dropdown-menu {
+                 display: block;
+             }
+
+            .dropdown-menu a {
+                color: #e0f2f1; /* Adjust color for mobile */
+            }
+
+            .dropdown-menu a:hover {
+                background: rgba(255, 255, 255, 0.2);
             }
 
             .blog-content {
-                margin-top: 100px;
-                padding: 30px 20px;
-            }
+                 /* Adjust margin-top for taller navbar space + extra padding */
+                 margin-top: 90px;
+                 padding: 30px 20px;
+             }
         }
 
         @media (max-width: 480px) {
@@ -287,99 +318,110 @@
                 padding: 8px;
             }
         }
-          footer {
+
+        /* Chatbot Styles */
+        #chatToggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #005f73;
+            color: white; /* Make icon white */
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 9999;
+            display: flex; /* Center icon */
+            align-items: center; /* Center icon */
+            justify-content: center; /* Center icon */
+        }
+
+        #chatbot {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Enhanced shadow */
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            background-color: white;
+            z-index: 9998;
+            opacity: 0; /* Start hidden for animation */
+            transform: scale(0.9); /* Start scaled down */
+            transition: opacity 0.3s ease, transform 0.3s ease; /* Animation */
+        }
+
+        #chatHeader {
+            background-color: #005f73;
+            padding: 12px; /* Slightly more padding */
             text-align: center;
-            margin: 40px 0;
-            padding: 20px;
-            background: #005f73;
+            font-weight: bold;
             color: white;
+            font-size: 1.1em; /* Slightly larger font */
         }
 
-        .social-media a {
-            margin: 0 10px;
+        #chatBody {
+            background-color: #f9f9f9; /* Lighter grey background */
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex; /* Use flexbox for messages */
+            flex-direction: column; /* Stack messages vertically */
+        }
+
+        .message {
+            margin: 5px 0;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            line-height: 1.4;
+            word-wrap: break-word; /* Ensure long words break */
+        }
+        .user {
+            align-self: flex-end; /* Align user messages to the right */
+            background-color: #b2dfdb; /* User message color */
+            color: #0a1f2b; /* User text color */
+            margin-left: auto;
+        }
+        .bot {
+            align-self: flex-start; /* Align bot messages to the left */
+            background-color: #e0e0e0; /* Bot message color */
+            color: #333; /* Bot text color */
+            margin-right: auto;
+        }
+
+        #chatInput {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        #chatInput input {
+            flex: 1;
+            padding: 12px; /* More padding */
+            border: none;
+            outline: none;
+            font-size: 1em; /* Ensure readable font size */
+        }
+        #chatInput button {
+            padding: 0 15px; /* Adjust padding */
+            background-color: #005f73;
+            border: none;
+            cursor: pointer;
             color: white;
-            font-size: 1.2em;
-            transition: 0.3s;
+            font-size: 1.2em; /* Make icon slightly larger */
+            display: flex; /* Center icon */
+            align-items: center; /* Center icon */
+            justify-content: center; /* Center icon */
         }
-
-        .social-media a:hover {
-            color: #b2dfdb;
-        }
-            #chatToggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #005f73;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 24px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      z-index: 9999;
-    }
-
-    #chatbot {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 300px;
-      max-height: 400px;
-      border-radius: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      display: none;
-      flex-direction: column;
-      background-color: white;
-      z-index: 9998;
-    }
-
-    #chatHeader {
-      background-color: #005f73;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-      color:white;
-    }
-
-    #chatBody {
-      background-color: #fff;
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-    }
-
-    .message {
-      margin: 5px 0;
-    }
-    .user {
-      text-align: right;
-      color: #0077cc;
-    }
-    .bot {
-      text-align: left;
-      color: #333;
-    }
-
-    #chatInput {
-      display: flex;
-      border-top: 1px solid #ccc;
-    }
-    #chatInput input {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      outline: none;
-    }
-    #chatInput button {
-      padding: 10px;
-      background-color: #005f73;
-      border: none;
-      cursor: pointer;
-      color:white;
-    }
+         #chatInput button:hover {
+             background-color: #004c5d; /* Darker hover */
+         }
 
     </style>
 </head>
@@ -419,7 +461,7 @@
     <div class="blog-content">
         <h1>Living with OCD: The Art of Overthinking Everything</h1>
         <img src="OCD.jpg" alt="Illustration representing obsessive compulsive disorder" class="blog-image">
-        
+
         <h2>Introduction to OCD:</h2>
         <p>
             <strong>Picture this:</strong><br>
@@ -497,16 +539,14 @@
         <ul class="symptoms-list">
             <li><strong>Cognitive Behavioral Therapy (CBT):</strong> ERP (Exposure and Response Prevention) is the specific form of CBT you want. ERP is the gold standard that helps you face your fears and do so without giving in to compulsions. It's like fear factor, but for your brain.</li>
             <li><strong>Medications:</strong> Medicines primarily are SSRIs (Selective Serotonin Reuptake Inhibitors) like:
-                <ol type="i">
-                    <li>Fluoxetine (Prozac)</li>
+                <ol type="i" style="margin-left: 20px; margin-top: 10px;"> <li>Fluoxetine (Prozac)</li>
                     <li>Sertraline (Zoloft)</li>
                     <li>Fluvoxamine (Luvox)</li>
                 </ol>
                 These prescription medications actually help your brain come the heck down.
             </li>
             <li><strong>Other options for severe OCD:</strong>
-                <ul>
-                    <li>Deep Brain Stimulation (DBS)</li>
+                <ul style="margin-left: 20px; margin-top: 10px;"> <li>Deep Brain Stimulation (DBS)</li>
                     <li>Transcranial Magnetic Stimulation (TMS)</li>
                     <li>Ketamine (still in research - not the rave kind)</li>
                 </ul>
@@ -518,26 +558,28 @@
         <h2>OCD vs. OCPD</h2>
         <p>OCD is often confused with Obsessive Compulsive Personality Disorder (OCPD). Here is the quick cheat sheet:</p>
         <table>
-            <tr>
-                <th>Feature</th>
-                <th>OCD</th>
-                <th>OCPD</th>
-            </tr>
-            <tr>
-                <td>Nature</td>
-                <td>Ego-dystonic (the person does not like the thoughts/behaviors)</td>
-                <td>Ego-syntonic (the person thinks their rigidity is just fine)</td>
-            </tr>
-            <tr>
-                <td>Characteristics</td>
-                <td>Involves distressing obsessions and compulsions</td>
-                <td>Involves a perfectionist/control-freak personality</td>
-            </tr>
-            <tr>
-                <td>Impact</td>
-                <td>Can cause very high anxiety</td>
-                <td>Can cause interpersonal problems, but usually not internal distress</td>
-            </tr>
+            <thead> <tr>
+                     <th>Feature</th>
+                     <th>OCD</th>
+                     <th>OCPD</th>
+                 </tr>
+            </thead>
+            <tbody> <tr>
+                     <td>Nature</td>
+                     <td>Ego-dystonic (the person does not like the thoughts/behaviors)</td>
+                     <td>Ego-syntonic (the person thinks their rigidity is just fine)</td>
+                 </tr>
+                 <tr>
+                     <td>Characteristics</td>
+                     <td>Involves distressing obsessions and compulsions</td>
+                     <td>Involves a perfectionist/control-freak personality</td>
+                 </tr>
+                 <tr>
+                     <td>Impact</td>
+                     <td>Can cause very high anxiety</td>
+                     <td>Can cause interpersonal problems, but usually not internal distress</td>
+                 </tr>
+            </tbody>
         </table>
 
         <h2>Misunderstandings & Misinformation</h2>
@@ -562,12 +604,8 @@
 
         <h2>Resources to Bookmark</h2>
         <ol class="symptoms-list">
-            <li><a href='https://iocdf.org' target="_blank">International OCD Foundation</a></li>
-            <li><a href='https://nimh.nih.gov' target="_blank">National Institute of Mental Health</a></li>
-            <li><a href='https://mind.org.uk' target="_blank">Mind UK</a></li>
-            <li>Books:
-                <ul>
-                    <li>"Brain Lock" by Jeffrey M. Schwartz</li>
+            <li><a href='https://iocdf.org' target="_blank" rel="noopener noreferrer">International OCD Foundation</a></li> <li><a href='https://nimh.nih.gov' target="_blank" rel="noopener noreferrer">National Institute of Mental Health</a></li> <li><a href='https://mind.org.uk' target="_blank" rel="noopener noreferrer">Mind UK</a></li> <li>Books:
+                <ul style="margin-left: 20px; margin-top: 10px;"> <li>"Brain Lock" by Jeffrey M. Schwartz</li>
                     <li>"The OCD Workbook" by Bruce Hyman & Cherry Pedrick</li>
                 </ul>
             </li>
@@ -582,21 +620,19 @@
         <p>&copy; 2025 HEAR4U. All rights reserved.</p>
         <div class="social-media">
             <a href="https://www.facebook.com/hear4u"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com/hear_4u_"><i class="fab fab-x"></i></a>
-            <a href="https://www.instagram.com/hear_4u_/"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/hear_4u_"><i class="fab fa-x-twitter"></i></a> <a href="https://www.instagram.com/hear_4u_/"><i class="fab fa-instagram"></i></a>
             <a href="http://www.linkedin.com/in/hear-4u-b29900361"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         // Toggle mobile menu
         document.querySelector('.hamburger').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
             const hamburgerIcon = this.querySelector('i');
-            
+
             navLinks.classList.toggle('active');
-            
+
             // Change icon
             if (navLinks.classList.contains('active')) {
                 hamburgerIcon.classList.remove('fa-bars');
@@ -609,29 +645,52 @@
             }
         });
 
-        // Handle dropdowns on mobile
-        document.querySelectorAll('.dropdown > a').forEach(link => {
+         // Handle dropdowns on mobile - toggle display
+         document.querySelectorAll('.dropdown > a').forEach(link => {
             link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
+                // Only prevent default and toggle on mobile widths
+                if (window.innerWidth <= 768 && this.parentElement.classList.contains('dropdown')) {
                     e.preventDefault();
                     const dropdown = this.parentElement;
-                    dropdown.classList.toggle('active');
+                    // Close other active dropdowns within the nav
+                    if (dropdown.classList.contains('active')) {
+                        dropdown.classList.remove('active');
+                    } else {
+                        // Close any other open dropdowns first
+                        document.querySelectorAll('.nav-links .dropdown.active').forEach(openDropdown => {
+                            openDropdown.classList.remove('active');
+                        });
+                        dropdown.classList.toggle('active');
+                    }
                 }
             });
         });
 
-        // Close menu when clicking a link (except dropdown triggers)
-        document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    const navLinks = document.querySelector('.nav-links');
-                    const hamburgerIcon = document.querySelector('.hamburger i');
-                    
-                    navLinks.classList.remove('active');
-                    hamburgerIcon.classList.remove('fa-times');
-                    hamburgerIcon.classList.add('fa-bars');
-                    document.body.style.overflow = '';
-                }
+
+        // Close menu when clicking a standard link (non-dropdown link or link within an open dropdown)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                 if (window.innerWidth <= 768) {
+                     const isDropdownTrigger = this.parentElement.classList.contains('dropdown');
+                     const isDropdownMenuLink = this.closest('.dropdown-menu') !== null;
+
+                     // Close menu if it's NOT a dropdown trigger being clicked to open it
+                     if (!isDropdownTrigger || isDropdownMenuLink ) {
+                         const navLinks = document.querySelector('.nav-links');
+                         const hamburgerIcon = document.querySelector('.hamburger i');
+
+                         if (navLinks.classList.contains('active')) {
+                              navLinks.classList.remove('active');
+                              hamburgerIcon.classList.remove('fa-times');
+                              hamburgerIcon.classList.add('fa-bars');
+                              document.body.style.overflow = '';
+                              // Close any active mobile dropdowns
+                              document.querySelectorAll('.nav-links .dropdown.active').forEach(openDropdown => {
+                                  openDropdown.classList.remove('active');
+                              });
+                         }
+                     }
+                 }
             });
         });
 
@@ -640,27 +699,29 @@
             if (window.innerWidth > 768) {
                 const navLinks = document.querySelector('.nav-links');
                 const hamburgerIcon = document.querySelector('.hamburger i');
-                
-                navLinks.classList.remove('active');
-                hamburgerIcon.classList.remove('fa-times');
-                hamburgerIcon.classList.add('fa-bars');
-                document.body.style.overflow = '';
-                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+
+                // Remove mobile active states if window is resized to desktop
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                    document.body.style.overflow = '';
+                }
+                document.querySelectorAll('.nav-links .dropdown.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = ''); // Reset display
+            } else {
+                 // Optional: Ensure dropdown menus are hidden if resizing back to mobile
+                 document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = ''); // Reset display
             }
         });
     </script>
-             <button id="chatToggle" onclick="toggleChatbot()">
-                     <i class="fas fa-comment-dots"></i> </button>
+                <button id="chatToggle" aria-label="Toggle Chatbot" onclick="toggleChatbot()"> <i class="fas fa-comment-dots"></i> </button>
 
-<div id="chatbot">
-    <div id="chatHeader">Saathi - Hear4U 💗</div>
+<div id="chatbot" role="log" aria-live="polite"> <div id="chatHeader">Saathi - Hear4U 💗</div>
     <div id="chatBody">
-        <div class="message bot">Hi there! I'm Saathi. How can I help you today?</div>
-    </div>
+        </div>
     <div id="chatInput">
-        <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">
-             <i class="fas fa-paper-plane"></i> </button>
+        <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)" aria-label="Your message"> <button onclick="sendMessage()" aria-label="Send Message"> <i class="fas fa-paper-plane"></i> </button>
     </div>
 </div>
 
@@ -675,12 +736,22 @@
         alone: "Feeling alone can be really difficult. Please know that you're not truly alone. I'm here to listen and chat with you. You matter. 💛",
         lonely: "Loneliness is a hard feeling. Thank you for reaching out. I'm here to keep you company. What's been going on? 🤗",
         depressed:"Hearing that you might be feeling depressed concerns me. Remember, it's okay to seek help. Have you considered talking to a friend, family member, or a mental health professional? I'm here to listen without judgment. 💬",
+        ocd: "OCD involves obsessions (intrusive thoughts) and compulsions (repetitive actions). It's more than just liking things neat. Treatment like ERP therapy and medication can help manage it. Is there anything specific about OCD you'd like to discuss?",
+        "obsessive compulsive disorder": "Obsessive Compulsive Disorder (OCD) can be challenging. Key features are unwanted obsessive thoughts and compulsive behaviors done to reduce anxiety. Effective treatments are available, like therapy (ERP) and sometimes medication. How can I help you regarding OCD?",
+        "what is ocd": "OCD (Obsessive Compulsive Disorder) is an anxiety disorder characterized by intrusive, unwanted thoughts (obsessions) and repetitive behaviors or mental acts (compulsions) that a person feels driven to perform. It often causes significant distress. Want to know more about symptoms or treatment?",
+        "ocd treatment": "The main treatments for OCD are Exposure and Response Prevention (ERP) therapy, a type of CBT, and medications like SSRIs. ERP involves gradually facing feared situations without doing compulsions. Would you like links to resources like the IOCDF?",
+        erp: "ERP (Exposure and Response Prevention) is a type of Cognitive Behavioral Therapy (CBT) considered the gold standard for OCD. It involves facing triggers (exposure) and resisting the urge to perform compulsions (response prevention). It helps break the OCD cycle.",
         help: "I'm here to offer support and listen. If you're in crisis or need immediate professional help, please reach out to a helpline or mental health professional. For general chat and support, tell me what's going on. ❤️",
         "thank you": "You're welcome! I'm glad I could be here for you. Remember, I'm always here if you need to talk. 😊",
         thanks: "Anytime! Taking care of your mental health is important. Reach out whenever you need to. 👍",
         bye: "Take care! Remember to be kind to yourself. I'll be here if you need me again. 👋",
         default: "I understand. It's okay to feel that way. Tell me more about it if you're comfortable. I'm here to listen. 🤔"
     };
+
+     // Store conversation history (optional, for potential future use)
+     let chatHistory = [
+          { sender: 'bot', text: "Hi there! I'm Saathi. How can I help you today?" }
+     ];
 
     function toggleChatbot() {
         const chatbot = document.getElementById('chatbot');
@@ -689,30 +760,38 @@
 
         if (isOpening) {
              chatbot.style.display = 'flex';
-             // Optional: Animate the opening
-             setTimeout(() => { chatbot.style.opacity = 1; chatbot.style.transform = 'scale(1)'; }, 10);
+             // Trigger animation
+             setTimeout(() => {
+                 chatbot.style.opacity = 1;
+                 chatbot.style.transform = 'scale(1)';
+             }, 10); // Short delay to allow display change before transition
              chatToggle.innerHTML = '<i class="fas fa-times"></i>'; // Change to close icon
+             chatToggle.setAttribute('aria-expanded', 'true');
+             document.getElementById('userInput').focus(); // Focus input on open
+             // Render initial history if not already shown
+             if(document.getElementById('chatBody').children.length === 0) {
+                 renderHistory();
+             }
         } else {
-            // Optional: Animate the closing
-            chatbot.style.opacity = 0;
-            chatbot.style.transform = 'scale(0.9)';
-            setTimeout(() => { chatbot.style.display = 'none'; }, 300); // Match timeout to CSS transition if added
-            chatToggle.innerHTML = '<i class="fas fa-comment-dots"></i>'; // Change back to chat icon
+             // Start closing animation
+             chatbot.style.opacity = 0;
+             chatbot.style.transform = 'scale(0.9)';
+             // Wait for animation to finish before hiding
+             setTimeout(() => {
+                 chatbot.style.display = 'none';
+             }, 300); // Match CSS transition duration
+             chatToggle.innerHTML = '<i class="fas fa-comment-dots"></i>'; // Change back to chat icon
+             chatToggle.setAttribute('aria-expanded', 'false');
         }
     }
-
-
-     // Add initial bot message when chat opens (can be moved inside toggleChatbot if preferred)
-     // window.onload = () => {
-     //    appendMessage('bot', "Hi there! I'm Saathi. How can I help you today?");
-     // };
-
 
     function sendMessage() {
         const input = document.getElementById('userInput');
         const message = input.value.trim();
         if (message === '') return;
 
+        // Add user message to history and UI
+        chatHistory.push({ sender: 'user', text: message });
         appendMessage('user', message);
         input.value = '';
 
@@ -721,58 +800,66 @@
         let response = responses.default;
         let foundResponse = false;
 
-        // Prioritize more specific phrases if needed, then single keywords
-        const sortedKeys = Object.keys(responses).sort((a, b) => b.length - a.length); // Longer keys first
+        // Prioritize more specific phrases
+        const sortedKeys = Object.keys(responses).sort((a, b) => b.length - a.length);
 
         for (const key of sortedKeys) {
-            // Use word boundaries for keywords like 'hi', 'sad' to avoid partial matches in words like 'history' or 'sadness'
-             const regex = new RegExp(`\\b${key}\\b`, 'i'); // 'i' for case-insensitive
+            const regex = new RegExp(`\\b${key.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'i'); // Escape special chars in key & use word boundary
              if (regex.test(lowerMessage)) {
-                response = responses[key];
-                foundResponse = true;
-                break;
-            }
-        }
-        // If no keyword match, check for simple greetings
-        if (!foundResponse) {
-             if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-                 response = responses.hello; // Or a specific greeting response
-             } else if (lowerMessage.includes('thank')) {
-                 response = responses['thank you'];
-             } else if (lowerMessage.includes('bye') || lowerMessage.includes('goodbye')) {
-                 response = responses.bye;
+                 response = responses[key];
+                 foundResponse = true;
+                 break;
              }
         }
 
+         // Fallback for simple greetings if no specific match found
+         if (!foundResponse) {
+              if (/\b(hello|hi|hey)\b/i.test(lowerMessage)) {
+                  response = responses.hi; // Use a specific greeting
+              } else if (/\b(thank|thanks)\b/i.test(lowerMessage)) {
+                  response = responses['thank you'];
+              } else if (/\b(bye|goodbye)\b/i.test(lowerMessage)) {
+                  response = responses.bye;
+              }
+          }
 
-        // Simulate bot thinking time
-        setTimeout(() => appendMessage('bot', response), 600 + Math.random() * 400); // Add slight delay variation
+
+        // Add bot response to history and UI
+        setTimeout(() => {
+            chatHistory.push({ sender: 'bot', text: response });
+            appendMessage('bot', response);
+        }, 600 + Math.random() * 400); // Simulate typing delay
     }
 
     function appendMessage(sender, text) {
         const chatBody = document.getElementById('chatBody');
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message ' + sender;
-        // Sanitize text slightly (replace < and > to prevent basic HTML injection)
-        messageDiv.textContent = text; // Use textContent for better security than innerText/innerHTML
+        messageDiv.textContent = text; // Use textContent for safety
         chatBody.appendChild(messageDiv);
         // Scroll to the bottom
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 
+     // Function to render history (useful if chat starts closed)
+     function renderHistory() {
+         const chatBody = document.getElementById('chatBody');
+         chatBody.innerHTML = ''; // Clear first
+         chatHistory.forEach(msg => appendMessage(msg.sender, msg.text));
+     }
+
+
     function handleKeyPress(event) {
-      // Check if the key pressed was Enter
-      if (event.key === "Enter") {
-        sendMessage();
-      }
+        if (event.key === "Enter") {
+            sendMessage();
+        }
     }
 
-    // Optional: Add initial styles for chatbot animation
-    const chatbotElement = document.getElementById('chatbot');
-    chatbotElement.style.opacity = 0;
-    chatbotElement.style.transform = 'scale(0.9)';
-    chatbotElement.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-
+    // Initial setup - Render first message to history (it will be shown when toggled open)
+    // No need to call appendMessage here initially if renderHistory is called in toggleChatbot
+    // window.onload = () => {
+    //     appendMessage('bot', chatHistory[0].text); // Pre-add the first message visually if needed, but renderHistory is better
+    // };
 
 </script>
 </body>
