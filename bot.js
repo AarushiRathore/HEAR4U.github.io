@@ -1,3 +1,14 @@
+// Existing
+sendButton.addEventListener("click", sendMessage);
+
+// NEW: Add this for Enter key
+userInput.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    sendMessage();
+  }
+});
+
 // Create and append the Dialogflow bootstrap script
 const dialogflowScript = document.createElement('script');
 dialogflowScript.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
