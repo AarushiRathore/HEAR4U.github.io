@@ -519,20 +519,28 @@
             }
         });
     </script>
-    <script src="bot.js"></script>
-                    <button id="chatToggle" onclick="toggleChatbot()">
-                     <i class="fas fa-comment-dots"></i> </button>
+<!-- Chat Toggle Button -->
+<button id="chatToggle" onclick="toggleChatbot()">
+  <i class="fas fa-comment-dots"></i>
+</button>
 
-<div id="chatbot">
-    <div id="chatHeader">Saathi - Hear4U 💗</div>
-    <div id="chatBody">
-        <div class="message bot">Hi there! I'm Saathi. How can I help you today?</div>
-    </div>
-    <div id="chatInput">
-        <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">
-             <i class="fas fa-paper-plane"></i> </button>
-    </div>  
+<!-- Chatbot Container (Initially Hidden) -->
+<div id="chatbot" style="display: none; flex-direction: column;">
+  <div id="chatHeader">Saathi - Hear4U 💗</div>
+  <div id="chatBody">
+    <div class="message bot">Hi there! I'm Saathi. How can I help you today?</div>
+  </div>
+  <div id="chatInput">
+    <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+    <button onclick="sendMessage()">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
 </div>
+
+<!-- Script file should be last to ensure DOM is loaded -->
+<script src="bot.js"></script>
+
+
 </body>
 </html>
