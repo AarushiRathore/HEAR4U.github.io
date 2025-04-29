@@ -1,17 +1,3 @@
-
-</script> 
-   <button id="chatToggle" onclick="toggleChatbot()">💬</button>
-
-<!-- Chatbot Box -->
-<div id="chatbot">
-  <div id="chatHeader">Saathi- Hear4U 💗</div>
-  <div id="chatBody"></div>
-  <div id="chatInput">
-    <input type="text" id="userInput" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
-</div>
-
 <script>
   const responses = {
     hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖",
