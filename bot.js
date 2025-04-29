@@ -16,7 +16,7 @@ ocd: "OCD involves obsessions (intrusive thoughts) and compulsions (repetitive a
 "ocd treatment": "The main treatments for OCD are Exposure and Response Prevention (ERP) therapy, a type of CBT, and medications like SSRIs. ERP involves gradually facing feared situations without doing compulsions. Would you like links to resources like the IOCDF?",
 erp: "ERP (Exposure and Response Prevention) is a type of Cognitive Behavioral Therapy (CBT) considered the gold standard for OCD. It involves facing triggers (exposure) and resisting the urge to perform compulsions (response prevention). It helps break the OCD cycle.",
 help: "I'm here to offer support and listen. If you're in crisis or need immediate professional help, please reach out to a helpline or mental health professional. For general chat and support, tell me what's going on. ❤️",
-"thank you": "You're welcome! I'm glad I could be here for you. Remember, I'm always here if you need to talk. 😊",
+"thank you/thankyou": "You're welcome! I'm glad I could be here for you. Remember, I'm always here if you need to talk. 😊",
 thanks: "Anytime! Taking care of your mental health is important. Reach out whenever you need to. 👍",
 bye: "Take care! Remember to be kind to yourself. I'll be here if you need me again. 👋",
 default: "I understand. It's okay to feel that way. Tell me more about it if you're comfortable. I'm here to listen. 🤔"
