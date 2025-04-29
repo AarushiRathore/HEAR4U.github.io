@@ -1,25 +1,56 @@
-// Existing
-sendButton.addEventListener("click", sendMessage);
 
-// NEW: Add this for Enter key
-userInput.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    sendMessage();
+</script> 
+   <button id="chatToggle" onclick="toggleChatbot()">💬</button>
+
+<!-- Chatbot Box -->
+<div id="chatbot">
+  <div id="chatHeader">Saathi- Hear4U 💗</div>
+  <div id="chatBody"></div>
+  <div id="chatInput">
+    <input type="text" id="userInput" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const responses = {
+    hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖",
+    sad: "It's okay to feel sad sometimes. Want to talk about what's bothering you?",
+    stressed: "Try taking a deep breath. I'm here for you. Would you like a calming exercise?",
+    alone: "You're not alone. I'm here, and I care about you. 💛",
+    default: "I'm here to listen. Tell me more about how you're feeling."
+  };
+
+  function toggleChatbot() {
+    const chatbot = document.getElementById('chatbot');
+    chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
   }
-});
 
-// Create and append the Dialogflow bootstrap script
-const dialogflowScript = document.createElement('script');
-dialogflowScript.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
-document.body.appendChild(dialogflowScript);
+  function sendMessage() {
+    const input = document.getElementById('userInput');
+    const message = input.value.trim();
+    if (message === '') return;
 
-// Once the script is loaded, add the df-messenger element
-dialogflowScript.onload = function() {
-  const dfMessenger = document.createElement('df-messenger');
-  dfMessenger.setAttribute('intent', 'WELCOME');
-  dfMessenger.setAttribute('chat-title', 'Neuronest');
-  dfMessenger.setAttribute('agent-id', '97505251-f7bb-4dc2-b7f0-ea81ace40fcf');
-  dfMessenger.setAttribute('language-code', 'en');
-  document.body.appendChild(dfMessenger);
-};
+    appendMessage('user', message);
+    input.value = '';
+
+    const lowerMessage = message.toLowerCase();
+    let response = responses.default;
+    for (const key in responses) {
+      if (lowerMessage.includes(key)) {
+        response = responses[key];
+        break;
+      }
+    }
+    setTimeout(() => appendMessage('bot', response), 600);
+  }
+
+  function appendMessage(sender, text) {
+    const chatBody = document.getElementById('chatBody');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message ' + sender;
+    messageDiv.innerText = text;
+    chatBody.appendChild(messageDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+</script>
