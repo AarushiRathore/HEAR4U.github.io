@@ -715,152 +715,26 @@
             }
         });
     </script>
-                <button id="chatToggle" aria-label="Toggle Chatbot" onclick="toggleChatbot()"> <i class="fas fa-comment-dots"></i> </button>
+     <!-- Chat Toggle Button -->
+<button id="chatToggle" onclick="toggleChatbot()">
+  <i class="fas fa-comment-dots"></i>
+</button>
 
-<div id="chatbot" role="log" aria-live="polite"> <div id="chatHeader">Saathi - Hear4U 💗</div>
-    <div id="chatBody">
-        </div>
-    <div id="chatInput">
-        <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)" aria-label="Your message"> <button onclick="sendMessage()" aria-label="Send Message"> <i class="fas fa-paper-plane"></i> </button>
-    </div>
+<!-- Chatbot Container (Initially Hidden) -->
+<div id="chatbot" style="display: none; flex-direction: column;">
+  <div id="chatHeader">Saathi - Hear4U 💗</div>
+  <div id="chatBody">
+    <div class="message bot">Hi there! I'm Saathi. How can I help you today?</div>
+  </div>
+  <div id="chatInput">
+    <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+    <button onclick="sendMessage()">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
 </div>
 
-<script>
-    const responses = {
-        hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖",
-        hi: "Hello! I'm Saathi, your listening ear. How are you feeling right now? 😊",
-        hey: "Hey! I'm Saathi. What's on your mind?",
-        sad: "It sounds like you're feeling sad. It's okay to feel that way. Would you like to share more about what's making you feel down? 🫂",
-        stressed: "Feeling stressed can be tough. Remember to breathe. Take a slow, deep breath in... and out. I'm here for you. Would you like a simple calming exercise? 🧘‍♀️",
-        anxious: "Anxiety can feel overwhelming. Focus on your breathing for a moment. Can you tell me what's making you feel anxious? Talking about it might help. 🤝",
-        alone: "Feeling alone can be really difficult. Please know that you're not truly alone. I'm here to listen and chat with you. You matter. 💛",
-        lonely: "Loneliness is a hard feeling. Thank you for reaching out. I'm here to keep you company. What's been going on? 🤗",
-        depressed:"Hearing that you might be feeling depressed concerns me. Remember, it's okay to seek help. Have you considered talking to a friend, family member, or a mental health professional? I'm here to listen without judgment. 💬",
-        ocd: "OCD involves obsessions (intrusive thoughts) and compulsions (repetitive actions). It's more than just liking things neat. Treatment like ERP therapy and medication can help manage it. Is there anything specific about OCD you'd like to discuss?",
-        "obsessive compulsive disorder": "Obsessive Compulsive Disorder (OCD) can be challenging. Key features are unwanted obsessive thoughts and compulsive behaviors done to reduce anxiety. Effective treatments are available, like therapy (ERP) and sometimes medication. How can I help you regarding OCD?",
-        "what is ocd": "OCD (Obsessive Compulsive Disorder) is an anxiety disorder characterized by intrusive, unwanted thoughts (obsessions) and repetitive behaviors or mental acts (compulsions) that a person feels driven to perform. It often causes significant distress. Want to know more about symptoms or treatment?",
-        "ocd treatment": "The main treatments for OCD are Exposure and Response Prevention (ERP) therapy, a type of CBT, and medications like SSRIs. ERP involves gradually facing feared situations without doing compulsions. Would you like links to resources like the IOCDF?",
-        erp: "ERP (Exposure and Response Prevention) is a type of Cognitive Behavioral Therapy (CBT) considered the gold standard for OCD. It involves facing triggers (exposure) and resisting the urge to perform compulsions (response prevention). It helps break the OCD cycle.",
-        help: "I'm here to offer support and listen. If you're in crisis or need immediate professional help, please reach out to a helpline or mental health professional. For general chat and support, tell me what's going on. ❤️",
-        "thank you": "You're welcome! I'm glad I could be here for you. Remember, I'm always here if you need to talk. 😊",
-        thanks: "Anytime! Taking care of your mental health is important. Reach out whenever you need to. 👍",
-        bye: "Take care! Remember to be kind to yourself. I'll be here if you need me again. 👋",
-        default: "I understand. It's okay to feel that way. Tell me more about it if you're comfortable. I'm here to listen. 🤔"
-    };
-
-     // Store conversation history (optional, for potential future use)
-     let chatHistory = [
-          { sender: 'bot', text: "Hi there! I'm Saathi. How can I help you today?" }
-     ];
-
-    function toggleChatbot() {
-        const chatbot = document.getElementById('chatbot');
-        const chatToggle = document.getElementById('chatToggle');
-        const isOpening = chatbot.style.display === 'none' || chatbot.style.display === '';
-
-        if (isOpening) {
-             chatbot.style.display = 'flex';
-             // Trigger animation
-             setTimeout(() => {
-                 chatbot.style.opacity = 1;
-                 chatbot.style.transform = 'scale(1)';
-             }, 10); // Short delay to allow display change before transition
-             chatToggle.innerHTML = '<i class="fas fa-times"></i>'; // Change to close icon
-             chatToggle.setAttribute('aria-expanded', 'true');
-             document.getElementById('userInput').focus(); // Focus input on open
-             // Render initial history if not already shown
-             if(document.getElementById('chatBody').children.length === 0) {
-                 renderHistory();
-             }
-        } else {
-             // Start closing animation
-             chatbot.style.opacity = 0;
-             chatbot.style.transform = 'scale(0.9)';
-             // Wait for animation to finish before hiding
-             setTimeout(() => {
-                 chatbot.style.display = 'none';
-             }, 300); // Match CSS transition duration
-             chatToggle.innerHTML = '<i class="fas fa-comment-dots"></i>'; // Change back to chat icon
-             chatToggle.setAttribute('aria-expanded', 'false');
-        }
-    }
-
-    function sendMessage() {
-        const input = document.getElementById('userInput');
-        const message = input.value.trim();
-        if (message === '') return;
-
-        // Add user message to history and UI
-        chatHistory.push({ sender: 'user', text: message });
-        appendMessage('user', message);
-        input.value = '';
-
-        // Basic keyword matching
-        const lowerMessage = message.toLowerCase();
-        let response = responses.default;
-        let foundResponse = false;
-
-        // Prioritize more specific phrases
-        const sortedKeys = Object.keys(responses).sort((a, b) => b.length - a.length);
-
-        for (const key of sortedKeys) {
-            const regex = new RegExp(`\\b${key.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'i'); // Escape special chars in key & use word boundary
-             if (regex.test(lowerMessage)) {
-                 response = responses[key];
-                 foundResponse = true;
-                 break;
-             }
-        }
-
-         // Fallback for simple greetings if no specific match found
-         if (!foundResponse) {
-              if (/\b(hello|hi|hey)\b/i.test(lowerMessage)) {
-                  response = responses.hi; // Use a specific greeting
-              } else if (/\b(thank|thanks)\b/i.test(lowerMessage)) {
-                  response = responses['thank you'];
-              } else if (/\b(bye|goodbye)\b/i.test(lowerMessage)) {
-                  response = responses.bye;
-              }
-          }
-
-
-        // Add bot response to history and UI
-        setTimeout(() => {
-            chatHistory.push({ sender: 'bot', text: response });
-            appendMessage('bot', response);
-        }, 600 + Math.random() * 400); // Simulate typing delay
-    }
-
-    function appendMessage(sender, text) {
-        const chatBody = document.getElementById('chatBody');
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'message ' + sender;
-        messageDiv.textContent = text; // Use textContent for safety
-        chatBody.appendChild(messageDiv);
-        // Scroll to the bottom
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-     // Function to render history (useful if chat starts closed)
-     function renderHistory() {
-         const chatBody = document.getElementById('chatBody');
-         chatBody.innerHTML = ''; // Clear first
-         chatHistory.forEach(msg => appendMessage(msg.sender, msg.text));
-     }
-
-
-    function handleKeyPress(event) {
-        if (event.key === "Enter") {
-            sendMessage();
-        }
-    }
-
-    // Initial setup - Render first message to history (it will be shown when toggled open)
-    // No need to call appendMessage here initially if renderHistory is called in toggleChatbot
-    // window.onload = () => {
-    //     appendMessage('bot', chatHistory[0].text); // Pre-add the first message visually if needed, but renderHistory is better
-    // };
-
-</script>
+<!-- Script file should be last to ensure DOM is loaded -->
+<script src="bot.js"></script>
 </body>
 </html>
