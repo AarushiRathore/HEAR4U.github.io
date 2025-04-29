@@ -1,5 +1,5 @@
 <script>
-  const responses = {
+  const responses = 
 {
   hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖",
 
