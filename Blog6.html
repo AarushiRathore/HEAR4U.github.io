@@ -632,143 +632,25 @@
             }
         });
     </script>
-                <button id="chatToggle" aria-label="Toggle Chatbot">💬</button> <div id="chatbot" role="log" aria-live="polite"> <div id="chatHeader">Saathi- Hear4U 💗</div>
+     <!-- Chat Toggle Button -->
+<button id="chatToggle" onclick="toggleChatbot()">
+  <i class="fas fa-comment-dots"></i>
+</button>
+
+<!-- Chatbot Container (Initially Hidden) -->
+<div id="chatbot" style="display: none; flex-direction: column;">
+  <div id="chatHeader">Saathi - Hear4U 💗</div>
   <div id="chatBody">
-      <div class="message bot">Hi there! I'm Saathi. I'm here to listen and support you. 💖 How are you feeling today?</div>
+    <div class="message bot">Hi there! I'm Saathi. How can I help you today?</div>
   </div>
-  <div id="chatInput" role="form"> <input type="text" id="userInput" placeholder="Type a message..." aria-label="Your message"> <button onclick="sendMessage()" aria-label="Send message">Send</button> </div>
+  <div id="chatInput">
+    <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+    <button onclick="sendMessage()">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
 </div>
 
-<script>
-  const responses = {
-    hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖 How can I help today?",
-    hi: "Hello! 👋 How are you feeling right now?",
-    hey: "Hey! Nice to chat with you. What's on your mind?",
-    sad: "It's okay to feel sad sometimes. Remember, you're not alone in this. Want to talk about what's making you feel this way?",
-    lonely: "Feeling lonely can be tough. I'm here to listen. Sometimes just talking about it can help. 💛",
-    stressed: "Stress can be overwhelming. Let's try a quick breathing exercise? Inhale slowly, hold for a few seconds, and exhale slowly. Or tell me what's causing the stress.",
-    anxious: "Anxiety can be really difficult. Take a moment to focus on your breath. I'm here if you want to share what's making you anxious.",
-    depressed: "I'm sorry you're feeling this way. It takes courage to talk about it. Please know that support is available. Have you considered talking to a mental health professional?",
-    happy: "That's wonderful to hear! 😊 What's making you feel happy today?",
-    ok: "Okay. Is there anything specific you'd like to talk about or ask?",
-    fine: "Glad to hear you're doing fine. Let me know if anything changes or if you just want to chat.",
-    help: "I'm here to help. You can tell me how you're feeling, ask questions about mental health, or just vent. If you're in crisis, please reach out to a crisis hotline or emergency services immediately.",
-    "crisis": "If you are in immediate danger or crisis, please contact your local emergency services or a crisis hotline right away. You are not alone and help is available.",
-    "suicide": "If you're having thoughts of harming yourself, please reach out for help immediately. You can call a suicide prevention hotline or contact emergency services. There are people who care and want to support you.",
-    "thank you": "You're very welcome! I'm always here if you need to talk. Remember to be kind to yourself. ✨",
-    thanks: "Anytime! Taking care of your mental health is important. Feel free to reach out whenever you need.",
-    bye: "Take care and be well. Remember I'm here if you need me again. Goodbye for now! 👋",
-    default: "I understand. It's okay to feel that way. Tell me more about what's going on, or ask me anything you'd like.",
-    name: "I'm Saathi, your friendly support chatbot from Hear4U! 😊",
-    "who are you": "I'm Saathi, an AI assistant from Hear4U designed to offer a listening ear and basic support. How can I help you today?",
-    "how are you": "I'm an AI, so I don't have feelings, but I'm functioning well and ready to help you! How are *you* doing?",
-    "tell me a joke": "Why don't scientists trust atoms? Because they make up everything! 😄 Hope that brought a little smile.",
-    "mental health tips": "Taking care of your mental health is key! Some tips: practice mindfulness, get regular exercise, connect with loved ones, ensure enough sleep, and don't hesitate to seek professional help when needed. 👍",
-    "what is pms": "PMS (Premenstrual Syndrome) involves symptoms like mood swings, irritability, and anxiety that can occur before menstruation, linked to hormonal changes. If symptoms are severe, it could be PMDD (Premenstrual Dysphoric Disorder).",
-    "postpartum depression": "Postpartum depression is a serious mood disorder that can affect women after childbirth, often due to hormonal shifts and other factors. Symptoms include deep sadness, anxiety, and exhaustion. Seeking medical support is very important.",
-    menopause: "Menopause involves the natural decline of estrogen in women, usually in midlife. It can cause symptoms like hot flashes, sleep problems, and mood changes, including increased risk of depression or anxiety.",
-    andropause: "Andropause, sometimes called 'male menopause,' involves a gradual decline in testosterone in men as they age. It can lead to fatigue, mood changes, irritability, and reduced motivation.",
-    gaht: "GAHT (Gender-Affirming Hormone Therapy) helps transgender and non-binary individuals align their physical characteristics with their gender identity. It often significantly improves mental well-being by reducing gender dysphoria.",
-    hormones: "Hormones like estrogen, testosterone, cortisol, serotonin, and dopamine play a big role in regulating mood, stress, and emotions throughout life. Changes in these hormones can impact mental health.",
-  };
-
-  // Store conversation history
-  let conversationHistory = [
-      { role: "bot", text: "Hi there! I'm Saathi. I'm here to listen and support you. 💖 How are you feeling today?" }
-  ];
-
-  function toggleChatbot() {
-    const chatbot = document.getElementById('chatbot');
-    const chatToggle = document.getElementById('chatToggle');
-    const isOpening = chatbot.style.display === 'none' || chatbot.style.display === '';
-
-    chatbot.style.display = isOpening ? 'flex' : 'none';
-    chatToggle.setAttribute('aria-expanded', isOpening ? 'true' : 'false'); // Accessibility
-
-    if (isOpening) {
-        document.getElementById('userInput').focus(); // Focus input when opened
-        renderConversation(); // Render conversation when opening
-    }
-  }
-
-  function sendMessage() {
-    const input = document.getElementById('userInput');
-    const message = input.value.trim();
-    if (message === '') return;
-
-    // Add user message to history and UI
-    conversationHistory.push({ role: "user", text: message });
-    appendMessage('user', message);
-    input.value = ''; // Clear input field
-
-    // Get bot response
-    const lowerMessage = message.toLowerCase();
-    let response = responses.default;
-
-    // More specific matching first
-    if (lowerMessage.includes("postpartum depression")) response = responses["postpartum depression"];
-    else if (lowerMessage.includes("pms") || lowerMessage.includes("premenstrual")) response = responses["what is pms"];
-    else if (lowerMessage.includes("menopause")) response = responses["menopause"];
-    else if (lowerMessage.includes("andropause")) response = responses["andropause"];
-    else if (lowerMessage.includes("gaht") || lowerMessage.includes("gender affirming") || lowerMessage.includes("hormone therapy")) response = responses["gaht"];
-    else if (lowerMessage.includes("hormone") || lowerMessage.includes("hormonal")) response = responses["hormones"];
-    else if (lowerMessage.includes("crisis")) response = responses["crisis"];
-    else if (lowerMessage.includes("suicide") || lowerMessage.includes("kill myself") || lowerMessage.includes("harm myself")) response = responses["suicide"];
-    else if (lowerMessage.includes("thank")) response = responses["thank you"]; // Catch variants of thanks
-    else if (lowerMessage.includes("who are you")) response = responses["who are you"];
-    else if (lowerMessage.includes("your name")) response = responses["name"];
-    else if (lowerMessage.includes("how are you")) response = responses["how are you"];
-    else if (lowerMessage.includes("joke")) response = responses["tell me a joke"];
-    else if (lowerMessage.includes("tip") || lowerMessage.includes("advice")) response = responses["mental health tips"];
-    else if (lowerMessage.includes("help")) response = responses["help"];
-     else {
-        // General keyword matching
-        for (const key in responses) {
-          // Check if key is a standalone word or phrase in the message
-           const regex = new RegExp(`\\b${key}\\b`, 'i'); // Word boundary check
-           if (regex.test(lowerMessage)) {
-             response = responses[key];
-             break; // Use the first match found
-           }
-         }
-     }
-
-    // Add bot response to history and UI after a short delay
-    setTimeout(() => {
-        conversationHistory.push({ role: "bot", text: response });
-        appendMessage('bot', response);
-    }, 600);
-  }
-
-  function appendMessage(sender, text) {
-    const chatBody = document.getElementById('chatBody');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'message ' + sender;
-    // Sanitize text before inserting (basic example, consider a more robust library if needed)
-    messageDiv.textContent = text;
-    chatBody.appendChild(messageDiv);
-    chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll to the bottom
-  }
-
-  // Function to render the conversation from history
-  function renderConversation() {
-      const chatBody = document.getElementById('chatBody');
-      chatBody.innerHTML = ''; // Clear existing messages
-      conversationHistory.forEach(msg => {
-          appendMessage(msg.role, msg.text);
-      });
-  }
-
-  // Add event listener for Enter key in the input field
-  document.getElementById('userInput').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-          sendMessage();
-      }
-  });
-
-  // Initial rendering of conversation history (optional, if you want history persistence)
-  // renderConversation(); // Call this if you load history from storage, etc.
-  // For now, the initial message is hardcoded in HTML.
-
-</script>
+<!-- Script file should be last to ensure DOM is loaded -->
+<script src="bot.js"></script>
 </body>
