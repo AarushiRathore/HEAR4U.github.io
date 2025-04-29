@@ -178,60 +178,26 @@
         }
     });
 </script>
-    <script src='bot.js'></script>
-   <button id="chatToggle" onclick="toggleChatbot()">💬</button>
+         <!-- Chat Toggle Button -->
+<button id="chatToggle" onclick="toggleChatbot()">
+  <i class="fas fa-comment-dots"></i>
+</button>
 
-<!-- Chatbot Box -->
-<div id="chatbot">
-  <div id="chatHeader">Saathi- Hear4U 💗</div>
-  <div id="chatBody"></div>
+<!-- Chatbot Container (Initially Hidden) -->
+<div id="chatbot" style="display: none; flex-direction: column;">
+  <div id="chatHeader">Saathi - Hear4U 💗</div>
+  <div id="chatBody">
+    <div class="message bot">Hi there! I'm Saathi. How can I help you today?</div>
+  </div>
   <div id="chatInput">
-    <input type="text" id="userInput" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
+    <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+    <button onclick="sendMessage()">
+      <i class="fas fa-paper-plane"></i>
+    </button>
   </div>
 </div>
 
-<script>
-  const responses = {
-    hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖",
-    sad: "It's okay to feel sad sometimes. Want to talk about what's bothering you?",
-    stressed: "Try taking a deep breath. I'm here for you. Would you like a calming exercise?",
-    alone: "You're not alone. I'm here, and I care about you. 💛",
-    default: "I'm here to listen. Tell me more about how you're feeling."
-  };
-
-  function toggleChatbot() {
-    const chatbot = document.getElementById('chatbot');
-    chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
-  }
-
-  function sendMessage() {
-    const input = document.getElementById('userInput');
-    const message = input.value.trim();
-    if (message === '') return;
-
-    appendMessage('user', message);
-    input.value = '';
-
-    const lowerMessage = message.toLowerCase();
-    let response = responses.default;
-    for (const key in responses) {
-      if (lowerMessage.includes(key)) {
-        response = responses[key];
-        break;
-      }
-    }
-    setTimeout(() => appendMessage('bot', response), 600);
-  }
-
-  function appendMessage(sender, text) {
-    const chatBody = document.getElementById('chatBody');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'message ' + sender;
-    messageDiv.innerText = text;
-    chatBody.appendChild(messageDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-</script>
+<!-- Script file should be last to ensure DOM is loaded -->
+<script src="bot.js"></script>
 </body>
 </html>
