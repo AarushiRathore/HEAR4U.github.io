@@ -547,6 +547,13 @@
     chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
   }
 
+  // Handle Enter key press
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  }
+
   function sendMessage() {
     const input = document.getElementById('userInput');
     const message = input.value.trim();
