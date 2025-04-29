@@ -1,4 +1,4 @@
-<script>
+
   const responses = 
 {
   hello: "Hi there! I'm Saathi. I'm here to listen and support you. 💖",
@@ -42,7 +42,6 @@
   default: "I'm here to listen. Tell me more about how you're feeling."
 }
 
-  };
 
   function toggleChatbot() {
     const chatbot = document.getElementById('chatbot');
@@ -82,4 +81,3 @@ function handleKeyPress(event) {
   }
 }
 
-</script>
