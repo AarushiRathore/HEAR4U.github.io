@@ -87,7 +87,7 @@ let conversationContext = {
 
 function toggleChatbot() {
   const chatbot = document.getElementById('chatbot');
-  chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
+  chatbot.classList.toggle('active');
 }
 
 function sendMessage() {
