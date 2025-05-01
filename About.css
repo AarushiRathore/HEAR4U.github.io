@@ -15,7 +15,7 @@
     }
 
     /* Navbar */
-    .navbar {
+.navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -27,11 +27,35 @@
       z-index: 1000;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
     .logo img {
       height: 50px;
       width: 55px;
       border-radius: 50%;
     }
+    .site-name {
+      margin-left: 10px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+.site-name span {
+      color: #ffffff;
+      text-decoration: none;
+    }    
+
+.site-name a {
+    text-decoration: none;
+    outline: none;
+    color: #ffffff;
+}
     .nav-links {
       display: flex;
       list-style: none;

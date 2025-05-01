@@ -1,24 +1,25 @@
 // firebase-config.js
 // Configuration for Firebase v9 compat (CDN version)
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBihkMtv01iKT1odnfH_6ilImu_-MijICo",
   authDomain: "contactus-beff5.firebaseapp.com",
   projectId: "contactus-beff5",
-  storageBucket: "contactus-beff5.firebasestorage.com",
+  storageBucket: "contactus-beff5.firebasestorage.app",
   messagingSenderId: "977845064641",
   appId: "1:977845064641:web:c0e0a6103cd382ac4ad540",
   measurementId: "G-LBE45KWC90"
 };
-
-// Initialize Firebase once
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Firebase services
-    const analytics = firebase.analytics();
+    const app = firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics(app);
     const db = firebase.firestore();
-    const storage = firebase.storage();
+    const storage = firebase.storage(app);
     
     // Get form element
     const contactForm = document.getElementById('contactForm');
@@ -30,10 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         
         // Get form values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        
+        const name = contactForm['name'].value;
+        const email = contactForm['email'].value;
+        const message = contactForm['message'].value;
         
         // Validation
         if (!name || !email || !message) {
