@@ -199,6 +199,16 @@
         }
     });
 </script>
+<script>
+    // Submit form on Enter key press inside any input or textarea in the form
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            contactForm.submit();
+        }
+    });
+</script>
          <!-- Chat Toggle Button -->
 <button id="chatToggle" onclick="toggleChatbot()">
   <i class="fas fa-comment-dots"></i>
