@@ -426,14 +426,15 @@
   flex-direction: column; /* Stack title and tagline */
 }
 
-.navbar .logo .site-name .main-title {
+.navbar .logo {
  font-size: 1.5em; /* Example */
  font-weight: bold;
 }
 
-.navbar .logo .site-name .tagline {
+.navbar .logo .main-title{
  font-size: 0.9em; /* Example */
 }
+.sit
 
 /* --- Ensure other styles in stylehome.css don't conflict --- */
 
