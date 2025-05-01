@@ -401,3 +401,39 @@
     font-size: 1rem;
   }
 }
+/* Add these rules to stylehome.css */
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  height: 40px; /* Adjust as needed */
+  width: auto;
+  margin-right: 10px; /* Space between logo and text */
+}
+
+.navbar .logo .site-name {
+  /* Adjust text styling as needed */
+  line-height: 1.2;
+}
+
+.navbar .logo .site-name a {
+  text-decoration: none;
+  color: inherit; /* Or set a specific color */
+  display: flex;
+  flex-direction: column; /* Stack title and tagline */
+}
+
+.navbar .logo .site-name .main-title {
+ font-size: 1.5em; /* Example */
+ font-weight: bold;
+}
+
+.navbar .logo .site-name .tagline {
+ font-size: 0.9em; /* Example */
+}
+
+/* --- Ensure other styles in stylehome.css don't conflict --- */
+
