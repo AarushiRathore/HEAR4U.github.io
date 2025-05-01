@@ -318,10 +318,10 @@
     }
 
      #chatbot.active {
-            display: flex;
-            opacity: 1;
-            transform: scale(1);
-    }
+      display: flex;
+      opacity: 1;
+      transform: scale(1);
+     }
 
     #chatHeader {
       background-color: #005f73;
