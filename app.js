@@ -1,26 +1,24 @@
 // firebase-config.js
 // Configuration for Firebase v9 compat (CDN version)
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBihkMtv01iKT1odnfH_6ilImu_-MijICo",
   authDomain: "contactus-beff5.firebaseapp.com",
   projectId: "contactus-beff5",
-  storageBucket: "contactus-beff5.firebasestorage.app",
+  storageBucket: "contactus-beff5.firebasestorage.com",
   messagingSenderId: "977845064641",
   appId: "1:977845064641:web:c0e0a6103cd382ac4ad540",
   measurementId: "G-LBE45KWC90"
 };
-// Initialize Firebase
+
+// Initialize Firebase once
 firebase.initializeApp(firebaseConfig);
 
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Initialize Firebase services
-    const app = firebase.initializeApp(firebaseConfig);
-    const analytics = firebase.analytics(app);
+    const analytics = firebase.analytics();
     const db = firebase.firestore();
-    const auth = firebase.auth(app);
-    const storage = firebase.storage(app);
+    const storage = firebase.storage();
     
     // Get form element
     const contactForm = document.getElementById('contactForm');
