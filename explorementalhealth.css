@@ -317,6 +317,12 @@
       z-index: 9998;
     }
 
+#cahtbot.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+}
+
     #chatHeader {
       background-color: #005f73;
       padding: 10px;
