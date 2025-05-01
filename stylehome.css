@@ -29,6 +29,14 @@
       width: 55px;
       border-radius: 50%;
     }
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+      z-index: 1001;
+    }
     .site-name {
       margin-left: 10px;
       font-size: 1.5rem;
@@ -49,14 +57,6 @@
     outline: none;
     color: #ffffff;
 }
-    /* Hamburger Menu */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      font-size: 24px;
-      color: white;
-      z-index: 1001;
-    }
 
     /* Navigation Links */
     .nav-links {
