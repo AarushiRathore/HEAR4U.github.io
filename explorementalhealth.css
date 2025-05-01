@@ -285,7 +285,7 @@
                 font-size: 0.8rem;
             }
         }
-#chatToggle {
+    #chatToggle {
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -317,11 +317,11 @@
       z-index: 9998;
     }
 
-#cahtbot.active {
+     #cahtbot.active {
             display: flex;
             opacity: 1;
             transform: scale(1);
-}
+    }
 
     #chatHeader {
       background-color: #005f73;
