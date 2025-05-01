@@ -319,11 +319,11 @@
       z-index: 9998;
     }
 
-   #chatbot.active {
-       display: flex;
-       opacity: 1;
-       transform: scale(1);
-   }
+  #chatbot.active {
+              display: flex;
+              opacity: 1;
+              transform: scale(1);
+  } 
 
     #chatHeader {
       background-color: #005f73;
