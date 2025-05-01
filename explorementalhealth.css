@@ -317,7 +317,7 @@
       z-index: 9998;
     }
 
-     #cahtbot.active {
+     #chatbot.active {
             display: flex;
             opacity: 1;
             transform: scale(1);
