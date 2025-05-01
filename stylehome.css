@@ -338,6 +338,7 @@
 }
 
 .tagline {
+  diplay:flex;
   font-size: 1rem;
   color: #666; /* or your preferred color */
   font-style: italic;
@@ -346,6 +347,7 @@
 
 /* For the hero content version */
 .hero-content .site-name {
+  display: flex;
   position: absolute;
   top: 50%;
   left: 50%;
