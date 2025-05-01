@@ -283,6 +283,12 @@
       z-index: 9998;
     }
 
+        #chatbot.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
     #chatHeader {
       background-color: #005f73;
       padding: 10px;
@@ -467,7 +473,7 @@
 </button>
 
 <!-- Chatbot Container (Initially Hidden) -->
-<div id="chatbot" style="display: none; flex-direction: column;">
+<div id="chatbot" style="flex-direction: column;">
   <div id="chatHeader">Saathi - Hear4U 💗</div>
   <div id="chatBody">
     <div class="message bot">Hi there! I'm Saathi. How can I help you today?</div>

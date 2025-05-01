@@ -285,7 +285,7 @@
                 font-size: 0.8rem;
             }
         }
-#chatToggle {
+    #chatToggle {
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -316,6 +316,12 @@
       background-color:#005f73;
       z-index: 9998;
     }
+
+     #chatbot.active {
+      display: flex;
+      opacity: 1;
+      transform: scale(1);
+     }
 
     #chatHeader {
       background-color: #005f73;
