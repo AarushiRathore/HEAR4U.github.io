@@ -320,7 +320,6 @@
     }
 .site-name {
   display: flex;
-  flex-direction: column;
   margin-left: 10px;
 }
 
