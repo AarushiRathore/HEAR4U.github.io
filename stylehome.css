@@ -318,3 +318,79 @@
       cursor: pointer;
       color:white;
     }
+.site-name {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.site-name a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333; /* or your preferred color */
+  line-height: 1;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #666; /* or your preferred color */
+  font-style: italic;
+  margin-top: 5px;
+}
+
+/* For the hero content version */
+.hero-content .site-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content .main-title {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.hero-content .tagline {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .hero-content .main-title {
+    font-size: 3rem;
+  }
+  
+  .hero-content .tagline {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-content .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content .tagline {
+    font-size: 1rem;
+  }
+}
