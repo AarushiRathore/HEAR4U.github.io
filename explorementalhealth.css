@@ -28,7 +28,26 @@
             height: 60px;
             border-radius: 50%;
         }
-
+        .site-name {
+            margin-left: 10px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+      .site-name span {
+            color: #ffffff;
+            text-decoration: none;
+          }    
+      
+      .site-name a {
+          text-decoration: none;
+          outline: none;
+          color: #ffffff;
+      }
         /* Hamburger Menu - Matching OCD Blog */
         .hamburger {
             display: none;

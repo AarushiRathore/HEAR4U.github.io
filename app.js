@@ -11,10 +11,11 @@ const firebaseConfig = {
   appId: "1:977845064641:web:c0e0a6103cd382ac4ad540",
   measurementId: "G-LBE45KWC90"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Initialize Firebase services
     const app = firebase.initializeApp(firebaseConfig);
     const analytics = firebase.analytics(app);
@@ -77,4 +78,11 @@ firebase.initializeApp(firebaseConfig);
             submitBtn.textContent = originalText;
         }
     });
-});
+        // Allow form submission with Enter key
+        contactForm.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent default form submission
+                contactForm.dispatchEvent(new Event('submit')); // Trigger the submit event
+            }
+        });
+    });
