@@ -324,117 +324,42 @@
       cursor: pointer;
       color:white;
     }
-.site-name {
-  display: flex;
-  margin-left: 10px;
-}
-
-.site-name a {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333; /* or your preferred color */
-  line-height: 1;
-}
-
-.tagline {
-  diplay:flex;
-  font-size: 1rem;
-  color: #666; /* or your preferred color */
-  font-style: italic;
-  margin-top: 5px;
-}
-
-/* For the hero content version */
-.hero-content .site-name {
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content .main-title {
-  font-size: 4rem;
-  margin-bottom: 10px;
-}
-
-.hero-content .tagline {
-  font-size: 1.5rem;
-  color: white;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .main-title {
-    font-size: 2rem;
-  }
-  
-  .hero-content .main-title {
-    font-size: 3rem;
-  }
-  
-  .hero-content .tagline {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-title {
-    font-size: 1.5rem;
-  }
-  
-  .hero-content .main-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-content .tagline {
-    font-size: 1rem;
-  }
-}
-/* Add these rules to stylehome.css */
+/* Add or ensure these rules exist in stylehome.css */
 
 .navbar .logo {
-  display: flex;
-  align-items: center;
+  display: flex;         /* Arranges the img and span.site-name side-by-side */
+  align-items: center;  /* Vertically aligns the logo and text */
+  /* Potentially remove fixed width/height if set elsewhere */
 }
 
 .navbar .logo img {
-  height: 40px; /* Adjust as needed */
-  width: auto;
-  margin-right: 10px; /* Space between logo and text */
+  height: 40px;         /* Adjust logo height as needed */
+  width: auto;          /* Maintain aspect ratio */
+  margin-right: 10px;   /* Adds space between logo and text */
 }
 
 .navbar .logo .site-name {
-  /* Adjust text styling as needed */
-  line-height: 1.2;
+  /* Container for the text */
+  line-height: 1.2;    /* Adjust line spacing if needed */
 }
 
 .navbar .logo .site-name a {
-  text-decoration: none;
-  color: inherit; /* Or set a specific color */
+  text-decoration: none; /* Removes underline from the link */
+  color: inherit;       /* Makes the link text color same as parent */
   display: flex;
-  flex-direction: column; /* Stack title and tagline */
+  flex-direction: column; /* Stacks "HEAR4U" and tagline vertically */
 }
 
-.navbar .logo {
- font-size: 1.5em; /* Example */
- font-weight: bold;
+.navbar .logo .site-name .main-title {
+  font-size: 1.5em;     /* Example: Adjust size */
+  font-weight: bold;   /* Make the main title bold */
+  /* Add other desired styles */
 }
 
-.navbar .logo .main-title{
- font-size: 0.9em; /* Example */
+.navbar .logo .site-name .tagline {
+  font-size: 0.9em;     /* Example: Adjust size */
+  /* Add other desired styles */
 }
-.sit
 
-/* --- Ensure other styles in stylehome.css don't conflict --- */
+/* --- Make sure other navbar/header styles don't conflict --- */
 
