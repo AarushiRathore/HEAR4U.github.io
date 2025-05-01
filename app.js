@@ -12,46 +12,42 @@ const firebaseConfig = {
   measurementId: "G-LBE45KWC90"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// app.js - Modified to work with your specific Firebase setup
-
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Firebase services
+    const app = firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics(app);
+    const db = firebase.firestore();
+    const auth = firebase.auth(app);
+    const storage = firebase.storage(app);
+    
     // Get form element
     const contactForm = document.getElementById('contactForm');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleFormSubmit);
-    }
+    if (!contactForm) return; // Exit if form doesn't exist
 
-    // Initialize Firebase services
-    // Using compat version since you're loading it via CDN
-    const db = firebase.firestore();
-    const analytics = firebase.analytics();
-
-    // Form submission handler
-    async function handleFormSubmit(e) {
-        e.preventDefault();
+    // Single event listener for form submission
+    contactForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
         
         // Get form values
         const name = contactForm['name'].value;
         const email = contactForm['email'].value;
         const message = contactForm['message'].value;
         
-        // Simple validation
+        // Validation
         if (!name || !email || !message) {
             alert('Please fill all fields');
             return;
         }
 
-        // Show loading state
+        // UI Loading state
         const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.textContent;
+        const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
 
         try {
-            // Add document to Firestore
+            // Save to Firestore
             await db.collection('contactuspage').add({
                 name: name,
                 email: email,
@@ -59,19 +55,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             });
 
-            // Log analytics event
+            // Analytics
             analytics.logEvent('contact_form_submitted');
-
-            // Show success message
-            alert('Thank you for your message! We will get back to you soon.');
+            
+            // Success action
+            alert('Message sent successfully!');
             contactForm.reset();
+            
+            // Redirect after 1 second (optional)
+            setTimeout(() => {
+                window.location.href = 'explore-mental-health.html';
+            }, 1000);
+            
         } catch (error) {
-            console.error('Error adding document: ', error);
-            alert('There was an error sending your message. Please try again.');
+            console.error('Error:', error);
+            alert('Error sending message. Please try again.');
         } finally {
-            // Reset button state
+            // Reset UI
             submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
+            submitBtn.textContent = originalText;
         }
-    }
+    });
 });

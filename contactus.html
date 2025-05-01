@@ -67,7 +67,7 @@
     <div class="contact-container">
         <h1>Contact Us</h1>
         <p>If you need support, feel free to reach out. We are here to help.</p>
-        <form id="contactForm" action="save.php" method="post">
+        <form id="contactForm" method="post">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
 
@@ -94,7 +94,8 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
-<script src="app.js"></script> <script>
+<script src="app.js"></script> 
+<script>
     // Toggle mobile menu
     const hamburger = document.querySelector('.hamburger'); // Use querySelector
     const navLinks = document.querySelector('.nav-links'); // Use querySelector
@@ -198,15 +199,34 @@
              document.querySelectorAll('.nav-links .dropdown.active').forEach(d => d.classList.remove('active'));
         }
     });
-</script>
-<script>
+
     // Submit form on Enter key press inside any input or textarea in the form
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
-            contactForm.submit();
+            contactForm.requestSubmit();
         }
+    });
+
+    // Handle form submission and redirect to explore page
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(contactForm);
+        fetch(contactForm.action, {
+            method: contactForm.method,
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = 'explore-mental-health.html';
+            } else {
+                alert('Failed to send message. Please try again.');
+            }
+        })
+        .catch(error => {
+            alert('Error sending message. Please try again.');
+        });
     });
 </script>
          <!-- Chat Toggle Button -->
