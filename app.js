@@ -30,9 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         
         // Get form values
-        const name = contactForm['name'].value;
-        const email = contactForm['email'].value;
-        const message = contactForm['message'].value;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
         
         // Validation
         if (!name || !email || !message) {
