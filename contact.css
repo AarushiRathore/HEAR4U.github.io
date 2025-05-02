@@ -23,6 +23,34 @@
         body {
             padding-top: 70px; /* Adjust based on final navbar height */
         }
+       /* Logo and site name styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the space between logo and text */
+}
+
+.logo img {
+  height: 40px; /* Adjust as needed */
+  width: auto;
+}
+
+.site-name a {
+  color: #fff; /* Or your preferred color */
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Remove any existing styles that position the site name beneath the logo */
 
         /* Main Content Container */
         .container {
@@ -135,26 +163,7 @@
             background-color: transparent;
             display: block; /* Prevents extra space below image */
         }
-        .site-name {
-            margin-left: 10px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #ffffff;
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-      .site-name span {
-            color: #ffffff;
-            text-decoration: none;
-          }    
-      
-      .site-name a {
-          text-decoration: none;
-          outline: none;
-          color: #ffffff;
-      }
+        
         /* Hamburger Menu Icon (Using Font Awesome) */
         .hamburger {
             display: none; /* Hidden by default */
