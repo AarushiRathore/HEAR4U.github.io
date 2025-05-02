@@ -17,7 +17,7 @@
             align-items: center;
             justify-content: space-between;
             background-color: #005f73;
-            padding: 10px 20px;
+            padding: 15px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -28,27 +28,29 @@
             height: 60px;
             border-radius: 50%;
         }
-        .site-name {
-            margin-left: 10px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #ffffff;
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-      .site-name span {
-            color: #ffffff;
-            text-decoration: none;
-          }    
-      
-      .site-name a {
-          text-decoration: none;
-          outline: none;
-          color: #ffffff;
-      }
-        /* Hamburger Menu - Matching OCD Blog */
+        
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the space between logo and text */
+}
+
+.logo img {
+  height: 40px; /* Adjust as needed */
+  width: auto;
+}
+
+.site-name a {
+  color: #fff; /* Or your preferred color */
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+
+
+/* Hamburger Menu - Matching OCD Blog */
         .hamburger {
             display: none;
             cursor: pointer;
