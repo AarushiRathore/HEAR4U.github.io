@@ -23,14 +23,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" type="image/x-icon" href="favicon.ico"> </head>
 <body>
-  <header>
+    <header>
     <nav class="navbar">
-      <div class="logo">
-        <img src="HEAR4ULOGO.png" alt="HEAR4U Logo">
+      <div class="logo-container">
+        <div class="logo">
+          <img src="HEAR4ULOGO.png" alt="HEAR4U Logo">
+        </div>
         <span class="site-name">
-          <a href='index.html'>
-              <span class="main-title">HEAR4U</span>
-          </a>
+          <a href='index.html'>HEAR4U</a>
         </span>
       </div>
       <div class="hamburger" onclick="toggleMenu()">
@@ -131,7 +131,6 @@
       });
     });
 
-
     // Close menu when clicking a regular link (not a dropdown toggle)
     document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
       link.addEventListener('click', function() {
@@ -162,5 +161,6 @@
     });
   </script>
 
-  <script src="bot.js"></script> </body>
+  <script src="bot.js"></script>
+</body>
 </html>
