@@ -50,7 +50,7 @@
             align-items: center;
             justify-content: space-between;
             background-color: #005f73;
-            padding: 10px 20px;
+            padding: 15px 20px;
             position: fixed;
             width: 100%;
             top: 0;
@@ -64,26 +64,26 @@
             width: 55px;
             background-color: transparent;
         }
-        .site-name {
-      margin-left: 10px;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-.site-name span {
-      color: #ffffff;
-      text-decoration: none;
-    }    
+        .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the space between logo and text */
+}
+
+.logo img {
+  height: 40px; /* Adjust as needed */
+  width: auto;
+}
 
 .site-name a {
-    text-decoration: none;
-    outline: none;
-    color: #ffffff;
+  color: #fff; /* Or your preferred color */
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
 }
+
+  
         /* Hamburger Menu */
         .hamburger {
             display: none;
@@ -358,15 +358,14 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <img src="HEAR4ULOGO.png" alt="Hear4U Logo">
-                <div class="site-name">
-                    <a href='index.html'>
-                        <span class="main-title">HEAR4U</span>
-                    </a>
-                </div>
-        
-            </div>
+    <div class="logo-container">
+      <div class="logo">
+        <img src="HEAR4ULOGO.png" alt="HEAR4U Logo">
+      </div>
+      <span class="site-name">
+        <a href='index.html'>HEAR4U</a>
+      </span>
+    </div>
             <div class="hamburger" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
