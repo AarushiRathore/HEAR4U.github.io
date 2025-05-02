@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HEAR4U</title>
-  <link rel="stylesheet" href="stylehome.css"> <meta name="url" content="https://hear4u.in/index.html">
+  <link rel="stylesheet" href="stylehome.css">
+  <meta name="url" content="https://hear4u.in/index.html">
   <meta name="description" content="landing page for HEAR4U, a mental health support platform. Explore our resources and connect with us.">
   <meta name="theme-color" content="#4CAF50">
   <meta name="keywords" content="mental health, support, resources, HEAR4U, well-being, self-care, community">
@@ -15,15 +16,17 @@
   <meta name="og:title" content="index - Hear4U">
   <meta name="og:description" content="landing page for HEAR4U, a mental health support platform. Explore our resources and connect with us.">
   <meta name="og:locale" content="en_US">
-  <meta name="og:image" content="https://hear4u.in/HEAR4ULOGO.png"> <meta name="og:image:width" content="1200">
+  <meta name="og:image" content="https://hear4u.in/HEAR4ULOGO.png">
+  <meta name="og:image:width" content="1200">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="og:type" content="website">
   <meta name="og:url" content="https://hear4u.in/index.html">
   <meta name="og:site_name" content="Hear4U">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico"> </head>
-<body>
-    <header>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+  <body>
+<header>
     <nav class="navbar">
       <div class="logo-container">
         <div class="logo">
@@ -65,8 +68,10 @@
     </video>
 
     <div class="hero-content">
-      <h1 class="site-name">HEAR4U</h1>
-      <p class="tagline">Listening with Heart, Supporting with care.</p>
+      <div class="welcome-box">
+        <h2>Welcome to Your Mental Health Companion</h2>
+        <p>Discover a safe, confidential space to explore your mental well-being. Take our assessments, read our resources, and begin your journey to better mental health today.</p>
+      </div>
     </div>
   </div>
 
@@ -101,26 +106,23 @@
 
       // Change icon
       if (navLinks.classList.contains('active')) {
-        hamburger.innerHTML = '<i class="fas fa-times"></i>'; // Change to 'X' icon
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+        document.body.style.overflow = 'hidden';
       } else {
-        hamburger.innerHTML = '<i class="fas fa-bars"></i>'; // Change back to bars icon
-        document.body.style.overflow = ''; // Allow scrolling again
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = '';
       }
     }
 
     // Handle dropdowns on mobile/touch devices
     document.querySelectorAll('.dropdown > a').forEach(link => {
       link.addEventListener('click', function(e) {
-        // Only prevent default and toggle on smaller screens
         if (window.innerWidth <= 768) {
-          // Check if the click is directly on the dropdown link itself
           if (e.target === this) {
-              e.preventDefault(); // Prevent navigation only for the main dropdown link
+              e.preventDefault();
               const dropdown = this.parentElement;
-              dropdown.classList.toggle('active'); // Toggle active class on the parent LI (.dropdown)
+              dropdown.classList.toggle('active');
 
-              // Optional: Close other open dropdowns
               document.querySelectorAll('.dropdown.active').forEach(otherDropdown => {
                   if (otherDropdown !== dropdown) {
                       otherDropdown.classList.remove('active');
@@ -131,13 +133,13 @@
       });
     });
 
-    // Close menu when clicking a regular link (not a dropdown toggle)
+    // Close menu when clicking a regular link
     document.querySelectorAll('.nav-links a:not(.dropdown > a)').forEach(link => {
       link.addEventListener('click', function() {
         if (window.innerWidth <= 768) {
           const navLinks = document.querySelector('.nav-links');
           if (navLinks.classList.contains('active')) {
-             toggleMenu(); // Close the menu
+             toggleMenu();
           }
         }
       });
@@ -149,18 +151,16 @@
         const navLinks = document.querySelector('.nav-links');
         const hamburger = document.querySelector('.hamburger');
 
-        // Ensure menu is closed and icon is reset if window resized to desktop view
         if (navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             hamburger.innerHTML = '<i class="fas fa-bars"></i>';
             document.body.style.overflow = '';
         }
-        // Ensure dropdowns are not in 'active' state meant for mobile toggling
         document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
       }
     });
   </script>
 
   <script src="bot.js"></script>
-</body>
+  </body>
 </html>
