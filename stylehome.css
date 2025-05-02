@@ -37,26 +37,11 @@
       color: white;
       z-index: 1001;
     }
-    .site-name {
-      margin-left: 10px;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
+   .logo-container {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
-.site-name span {
-      color: #ffffff;
-      text-decoration: none;
-    }    
-
-.site-name a {
-    text-decoration: none;
-    outline: none;
-    color: #ffffff;
-}
 
     /* Navigation Links */
     .nav-links {
