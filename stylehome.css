@@ -37,11 +37,74 @@
       color: white;
       z-index: 1001;
     }
-   .logo-container {
+   .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background-color:; /* Your navbar color */
+      color: white;
+    }
+    
+    .logo-container {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+    
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+    
+    .site-name a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: ;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 20px;
+        transition: left 0.3s ease;
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+    }
+          
 
     /* Navigation Links */
     .nav-links {
