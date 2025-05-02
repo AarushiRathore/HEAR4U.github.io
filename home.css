@@ -22,7 +22,7 @@
             align-items: center;
             justify-content: space-between;
             background-color: #005f73;
-            padding: 10px 20px;
+            padding: 15px 20px;
             position: fixed;
             width: 100%;
             top: 0;
@@ -36,14 +36,6 @@
             width: 120px;
             background-color: transparent;
         }
-           .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 20px;
-      background-color: #4CAF50; /* Your navbar color */
-      color: white;
-    }
     
     .logo-container {
       display: flex;
